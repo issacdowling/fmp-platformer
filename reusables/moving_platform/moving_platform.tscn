@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dprc5b4kro2ty"]
+
+[ext_resource type="Script" path="res://reusables/moving_platform/moving_platform.gd" id="1_yohml"]
+[ext_resource type="Material" uid="uid://c2nknn88v3syu" path="res://materials/dev_platform.tres" id="2_drg6n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahyin"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycb1l"]
+size = Vector3(2, 0.2, 2)
+
+[node name="MovingPlatform" type="RigidBody3D"]
+script = ExtResource("1_yohml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ahyin")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_drg6n")
+mesh = SubResource("BoxMesh_ycb1l")
