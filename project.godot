@@ -12,6 +12,7 @@ config_version=5
 
 config/name="fmp-platformer"
 run/main_scene="res://levels/Test/test_level_direct_rotation.tscn"
+config/project_settings_override="user://project_overrides.cfg"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
