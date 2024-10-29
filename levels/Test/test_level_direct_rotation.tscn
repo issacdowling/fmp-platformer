@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=20 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_tgr5i"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="2_26yhc"]
 [ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_co74o"]
-[ext_resource type="Script" path="res://player/direct_rotation_third_person_camera_control.gd" id="4_qdupv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_v62wa"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_wol8o"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_bvi46"]
@@ -17,6 +16,22 @@ background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
 sdfgi_enabled = true
 sdfgi_read_sky_light = false
+
+[sub_resource type="BoxMesh" id="BoxMesh_xg2vr"]
+size = Vector3(40, 0.1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5g8i"]
+size = Vector3(40, 0.1, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p4gp2"]
+size = Vector3(3, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ncwfv"]
+size = Vector3(3, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5stj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4kab"]
 
 [sub_resource type="Resource" id="Resource_unni8"]
 script = ExtResource("6_bvi46")
@@ -36,22 +51,6 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_xg2vr"]
-size = Vector3(40, 0.1, 40)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_d5g8i"]
-size = Vector3(40, 0.1, 40)
-
-[sub_resource type="BoxMesh" id="BoxMesh_p4gp2"]
-size = Vector3(3, 1, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ncwfv"]
-size = Vector3(3, 1, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_l5stj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4kab"]
-
 [node name="TestLevelDirectRotation" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dxe4g")]
@@ -67,33 +66,6 @@ shadow_opacity = 0.9
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y05tk")
 script = ExtResource("2_co74o")
-
-[node name="InputManager" type="Node" parent="."]
-
-[node name="DirectRotationThirdPersonCamera" type="Node" parent="." node_paths=PackedStringArray("LOOK_AT", "PHANTOM_CAMERA")]
-script = ExtResource("4_qdupv")
-LOOK_AT = NodePath("../Player")
-PHANTOM_CAMERA = NodePath("PhantomCamera3D")
-
-[node name="Camera3D" type="Camera3D" parent="DirectRotationThirdPersonCamera"]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.942, 4.39193)
-
-[node name="PhantomCameraHost" type="Node" parent="DirectRotationThirdPersonCamera/Camera3D"]
-script = ExtResource("4_v62wa")
-
-[node name="PhantomCamera3D" type="Node3D" parent="DirectRotationThirdPersonCamera" node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.942, 4.39193)
-script = ExtResource("5_wol8o")
-follow_mode = 6
-follow_target = NodePath("../../Player")
-tween_resource = SubResource("Resource_unni8")
-camera_3d_resource = SubResource("Resource_xr487")
-follow_offset = Vector3(0, 1.442, 0)
-follow_damping = true
-follow_distance = 4.392
-spring_length = 4.392
-look_at_offset = Vector3(0, 1.016, 0)
-look_at_damping = true
 
 [node name="TestLevel" type="Node3D" parent="."]
 
@@ -199,3 +171,23 @@ mesh = SubResource("BoxMesh_l5stj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/InteractCube"]
 shape = SubResource("BoxShape3D_a4kab")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.977, 3.838)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+script = ExtResource("4_v62wa")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.977, 3.838)
+script = ExtResource("5_wol8o")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_unni8")
+camera_3d_resource = SubResource("Resource_xr487")
+follow_offset = Vector3(0, 1.477, 3.838)
+follow_damping = true
+follow_distance = 4.392
+spring_length = 4.392
+look_at_offset = Vector3(0, 1.016, 0)
+look_at_damping = true

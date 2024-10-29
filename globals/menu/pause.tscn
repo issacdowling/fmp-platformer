@@ -50,6 +50,7 @@ layout_mode = 1
 offset_right = 44.0
 offset_bottom = 24.0
 scale = Vector2(5, 5)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="GlobalIlluminationToggle"]
 layout_mode = 0

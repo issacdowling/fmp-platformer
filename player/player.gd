@@ -18,7 +18,6 @@ func move(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-		
 	# Get input, and move by input vector multiplied by the current transform	
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
@@ -28,6 +27,10 @@ func move(delta: float) -> void:
 		$AnimationTree.set("parameters/conditions/walk", true)
 		velocity.z = move_vector.z * WALK_SPEED
 		velocity.x = move_vector.x * WALK_SPEED
+
+		var lookdir: float = atan2(-velocity.x, -velocity.z)
+		$Armature.rotation.y = lerp_angle($Armature.rotation.y, lookdir, 0.1)
+
 
 	elif not move_vector and is_on_floor(): # Stop when not pressing move buttons and grounded (THIS was stopping my wall jumps!)
 		#TODO: Add a slippiness variable that impacts how quickly you slow down.
@@ -49,16 +52,7 @@ func move(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
 
-	# Look based on the Input action (also by mouse, but that's in _input)
-	var look_right: float = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
-	rotate_y(deg_to_rad(-look_right*3*CONTROLLER_LOOK_SENSITIVITY)) # *3 to increase, rather than needing very low sensitivity values
-	
 	move_and_slide()
 	
 func jump() -> void:
 	velocity.y += JUMP_VELOCITY
-
-## This only exists so that mouse looking is possible (mouse movement doesn't support being an Input action)
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * (MOUSE_LOOK_SENSITIVITY)/10)) # /10 to massively decrease, preventing silly huge sensitivity values
