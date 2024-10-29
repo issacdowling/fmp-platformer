@@ -5,11 +5,6 @@ var json: JSON = JSON.new()
 const SETTINGS_FILE_PATH: String = "user://settings.json"
 const PROJECT_OVERRIDE_PATH: String = "user://project_overrides.cfg"
 
-@onready var GlobalIlluminationToggle: CheckButton = %GlobalIlluminationToggle
-@onready var GlobalIlluminationCascades: HSlider = %GlobalIlluminationCascades
-@onready var ScalingOptionsDropdown: OptionButton = %ScalingOptions
-@onready var ScalingAmountSlider: HSlider = %ScalingAmount
-@onready var RendererOptionsDropdown: OptionButton = %RendererOptions
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await Pause.ready # Ensure all setting things are prepared before changing.
@@ -77,12 +72,12 @@ func _change_setting(setting: String, value: Variant) -> void:
 					Pause.setting_changed.emit(Pause.SCALING_METHOD, Pause.SCALING_METHODS_BILINEAR)
 					Pause.setting_changed.emit(Pause.GLOBAL_ILLUMINATION, false)				
 				
-				GlobalIlluminationToggle.disabled = true
+				Pause.GlobalIlluminationToggle.disabled = true
 				
-				ScalingOptionsDropdown.disabled = true
+				Pause.ScalingOptionsDropdown.disabled = true
 			else:
-				GlobalIlluminationToggle.disabled = false
-				ScalingOptionsDropdown.disabled = false
+				Pause.GlobalIlluminationToggle.disabled = false
+				Pause.ScalingOptionsDropdown.disabled = false
 				
 			config_override.load(PROJECT_OVERRIDE_PATH)
 
@@ -104,24 +99,24 @@ func _change_setting(setting: String, value: Variant) -> void:
 	# changes done otherwise do not affect the UI by default, so I make sure they do.
 	match setting:
 		Pause.GLOBAL_ILLUMINATION:
-			GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
-			GlobalIlluminationCascades.editable = current_settings[setting] as bool
+			Pause.GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
+			Pause.GlobalIlluminationCascadesSlider.editable = current_settings[setting] as bool
 				
 			
 		Pause.GLOBAL_ILLUMINATION_CASCADES:
-			GlobalIlluminationCascades.value = current_settings[setting] as int
+			Pause.GlobalIlluminationCascadesSlider.value = current_settings[setting] as int
 			
 		Pause.SCALING_METHOD:
-			for index in range(ScalingOptionsDropdown.item_count):
-				if ScalingOptionsDropdown.get_item_text(index) == current_settings[setting]:
-					ScalingOptionsDropdown.select(index)
-			#ScalingOptionsDropdown.select(int(current_settings[setting])) #FIX ME LATER!!!
+			for index in range(Pause.ScalingOptionsDropdown.item_count):
+				if Pause.ScalingOptionsDropdown.get_item_text(index) == current_settings[setting]:
+					Pause.ScalingOptionsDropdown.select(index)
+			#Pause.ScalingOptionsDropdown.select(int(current_settings[setting])) #FIX ME LATER!!!
 		Pause.SCALING_AMOUNT:
-			ScalingAmountSlider.value = current_settings[setting] as float
+			Pause.ScalingAmountSlider.value = current_settings[setting] as float
 		Pause.RENDERER:
-			for index in range(RendererOptionsDropdown.item_count):
-				if RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
-					RendererOptionsDropdown.select(index)
+			for index in range(Pause.RendererOptionsDropdown.item_count):
+				if Pause.RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
+					Pause.RendererOptionsDropdown.select(index)
 	print(current_settings)
 
 		
