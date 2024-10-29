@@ -63,10 +63,10 @@ text = "Global Illumination"
 [node name="ScalingOptions" type="OptionButton" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 32.0
-offset_top = 138.0
-offset_right = 124.0
-offset_bottom = 169.0
+offset_left = 39.0
+offset_top = 248.0
+offset_right = 131.0
+offset_bottom = 279.0
 scale = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="ScalingOptions"]
@@ -80,10 +80,10 @@ text = "Scaling Method"
 [node name="ScalingAmount" type="HSlider" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 36.0
-offset_top = 310.0
-offset_right = 127.0
-offset_bottom = 342.0
+offset_left = 43.0
+offset_top = 420.0
+offset_right = 134.0
+offset_bottom = 452.0
 scale = Vector2(5, 5)
 max_value = 1.0
 step = 0.01
@@ -103,10 +103,10 @@ script = ExtResource("2_eyl6y")
 [node name="RendererOptions" type="OptionButton" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 36.0
-offset_top = 473.0
-offset_right = 247.0
-offset_bottom = 504.0
+offset_left = 40.0
+offset_top = 594.0
+offset_right = 251.0
+offset_bottom = 625.0
 scale = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="RendererOptions"]
@@ -118,3 +118,23 @@ offset_right = 592.8
 offset_bottom = 29.8
 scale = Vector2(0.753, 0.753)
 text = "Renderer (Requires restart)"
+
+[node name="GlobalIlluminationCascades" type="HSlider" parent="."]
+unique_name_in_owner = true
+offset_left = 36.0
+offset_top = 84.0
+offset_right = 127.0
+offset_bottom = 116.0
+scale = Vector2(5, 5)
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+editable = false
+
+[node name="Label" type="Label" parent="GlobalIlluminationCascades"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 2.2
+offset_right = 245.0
+offset_bottom = 25.2
+text = "GI Cascades"

@@ -1,6 +1,7 @@
 extends Control
 
 const GLOBAL_ILLUMINATION: String = "global_illumination"
+const GLOBAL_ILLUMINATION_CASCADES = "global_illumination_cascades"
 const SCALING_METHOD: String = "scaling_method"
 const SCALING_AMOUNT: String = "scaling_amount"
 const RENDERER: String = "renderer"
@@ -18,6 +19,7 @@ signal setting_changed
 @onready var SettingSetter: Node = %SettingSetter
 
 @onready var GlobalIlluminationToggle: CheckButton = %GlobalIlluminationToggle
+@onready var GlobalIlluminationCascadesSlider: HSlider = %GlobalIlluminationCascades
 @onready var ScalingOptionsDropdown: OptionButton = %ScalingOptions
 @onready var ScalingAmountSlider: HSlider = %ScalingAmount
 @onready var RendererOptionsDropdown: OptionButton = %RendererOptions
@@ -27,6 +29,7 @@ func _ready() -> void:
 	visible = false
 	
 	GlobalIlluminationToggle.toggled.connect(_on_global_illumination_toggle_toggled)
+	GlobalIlluminationCascadesSlider.value_changed.connect(on_global_illumination_cascades_value_changed)
 	ScalingOptionsDropdown.item_selected.connect(_on_scaling_options_item_selected)
 	ScalingAmountSlider.value_changed.connect(_on_scaling_amount_value_changed)
 	RendererOptionsDropdown.item_selected.connect(_on_renderer_options_item_selected)
@@ -52,6 +55,9 @@ func _process(_delta: float) -> void:
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
+	
+func on_global_illumination_cascades_value_changed(value: int) -> void:
+	setting_changed.emit(GLOBAL_ILLUMINATION_CASCADES, value)
 
 func _on_scaling_options_item_selected(index: int) -> void:
 	setting_changed.emit(SCALING_METHOD, ScalingOptionsDropdown.get_item_text(index))

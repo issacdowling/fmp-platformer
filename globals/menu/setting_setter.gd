@@ -6,6 +6,7 @@ const SETTINGS_FILE_PATH: String = "user://settings.json"
 const PROJECT_OVERRIDE_PATH: String = "user://project_overrides.cfg"
 
 @onready var GlobalIlluminationToggle: CheckButton = %GlobalIlluminationToggle
+@onready var GlobalIlluminationCascades: HSlider = %GlobalIlluminationCascades
 @onready var ScalingOptionsDropdown: OptionButton = %ScalingOptions
 @onready var ScalingAmountSlider: HSlider = %ScalingAmount
 @onready var RendererOptionsDropdown: OptionButton = %RendererOptions
@@ -33,6 +34,7 @@ func _ready() -> void:
 				
 		current_settings = {
 			Pause.GLOBAL_ILLUMINATION: true,
+			Pause.GLOBAL_ILLUMINATION_CASCADES: 4,
 			Pause.SCALING_METHOD: Pause.SCALING_METHODS_FSR2,
 			Pause.SCALING_AMOUNT: 0.75,
 			Pause.RENDERER: found_renderer
@@ -54,6 +56,8 @@ func _change_setting(setting: String, value: Variant) -> void:
 	match setting:
 		Pause.GLOBAL_ILLUMINATION:
 			print("WorldEnvironment Node will handle this")
+		Pause.GLOBAL_ILLUMINATION_CASCADES:
+			print("WorldEnvironment Node will handle this")
 		Pause.SCALING_METHOD:
 			match value:
 				Pause.SCALING_METHODS_FSR2:
@@ -74,6 +78,7 @@ func _change_setting(setting: String, value: Variant) -> void:
 					Pause.setting_changed.emit(Pause.GLOBAL_ILLUMINATION, false)				
 				
 				GlobalIlluminationToggle.disabled = true
+				
 				ScalingOptionsDropdown.disabled = true
 			else:
 				GlobalIlluminationToggle.disabled = false
@@ -99,14 +104,20 @@ func _change_setting(setting: String, value: Variant) -> void:
 	# changes done otherwise do not affect the UI by default, so I make sure they do.
 	match setting:
 		Pause.GLOBAL_ILLUMINATION:
-			GlobalIlluminationToggle.button_pressed = bool(current_settings[setting])
+			GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
+			GlobalIlluminationCascades.editable = current_settings[setting] as bool
+				
+			
+		Pause.GLOBAL_ILLUMINATION_CASCADES:
+			GlobalIlluminationCascades.value = current_settings[setting] as int
+			
 		Pause.SCALING_METHOD:
 			for index in range(ScalingOptionsDropdown.item_count):
 				if ScalingOptionsDropdown.get_item_text(index) == current_settings[setting]:
 					ScalingOptionsDropdown.select(index)
 			#ScalingOptionsDropdown.select(int(current_settings[setting])) #FIX ME LATER!!!
 		Pause.SCALING_AMOUNT:
-			ScalingAmountSlider.value = float(current_settings[setting])
+			ScalingAmountSlider.value = current_settings[setting] as float
 		Pause.RENDERER:
 			for index in range(RendererOptionsDropdown.item_count):
 				if RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:

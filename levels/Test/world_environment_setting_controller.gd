@@ -8,4 +8,6 @@ func _init() -> void:
 func _setting_changed(name: String, value: Variant) -> void:
 	match name:
 		Pause.GLOBAL_ILLUMINATION:
-			self.environment.sdfgi_enabled = bool(value)
+			self.environment.sdfgi_enabled = value as bool
+		Pause.GLOBAL_ILLUMINATION_CASCADES:
+			self.environment.sdfgi_cascades = value as int

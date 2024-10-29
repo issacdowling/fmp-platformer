@@ -15,7 +15,6 @@
 background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
 sdfgi_enabled = true
-sdfgi_read_sky_light = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_xg2vr"]
 size = Vector3(40, 0.1, 40)
