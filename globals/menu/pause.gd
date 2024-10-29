@@ -30,7 +30,7 @@ func _ready() -> void:
 	ScalingOptionsDropdown.add_item(SCALING_METHODS_BILINEAR)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if visible:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

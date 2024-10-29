@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=21 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_tgr5i"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_b4jvw"]
 [ext_resource type="Script" path="res://levels/Test/interact_cube.gd" id="9_0g8ad"]
 [ext_resource type="Material" uid="uid://bj2rm5pbo8t26" path="res://materials/dev_interactable.tres" id="9_occ2d"]
-[ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="12_rgcsj"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
@@ -200,7 +199,3 @@ mesh = SubResource("BoxMesh_l5stj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/InteractCube"]
 shape = SubResource("BoxShape3D_a4kab")
-
-[node name="MovingPlatform" parent="TestLevel" instance=ExtResource("12_rgcsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3453, 0)
-end_pos = Vector3(1, 0, 0)

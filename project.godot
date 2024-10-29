@@ -21,6 +21,10 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 Toast="*res://globals/toast/toast.tscn"
 Pause="*res://globals/menu/pause.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [display]
 
 window/size/viewport_width=1920

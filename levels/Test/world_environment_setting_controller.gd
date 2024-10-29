@@ -5,7 +5,7 @@ extends WorldEnvironment
 func _init() -> void:
 	Pause.setting_changed.connect(_setting_changed)
 
-func _setting_changed(name: String, value):
+func _setting_changed(name: String, value: Variant) -> void:
 	match name:
 		Pause.GLOBAL_ILLUMINATION:
 			self.environment.sdfgi_enabled = bool(value)

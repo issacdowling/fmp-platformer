@@ -1,8 +1,8 @@
 extends Control
 
-@onready var text_label = $RichTextLabel
-@onready var background = $ColorRect
-@onready var animation_player = $AnimationPlayer
+@onready var text_label: RichTextLabel = $RichTextLabel
+@onready var background: ColorRect = $ColorRect
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,11 +10,7 @@ func _ready() -> void:
 	background.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func make_timed_toast(text: String, duration: float = 4):
+func make_timed_toast(text: String, duration: float = 4) -> void:
 	animation_player.play("fade_in")
 	text_label.text = "[center]" + text + "[/center]"
 	text_label.visible = true

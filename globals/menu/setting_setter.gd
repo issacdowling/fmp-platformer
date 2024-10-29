@@ -1,7 +1,7 @@
 extends Node
 
 var current_settings: Dictionary = {}
-var json = JSON.new()
+var json: JSON = JSON.new()
 const SETTINGS_FILE_PATH: String = "user://settings.json"
 
 @onready var GlobalIlluminationToggle: CheckButton = $"../GlobalIlluminationToggle"
@@ -14,7 +14,7 @@ func _ready() -> void:
 	Pause.setting_changed.connect(_change_setting)
 	
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
-		var settings_file = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
+		var settings_file: FileAccess = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
 		# Add some error checking here
 		json.parse(settings_file.get_as_text())
 		current_settings = json.data
@@ -26,7 +26,7 @@ func _ready() -> void:
 			Pause.SCALING_AMOUNT: 0.75
 		}
 		
-	for setting in current_settings.keys():
+	for setting: String in current_settings.keys():
 		# Emitting using another node's emitter rather than using this function directly because other nodes
 		# need to be aware of these changes
 		Pause.setting_changed.emit(setting, current_settings[setting])
@@ -41,9 +41,10 @@ func _ready() -> void:
 			Pause.SCALING_AMOUNT:
 				ScalingAmountSlider.value = float(current_settings[setting])
 
-func _change_setting(setting: String, value):
+# warnings-disable
+func _change_setting(setting: String, value: Variant) -> void:
 	current_settings[setting] = value
-	var settings_file = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
+	var settings_file: FileAccess = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
 	settings_file.store_string(JSON.stringify(current_settings))
 	
 	print(setting, " set to ", value)
@@ -59,7 +60,7 @@ func _change_setting(setting: String, value):
 				Pause.SCALING_METHODS_BILINEAR:
 					get_viewport().set_scaling_3d_mode(Viewport.SCALING_3D_MODE_BILINEAR)
 		Pause.SCALING_AMOUNT:
-			get_viewport().set_scaling_3d_scale(value)
+			get_viewport().set_scaling_3d_scale(value as float)
 			
 	print(current_settings)
 
