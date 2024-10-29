@@ -28,8 +28,6 @@ func move(delta: float) -> void:
 		$AnimationTree.set("parameters/conditions/walk", true)
 		velocity.z = move_vector.z * WALK_SPEED
 		velocity.x = move_vector.x * WALK_SPEED
-		var lookdir: float = atan2(-velocity.x, -velocity.z)
-		rotation.y = lookdir
 
 	elif not move_vector and is_on_floor(): # Stop when not pressing move buttons and grounded (THIS was stopping my wall jumps!)
 		#TODO: Add a slippiness variable that impacts how quickly you slow down.
@@ -52,8 +50,8 @@ func move(delta: float) -> void:
 		jump()
 
 	# Look based on the Input action (also by mouse, but that's in _input)
-	#var look_right: float = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
-	#rotate_y(deg_to_rad(-look_right*3*CONTROLLER_LOOK_SENSITIVITY)) # *3 to increase, rather than needing very low sensitivity values
+	var look_right: float = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	rotate_y(deg_to_rad(-look_right*3*CONTROLLER_LOOK_SENSITIVITY)) # *3 to increase, rather than needing very low sensitivity values
 	
 	move_and_slide()
 	
