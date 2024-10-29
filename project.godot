@@ -102,7 +102,6 @@ pause={
 
 [rendering]
 
-renderer/rendering_method.mobile="forward_plus"
 textures/vram_compression/import_etc2_astc=true
 scaling_3d/mode=2
 scaling_3d/scale=0.5

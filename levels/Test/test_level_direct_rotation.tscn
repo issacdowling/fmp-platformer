@@ -173,9 +173,11 @@ mesh = SubResource("BoxMesh_l5stj")
 shape = SubResource("BoxShape3D_a4kab")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.977, 3.838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.977, 3.838)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
 script = ExtResource("4_v62wa")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
@@ -187,6 +189,7 @@ tween_resource = SubResource("Resource_unni8")
 camera_3d_resource = SubResource("Resource_xr487")
 follow_offset = Vector3(0, 1.477, 3.838)
 follow_damping = true
+follow_damping_value = Vector3(0.15, 0.3, 0.15)
 follow_distance = 4.392
 spring_length = 4.392
 look_at_offset = Vector3(0, 1.016, 0)

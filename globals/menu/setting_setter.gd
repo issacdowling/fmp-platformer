@@ -22,10 +22,20 @@ func _ready() -> void:
 		current_settings = json.data
 		settings_file.close()
 	else:
+		var found_renderer: String = "gl_compatibility"
+		match ProjectSettings.get_setting("renderer/rendering_method"):
+			"forward_plus":
+				found_renderer = Pause.RENDERER_ADVANCED
+			"mobile":
+				found_renderer = Pause.RENDERER_BASIC
+			"gl_compatibility":
+				found_renderer = Pause.RENDERER_COMPATIBILITY
+				
 		current_settings = {
 			Pause.GLOBAL_ILLUMINATION: true,
 			Pause.SCALING_METHOD: Pause.SCALING_METHODS_FSR2,
-			Pause.SCALING_AMOUNT: 0.75
+			Pause.SCALING_AMOUNT: 0.75,
+			Pause.RENDERER: found_renderer
 		}
 		
 	for setting: String in current_settings.keys():
