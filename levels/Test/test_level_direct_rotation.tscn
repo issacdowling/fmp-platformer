@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=21 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_tgr5i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_wol8o"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_bvi46"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_b4jvw"]
+[ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="7_wv8t6"]
 [ext_resource type="Script" path="res://levels/Test/interact_cube.gd" id="9_0g8ad"]
 [ext_resource type="Material" uid="uid://bj2rm5pbo8t26" path="res://materials/dev_interactable.tres" id="9_occ2d"]
 
@@ -103,10 +104,10 @@ mesh = SubResource("BoxMesh_p4gp2")
 shape = SubResource("BoxShape3D_ncwfv")
 
 [node name="Bridge" type="Node3D" parent="TestLevel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.05, 1)
 
 [node name="WalkableRamp" type="StaticBody3D" parent="TestLevel/Bridge"]
-transform = Transform3D(1, 0, 0, 0, 0.80996, -0.586485, 0, 0.586485, 0.80996, -14.7675, 0.95, -4.75538)
+transform = Transform3D(1, 0, 0, 0, 0.80996, -0.586485, 0, 0.586485, 0.80996, 0, 1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestLevel/Bridge/WalkableRamp"]
 material_override = ExtResource("2_26yhc")
@@ -116,15 +117,27 @@ mesh = SubResource("BoxMesh_p4gp2")
 shape = SubResource("BoxShape3D_ncwfv")
 
 [node name="BridgePath" type="StaticBody3D" parent="TestLevel/Bridge"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7675, 2.32501, -8.98205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36797, -4.23238)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestLevel/Bridge/BridgePath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00788093, 0)
 material_override = ExtResource("2_26yhc")
 mesh = SubResource("BoxMesh_p4gp2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/Bridge/BridgePath"]
 shape = SubResource("BoxShape3D_ncwfv")
+
+[node name="MovingPlatform" parent="TestLevel/Bridge" instance=ExtResource("7_wv8t6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.05, -7.77579)
+travel_seconds = 1.5
+
+[node name="StartMarker" parent="TestLevel/Bridge/MovingPlatform" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.701, 0)
+
+[node name="EndMarker" parent="TestLevel/Bridge/MovingPlatform" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021, 0)
+
+[node name="PlatformHolder" parent="TestLevel/Bridge/MovingPlatform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25753, 2.6663, 0)
 
 [node name="WallJumpTest" type="Node3D" parent="TestLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1448, 4.99189e-07, -10.4553)
@@ -193,3 +206,5 @@ follow_distance = 4.392
 spring_length = 4.392
 look_at_offset = Vector3(0, 1.016, 0)
 look_at_damping = true
+
+[editable path="TestLevel/Bridge/MovingPlatform"]
