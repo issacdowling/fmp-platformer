@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtbiek41oaqo"]
+
+[ext_resource type="Script" path="res://reusables/breaking_platform/breaking_platform.gd" id="1_11xh8"]
+
+[node name="BreakingPlatform" type="Node3D"]
+script = ExtResource("1_11xh8")
+
+[node name="StartMarker" type="Node3D" parent="."]
+
+[node name="EndMarker" type="Node3D" parent="."]
+
+[node name="PlatformHolder" type="Node3D" parent="."]

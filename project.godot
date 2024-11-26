@@ -39,7 +39,11 @@ movie_writer/movie_file="/home/user/Documents/Godot/fmp-platformer/recording.avi
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/smash_the_mesh/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 
