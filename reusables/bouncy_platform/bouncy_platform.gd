@@ -1,0 +1,40 @@
+@tool
+
+extends Node3D
+
+@onready var platform_holder: Node3D = $PlatformHolder
+
+# This should be a scene where the root is an STMCachedInstance3D, with an AnimatableBody3D and Area3D as children.
+# Both should have a CollisionShape3D as children, but the Area's should extend upwards so it detects the player standing on it,
+# where the Body's should just be the size of the platform itself for collision.
+# They'll all be removed upon explosion, since the collision is only needed until it explodes (or breaks).
+@export var platform_scene: PackedScene = preload("res://reusables/bouncy_platform/platforms/bouncy_dev_platform.tscn")
+
+@export var jump_velocity: float = 10
+
+var platform: STMCachedInstance3D
+var platform_body: Area3D
+
+func _ready() -> void:
+	spawn_platform()
+
+# Called when the node enters the scene tree for the first time.
+func spawn_platform() -> void:
+	platform = platform_scene.instantiate()
+	add_child(platform)
+	
+	for platform_child in platform.get_children():
+		if platform_child is AnimatableBody3D:
+			for child_children in platform_child.get_children():
+				if child_children is Area3D:
+					platform_body = child_children
+	
+	platform_body.area_entered.connect(_area_entered_platform)
+	
+func bounce(area: Area3D) -> void:
+	(area.get_parent() as CharacterBody3D).velocity.y = jump_velocity
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _area_entered_platform(area: Area3D) -> void:
+	if area.is_in_group("player"):
+		bounce(area)

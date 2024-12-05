@@ -1,21 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=17 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_tgr5i"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="2_26yhc"]
 [ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_co74o"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_v62wa"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_wol8o"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_bvi46"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_b4jvw"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="7_wv8t6"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="8_8bavy"]
 [ext_resource type="Script" path="res://levels/Test/interact_cube.gd" id="9_0g8ad"]
+[ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="9_6lkkt"]
 [ext_resource type="Material" uid="uid://bj2rm5pbo8t26" path="res://materials/dev_interactable.tres" id="9_occ2d"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
+sdfgi_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_xg2vr"]
 size = Vector3(40, 0.1, 40)
@@ -32,24 +30,6 @@ size = Vector3(3, 1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_l5stj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4kab"]
-
-[sub_resource type="Resource" id="Resource_unni8"]
-script = ExtResource("6_bvi46")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_xr487"]
-script = ExtResource("7_b4jvw")
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [node name="TestLevelDirectRotation" type="Node3D"]
 
@@ -73,7 +53,6 @@ script = ExtResource("2_co74o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
 [node name="Floor2" type="MeshInstance3D" parent="TestLevel/Floor"]
-transform = Transform3D(0.999951, -0.00903067, 0.00408097, 0.00904306, 0.999955, -0.00302612, -0.00405345, 0.00306289, 0.999987, 0, 0, 0)
 material_override = ExtResource("1_tgr5i")
 mesh = SubResource("BoxMesh_xg2vr")
 
@@ -187,28 +166,9 @@ shape = SubResource("BoxShape3D_a4kab")
 [node name="BreakingPlatform" parent="TestLevel" instance=ExtResource("8_8bavy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44724, 2.62081, -7.91839)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.977, 3.838)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("4_v62wa")
-
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.977, 3.838)
-script = ExtResource("5_wol8o")
-follow_mode = 2
-follow_target = NodePath("../Player")
-tween_resource = SubResource("Resource_unni8")
-camera_3d_resource = SubResource("Resource_xr487")
-follow_offset = Vector3(0, 1.477, 3.838)
-follow_damping = true
-follow_damping_value = Vector3(0.15, 0.3, 0.15)
-follow_distance = 4.392
-spring_length = 4.392
-look_at_offset = Vector3(0, 1.016, 0)
-look_at_damping = true
+[node name="BouncyPlatform" parent="." instance=ExtResource("9_6lkkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32219, 0.385124, -0.12452)
+jump_velocity = 20.0
 
 [editable path="TestLevel/Bridge/MovingPlatform"]
 [editable path="TestLevel/BreakingPlatform"]

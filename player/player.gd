@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var WALK_SPEED: float = 5.0
 @export var SPRINT_MULTIPLIER: float = 1.6
-@export var JUMP_VELOCITY: float = 5.5
+@export var JUMP_VELOCITY: float = 7.5
 
 @export var MOUSE_LOOK_SENSITIVITY: int = 1
 @export var CONTROLLER_LOOK_SENSITIVITY: int = 1
@@ -31,7 +31,7 @@ func move(delta: float) -> void:
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	if move_vector:
 		$AnimationTree.set("parameters/conditions/idle", false)
-		if Input.is_key_pressed(KEY_SHIFT):
+		if Input.is_action_pressed("sprint"):
 			current_walk_speed = WALK_SPEED * SPRINT_MULTIPLIER
 			$AnimationTree.set("parameters/conditions/run", true)
 			$AnimationTree.set("parameters/conditions/walk", false)
@@ -66,7 +66,6 @@ func move(delta: float) -> void:
 		
 	if Input.is_action_pressed("jump") and (is_on_floor() or jump_time < 0.1):
 		jump()
-		print("Griddy")
 
 	move_and_slide()
 	

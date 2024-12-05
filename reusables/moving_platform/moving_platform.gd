@@ -9,7 +9,7 @@ extends Node3D
 @export var travel_seconds: float = 3
 
 # This should be a scene where the root is an AnimatableBody3D, and it just has a mesh and collider.
-@export var platform_scene: PackedScene = preload("res://reusables/moving_platform/platforms/dev_platform.tscn")
+@export var platform_scene: PackedScene = preload("res://reusables/moving_platform/platforms/moving_dev_platform.tscn")
 
 var start_pos: Vector3
 var end_pos: Vector3
@@ -24,16 +24,7 @@ func _ready() -> void:
 
 	platform = platform_scene.instantiate()
 	add_child(platform)
-	
-	# Shows the start and end positions
-	#if Engine.is_editor_hint():
-		#var editor_platform_node_start: AnimatableBody3D = platform_scene.instantiate()
-		#start_marker.add_child(editor_platform_node_start)
-		#
-		#var editor_platform_node_end: AnimatableBody3D = platform_scene.instantiate()
-		#end_marker.add_child(editor_platform_node_end)
-		
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
