@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=20 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_tgr5i"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_co74o"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="7_wv8t6"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="8_8bavy"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_fk42k"]
 [ext_resource type="Script" path="res://levels/Test/interact_cube.gd" id="9_0g8ad"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="9_6lkkt"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_misjv"]
 [ext_resource type="Material" uid="uid://bj2rm5pbo8t26" path="res://materials/dev_interactable.tres" id="9_occ2d"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
@@ -30,6 +32,12 @@ size = Vector3(3, 1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_l5stj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4kab"]
+
+[sub_resource type="Resource" id="Resource_61y7a"]
+script = ExtResource("9_misjv")
+duration = 1.0
+transition = 7
+ease = 2
 
 [node name="TestLevelDirectRotation" type="Node3D"]
 
@@ -163,10 +171,15 @@ mesh = SubResource("BoxMesh_l5stj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/InteractCube"]
 shape = SubResource("BoxShape3D_a4kab")
 
+[node name="TestCam" type="Node3D" parent="TestLevel/InteractCube"]
+transform = Transform3D(0.701681, 0, 0.712492, 0, 1, 0, -0.712492, 0, 0.701681, 7.98126, 1.69774, 3.12044)
+script = ExtResource("8_fk42k")
+tween_resource = SubResource("Resource_61y7a")
+
 [node name="BreakingPlatform" parent="TestLevel" instance=ExtResource("8_8bavy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44724, 2.62081, -7.91839)
 
-[node name="BouncyPlatform" parent="." instance=ExtResource("9_6lkkt")]
+[node name="BouncyPlatform" parent="TestLevel" instance=ExtResource("9_6lkkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32219, 0.385124, -0.12452)
 jump_velocity = 20.0
 

@@ -39,6 +39,10 @@ func move(delta: float) -> void:
 			current_walk_speed = WALK_SPEED
 			$AnimationTree.set("parameters/conditions/walk", true)
 			$AnimationTree.set("parameters/conditions/run", false)
+			
+		# Make "forwards" the direction that the camera's facing
+		move_vector = move_vector.rotated(Vector3.UP, get_viewport().get_camera_3d().rotation.y)
+		
 		velocity.z = move_vector.z * current_walk_speed
 		velocity.x = move_vector.x * current_walk_speed
 

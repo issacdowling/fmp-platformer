@@ -41,7 +41,6 @@ func spawn_platform() -> void:
 func _process(delta: float) -> void:
 	if about_to_break:
 		break_progress += delta * 45
-		print((sin(break_progress)/2) + 0.5)
 		platform.global_position = lerp(global_position, global_position + Vector3.DOWN * 0.1, (sin(break_progress)/2) + 0.5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
