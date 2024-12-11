@@ -1,29 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ulnbxeo3bcfk"]
+[gd_scene load_steps=4 format=3 uid="uid://ulnbxeo3bcfk"]
 
 [ext_resource type="Material" uid="uid://cb5e1d652kqht" path="res://materials/dev_bouncy.tres" id="1_7y8vd"]
-[ext_resource type="Script" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="2_xqdth"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_xih8e"]
-size = Vector3(2, 0.2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dfks"]
 size = Vector3(2, 0.309473, 2)
 
-[node name="BreakingDevPlatform" type="MeshInstance3D"]
-material_override = ExtResource("1_7y8vd")
-mesh = SubResource("BoxMesh_xih8e")
-script = ExtResource("2_xqdth")
-cache_name = "19206473057004"
-original_mesh = SubResource("BoxMesh_xih8e")
-chunk_inner_material = ExtResource("1_7y8vd")
+[sub_resource type="BoxMesh" id="BoxMesh_k6awq"]
+material = ExtResource("1_7y8vd")
+size = Vector3(2, 0.2, 2)
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="BouncyDevPlatform" type="AnimatableBody3D"]
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="PlayerJumpShape" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0547363, 0)
 shape = SubResource("BoxShape3D_7dfks")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_k6awq")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_7dfks")

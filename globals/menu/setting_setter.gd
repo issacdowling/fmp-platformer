@@ -7,9 +7,9 @@ const PROJECT_OVERRIDE_PATH: String = "user://project_overrides.cfg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await Pause.ready # Ensure all setting things are prepared before changing.
+	await Menu.ready # Ensure all setting things are prepared before changing.
 	
-	Pause.setting_changed.connect(_change_setting)
+	Menu.setting_changed.connect(_change_setting)
 	
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
 		var settings_file: FileAccess = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
@@ -21,24 +21,24 @@ func _ready() -> void:
 		var found_renderer: String = "gl_compatibility"
 		match ProjectSettings.get_setting("renderer/rendering_method"):
 			"forward_plus":
-				found_renderer = Pause.RENDERER_ADVANCED
+				found_renderer = Menu.RENDERER_ADVANCED
 			"mobile":
-				found_renderer = Pause.RENDERER_BASIC
+				found_renderer = Menu.RENDERER_BASIC
 			"gl_compatibility":
-				found_renderer = Pause.RENDERER_COMPATIBILITY
+				found_renderer = Menu.RENDERER_COMPATIBILITY
 				
 		current_settings = {
-			Pause.GLOBAL_ILLUMINATION: true,
-			Pause.GLOBAL_ILLUMINATION_CASCADES: 4,
-			Pause.SCALING_METHOD: Pause.SCALING_METHODS_FSR2,
-			Pause.SCALING_AMOUNT: 0.75,
-			Pause.RENDERER: found_renderer
+			Menu.GLOBAL_ILLUMINATION: true,
+			Menu.GLOBAL_ILLUMINATION_CASCADES: 4,
+			Menu.SCALING_METHOD: Menu.SCALING_METHODS_FSR2,
+			Menu.SCALING_AMOUNT: 0.75,
+			Menu.RENDERER: found_renderer
 		}
 		
 	for setting: String in current_settings.keys():
 		# Emitting using another node's emitter rather than using this function directly because other nodes
 		# need to be aware of these changes
-		Pause.setting_changed.emit(setting, current_settings[setting])
+		Menu.setting_changed.emit(setting, current_settings[setting])
 
 # warnings-disable
 func _change_setting(setting: String, value: Variant) -> void:
@@ -49,45 +49,45 @@ func _change_setting(setting: String, value: Variant) -> void:
 	
 	print(setting, " set to ", value)
 	match setting:
-		Pause.GLOBAL_ILLUMINATION:
+		Menu.GLOBAL_ILLUMINATION:
 			print("WorldEnvironment Node will handle this")
-		Pause.GLOBAL_ILLUMINATION_CASCADES:
+		Menu.GLOBAL_ILLUMINATION_CASCADES:
 			print("WorldEnvironment Node will handle this")
-		Pause.SCALING_METHOD:
+		Menu.SCALING_METHOD:
 			match value:
-				Pause.SCALING_METHODS_FSR2:
+				Menu.SCALING_METHODS_FSR2:
 					get_viewport().set_scaling_3d_mode(Viewport.SCALING_3D_MODE_FSR2)
-				Pause.SCALING_METHODS_FSR1:
+				Menu.SCALING_METHODS_FSR1:
 					get_viewport().set_scaling_3d_mode(Viewport.SCALING_3D_MODE_FSR)
-				Pause.SCALING_METHODS_BILINEAR:
+				Menu.SCALING_METHODS_BILINEAR:
 					get_viewport().set_scaling_3d_mode(Viewport.SCALING_3D_MODE_BILINEAR)
-		Pause.SCALING_AMOUNT:
+		Menu.SCALING_AMOUNT:
 			get_viewport().set_scaling_3d_scale(value as float)
-		Pause.RENDERER:
+		Menu.RENDERER:
 			var config_override: ConfigFile = ConfigFile.new()
-			if value != Pause.RENDERER_ADVANCED:
+			if value != Menu.RENDERER_ADVANCED:
 				# If the renderer doesn't support these features, but they're on, alert the user and disable them.
-				if (current_settings[Pause.GLOBAL_ILLUMINATION] == true || current_settings[Pause.SCALING_METHOD] != Pause.SCALING_METHODS_BILINEAR):
+				if (current_settings[Menu.GLOBAL_ILLUMINATION] == true || current_settings[Menu.SCALING_METHOD] != Menu.SCALING_METHODS_BILINEAR):
 					Toast.make_timed_toast("Non-advanced renderers don't support FSR or Global Illumination.", 7)
-					Pause.setting_changed.emit(Pause.SCALING_METHOD, Pause.SCALING_METHODS_BILINEAR)
-					Pause.setting_changed.emit(Pause.GLOBAL_ILLUMINATION, false)				
+					Menu.setting_changed.emit(Menu.SCALING_METHOD, Menu.SCALING_METHODS_BILINEAR)
+					Menu.setting_changed.emit(Menu.GLOBAL_ILLUMINATION, false)				
 				
-				Pause.GlobalIlluminationToggle.disabled = true
+				Menu.GlobalIlluminationToggle.disabled = true
 				
-				Pause.ScalingOptionsDropdown.disabled = true
+				Menu.ScalingOptionsDropdown.disabled = true
 			else:
-				Pause.GlobalIlluminationToggle.disabled = false
-				Pause.ScalingOptionsDropdown.disabled = false
+				Menu.GlobalIlluminationToggle.disabled = false
+				Menu.ScalingOptionsDropdown.disabled = false
 				
 			config_override.load(PROJECT_OVERRIDE_PATH)
 
 			var selected_renderer: String = "gl_compatibility" # If somehow this fails, fall back on the most basic option.
 			match value:
-				Pause.RENDERER_ADVANCED:
+				Menu.RENDERER_ADVANCED:
 					selected_renderer = "forward_plus"
-				Pause.RENDERER_BASIC:
+				Menu.RENDERER_BASIC:
 					selected_renderer = "mobile"
-				Pause.RENDERER_COMPATIBILITY:
+				Menu.RENDERER_COMPATIBILITY:
 					selected_renderer = "gl_compatibility"
 			# Need both, since mobile will be applied if on mobile, and regular on desktop
 			config_override.set_value("rendering", "renderer/rendering_method.mobile", selected_renderer)
@@ -98,25 +98,25 @@ func _change_setting(setting: String, value: Variant) -> void:
 	# Although changing these through the UI makes the UI match the settings,
 	# changes done otherwise do not affect the UI by default, so I make sure they do.
 	match setting:
-		Pause.GLOBAL_ILLUMINATION:
-			Pause.GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
-			Pause.GlobalIlluminationCascadesSlider.editable = current_settings[setting] as bool
+		Menu.GLOBAL_ILLUMINATION:
+			Menu.GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
+			Menu.GlobalIlluminationCascadesSlider.editable = current_settings[setting] as bool
 				
 			
-		Pause.GLOBAL_ILLUMINATION_CASCADES:
-			Pause.GlobalIlluminationCascadesSlider.value = current_settings[setting] as int
+		Menu.GLOBAL_ILLUMINATION_CASCADES:
+			Menu.GlobalIlluminationCascadesSlider.value = current_settings[setting] as int
 			
-		Pause.SCALING_METHOD:
-			for index in range(Pause.ScalingOptionsDropdown.item_count):
-				if Pause.ScalingOptionsDropdown.get_item_text(index) == current_settings[setting]:
-					Pause.ScalingOptionsDropdown.select(index)
-			#Pause.ScalingOptionsDropdown.select(int(current_settings[setting])) #FIX ME LATER!!!
-		Pause.SCALING_AMOUNT:
-			Pause.ScalingAmountSlider.value = current_settings[setting] as float
-		Pause.RENDERER:
-			for index in range(Pause.RendererOptionsDropdown.item_count):
-				if Pause.RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
-					Pause.RendererOptionsDropdown.select(index)
+		Menu.SCALING_METHOD:
+			for index in range(Menu.ScalingOptionsDropdown.item_count):
+				if Menu.ScalingOptionsDropdown.get_item_text(index) == current_settings[setting]:
+					Menu.ScalingOptionsDropdown.select(index)
+			#Menu.ScalingOptionsDropdown.select(int(current_settings[setting])) #FIX ME LATER!!!
+		Menu.SCALING_AMOUNT:
+			Menu.ScalingAmountSlider.value = current_settings[setting] as float
+		Menu.RENDERER:
+			for index in range(Menu.RendererOptionsDropdown.item_count):
+				if Menu.RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
+					Menu.RendererOptionsDropdown.select(index)
 	print(current_settings)
 
 		

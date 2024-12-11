@@ -9,10 +9,10 @@ extends Node3D
 # where the Body's should just be the size of the platform itself for collision.
 # They'll all be removed upon explosion, since the collision is only needed until it explodes (or breaks).
 @export var platform_scene: PackedScene = preload("res://reusables/bouncy_platform/platforms/bouncy_dev_platform.tscn")
-
+@export var shake_on_bounce: bool = true
 @export var jump_velocity: float = 10
 
-var platform: STMCachedInstance3D
+var platform: AnimatableBody3D
 var platform_body: Area3D
 
 func _ready() -> void:
@@ -23,16 +23,20 @@ func spawn_platform() -> void:
 	platform = platform_scene.instantiate()
 	add_child(platform)
 	
-	for platform_child in platform.get_children():
-		if platform_child is AnimatableBody3D:
-			for child_children in platform_child.get_children():
-				if child_children is Area3D:
-					platform_body = child_children
+
+	if platform is AnimatableBody3D:
+		for platform_children in platform.get_children():
+			if platform_children is Area3D:
+				platform_body = platform_children
 	
 	platform_body.area_entered.connect(_area_entered_platform)
 	
 func bounce(area: Area3D) -> void:
 	(area.get_parent() as CharacterBody3D).velocity.y = jump_velocity
+	if shake_on_bounce:
+		translate(Vector3.UP * 0.2)
+		await get_tree().create_timer(0.05).timeout
+		translate(-Vector3.UP * 0.2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _area_entered_platform(area: Area3D) -> void:

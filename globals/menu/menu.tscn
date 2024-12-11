@@ -1,0 +1,227 @@
+[gd_scene load_steps=9 format=3 uid="uid://nrresxtadpdn"]
+
+[ext_resource type="Script" path="res://globals/menu/menu.gd" id="1_01x37"]
+[ext_resource type="Script" path="res://globals/menu/setting_setter.gd" id="2_eyl6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225hg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wmks"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_j775s"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExpansiveTransitionBackground:size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ly2dx"]
+resource_name = "slide_up"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExpansiveTransitionBackground:size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 4320, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_1v777"]
+resource_name = "out_slide_up"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExpansiveTransitionBackground:size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(4320, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpff0"]
+_data = {
+"RESET": SubResource("Animation_j775s"),
+"in_slide_down": SubResource("Animation_ly2dx"),
+"out_slide_up": SubResource("Animation_1v777")
+}
+
+[node name="Menus" type="Node"]
+script = ExtResource("1_01x37")
+
+[node name="Pause" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="BackgroundContainer" type="Panel" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_225hg")
+
+[node name="ExpansiveBackground" type="Panel" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 6720.0
+offset_bottom = 3780.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GlobalIlluminationToggle" type="CheckButton" parent="Pause"]
+unique_name_in_owner = true
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+offset_right = 44.0
+offset_bottom = 24.0
+scale = Vector2(5, 5)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Pause/GlobalIlluminationToggle"]
+layout_mode = 0
+offset_left = 39.8
+offset_right = 187.8
+offset_bottom = 23.0
+text = "Global Illumination"
+
+[node name="ScalingOptions" type="OptionButton" parent="Pause"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 39.0
+offset_top = 248.0
+offset_right = 131.0
+offset_bottom = 279.0
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="Pause/ScalingOptions"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 2.2
+offset_right = 245.0
+offset_bottom = 25.2
+text = "Scaling Method"
+
+[node name="ScalingAmount" type="HSlider" parent="Pause"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 43.0
+offset_top = 420.0
+offset_right = 134.0
+offset_bottom = 452.0
+scale = Vector2(5, 5)
+max_value = 1.0
+step = 0.01
+
+[node name="Label" type="Label" parent="Pause/ScalingAmount"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 2.2
+offset_right = 245.0
+offset_bottom = 25.2
+text = "Scaling Amount"
+
+[node name="SettingSetter" type="Node" parent="Pause"]
+unique_name_in_owner = true
+script = ExtResource("2_eyl6y")
+
+[node name="RendererOptions" type="OptionButton" parent="Pause"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 594.0
+offset_right = 251.0
+offset_bottom = 625.0
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="Pause/RendererOptions"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 213.8
+offset_top = 6.8
+offset_right = 592.8
+offset_bottom = 29.8
+scale = Vector2(0.753, 0.753)
+text = "Renderer (Requires restart)"
+
+[node name="GlobalIlluminationCascades" type="HSlider" parent="Pause"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 36.0
+offset_top = 84.0
+offset_right = 127.0
+offset_bottom = 116.0
+scale = Vector2(5, 5)
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+editable = false
+
+[node name="Label" type="Label" parent="Pause/GlobalIlluminationCascades"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 2.2
+offset_right = 245.0
+offset_bottom = 25.2
+text = "GI Cascades"
+
+[node name="Transitions" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExpansiveTransitionBackground" type="Panel" parent="Transitions"]
+z_index = 500
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 7994.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wmks")
+
+[node name="TransitionAnimator" type="AnimationPlayer" parent="Transitions"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_dpff0")
+}

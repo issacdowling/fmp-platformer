@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 const GLOBAL_ILLUMINATION: String = "global_illumination"
 const GLOBAL_ILLUMINATION_CASCADES = "global_illumination_cascades"
@@ -24,9 +24,15 @@ signal setting_changed
 @onready var ScalingAmountSlider: HSlider = %ScalingAmount
 @onready var RendererOptionsDropdown: OptionButton = %RendererOptions
 
+@onready var TransitionControl: Control = %Transitions
+@onready var TransitionAnimator: AnimationPlayer = %TransitionAnimator
+
+@onready var PauseControl: Control = %Pause
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = false
+	PauseControl.visible = false
+	TransitionControl.visible = false
 	
 	GlobalIlluminationToggle.toggled.connect(_on_global_illumination_toggle_toggled)
 	GlobalIlluminationCascadesSlider.value_changed.connect(on_global_illumination_cascades_value_changed)
@@ -47,11 +53,27 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if visible:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if !visible:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		visible = !visible
+		toggle_pause_menu()
+		
+func toggle_pause_menu() -> void:
+	if PauseControl.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if !PauseControl.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	PauseControl.visible = !PauseControl.visible
+	
+func begin_transition() -> float:
+	TransitionAnimator.play("RESET")
+	TransitionControl.visible = true
+	TransitionAnimator.play("in_slide_down")
+	return TransitionAnimator.get_animation("in_slide_down").length
+		
+		
+	
+func exit_transition() -> void:
+	TransitionAnimator.play("out_slide_up")
+	await TransitionAnimator.animation_finished
+	TransitionControl.visible = false
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)

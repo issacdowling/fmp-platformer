@@ -13,7 +13,6 @@ size = Vector3(2, 0.309473, 2)
 material_override = ExtResource("3_t3ni7")
 mesh = SubResource("BoxMesh_xih8e")
 script = ExtResource("2_xei0b")
-cache_is_saved = true
 cache_name = "19206473057004"
 original_mesh = SubResource("BoxMesh_xih8e")
 chunk_inner_material = ExtResource("3_t3ni7")

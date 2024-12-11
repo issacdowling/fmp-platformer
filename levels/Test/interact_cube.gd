@@ -13,8 +13,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
 	if Input.is_action_just_pressed("interact"):
 		if position.distance_to(player.position) < activation_distance:
+			%Player.switch_scene("res://levels/Test2/2test_level_direct_rotation.tscn")
+
 			Toast.make_timed_toast("test", 4)
 			
 			if camera.priority == 0:

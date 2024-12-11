@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-@export var WALK_SPEED: float = 5.0
+@export var WALK_SPEED: float = 3.0
 @export var SPRINT_MULTIPLIER: float = 1.6
 @export var JUMP_VELOCITY: float = 7.5
 
@@ -13,6 +13,12 @@ var current_walk_speed: float
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func switch_scene(scene_file: String) -> void:
+	# As begin_transition returns the length of the transition, we wait for that long before switching scene
+	await get_tree().create_timer(Menu.begin_transition()).timeout 
+	get_tree().change_scene_to_file(scene_file)
+	Menu.exit_transition()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
