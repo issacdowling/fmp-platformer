@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://beiu5u76gad0w"]
+[gd_scene load_steps=22 format=3 uid="uid://beiu5u76gad0w"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_67gi2"]
 [ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_xer0q"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="3_g5w8v"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="4_rmnx3"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="5_s8d4j"]
+[ext_resource type="Material" uid="uid://bm1p24h4j8ywx" path="res://materials/dev_too_steep.tres" id="5_ulas3"]
 [ext_resource type="Script" path="res://levels/Test/interact_cube.gd" id="6_2ngq3"]
+[ext_resource type="Material" uid="uid://di7ikawiyw206" path="res://materials/dev_walljump.tres" id="7_ivco3"]
 [ext_resource type="Material" uid="uid://bj2rm5pbo8t26" path="res://materials/dev_interactable.tres" id="7_p3mbm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_f43bm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_vv6ya"]
@@ -84,7 +86,7 @@ shape = SubResource("BoxShape3D_ncwfv")
 transform = Transform3D(1, 0, 0, 0, 0.602721, -0.797952, 0, 0.797952, 0.602721, 2.6446, 0.95, -2.29874)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestLevel/Ramps/UnwalkableRamp"]
-material_override = ExtResource("4_rmnx3")
+material_override = ExtResource("5_ulas3")
 mesh = SubResource("BoxMesh_p4gp2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/Ramps/UnwalkableRamp"]
@@ -133,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1448, 4.99189e-07, -10.4553
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.61184, 2.50552, -0.736852)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestLevel/WallJumpTest/Wall"]
-material_override = ExtResource("4_rmnx3")
+material_override = ExtResource("7_ivco3")
 mesh = SubResource("BoxMesh_p4gp2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/WallJumpTest/Wall"]
@@ -143,7 +145,7 @@ shape = SubResource("BoxShape3D_ncwfv")
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.45536, 2.50552, -0.736852)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestLevel/WallJumpTest/Wall2"]
-material_override = ExtResource("4_rmnx3")
+material_override = ExtResource("7_ivco3")
 mesh = SubResource("BoxMesh_p4gp2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestLevel/WallJumpTest/Wall2"]
