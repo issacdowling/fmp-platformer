@@ -35,7 +35,7 @@ func move(delta: float) -> void:
 		air_time = 0
 		
 	# Floor jumping
-	if not is_on_wall() and Input.is_action_pressed("jump") and (is_on_floor_only() or (air_time < 0.1)):
+	if not is_on_wall_only() and Input.is_action_pressed("jump") and (is_on_floor_only() or (air_time < 0.1)):
 		jump()
 		
 	# Get input, and move by input vector multiplied by the current transform	
