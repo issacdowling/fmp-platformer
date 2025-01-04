@@ -79,17 +79,19 @@ func move(delta: float) -> void:
 	
 	if is_on_wall_only():
 		wall_time += delta
+		
+		# You can jump no matter what, if you're only on a wall. Only regular movement is restricted
+		# based on the time you've been there.
+		if Input.is_action_just_pressed("jump"):
+			time_since_wall = 0.3
+			velocity.y += JUMP_VELOCITY
+			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
+			wall_time = 0
 		# If we've been on the wall without jumping off for more than 1s, we should lose grip and slip down
-		if wall_time < 1:
-			if Input.is_action_just_pressed("jump"):
-				time_since_wall = 0.3
-				velocity.y += JUMP_VELOCITY
-				velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
-				wall_time = 0
-			elif not Input.is_action_pressed("jump"):
-				# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
-				velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
-				#_do_gravity(delta)
+		if wall_time < 1 and not Input.is_action_pressed("jump"):
+			# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
+			velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
+			#_do_gravity(delta)
 		else:
 			_do_gravity(delta)
 	else:
