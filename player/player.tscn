@@ -2734,6 +2734,7 @@ script = ExtResource("2_gbp7t")
 [node name="DebugPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 3.838)
 top_level = true
+visible = false
 script = ExtResource("3_siun6")
 priority = 1
 follow_mode = 2
