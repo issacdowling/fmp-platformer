@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3ekmfg2dbmij"]
+
+[ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="1_18ivn"]
+[ext_resource type="PackedScene" uid="uid://b1gv2lqrimfto" path="res://levels/Test/test_level_direct_rotation.tscn" id="2_kvs6q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvwka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gght1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hujjy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jp4ih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5w6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1usfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oy2pf"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="TestLevelDirectRotation" parent="Background" instance=ExtResource("2_kvs6q")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.991934, 0, 0.126753, 0, 1, 0, -0.126753, 0, 0.991934, 0.155775, 0.94066, 1.77629)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_18ivn")
+theme_override_font_sizes/font_size = 110
+text = "Little Guy"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.857818, 0, 0.179415, 1)
+theme_override_colors/font_pressed_color = Color(0.601579, 0, 0.1136, 1)
+theme_override_fonts/font = ExtResource("1_18ivn")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fvwka")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gght1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hujjy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jp4ih")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w5w6x")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1usfp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oy2pf")
+text = "Start Game"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.857818, 0, 0.179415, 1)
+theme_override_colors/font_pressed_color = Color(0.601579, 0, 0.1136, 1)
+theme_override_fonts/font = ExtResource("1_18ivn")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fvwka")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gght1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hujjy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jp4ih")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w5w6x")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1usfp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oy2pf")
+text = "Settings"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.857818, 0, 0.179415, 1)
+theme_override_colors/font_pressed_color = Color(0.601579, 0, 0.1136, 1)
+theme_override_fonts/font = ExtResource("1_18ivn")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fvwka")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gght1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hujjy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jp4ih")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w5w6x")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1usfp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oy2pf")
+text = "Quit"
