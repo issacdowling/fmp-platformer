@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Toast="*res://globals/toast/toast.tscn"
 Menu="*res://globals/menu/pause.tscn"
+CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 
 [debug]
 
@@ -39,7 +40,7 @@ movie_writer/movie_file="/home/user/Documents/Godot/fmp-platformer/recording.avi
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/smash_the_mesh/plugin.cfg")
+enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/smash_the_mesh/plugin.cfg")
 
 [global_group]
 

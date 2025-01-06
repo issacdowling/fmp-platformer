@@ -14,6 +14,8 @@ var editor_bound_colour: Color = Color.RED
 var editor_bound_opacity: float = 0.2
 
 func _ready() -> void:
+	assert(switcher, "AutoCamSwitcher MUST be accessible with a unique name!")
+
 	# Show boundaries in editor so it's easy to tell where camera transitions are
 	if (is_part_of_edited_scene() and switcher.debug_bounds_editor) or (not is_part_of_edited_scene() and switcher.debug_bounds_playmode):
 
