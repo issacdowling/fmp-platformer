@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3ekmfg2dbmij"]
+[gd_scene load_steps=11 format=3 uid="uid://c3ekmfg2dbmij"]
 
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="1_18ivn"]
 [ext_resource type="PackedScene" uid="uid://b1gv2lqrimfto" path="res://levels/Test/test_level_direct_rotation.tscn" id="2_kvs6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmsrd"]
+bg_color = Color(0, 0, 0, 0.588235)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvwka"]
 
@@ -45,6 +48,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 2
+offset_left = 2182.0
+offset_top = -1483.0
+offset_right = 7182.0
+offset_bottom = -483.0
+rotation = 2.21482
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmsrd")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
