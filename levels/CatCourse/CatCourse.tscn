@@ -1,27 +1,21 @@
-[gd_scene load_steps=132 format=4 uid="uid://5sam8bbaryqv"]
+[gd_scene load_steps=135 format=4 uid="uid://c6yc33n5qy0uh"]
 
-[ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="9_3xd31"]
-[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="11_4oamo"]
-[ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="12_h33lm"]
-[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="13_alnw8"]
-[ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev_wall.tres" id="14_x5f5p"]
-[ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="15_npspx"]
-[ext_resource type="Material" uid="uid://rdhrhgrb78ls" path="res://addons/cyclops_level_builder/materials/grid.tres" id="16_lv57d"]
-
-[sub_resource type="Environment" id="Environment_bn14o"]
-background_mode = 1
-background_color = Color(0.49599, 0.770068, 0.878219, 1)
-ssao_enabled = true
-sdfgi_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.273081, 0.594169, 0.855957, 1)
-fog_density = 0.0156
+[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_pmayf"]
+[ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev_wall.tres" id="2_2r5qb"]
+[ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="3_mu51g"]
+[ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="4_bxdgg"]
+[ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="5_ppptb"]
+[ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="5_sxtm4"]
+[ext_resource type="Material" uid="uid://rdhrhgrb78ls" path="res://addons/cyclops_level_builder/materials/grid.tres" id="6_vv22u"]
+[ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="7_bi7qn"]
+[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="8_au8mo"]
+[ext_resource type="PackedScene" uid="uid://4ltkjln326sy" path="res://reusables/auto_cam_switcher/auto_cam_switcher.tscn" id="11_67qxt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qdaj7"]
 _surfaces = [{
 "aabb": AABB(10, 0, 9, 24, 1, 91),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -29,7 +23,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_l57nc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2h5k3"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(10, 0, 9, 24, 1, 91),
@@ -37,7 +31,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -46,13 +40,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qdaj7")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0cnb2"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f8xjv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2ec56"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 12, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -60,7 +54,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_rpo33"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_p8a6h"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 12, 12),
@@ -68,7 +62,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -77,13 +71,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2ec56")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pfxbc"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ss5a5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ho7v2"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 11, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -91,7 +85,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_10i0x"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gegvy"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 11, 12),
@@ -99,7 +93,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -108,13 +102,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ho7v2")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_emb5i"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l861s"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ej1tp"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 10, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -122,7 +116,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3mlbj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_uwxnu"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 10, 12),
@@ -130,7 +124,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -139,13 +133,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ej1tp")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0a2li"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a41x6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lva6c"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 9, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -153,7 +147,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_62pdx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3nm83"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 9, 12),
@@ -161,7 +155,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -170,13 +164,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lva6c")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t4bjr"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yi6ls"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kyw6m"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 8, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -184,7 +178,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tnjui"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_nnufo"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 8, 12),
@@ -192,7 +186,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -201,13 +195,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kyw6m")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w6nom"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0n77q"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ttion"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 7, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -215,7 +209,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_vnux3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_e633u"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 7, 12),
@@ -223,7 +217,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -232,13 +226,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ttion")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_64di8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xnjhw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_epoe0"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 6, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -246,7 +240,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_5nmbn"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_u8hds"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 6, 12),
@@ -254,7 +248,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -263,13 +257,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_epoe0")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mh5m3"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ingdn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vwau5"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 5, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -277,7 +271,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_jgy2j"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_qddad"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 5, 12),
@@ -285,7 +279,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -294,13 +288,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vwau5")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5d138"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gwcrc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g6c2s"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 4, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -308,7 +302,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_pwe06"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jcqot"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 4, 12),
@@ -316,7 +310,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -325,13 +319,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g6c2s")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_28ben"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r1mbv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mxg7m"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 3, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -339,7 +333,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_5nyhx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_omy6r"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 3, 12),
@@ -347,7 +341,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -356,13 +350,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mxg7m")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d5ond"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_djxcu"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5cx2r"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 2, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -370,7 +364,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_t4cfx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6d7ly"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 2, 12),
@@ -378,7 +372,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -387,13 +381,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5cx2r")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dcbf5"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htrox"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_um2xy"]
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 1, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -401,7 +395,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xyyrs"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_oy8e5"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-2, 0, 0, 2, 1, 12),
@@ -409,7 +403,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -418,13 +412,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_um2xy")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fp5t3"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ndumx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qfnjo"]
 _surfaces = [{
 "aabb": AABB(1, 0, 0, 25, 3, 1),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -432,7 +426,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_8upds"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vl38r"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(1, 0, 0, 25, 3, 1),
@@ -440,7 +434,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -449,13 +443,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qfnjo")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_te8hg"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r7yt6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ndjf1"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 3, 9),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -463,7 +457,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_utwvr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vy5fg"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 3, 9),
@@ -471,7 +465,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -480,13 +474,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ndjf1")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s2b4i"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eju1b"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_msyrp"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 26, 12),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -494,7 +488,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_w4sj0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_88m1v"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 26, 12),
@@ -502,7 +496,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -511,13 +505,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_msyrp")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_koamg"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dk2nc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hcwdk"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 26, 10),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -525,7 +519,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_efcc6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t77fl"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 26, 10),
@@ -533,7 +527,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -542,13 +536,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hcwdk")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6ssin"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bhgaf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f0a4r"]
 _surfaces = [{
 "aabb": AABB(0, 0, -8, 2, 26, 33),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -556,7 +550,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_qrvsj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wav6q"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, -8, 2, 26, 33),
@@ -564,7 +558,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -573,13 +567,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f0a4r")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7svu"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2kh4i"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j5aln"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 6, 26, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -587,7 +581,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_71mhn"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_g6l8b"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 6, 26, 2),
@@ -595,7 +589,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -604,13 +598,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j5aln")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kp3u4"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fxfj8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dwvhn"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 6, 1, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -618,7 +612,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ga7rl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_kv248"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 6, 1, 2),
@@ -626,7 +620,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -635,13 +629,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dwvhn")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h4yxi"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ualwb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i6854"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 5, 26, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -649,7 +643,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_g6eto"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_xpdwl"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 5, 26, 2),
@@ -657,7 +651,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -666,13 +660,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_i6854")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ir7d"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_suxw5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8gp2a"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 22, 27),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -680,7 +674,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_37okn"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_w4n74"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 22, 27),
@@ -688,7 +682,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -697,13 +691,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8gp2a")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_46k7q"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjdh6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_op0b4"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 28, 22, 1),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -711,7 +705,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_am02i"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tkai1"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 28, 22, 1),
@@ -719,7 +713,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -728,13 +722,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_op0b4")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_80qc1"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tmfiy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rgovb"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 74, 22, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -742,7 +736,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ddkw5"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tm7ab"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 74, 22, 2),
@@ -750,7 +744,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -759,13 +753,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rgovb")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lphef"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cn5em"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f4ndd"]
 _surfaces = [{
 "aabb": AABB(0, 0, 11, 1, 22, 44),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -773,7 +767,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_onj1g"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0bolt"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 11, 1, 22, 44),
@@ -781,7 +775,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -790,13 +784,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f4ndd")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rjp3w"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pjjk2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_offgk"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 9, 8, 1),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -804,7 +798,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ua10b"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_pptmq"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 9, 8, 1),
@@ -812,7 +806,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -821,13 +815,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_offgk")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_swvbb"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sl320"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mn1j2"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 3, 20),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -835,7 +829,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ogeon"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_67isi"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 3, 20),
@@ -843,7 +837,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -852,13 +846,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mn1j2")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rul03"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2jkys"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_iimay"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 5, 4, 18),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -866,7 +860,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_7c7wr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vm0bx"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 5, 4, 18),
@@ -874,7 +868,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -883,13 +877,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iimay")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xsu64"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rjor3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3owgi"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 3, 1, 19),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -897,7 +891,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_rujyf"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_nw5ji"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 3, 1, 19),
@@ -905,7 +899,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -914,13 +908,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3owgi")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aj5ck"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_57t12"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pftre"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 2, 3),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -928,7 +922,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_m4n0q"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ognvs"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 2, 3),
@@ -936,7 +930,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -945,13 +939,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pftre")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wu3se"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ckv2i"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6fvlf"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 2, 12, 20),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -959,7 +953,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_sk2hg"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_lfkwq"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 2, 12, 20),
@@ -967,7 +961,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -976,13 +970,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6fvlf")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bwaj4"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jhipv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5s61h"]
 _surfaces = [{
 "aabb": AABB(-1, 8, -2, 1, 18, 25),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -990,7 +984,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bb0ji"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_m1w7s"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-1, 8, -2, 1, 18, 25),
@@ -998,7 +992,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1007,13 +1001,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5s61h")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ebxnm"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wy11e"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_saqlg"]
 _surfaces = [{
 "aabb": AABB(-1, 0, 21, 1, 8, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1021,7 +1015,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_a6y6s"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2xqr7"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-1, 0, 21, 1, 8, 2),
@@ -1029,7 +1023,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1038,13 +1032,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_saqlg")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8136g"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nx2oi"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l3xcv"]
 _surfaces = [{
 "aabb": AABB(-1, 0, -2, 1, 2, 23),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1052,7 +1046,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ie0wp"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_erdat"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-1, 0, -2, 1, 2, 23),
@@ -1060,7 +1054,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1069,13 +1063,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l3xcv")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_74ydw"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ouwy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b7ihu"]
 _surfaces = [{
 "aabb": AABB(-1, 2, -2, 1, 6, 6),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1083,7 +1077,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_d5kep"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0804l"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-1, 2, -2, 1, 6, 6),
@@ -1091,7 +1085,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1100,13 +1094,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b7ihu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_va3bq"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ugcv1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xl156"]
 _surfaces = [{
 "aabb": AABB(-14, 0, -4, 22, 6, 10),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1114,7 +1108,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3lniu"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_p6xvu"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(-14, 0, -4, 22, 6, 10),
@@ -1122,7 +1116,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1131,13 +1125,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xl156")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_elqnv"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2l2vr"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3xaua"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 3, 4, 2),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1145,7 +1139,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uty5b"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_haq2v"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 3, 4, 2),
@@ -1153,7 +1147,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1162,13 +1156,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3xaua")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgalq"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w10o8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_63cum"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 3, 20),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1176,7 +1170,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dlg0s"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tcqws"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 3, 20),
@@ -1184,7 +1178,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1193,13 +1187,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_63cum")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yvvmp"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hkafx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xhuav"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 14, 3, 4),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1207,7 +1201,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_scn66"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_cqhcp"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 14, 3, 4),
@@ -1215,7 +1209,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1224,13 +1218,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xhuav")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w8ost"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gslor"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fv3mn"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 2, 10),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1238,7 +1232,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e44d5"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_4cmt4"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 2, 10),
@@ -1246,7 +1240,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1255,13 +1249,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fv3mn")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wa1ix"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ymg2a"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gwt61"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 2, 7, 14),
 "format": 34359738369,
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -1269,7 +1263,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i1eba"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6tki8"]
 lightmap_size_hint = Vector2i(1000, 1000)
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 2, 7, 14),
@@ -1277,7 +1271,7 @@ _surfaces = [{
 "format": 34359742527,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("16_lv57d"),
+"material": ExtResource("6_vv22u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1286,20 +1280,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gwt61")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8els7"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y4gb2"]
+
+[sub_resource type="Environment" id="Environment_at3ae"]
+background_mode = 1
+background_color = Color(0.49599, 0.770068, 0.878219, 1)
+sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.273081, 0.594169, 0.855957, 1)
+fog_light_energy = 0.67
+fog_density = 0.0086
+volumetric_fog_density = 0.1628
 
 [node name="CatCourse" type="Node3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.726677, 0.00186157, -14.6745)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3642, 0, 80.0725)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bn14o")
-script = ExtResource("11_4oamo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9622, 0, 83.3897)
 
 [node name="Outside" type="Node3D" parent="."]
 
@@ -1308,13 +1301,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.1268, 23.1497, -29.2289)
 
 [node name="InnerFloor" type="CSGBox3D" parent="Outside/TopFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29577, 3.36785, -9.92943)
-material_override = ExtResource("13_alnw8")
+material_override = ExtResource("1_pmayf")
 use_collision = true
 size = Vector3(102.949, 1.06601, 78.0703)
 
 [node name="StairCutout" type="CSGBox3D" parent="Outside/TopFloor/InnerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7217, 0, -14.697)
-material_override = ExtResource("13_alnw8")
+material_override = ExtResource("1_pmayf")
 operation = 2
 size = Vector3(11.5056, 2.01385, 25.2114)
 
@@ -1322,37 +1315,37 @@ size = Vector3(11.5056, 2.01385, 25.2114)
 
 [node name="OuterFloor" type="CSGBox3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.831, -0.492821, -39.1583)
-material_override = ExtResource("13_alnw8")
+material_override = ExtResource("1_pmayf")
 use_collision = true
 size = Vector3(102.949, 1, 78.0703)
 
 [node name="OuterLeftWall" type="CSGBox3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.9429, 23.9929, -77.816)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(102.734, 49.9902, 2.73145)
 
 [node name="OuterRightWall" type="CSGBox3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.9429, 23.9929, -0.45695)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(102.734, 49.9902, 1)
 
 [node name="OuterBackWall" type="CSGBox3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.458, 23.9929, -39.5763)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(1.70303, 49.9902, 79.2388)
 
 [node name="OuterFrontWall" type="CSGBox3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7608, 23.9929, -39.5763)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(1.70303, 49.9902, 79.2388)
 
 [node name="DoorCutout" type="CSGBox3D" parent="Outside/LowerFloor/OuterFrontWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128014, -22.1239, -7.1733)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 operation = 2
 use_collision = true
 size = Vector3(1.95906, 5.74242, 4.00177)
@@ -1362,19 +1355,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.098, 0, -11.2185)
 
 [node name="LeftWall" type="CSGBox3D" parent="Outside/LowerFloor/RightmostCubbyRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9598, 13.0713, -10.7295)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(47.6425, 27.1425, 2.61621)
 
 [node name="DoorFrame" type="CSGBox3D" parent="Outside/LowerFloor/RightmostCubbyRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7918, 13.0713, 0.472112)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(2.08202, 27.1425, 19.8587)
 
 [node name="DoorFrameCutout" type="CSGBox3D" parent="Outside/LowerFloor/RightmostCubbyRoom/DoorFrame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.859035)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 operation = 2
 size = Vector3(2.08202, 27.1425, 9.06791)
 
@@ -1385,7 +1378,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.267, 0, -72.7524)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26071, 6.42378, 2.37456)
 use_collision = true
 size = Vector3(21.4417, 13.1768, 12.4429)
-material = ExtResource("14_x5f5p")
+material = ExtResource("2_2r5qb")
 
 [node name="EdgeCutout" type="CSGBox3D" parent="Outside/LowerFloor/Stairs/BottomStairs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.52384, 0.336967, 4.81643)
@@ -1427,112 +1420,130 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5754, 1.34146, -49.9049)
 
 [node name="SpawnBlock" type="CSGBox3D" parent="Outside/LowerFloor/SpawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79082, -0.853938, 3.31145)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(1.87988, 1.02441, 2.1825)
 
 [node name="Ledge" type="CSGBox3D" parent="Outside/LowerFloor/SpawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65368, 6.31881, -16.8519)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(4.52521, 1.02441, 12.998)
 
 [node name="CabinetThing" type="CSGBox3D" parent="Outside/LowerFloor/SpawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3299, 5.45855, -25.669)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(18.7879, 16.0303, 2.02679)
 
-[node name="BouncyUmbrella" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("15_npspx")]
+[node name="BouncyUmbrella" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.69896, 6.5379, -7.80989)
+jump_velocity = 15.0
 
-[node name="BouncyUmbrella2" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("15_npspx")]
+[node name="BouncyUmbrella2" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.42892, 6.5379, -24.7192)
+jump_velocity = 30.0
 
-[node name="BouncyPlatform" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("15_npspx")]
+[node name="BouncyPlatform" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.710935, 0.112964, 1.55969)
 jump_velocity = 15.0
 
-[node name="BouncyPlatform2" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("15_npspx")]
+[node name="BouncyPlatform2" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.710936, 0.112964, -2.14411)
 jump_velocity = 25.0
+
+[node name="FollowPosCubicCamBoundary" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("5_ppptb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.369, 0.135074, 3.52361)
+original_priority = 1
+
+[node name="Camera" parent="Outside/LowerFloor/SpawnArea/FollowPosCubicCamBoundary" index="1" node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.999986, -3.4596e-05, 0.000100175, 7.29223e-09, 0.945181, 0.326365, -0.000105984, -0.326359, 0.945201, 16.9053, 4.94447, -37.7499)
+follow_mode = 6
+follow_target = NodePath("../../../../Player")
+look_at_target = NodePath("../../../../Player")
+follow_offset = Vector3(0, 1.7, 2)
+follow_distance = 6.878
+spring_length = 6.878
 
 [node name="TVArea" type="Node3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.533, 16.7198, -77.7075)
 
 [node name="Platform" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(0.917762, -0.397132, 3.59476e-09, 0.397132, 0.917762, -1.73592e-08, 3.59476e-09, 1.73592e-08, 1, -11.7274, -7.917, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(5.48804, 1.13058, 2.02679)
 
 [node name="Platform2" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(0.917762, -0.397132, 3.59476e-09, 0.397132, 0.917762, -1.73592e-08, 3.59476e-09, 1.73592e-08, 1, -4.82113, -4.50273, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(4.39685, 1.13058, 2.02679)
 
 [node name="Platform4" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05154, -6.27153, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(1.03102, 1.13058, 2.02679)
 
 [node name="Platform7" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.692467, -3.25552, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(3.10389, 1.13058, 2.02679)
 
-[node name="BouncyPlatform3" parent="Outside/LowerFloor/TVArea/Platform7" instance=ExtResource("15_npspx")]
+[node name="BouncyPlatform3" parent="Outside/LowerFloor/TVArea/Platform7" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.569279, 0.731009, 0.212746)
+jump_velocity = 15.0
 
 [node name="Platform8" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7243, -0.234827, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.07001, 1.13058, 2.02679)
 
-[node name="BouncyPlatform4" parent="Outside/LowerFloor/TVArea/Platform8" instance=ExtResource("15_npspx")]
+[node name="BouncyPlatform4" parent="Outside/LowerFloor/TVArea/Platform8" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.344131, 0.721067, 0.212746)
+jump_velocity = 15.0
 
 [node name="Platform9" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21101, 2.78941, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.07001, 1.13058, 2.02679)
 
-[node name="BouncyPlatform5" parent="Outside/LowerFloor/TVArea/Platform9" instance=ExtResource("15_npspx")]
+[node name="BouncyPlatform5" parent="Outside/LowerFloor/TVArea/Platform9" instance=ExtResource("4_bxdgg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.484447, 0.710403, 0.212746)
+jump_velocity = 15.0
 
 [node name="Platform10" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73367, 5.67658, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.07001, 1.13058, 2.02679)
 
 [node name="Platform11" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95771, 6.73394, 2.13364)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(10.3984, 1.13058, 2.02679)
 
 [node name="MiddleWall" type="CSGBox3D" parent="Outside/LowerFloor/TVArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1397, -4.00337, 38.1312)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(3.0349, 27.2883, 79.2388)
 
 [node name="TopShelfCutout" type="CSGBox3D" parent="Outside/LowerFloor/TVArea/MiddleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154411, 12.4457, -36.5562)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 operation = 2
 use_collision = true
 size = Vector3(3.51229, 2.53222, 2.78995)
 
 [node name="DoorCutout" type="CSGBox3D" parent="Outside/LowerFloor/TVArea/MiddleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422218, -1.84496, -6.2319)
-material_override = ExtResource("14_x5f5p")
+material_override = ExtResource("2_2r5qb")
 operation = 2
 use_collision = true
 size = Vector3(5.8871, 21.8934, 11.9691)
@@ -1542,17 +1553,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.197, 24.6538, -74.8508)
 
 [node name="Pre-Move" type="CSGBox3D" parent="Outside/LowerFloor/TopShelfArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24641, -1.13433, 1.2523)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(1.50464, 1.02441, 4.06195)
 
 [node name="Post-Move" type="CSGBox3D" parent="Outside/LowerFloor/TopShelfArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24641, -1.13433, 30.2071)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(1.50464, 1.02441, 11.0057)
 
-[node name="MovingPlatform" parent="Outside/LowerFloor/TopShelfArea" instance=ExtResource("12_h33lm")]
+[node name="MovingPlatform" parent="Outside/LowerFloor/TopShelfArea" instance=ExtResource("5_sxtm4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.8563, -0.703999, 4.4976)
 
 [node name="EndMarker" parent="Outside/LowerFloor/TopShelfArea/MovingPlatform" index="1"]
@@ -1563,540 +1574,607 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5776, 6.88137, -35.3491)
 
 [node name="Table" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70579, -4.89518, 1.29335)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(18.0166, 4.15283, 12.0734)
 
 [node name="Chair" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74037, -3.38885, 1.32319)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
 [node name="Chair4" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.203, -3.38885, 1.32319)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
 [node name="Chair2" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.56049, -3.38885, -7.1203)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
 [node name="Chair5" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.56049, -3.38885, 9.77938)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
 [node name="Chair6" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.39855, -3.38885, 9.77938)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
 [node name="Chair3" type="CSGBox3D" parent="Outside/LowerFloor/TableArea"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.70361, -3.38885, -7.1203)
-material_override = ExtResource("9_3xd31")
+material_override = ExtResource("3_mu51g")
 use_collision = true
 size = Vector3(2.98267, 7.1655, 5.87249)
 
-[node name="autoconverted_cyclops_blocks" type="Node3D" parent="."]
+[node name="autoconverted_cyclops_blocks" type="Node3D" parent="Outside"]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.726678, 0.00186157, 0.425425)
 
-[node name="Block_22" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_22" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.304, 26, -76.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_22_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_22"]
-mesh = SubResource("ArrayMesh_l57nc")
+[node name="Block_22_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_22"]
+mesh = SubResource("ArrayMesh_2h5k3")
 
-[node name="Block_22_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_22"]
+[node name="Block_22_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_22"]
 
-[node name="Block_22_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_22/Block_22_col"]
-shape = SubResource("ConvexPolygonShape3D_0cnb2")
+[node name="Block_22_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_22/Block_22_col"]
+shape = SubResource("ConvexPolygonShape3D_f8xjv")
 
-[node name="Block_5" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_5" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -42.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_5_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_5"]
-mesh = SubResource("ArrayMesh_rpo33")
+[node name="Block_5_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_5"]
+mesh = SubResource("ArrayMesh_p8a6h")
 
-[node name="Block_5_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_5"]
+[node name="Block_5_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_5"]
 
-[node name="Block_5_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_5/Block_5_col"]
-shape = SubResource("ConvexPolygonShape3D_pfxbc")
+[node name="Block_5_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_5/Block_5_col"]
+shape = SubResource("ConvexPolygonShape3D_ss5a5")
 
-[node name="Block_9" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_9" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -44.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_9_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_9"]
-mesh = SubResource("ArrayMesh_10i0x")
+[node name="Block_9_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_9"]
+mesh = SubResource("ArrayMesh_gegvy")
 
-[node name="Block_9_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_9"]
+[node name="Block_9_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_9"]
 
-[node name="Block_9_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_9/Block_9_col"]
-shape = SubResource("ConvexPolygonShape3D_emb5i")
+[node name="Block_9_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_9/Block_9_col"]
+shape = SubResource("ConvexPolygonShape3D_l861s")
 
-[node name="Block_11" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_11" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -46.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_11_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_11"]
-mesh = SubResource("ArrayMesh_3mlbj")
+[node name="Block_11_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_11"]
+mesh = SubResource("ArrayMesh_uwxnu")
 
-[node name="Block_11_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_11"]
+[node name="Block_11_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_11"]
 
-[node name="Block_11_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_11/Block_11_col"]
-shape = SubResource("ConvexPolygonShape3D_0a2li")
+[node name="Block_11_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_11/Block_11_col"]
+shape = SubResource("ConvexPolygonShape3D_a41x6")
 
-[node name="Block_12" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_12" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -48.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_12_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_12"]
-mesh = SubResource("ArrayMesh_62pdx")
+[node name="Block_12_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_12"]
+mesh = SubResource("ArrayMesh_3nm83")
 
-[node name="Block_12_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_12"]
+[node name="Block_12_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_12"]
 
-[node name="Block_12_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_12/Block_12_col"]
-shape = SubResource("ConvexPolygonShape3D_t4bjr")
+[node name="Block_12_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_12/Block_12_col"]
+shape = SubResource("ConvexPolygonShape3D_yi6ls")
 
-[node name="Block_13" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_13" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -50.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_13_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_13"]
-mesh = SubResource("ArrayMesh_tnjui")
+[node name="Block_13_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_13"]
+mesh = SubResource("ArrayMesh_nnufo")
 
-[node name="Block_13_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_13"]
+[node name="Block_13_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_13"]
 
-[node name="Block_13_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_13/Block_13_col"]
-shape = SubResource("ConvexPolygonShape3D_w6nom")
+[node name="Block_13_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_13/Block_13_col"]
+shape = SubResource("ConvexPolygonShape3D_0n77q")
 
-[node name="Block_14" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_14" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -52.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_14_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_14"]
-mesh = SubResource("ArrayMesh_vnux3")
+[node name="Block_14_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_14"]
+mesh = SubResource("ArrayMesh_e633u")
 
-[node name="Block_14_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_14"]
+[node name="Block_14_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_14"]
 
-[node name="Block_14_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_14/Block_14_col"]
-shape = SubResource("ConvexPolygonShape3D_64di8")
+[node name="Block_14_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_14/Block_14_col"]
+shape = SubResource("ConvexPolygonShape3D_xnjhw")
 
-[node name="Block_15" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_15" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -54.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_15_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_15"]
-mesh = SubResource("ArrayMesh_5nmbn")
+[node name="Block_15_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_15"]
+mesh = SubResource("ArrayMesh_u8hds")
 
-[node name="Block_15_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_15"]
+[node name="Block_15_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_15"]
 
-[node name="Block_15_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_15/Block_15_col"]
-shape = SubResource("ConvexPolygonShape3D_mh5m3")
+[node name="Block_15_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_15/Block_15_col"]
+shape = SubResource("ConvexPolygonShape3D_ingdn")
 
-[node name="Block_16" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_16" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -56.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_16_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_16"]
-mesh = SubResource("ArrayMesh_jgy2j")
+[node name="Block_16_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_16"]
+mesh = SubResource("ArrayMesh_qddad")
 
-[node name="Block_16_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_16"]
+[node name="Block_16_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_16"]
 
-[node name="Block_16_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_16/Block_16_col"]
-shape = SubResource("ConvexPolygonShape3D_5d138")
+[node name="Block_16_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_16/Block_16_col"]
+shape = SubResource("ConvexPolygonShape3D_gwcrc")
 
-[node name="Block_17" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_17" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -58.1603)
 metadata/_edit_group_ = true
 
-[node name="Block_17_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_17"]
-mesh = SubResource("ArrayMesh_pwe06")
+[node name="Block_17_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_17"]
+mesh = SubResource("ArrayMesh_jcqot")
 
-[node name="Block_17_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_17"]
+[node name="Block_17_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_17"]
 
-[node name="Block_17_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_17/Block_17_col"]
-shape = SubResource("ConvexPolygonShape3D_28ben")
+[node name="Block_17_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_17/Block_17_col"]
+shape = SubResource("ConvexPolygonShape3D_r1mbv")
 
-[node name="Block_19" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_19" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -60.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_19_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_19"]
-mesh = SubResource("ArrayMesh_5nyhx")
+[node name="Block_19_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_19"]
+mesh = SubResource("ArrayMesh_omy6r")
 
-[node name="Block_19_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_19"]
+[node name="Block_19_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_19"]
 
-[node name="Block_19_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_19/Block_19_col"]
-shape = SubResource("ConvexPolygonShape3D_d5ond")
+[node name="Block_19_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_19/Block_19_col"]
+shape = SubResource("ConvexPolygonShape3D_djxcu")
 
-[node name="Block_23" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_23" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -62.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_23_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_23"]
-mesh = SubResource("ArrayMesh_t4cfx")
+[node name="Block_23_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_23"]
+mesh = SubResource("ArrayMesh_6d7ly")
 
-[node name="Block_23_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_23"]
+[node name="Block_23_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_23"]
 
-[node name="Block_23_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_23/Block_23_col"]
-shape = SubResource("ConvexPolygonShape3D_dcbf5")
+[node name="Block_23_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_23/Block_23_col"]
+shape = SubResource("ConvexPolygonShape3D_htrox")
 
-[node name="Block_24" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_24" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.305, 11.9465, -64.1593)
 metadata/_edit_group_ = true
 
-[node name="Block_24_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_24"]
-mesh = SubResource("ArrayMesh_xyyrs")
+[node name="Block_24_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_24"]
+mesh = SubResource("ArrayMesh_oy8e5")
 
-[node name="Block_24_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_24"]
+[node name="Block_24_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_24"]
 
-[node name="Block_24_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_24/Block_24_col"]
-shape = SubResource("ConvexPolygonShape3D_fp5t3")
+[node name="Block_24_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_24/Block_24_col"]
+shape = SubResource("ConvexPolygonShape3D_ndumx")
 
-[node name="Block_25" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_25" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 106.304, 27, -68.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_25_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_25"]
-mesh = SubResource("ArrayMesh_8upds")
+[node name="Block_25_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_25"]
+mesh = SubResource("ArrayMesh_vl38r")
 
-[node name="Block_25_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_25"]
+[node name="Block_25_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_25"]
 
-[node name="Block_25_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_25/Block_25_col"]
-shape = SubResource("ConvexPolygonShape3D_te8hg")
+[node name="Block_25_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_25/Block_25_col"]
+shape = SubResource("ConvexPolygonShape3D_r7yt6")
 
-[node name="Block_26" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_26" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.304, 27, -67.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_26_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_26"]
-mesh = SubResource("ArrayMesh_utwvr")
+[node name="Block_26_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_26"]
+mesh = SubResource("ArrayMesh_vy5fg")
 
-[node name="Block_26_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_26"]
+[node name="Block_26_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_26"]
 
-[node name="Block_26_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_26/Block_26_col"]
-shape = SubResource("ConvexPolygonShape3D_s2b4i")
+[node name="Block_26_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_26/Block_26_col"]
+shape = SubResource("ConvexPolygonShape3D_eju1b")
 
-[node name="Block_27" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_27" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 106.304, 2.21189e-09, -67.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_27_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_27"]
-mesh = SubResource("ArrayMesh_w4sj0")
+[node name="Block_27_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_27"]
+mesh = SubResource("ArrayMesh_88m1v")
 
-[node name="Block_27_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_27"]
+[node name="Block_27_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_27"]
 
-[node name="Block_27_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_27/Block_27_col"]
-shape = SubResource("ConvexPolygonShape3D_koamg")
+[node name="Block_27_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_27/Block_27_col"]
+shape = SubResource("ConvexPolygonShape3D_dk2nc")
 
-[node name="Block_29" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_29" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.304, 2.21189e-09, -42.1512)
 metadata/_edit_group_ = true
 
-[node name="Block_29_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_29"]
-mesh = SubResource("ArrayMesh_efcc6")
+[node name="Block_29_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_29"]
+mesh = SubResource("ArrayMesh_t77fl")
 
-[node name="Block_29_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_29"]
+[node name="Block_29_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_29"]
 
-[node name="Block_29_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_29/Block_29_col"]
-shape = SubResource("ConvexPolygonShape3D_6ssin")
+[node name="Block_29_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_29/Block_29_col"]
+shape = SubResource("ConvexPolygonShape3D_bhgaf")
 
-[node name="Block_30" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_30" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.3036, 2.21189e-09, -23.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_30_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_30"]
-mesh = SubResource("ArrayMesh_qrvsj")
+[node name="Block_30_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_30"]
+mesh = SubResource("ArrayMesh_wav6q")
 
-[node name="Block_30_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_30"]
+[node name="Block_30_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_30"]
 
-[node name="Block_30_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_30/Block_30_col"]
-shape = SubResource("ConvexPolygonShape3D_j7svu")
+[node name="Block_30_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_30/Block_30_col"]
+shape = SubResource("ConvexPolygonShape3D_2kh4i")
 
-[node name="Block_31" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_31" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.3036, 2.21189e-09, -21.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_31_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_31"]
-mesh = SubResource("ArrayMesh_71mhn")
+[node name="Block_31_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_31"]
+mesh = SubResource("ArrayMesh_g6l8b")
 
-[node name="Block_31_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_31"]
+[node name="Block_31_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_31"]
 
-[node name="Block_31_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_31/Block_31_col"]
-shape = SubResource("ConvexPolygonShape3D_kp3u4")
+[node name="Block_31_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_31/Block_31_col"]
+shape = SubResource("ConvexPolygonShape3D_fxfj8")
 
-[node name="Block_32" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_32" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.3036, -1, -8.15155)
 metadata/_edit_group_ = true
 
-[node name="Block_32_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_32"]
-mesh = SubResource("ArrayMesh_ga7rl")
+[node name="Block_32_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_32"]
+mesh = SubResource("ArrayMesh_kv248")
 
-[node name="Block_32_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_32"]
+[node name="Block_32_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_32"]
 
-[node name="Block_32_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_32/Block_32_col"]
-shape = SubResource("ConvexPolygonShape3D_h4yxi")
+[node name="Block_32_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_32/Block_32_col"]
+shape = SubResource("ConvexPolygonShape3D_ualwb")
 
-[node name="Block_33" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_33" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.3037, 2.21189e-09, -7.15155)
 metadata/_edit_group_ = true
 
-[node name="Block_33_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_33"]
-mesh = SubResource("ArrayMesh_g6eto")
+[node name="Block_33_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_33"]
+mesh = SubResource("ArrayMesh_xpdwl")
 
-[node name="Block_33_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_33"]
+[node name="Block_33_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_33"]
 
-[node name="Block_33_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_33/Block_33_col"]
-shape = SubResource("ConvexPolygonShape3D_2ir7d")
+[node name="Block_33_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_33/Block_33_col"]
+shape = SubResource("ConvexPolygonShape3D_suxw5")
 
-[node name="Block_35" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_35" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.304, 27, -31.1512)
 metadata/_edit_group_ = true
 
-[node name="Block_35_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_35"]
-mesh = SubResource("ArrayMesh_37okn")
+[node name="Block_35_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_35"]
+mesh = SubResource("ArrayMesh_w4n74")
 
-[node name="Block_35_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_35"]
+[node name="Block_35_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_35"]
 
-[node name="Block_35_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_35/Block_35_col"]
-shape = SubResource("ConvexPolygonShape3D_46k7q")
+[node name="Block_35_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_35/Block_35_col"]
+shape = SubResource("ConvexPolygonShape3D_hjdh6")
 
-[node name="Block_36" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_36" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 89.3037, 27, -30.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_36_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_36"]
-mesh = SubResource("ArrayMesh_am02i")
+[node name="Block_36_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_36"]
+mesh = SubResource("ArrayMesh_tkai1")
 
-[node name="Block_36_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_36"]
+[node name="Block_36_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_36"]
 
-[node name="Block_36_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_36/Block_36_col"]
-shape = SubResource("ConvexPolygonShape3D_80qc1")
+[node name="Block_36_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_36/Block_36_col"]
+shape = SubResource("ConvexPolygonShape3D_tmfiy")
 
-[node name="Block_37" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_37" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.3036, 27, -76.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_37_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_37"]
-mesh = SubResource("ArrayMesh_ddkw5")
+[node name="Block_37_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_37"]
+mesh = SubResource("ArrayMesh_tm7ab")
 
-[node name="Block_37_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_37"]
+[node name="Block_37_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_37"]
 
-[node name="Block_37_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_37/Block_37_col"]
-shape = SubResource("ConvexPolygonShape3D_lphef")
+[node name="Block_37_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_37/Block_37_col"]
+shape = SubResource("ConvexPolygonShape3D_cn5em")
 
-[node name="Block_38" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_38" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 96.3037, 27, -46.1513)
 metadata/_edit_group_ = true
 
-[node name="Block_38_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_38"]
-mesh = SubResource("ArrayMesh_onj1g")
+[node name="Block_38_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_38"]
+mesh = SubResource("ArrayMesh_0bolt")
 
-[node name="Block_38_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_38"]
+[node name="Block_38_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_38"]
 
-[node name="Block_38_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_38/Block_38_col"]
-shape = SubResource("ConvexPolygonShape3D_rjp3w")
+[node name="Block_38_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_38/Block_38_col"]
+shape = SubResource("ConvexPolygonShape3D_pjjk2")
 
-[node name="Block_43" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_43" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.997441, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.997441, 26.6476, -8, -77.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_43_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_43"]
-mesh = SubResource("ArrayMesh_ua10b")
+[node name="Block_43_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_43"]
+mesh = SubResource("ArrayMesh_pptmq")
 
-[node name="Block_43_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_43"]
+[node name="Block_43_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_43"]
 
-[node name="Block_43_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_43/Block_43_col"]
-shape = SubResource("ConvexPolygonShape3D_swvbb")
+[node name="Block_43_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_43/Block_43_col"]
+shape = SubResource("ConvexPolygonShape3D_sl320")
 
-[node name="couch" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="couch" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.997441, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.997441, 43.1587, 2.09548e-09, -75.7003)
 metadata/_edit_group_ = true
 
-[node name="couch_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/couch"]
-mesh = SubResource("ArrayMesh_ogeon")
+[node name="couch_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/couch"]
+mesh = SubResource("ArrayMesh_67isi")
 
-[node name="couch_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/couch"]
+[node name="couch_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/couch"]
 
-[node name="couch_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/couch/couch_col"]
-shape = SubResource("ConvexPolygonShape3D_rul03")
+[node name="couch_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/couch/couch_col"]
+shape = SubResource("ConvexPolygonShape3D_2jkys")
 
-[node name="Block_54" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_54" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 110.577, -0.00186157, -41.4772)
 metadata/_edit_group_ = true
 
-[node name="Block_54_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_54"]
-mesh = SubResource("ArrayMesh_7c7wr")
+[node name="Block_54_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_54"]
+mesh = SubResource("ArrayMesh_vm0bx")
 
-[node name="Block_54_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_54"]
+[node name="Block_54_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_54"]
 
-[node name="Block_54_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_54/Block_54_col"]
-shape = SubResource("ConvexPolygonShape3D_xsu64")
+[node name="Block_54_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_54/Block_54_col"]
+shape = SubResource("ConvexPolygonShape3D_rjor3")
 
-[node name="Block_55" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_55" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 112.577, 7.99814, -41.4772)
 metadata/_edit_group_ = true
 
-[node name="Block_55_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_55"]
-mesh = SubResource("ArrayMesh_rujyf")
+[node name="Block_55_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_55"]
+mesh = SubResource("ArrayMesh_nw5ji")
 
-[node name="Block_55_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_55"]
+[node name="Block_55_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_55"]
 
-[node name="Block_55_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_55/Block_55_col"]
-shape = SubResource("ConvexPolygonShape3D_aj5ck")
+[node name="Block_55_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_55/Block_55_col"]
+shape = SubResource("ConvexPolygonShape3D_57t12")
 
-[node name="Block_56" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_56" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 94.577, -2.00186, -66.4772)
 metadata/_edit_group_ = true
 
-[node name="Block_56_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_56"]
-mesh = SubResource("ArrayMesh_m4n0q")
+[node name="Block_56_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_56"]
+mesh = SubResource("ArrayMesh_ognvs")
 
-[node name="Block_56_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_56"]
+[node name="Block_56_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_56"]
 
-[node name="Block_56_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_56/Block_56_col"]
-shape = SubResource("ConvexPolygonShape3D_wu3se")
+[node name="Block_56_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_56/Block_56_col"]
+shape = SubResource("ConvexPolygonShape3D_ckv2i")
 
-[node name="Block_58" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_58" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 70.577, -0.00186157, -76.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_58_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_58"]
-mesh = SubResource("ArrayMesh_sk2hg")
+[node name="Block_58_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_58"]
+mesh = SubResource("ArrayMesh_lfkwq")
 
-[node name="Block_58_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_58"]
+[node name="Block_58_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_58"]
 
-[node name="Block_58_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_58/Block_58_col"]
-shape = SubResource("ConvexPolygonShape3D_bwaj4")
+[node name="Block_58_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_58/Block_58_col"]
+shape = SubResource("ConvexPolygonShape3D_jhipv")
 
-[node name="Block_61" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_61" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 105.577, -0.00186157, -64.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_61_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_61"]
-mesh = SubResource("ArrayMesh_bb0ji")
+[node name="Block_61_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_61"]
+mesh = SubResource("ArrayMesh_m1w7s")
 
-[node name="Block_61_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_61"]
+[node name="Block_61_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_61"]
 
-[node name="Block_61_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_61/Block_61_col"]
-shape = SubResource("ConvexPolygonShape3D_ebxnm")
+[node name="Block_61_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_61/Block_61_col"]
+shape = SubResource("ConvexPolygonShape3D_wy11e")
 
-[node name="Block_62" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_62" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 105.577, -0.00186157, -64.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_62_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_62"]
-mesh = SubResource("ArrayMesh_a6y6s")
+[node name="Block_62_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_62"]
+mesh = SubResource("ArrayMesh_2xqr7")
 
-[node name="Block_62_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_62"]
+[node name="Block_62_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_62"]
 
-[node name="Block_62_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_62/Block_62_col"]
-shape = SubResource("ConvexPolygonShape3D_8136g")
+[node name="Block_62_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_62/Block_62_col"]
+shape = SubResource("ConvexPolygonShape3D_nx2oi")
 
-[node name="Block_63" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_63" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 105.577, -0.00186157, -64.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_63_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_63"]
-mesh = SubResource("ArrayMesh_ie0wp")
+[node name="Block_63_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_63"]
+mesh = SubResource("ArrayMesh_erdat")
 
-[node name="Block_63_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_63"]
+[node name="Block_63_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_63"]
 
-[node name="Block_63_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_63/Block_63_col"]
-shape = SubResource("ConvexPolygonShape3D_74ydw")
+[node name="Block_63_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_63/Block_63_col"]
+shape = SubResource("ConvexPolygonShape3D_2ouwy")
 
-[node name="Block_64" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_64" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 105.577, -0.00186157, -64.4773)
 metadata/_edit_group_ = true
 
-[node name="Block_64_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_64"]
-mesh = SubResource("ArrayMesh_d5kep")
+[node name="Block_64_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_64"]
+mesh = SubResource("ArrayMesh_0804l")
 
-[node name="Block_64_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_64"]
+[node name="Block_64_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_64"]
 
-[node name="Block_64_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_64/Block_64_col"]
-shape = SubResource("ConvexPolygonShape3D_va3bq")
+[node name="Block_64_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_64/Block_64_col"]
+shape = SubResource("ConvexPolygonShape3D_ugcv1")
 
-[node name="Block_1" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_1" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 109.637, -0.00186157, -58.8833)
 metadata/_edit_group_ = true
 
-[node name="Block_1_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_1"]
-mesh = SubResource("ArrayMesh_3lniu")
+[node name="Block_1_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_1"]
+mesh = SubResource("ArrayMesh_p6xvu")
 
-[node name="Block_1_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_1"]
+[node name="Block_1_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_1"]
 
-[node name="Block_1_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_1/Block_1_col"]
-shape = SubResource("ConvexPolygonShape3D_elqnv")
+[node name="Block_1_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_1/Block_1_col"]
+shape = SubResource("ConvexPolygonShape3D_2l2vr")
 
-[node name="Block_28" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="Block_28" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 104.637, -0.00186157, -45.8833)
 metadata/_edit_group_ = true
 
-[node name="Block_28_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/Block_28"]
-mesh = SubResource("ArrayMesh_uty5b")
+[node name="Block_28_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_28"]
+mesh = SubResource("ArrayMesh_haq2v")
 
-[node name="Block_28_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/Block_28"]
+[node name="Block_28_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_28"]
 
-[node name="Block_28_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/Block_28/Block_28_col"]
-shape = SubResource("ConvexPolygonShape3D_dgalq")
+[node name="Block_28_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_28/Block_28_col"]
+shape = SubResource("ConvexPolygonShape3D_w10o8")
 
-[node name="couch2" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="couch2" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.997441, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.997441, 43.088, 0.000138432, -76.1197)
 metadata/_edit_group_ = true
 
-[node name="couch_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/couch2"]
-mesh = SubResource("ArrayMesh_dlg0s")
-skeleton = NodePath("../../couch2")
+[node name="couch_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/couch2"]
+mesh = SubResource("ArrayMesh_tcqws")
 
-[node name="couch_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/couch2"]
+[node name="couch_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/couch2"]
 
-[node name="couch_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/couch2/couch_col"]
-shape = SubResource("ConvexPolygonShape3D_yvvmp")
+[node name="couch_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/couch2/couch_col"]
+shape = SubResource("ConvexPolygonShape3D_hkafx")
 
-[node name="couch3" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="couch3" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.997441, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.997441, 44.5179, 0.000138432, -56.1707)
 metadata/_edit_group_ = true
 
-[node name="couch2_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/couch3"]
-mesh = SubResource("ArrayMesh_scn66")
+[node name="couch2_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/couch3"]
+mesh = SubResource("ArrayMesh_cqhcp")
 
-[node name="couch2_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/couch3"]
+[node name="couch2_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/couch3"]
 
-[node name="couch2_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/couch3/couch2_col"]
-shape = SubResource("ConvexPolygonShape3D_w8ost")
+[node name="couch2_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/couch3/couch2_col"]
+shape = SubResource("ConvexPolygonShape3D_gslor")
 
-[node name="TVTable" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="TVTable" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.997441, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.997441, 61.471, 0.000138432, -71.4217)
 metadata/_edit_group_ = true
 
-[node name="TVTable_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/TVTable"]
-mesh = SubResource("ArrayMesh_e44d5")
+[node name="TVTable_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/TVTable"]
+mesh = SubResource("ArrayMesh_4cmt4")
 
-[node name="TVTable_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/TVTable"]
+[node name="TVTable_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/TVTable"]
 
-[node name="TVTable_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/TVTable/TVTable_col"]
-shape = SubResource("ConvexPolygonShape3D_wa1ix")
+[node name="TVTable_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/TVTable/TVTable_col"]
+shape = SubResource("ConvexPolygonShape3D_ymg2a")
 
-[node name="TV" type="Node3D" parent="autoconverted_cyclops_blocks"]
+[node name="TV" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(0.99744, 0, 0.0714974, 0, 1, 0, -0.0714974, 0, 0.99744, 62.3254, 2.00014, -73.4887)
 metadata/_edit_group_ = true
 
-[node name="TV_mesh" type="MeshInstance3D" parent="autoconverted_cyclops_blocks/TV"]
-mesh = SubResource("ArrayMesh_i1eba")
+[node name="TV_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/TV"]
+mesh = SubResource("ArrayMesh_6tki8")
 
-[node name="TV_col" type="StaticBody3D" parent="autoconverted_cyclops_blocks/TV"]
+[node name="TV_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/TV"]
 
-[node name="TV_col_shp" type="CollisionShape3D" parent="autoconverted_cyclops_blocks/TV/TV_col"]
-shape = SubResource("ConvexPolygonShape3D_8els7")
+[node name="TV_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/TV/TV_col"]
+shape = SubResource("ConvexPolygonShape3D_y4gb2")
 
+[node name="Player" parent="Outside" instance=ExtResource("7_bi7qn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
+
+[node name="Skeleton3D" parent="Outside/Player/Armature" index="0"]
+bones/0/position = Vector3(-7.72725e-08, 1.04275, 0.0155411)
+bones/0/rotation = Quaternion(0.00645858, 0, -1.42109e-14, 0.999979)
+bones/1/rotation = Quaternion(-0.0801557, 3.56492e-15, -2.48068e-07, 0.996782)
+bones/7/rotation = Quaternion(-0.484431, 0.570964, -0.526164, -0.403087)
+bones/8/rotation = Quaternion(-0.0246162, 0.00256229, -0.103498, 0.994322)
+bones/11/rotation = Quaternion(0.253285, 0.0616183, -0.22821, 0.938067)
+bones/12/rotation = Quaternion(-0.00231575, -0.00117045, 0.00930012, 0.999953)
+bones/13/rotation = Quaternion(-0.00166474, -0.000807781, 0.00691975, 0.999974)
+bones/15/rotation = Quaternion(-6.05934e-07, 9.95362e-11, -0.000164268, 1)
+bones/16/rotation = Quaternion(-1.72154e-14, 2.29878e-15, 0.000255644, 1)
+bones/17/rotation = Quaternion(-3.39451e-14, 1.76595e-15, -8.7922e-05, 1)
+bones/19/rotation = Quaternion(-9.78174e-07, 4.90851e-10, -0.000501806, 1)
+bones/20/rotation = Quaternion(8.85472e-14, 3.80233e-16, 0.000849871, 1)
+bones/21/rotation = Quaternion(4.34722e-14, 3.96498e-15, -0.000321842, 1)
+bones/23/rotation = Quaternion(6.96317e-08, 1.08466e-11, 0.000155829, 1)
+bones/24/rotation = Quaternion(-1.19923e-13, -7.7412e-17, -0.000221515, 1)
+bones/25/rotation = Quaternion(-4.96625e-14, 1.21593e-16, -0.000112805, 1)
+bones/27/rotation = Quaternion(4.67072e-06, 2.43047e-09, 0.000520363, 1)
+bones/28/rotation = Quaternion(1.23512e-15, -8.06989e-15, 0.000846232, 1)
+bones/29/rotation = Quaternion(9.08162e-14, 3.51255e-14, -0.000496778, 1)
+bones/31/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
+bones/32/rotation = Quaternion(-0.0246064, -0.0025614, 0.103505, 0.994321)
+bones/35/rotation = Quaternion(0.253096, -0.0613232, 0.227353, 0.938346)
+bones/36/rotation = Quaternion(-0.00206703, 0.00104273, -0.00821341, 0.999964)
+bones/37/rotation = Quaternion(-0.00153136, 0.000745255, -0.00607312, 0.99998)
+bones/39/rotation = Quaternion(6.66576e-07, -2.93789e-11, -4.40765e-05, 1)
+bones/40/rotation = Quaternion(3.40721e-07, 3.58092e-11, 0.000105098, 1)
+bones/41/rotation = Quaternion(3.34751e-07, -2.21795e-11, -6.62491e-05, 1)
+bones/43/rotation = Quaternion(4.08474e-07, -1.2927e-11, -3.16464e-05, 1)
+bones/44/rotation = Quaternion(-1.63584e-07, -3.46816e-12, 2.11961e-05, 1)
+bones/45/rotation = Quaternion(-4.2759e-07, -8.85439e-12, 2.06895e-05, 1)
+bones/47/rotation = Quaternion(6.249e-07, 3.94937e-12, 6.31328e-06, 1)
+bones/51/rotation = Quaternion(-4.97554e-06, 1.01781e-08, 0.0020448, 0.999998)
+bones/52/rotation = Quaternion(6.28547e-07, -1.32415e-10, -0.00021066, 1)
+bones/53/rotation = Quaternion(1.05605e-07, -7.10643e-12, -6.70821e-05, 1)
+bones/55/rotation = Quaternion(2.70477e-09, 0.0103565, 0.999946, 2.61153e-07)
+bones/56/rotation = Quaternion(-0.0380914, -8.16316e-10, 2.14149e-08, 0.999274)
+bones/57/rotation = Quaternion(0.45974, -5.32907e-15, -1.24328e-07, 0.888054)
+bones/58/rotation = Quaternion(0.335242, -8.88178e-16, -1.11301e-07, 0.942132)
+bones/60/rotation = Quaternion(2.81916e-09, 0.010368, 0.999946, 2.71895e-07)
+bones/61/rotation = Quaternion(-0.0381125, -8.17274e-10, 2.14278e-08, 0.999274)
+bones/62/rotation = Quaternion(0.459749, 0, -1.16685e-07, 0.888049)
+bones/63/rotation = Quaternion(0.335241, -1.77636e-15, -1.14521e-07, 0.942132)
+
+[node name="Camera3D" parent="Outside/Player" index="5"]
+transform = Transform3D(1, -3.45983e-05, 0.000100179, 7.29233e-09, 0.945239, 0.326379, -0.000105985, -0.326379, 0.945239, 0.000688553, 3.94474, 8.50109)
+
+[node name="DebugPhantomCamera3D" parent="Outside/Player" index="6"]
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 16.9046, 2.47673, -42.413)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_at3ae")
+script = ExtResource("8_au8mo")
+
+[node name="AutoCamSwitcher" parent="." instance=ExtResource("11_67qxt")]
+unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8791, 10.4786, -50.3098)
+light_energy = 6.151
+omni_range = 65.0061
+
+[editable path="Outside/LowerFloor/SpawnArea/FollowPosCubicCamBoundary"]
 [editable path="Outside/LowerFloor/TopShelfArea/MovingPlatform"]
+[editable path="Outside/Player"]
