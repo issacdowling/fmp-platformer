@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 			#%Player.switch_scene("res://levels/Test2/2test_level_direct_rotation.tscn")
 
 			Toast.make_timed_toast("test", 4)
-
-			if camera.priority == 0:
-				camera.priority = 2
-			else:
-				camera.priority = 0
+#
+			#if camera.priority == 0:
+				#camera.priority = 2
+			#else:
+				#camera.priority = 0

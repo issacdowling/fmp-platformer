@@ -23,7 +23,6 @@ func spawn_platform() -> void:
 	platform = platform_scene.instantiate()
 	add_child(platform)
 	
-
 	if platform is AnimatableBody3D:
 		for platform_children in platform.get_children():
 			if platform_children is Area3D:
