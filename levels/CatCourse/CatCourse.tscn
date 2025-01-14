@@ -2111,7 +2111,7 @@ shape = SubResource("ConvexPolygonShape3D_y4gb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
 
 [node name="Skeleton3D" parent="Outside/Player/Armature" index="0"]
-bones/0/position = Vector3(-7.72725e-08, 1.04275, 0.0155411)
+bones/0/position = Vector3(-7.72729e-06, 1.55432, -104.275)
 bones/0/rotation = Quaternion(0.00645858, 0, -1.42109e-14, 0.999979)
 bones/1/rotation = Quaternion(-0.0801557, 3.56492e-15, -2.48068e-07, 0.996782)
 bones/7/rotation = Quaternion(-0.484431, 0.570964, -0.526164, -0.403087)
@@ -2156,7 +2156,7 @@ bones/62/rotation = Quaternion(0.459749, 0, -1.16685e-07, 0.888049)
 bones/63/rotation = Quaternion(0.335241, -1.77636e-15, -1.14521e-07, 0.942132)
 
 [node name="Camera3D" parent="Outside/Player" index="5"]
-transform = Transform3D(1, -3.45983e-05, 0.000100179, 7.29233e-09, 0.945239, 0.326379, -0.000105985, -0.326379, 0.945239, 0.000688553, 3.94474, 8.50109)
+transform = Transform3D(1, -3.45983e-05, 0.000100179, 7.29233e-09, 0.945239, 0.326379, -0.000105985, -0.326379, 0.945239, 0.00069046, 3.94474, 8.50109)
 
 [node name="DebugPhantomCamera3D" parent="Outside/Player" index="6"]
 transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 16.9046, 2.47673, -42.413)
