@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3ekmfg2dbmij"]
+[gd_scene load_steps=10 format=3 uid="uid://c3ekmfg2dbmij"]
 
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="1_18ivn"]
-[ext_resource type="PackedScene" uid="uid://b1gv2lqrimfto" path="res://levels/Test/test_level_direct_rotation.tscn" id="2_kvs6q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmsrd"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -23,8 +22,6 @@ bg_color = Color(0, 0, 0, 0.588235)
 [node name="Menu" type="CanvasLayer"]
 
 [node name="Background" type="Node3D" parent="."]
-
-[node name="TestLevelDirectRotation" parent="Background" instance=ExtResource("2_kvs6q")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
 anchors_preset = 15
