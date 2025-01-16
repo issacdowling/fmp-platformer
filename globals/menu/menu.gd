@@ -28,11 +28,20 @@ signal setting_changed
 @onready var TransitionAnimator: AnimationPlayer = %TransitionAnimator
 
 @onready var PauseControl: Control = %Pause
+@onready var settings_quit_button: Button = %QuitFromSettingsBtn
+@onready var settings_settings_button: Button = %SettingsFromSettingsBtn
 
-# Called when the node enters the scene tree for the first time.
+@onready var main_menu_control: Control = %MainMenu
+@onready var start_button: Button = %StartBtn
+@onready var settings_button: Button = %SettingsBtn
+@onready var quit_button: Button = %QuitBtn
+
+
+# This is not called on level scene changes, just the initial game load.
 func _ready() -> void:
 	PauseControl.visible = false
 	TransitionControl.visible = false
+	main_menu_control.visible = true
 	
 	GlobalIlluminationToggle.toggled.connect(_on_global_illumination_toggle_toggled)
 	GlobalIlluminationCascadesSlider.value_changed.connect(on_global_illumination_cascades_value_changed)
@@ -49,16 +58,35 @@ func _ready() -> void:
 	RendererOptionsDropdown.add_item(RENDERER_ADVANCED)
 	RendererOptionsDropdown.add_item(RENDERER_BASIC)
 	RendererOptionsDropdown.add_item(RENDERER_COMPATIBILITY)
+	
+	# Register main menu buttons
+	start_button.pressed.connect(func() -> void: 
+		await get_tree().create_timer(begin_transition()).timeout 
+		get_tree().change_scene_to_file("res://levels/Test/test_level_direct_rotation.tscn")
+		main_menu_control.visible = false
+		exit_transition()
+	)
+	settings_button.pressed.connect(func() -> void: Menu.toggle_pause_menu())
+	settings_settings_button.pressed.connect(func() -> void: Menu.toggle_pause_menu())
+	quit_button.pressed.connect(func() -> void: get_tree().quit())
+	settings_quit_button.pressed.connect(func() -> void: get_tree().quit())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause_menu()
-		
+
+# Includes logic to close and reopen the main menu where relevant
+var pause_should_reopen_main: bool = false
 func toggle_pause_menu() -> void:
 	if PauseControl.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if pause_should_reopen_main:
+			main_menu_control.visible = true
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if !PauseControl.visible:
+		pause_should_reopen_main = main_menu_control.visible
+		main_menu_control.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	PauseControl.visible = !PauseControl.visible
 	

@@ -2111,21 +2111,7 @@ shape = SubResource("ConvexPolygonShape3D_y4gb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
 
 [node name="Skeleton3D" parent="Outside/Player/Armature" index="1"]
-bones/0/rotation = Quaternion(0.00645855, 0, 0, 0.999979)
-bones/1/rotation = Quaternion(-0.0801557, 1.77636e-15, -2.48068e-07, 0.996782)
-bones/7/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
-bones/8/rotation = Quaternion(-0.0246064, -0.0025614, 0.103505, 0.994321)
-bones/11/rotation = Quaternion(0.484431, -0.570964, 0.526164, 0.403087)
-bones/12/rotation = Quaternion(-0.0246162, 0.00256229, -0.103498, 0.994322)
-bones/15/rotation = Quaternion(2.80852e-09, 0.010368, 0.999946, 2.71714e-07)
-bones/16/rotation = Quaternion(-0.0381125, -8.73115e-10, 2.054e-08, 0.999274)
-bones/17/rotation = Quaternion(0.459749, 1.86264e-09, -1.1659e-07, 0.888049)
-bones/18/rotation = Quaternion(0.335241, 1.86265e-09, -1.16881e-07, 0.942132)
 bones/19/rotation = Quaternion(-9.78174e-07, 4.90851e-10, -0.000501806, 1)
-bones/20/rotation = Quaternion(2.69938e-09, 0.0103565, 0.999946, 2.61236e-07)
-bones/21/rotation = Quaternion(-0.0380914, -6.98492e-10, 1.70912e-08, 0.999274)
-bones/22/rotation = Quaternion(0.45974, 0, -1.22149e-07, 0.888054)
-bones/23/rotation = Quaternion(0.335242, 9.31323e-09, -1.03842e-07, 0.942132)
 bones/24/rotation = Quaternion(-1.19923e-13, -7.7412e-17, -0.000221515, 1)
 
 [node name="Camera3D" parent="Outside/Player" index="5"]

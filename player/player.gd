@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 
 @export var WALK_SPEED: float = 3.0
@@ -8,13 +9,16 @@ extends CharacterBody3D
 @export var MOUSE_LOOK_SENSITIVITY: int = 1
 @export var CONTROLLER_LOOK_SENSITIVITY: int = 1
 
+@export var STEAL_MOUSE_ON_START: bool = true
+
 var air_time: float = 0
 var current_walk_speed: float
 var wall_time: float = 0
 var time_since_wall: float = 0
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if STEAL_MOUSE_ON_START:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func switch_scene(scene_file: String) -> void:
 	# As begin_transition returns the length of the transition, we wait for that long before switching scene
