@@ -233,6 +233,7 @@ outer_radius = 0.189985
 sides = 3
 ring_sides = 3
 script = ExtResource("19_evj46")
+delay_seconds = 0.2
 
 [editable path="TestLevel/Bridge/MovingPlatform"]
 [editable path="TestLevel/BreakingPlatform"]
