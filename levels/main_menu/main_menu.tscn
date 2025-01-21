@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3ekmfg2dbmij"]
 
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_51xmt"]
-[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_aam2b"]
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="2_aam2b"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="3_23c3n"]
 
 [sub_resource type="Environment" id="Environment_5mfel"]
@@ -10,6 +10,7 @@ background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
 sdfgi_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.896961, 0.000465906, 0.860401, 1)
+fog_density = 0.0021
 
 [node name="Background" type="Node3D"]
 

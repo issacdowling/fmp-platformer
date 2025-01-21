@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3sg8isli1i7w"]
+
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k85ke"]
+
+[sub_resource type="Sky" id="Sky_d6o26"]
+sky_material = SubResource("PanoramaSkyMaterial_k85ke")
+
+[sub_resource type="Environment" id="Environment_ju51b"]
+background_mode = 2
+background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
+sky = SubResource("Sky_d6o26")
+sdfgi_enabled = true
+
+[node name="LevelHub" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.3507)
+size = Vector3(3, 3, 3)
+
+[node name="Planets" type="Node3D" parent="."]
+
+[node name="World1Planet" type="CSGSphere3D" parent="Planets"]
+radius = 10.0
+
+[node name="World2Planet" type="CSGSphere3D" parent="Planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+radius = 10.0
+
+[node name="World3Planet" type="CSGSphere3D" parent="Planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+radius = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ju51b")
+script = ExtResource("1_y2wm1")

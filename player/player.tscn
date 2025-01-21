@@ -1,10 +1,10 @@
 [gd_scene load_steps=51 format=4 uid="uid://bp88r7c146h7x"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_ipr3t"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_gbp7t"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_siun6"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6nn8r"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_mlpwk"]
+[ext_resource type="Script" uid="uid://b487f0jvleb6i" path="res://player/player.gd" id="1_ipr3t"]
+[ext_resource type="Script" uid="uid://di2qa8bok7k1b" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_gbp7t"]
+[ext_resource type="Script" uid="uid://hba4466hpptk" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_siun6"]
+[ext_resource type="Script" uid="uid://c8umwf1kog5gv" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6nn8r"]
+[ext_resource type="Script" uid="uid://bjymlr87qk4d1" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_mlpwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r36s3"]
 resource_name = "BackpackMat"
@@ -2266,11 +2266,11 @@ tracks/51/keys = PackedFloat32Array(0, 1, 7.02328e-08, -6.73742e-09, 1.33297e-08
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_su8uu"]
 _data = {
-"Idle": SubResource("Animation_w0tma"),
-"Medium-Run": SubResource("Animation_kaaj8"),
-"RESET": SubResource("Animation_4asxr"),
-"Sprint": SubResource("Animation_lgjgi"),
-"Walking": SubResource("Animation_qkqbx")
+&"Idle": SubResource("Animation_w0tma"),
+&"Medium-Run": SubResource("Animation_kaaj8"),
+&"RESET": SubResource("Animation_4asxr"),
+&"Sprint": SubResource("Animation_lgjgi"),
+&"Walking": SubResource("Animation_qkqbx")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b5uy8"]
@@ -2585,8 +2585,9 @@ skin = SubResource("Skin_at025")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_motion_track = NodePath("Armature/Skeleton3D:mixamorig_Hips")
+root_motion_local = false
 libraries = {
-"": SubResource("AnimationLibrary_su8uu")
+&"": SubResource("AnimationLibrary_su8uu")
 }
 
 [node name="PlayerCollider" type="CollisionShape3D" parent="."]
@@ -2595,6 +2596,7 @@ shape = SubResource("SphereShape3D_b5uy8")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_motion_track = NodePath("Armature/Skeleton3D:mixamorig_Spine2")
+root_motion_local = false
 tree_root = SubResource("AnimationNodeStateMachine_gnl8d")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
@@ -2610,6 +2612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("SphereShape3D_b5uy8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 3.838)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
