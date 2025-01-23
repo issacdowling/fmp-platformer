@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bb2q3gj3qkt65"
-path="res://.godot/imported/player.fbx-fb93fe77c15651766ff21395e5f71c8f.scn"
+uid="uid://dq3hs5begqork"
+path="res://.godot/imported/spaceship.glb-20a4c33d995d54a0f55ed7dbc89e3fbc.scn"
 
 [deps]
 
-source_file="res://player/player.fbx"
-dest_files=["res://.godot/imported/player.fbx-fb93fe77c15651766ff21395e5f71c8f.scn"]
+source_file="res://reusables/spaceship/spaceship.glb"
+dest_files=["res://.godot/imported/spaceship.glb-20a4c33d995d54a0f55ed7dbc89e3fbc.scn"]
 
 [params]
 
@@ -28,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1
