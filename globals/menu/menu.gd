@@ -62,7 +62,7 @@ func _ready() -> void:
 	# Register main menu buttons
 	start_button.pressed.connect(func() -> void: 
 		await get_tree().create_timer(begin_transition()).timeout 
-		get_tree().change_scene_to_file("res://levels/Test/test_level_direct_rotation.tscn")
+		get_tree().change_scene_to_file("res://levels/level_hub/level_hub.tscn")
 		main_menu_control.visible = false
 		exit_transition()
 	)

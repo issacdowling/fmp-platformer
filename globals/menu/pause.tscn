@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2dt6e5a7p78k"]
+[gd_scene load_steps=18 format=3 uid="uid://c2dt6e5a7p78k"]
 
 [ext_resource type="Script" uid="uid://cekq2gyciyi2c" path="res://globals/menu/menu.gd" id="1_uhrtt"]
 [ext_resource type="Script" uid="uid://c58f63ecb32x3" path="res://globals/menu/setting_setter.gd" id="2_7tkhg"]
-[ext_resource type="Script" uid="uid://dhq4mklwmuef6" path="res://levels/main_menu/main_menu.gd" id="3_bife4"]
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="4_h1kxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225hg"]
@@ -323,7 +322,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_bife4")
 
 [node name="Panel" type="Panel" parent="MainMenu"]
 layout_mode = 2

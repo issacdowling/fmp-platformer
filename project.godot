@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Toast="*res://globals/toast/toast.tscn"
 Menu="*res://globals/menu/pause.tscn"
-CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 
 [debug]
 
@@ -120,6 +119,7 @@ sprint={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-scaling_3d/mode=2
-scaling_3d/scale=0.5
+scaling_3d/mode=1
+scaling_3d/scale=0.8

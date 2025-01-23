@@ -1,36 +1,142 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=19 format=3 uid="uid://b3sg8isli1i7w"]
 
+[ext_resource type="Script" uid="uid://bup52e30c2mvp" path="res://levels/level_hub/level_hub.gd" id="1_1wam8"]
+[ext_resource type="Material" uid="uid://bvpl8cd75jrer" path="res://materials/ship_visor_mat.tres" id="1_dl3s2"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
+[ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_1bb6e"]
+[ext_resource type="Script" uid="uid://dmjkvru848mbq" path="res://levels/level_hub/planet.gd" id="2_4k3rs"]
+[ext_resource type="Script" uid="uid://iet5irh8g2xy" path="res://levels/level_hub/worlds.gd" id="2_yrwlk"]
+[ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="5_78q5s"]
+[ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="6_78q5s"]
+[ext_resource type="Material" uid="uid://dr48476rdb2wt" path="res://materials/star_mat.tres" id="7_1wam8"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k85ke"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrwlk"]
+albedo_color = Color(4.04298e-06, 0.603729, 0.780475, 1)
 
-[sub_resource type="Sky" id="Sky_d6o26"]
-sky_material = SubResource("PanoramaSkyMaterial_k85ke")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wam8"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_kjme3"]
+material = SubResource("StandardMaterial3D_1wam8")
+text = "World 1"
+font = ExtResource("5_78q5s")
+font_size = 120
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhb0"]
+albedo_color = Color(0.811415, 0.439274, 1.92523e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j44j"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_sstcx"]
+material = SubResource("StandardMaterial3D_4j44j")
+text = "World 2"
+font = ExtResource("5_78q5s")
+font_size = 120
+
+[sub_resource type="SphereMesh" id="SphereMesh_kjme3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78q5s"]
+size = Vector3(345, 212, 180.462)
 
 [sub_resource type="Environment" id="Environment_ju51b"]
-background_mode = 2
+background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
-sky = SubResource("Sky_d6o26")
 sdfgi_enabled = true
 
 [node name="LevelHub" type="Node3D"]
+script = ExtResource("1_1wam8")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.3507)
-size = Vector3(3, 3, 3)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0078364, -0.847096, 0.531382, -7.98088e-09, 0.531398, 0.847122, -0.999969, -0.00663838, 0.00416417, 0, 0, 0)
+light_color = Color(1, 0.523991, 0.338518, 1)
+light_energy = 1.55
+shadow_enabled = true
 
-[node name="Planets" type="Node3D" parent="."]
+[node name="ShipInner" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113617, 0, 27.655)
+use_collision = true
+size = Vector3(13.893, 6, 8.51852)
 
-[node name="World1Planet" type="CSGSphere3D" parent="Planets"]
+[node name="ShipHollow" type="CSGBox3D" parent="ShipInner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.152142, -0.117357)
+operation = 2
+size = Vector3(8.9, 4.4056, 4.58071)
+
+[node name="ShipVisor" type="CSGBox3D" parent="ShipInner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00958203, -0.209087, -2.485)
+size = Vector3(7.3584, 3.63001, 0.252)
+material = ExtResource("1_dl3s2")
+
+[node name="Player" parent="ShipInner" instance=ExtResource("2_1bb6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0172296, -1.53784, -0.749699)
+
+[node name="Worlds" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("2_yrwlk")
+
+[node name="World 1" type="CSGSphere3D" parent="Worlds"]
+transform = Transform3D(0.430979, 0, -0.90161, 0, 1, 0, 0.90161, 0, 0.430979, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yrwlk")
 radius = 10.0
+rings = 12
+script = ExtResource("2_4k3rs")
 
-[node name="World2Planet" type="CSGSphere3D" parent="Planets"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
-radius = 10.0
+[node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
+mesh = SubResource("TextMesh_kjme3")
 
-[node name="World3Planet" type="CSGSphere3D" parent="Planets"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+[node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/World 1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
+mesh = SubResource("TextMesh_kjme3")
+
+[node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/World 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
+mesh = SubResource("TextMesh_kjme3")
+
+[node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 1"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
+mesh = SubResource("TextMesh_kjme3")
+
+[node name="World 2" type="CSGSphere3D" parent="Worlds"]
+transform = Transform3D(0.430979, 0, -0.90161, 0, 1, 0, 0.90161, 0, 0.430979, 50, 0, 0)
+material_override = SubResource("StandardMaterial3D_mfhb0")
 radius = 10.0
+rings = 12
+script = ExtResource("2_4k3rs")
+
+[node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
+mesh = SubResource("TextMesh_sstcx")
+
+[node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/World 2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
+mesh = SubResource("TextMesh_sstcx")
+
+[node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/World 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
+mesh = SubResource("TextMesh_sstcx")
+
+[node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 2"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
+mesh = SubResource("TextMesh_sstcx")
+
+[node name="Stars" type="Node3D" parent="Worlds"]
+script = ExtResource("6_78q5s")
+star_number = 300
+
+[node name="Star" type="MeshInstance3D" parent="Worlds/Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8284, 0, 0)
+material_override = ExtResource("7_1wam8")
+mesh = SubResource("SphereMesh_kjme3")
+
+[node name="StarArea" type="Area3D" parent="Worlds/Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.191)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Worlds/Stars/StarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0931, 11, -80.231)
+shape = SubResource("BoxShape3D_78q5s")
+disabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ju51b")

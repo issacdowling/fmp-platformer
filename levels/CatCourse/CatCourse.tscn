@@ -1,13 +1,13 @@
 [gd_scene load_steps=134 format=4 uid="uid://c6yc33n5qy0uh"]
 
-[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev_floor.tres" id="1_pmayf"]
-[ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev_wall.tres" id="2_2r5qb"]
-[ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev_walkable.tres" id="3_mu51g"]
+[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_pmayf"]
+[ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev/dev_wall.tres" id="2_2r5qb"]
+[ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev/dev_walkable.tres" id="3_mu51g"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="4_bxdgg"]
 [ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="5_ppptb"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="5_sxtm4"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="7_bi7qn"]
-[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="8_au8mo"]
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="8_au8mo"]
 [ext_resource type="PackedScene" uid="uid://4ltkjln326sy" path="res://reusables/auto_cam_switcher/auto_cam_switcher.tscn" id="11_67qxt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qdaj7"]

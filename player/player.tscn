@@ -2613,7 +2613,7 @@ shape = SubResource("SphereShape3D_b5uy8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 3.838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 5.99991)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -2621,18 +2621,17 @@ process_physics_priority = 300
 script = ExtResource("2_gbp7t")
 
 [node name="DebugPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 3.838)
-top_level = true
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 5.99991)
 script = ExtResource("3_siun6")
 priority = 1
-follow_mode = 2
+follow_mode = 6
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_ldx6w")
 camera_3d_resource = SubResource("Resource_addd1")
-follow_offset = Vector3(0, 1.477, 3.838)
+follow_offset = Vector3(0, 1.477, 0)
 follow_damping = true
 follow_damping_value = Vector3(0.15, 0.3, 0.15)
-follow_distance = 4.392
-spring_length = 4.392
+follow_distance = 6.0
+spring_length = 6.0
 look_at_offset = Vector3(0, 1.016, 0)
 look_at_damping = true

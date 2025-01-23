@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cv2ain8pssitl"]
 
-[ext_resource type="Script" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="2_xei0b"]
-[ext_resource type="Material" uid="uid://dscgtq6bx04qn" path="res://materials/dev_breaking.tres" id="3_t3ni7"]
+[ext_resource type="Script" uid="uid://ca2xius60is4v" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="2_xei0b"]
+[ext_resource type="Material" uid="uid://dscgtq6bx04qn" path="res://materials/dev/dev_breaking.tres" id="3_t3ni7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xih8e"]
 size = Vector3(2, 0.2, 2)
