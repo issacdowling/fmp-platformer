@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=18 format=3 uid="uid://b3sg8isli1i7w"]
 
-[ext_resource type="Script" uid="uid://bup52e30c2mvp" path="res://levels/level_hub/level_hub.gd" id="1_1wam8"]
 [ext_resource type="Material" uid="uid://bvpl8cd75jrer" path="res://materials/ship_visor_mat.tres" id="1_dl3s2"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_1bb6e"]
@@ -45,7 +44,6 @@ background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
 sdfgi_enabled = true
 
 [node name="LevelHub" type="Node3D"]
-script = ExtResource("1_1wam8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0078364, -0.847096, 0.531382, -7.98088e-09, 0.531398, 0.847122, -0.999969, -0.00663838, 0.00416417, 0, 0, 0)
@@ -54,7 +52,7 @@ light_energy = 1.55
 shadow_enabled = true
 
 [node name="ShipInner" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113617, 0, 27.655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114, -3, 27.655)
 use_collision = true
 size = Vector3(13.893, 6, 8.51852)
 
@@ -76,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="CSGSphere3D" parent="Worlds"]
-transform = Transform3D(0.430979, 0, -0.90161, 0, 1, 0, 0.90161, 0, 0.430979, 0, 0, 0)
+transform = Transform3D(-0.162941, 0, 0.985902, 0, 1, 0, -0.985902, 0, -0.162941, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 radius = 10.0
 rings = 12
@@ -98,12 +96,16 @@ mesh = SubResource("TextMesh_kjme3")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
 mesh = SubResource("TextMesh_kjme3")
 
+[node name="Levels" type="Node3D" parent="Worlds/World 1"]
+
 [node name="World 2" type="CSGSphere3D" parent="Worlds"]
-transform = Transform3D(0.430979, 0, -0.90161, 0, 1, 0, 0.90161, 0, 0.430979, 50, 0, 0)
+transform = Transform3D(-0.162941, 0, 0.985902, 0, 1, 0, -0.985902, 0, -0.162941, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 radius = 10.0
 rings = 12
 script = ExtResource("2_4k3rs")
+world_number = 1
+world_name = "Second world"
 
 [node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
@@ -120,6 +122,8 @@ mesh = SubResource("TextMesh_sstcx")
 [node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
 mesh = SubResource("TextMesh_sstcx")
+
+[node name="Levels" type="Node3D" parent="Worlds/World 2"]
 
 [node name="Stars" type="Node3D" parent="Worlds"]
 script = ExtResource("6_78q5s")
