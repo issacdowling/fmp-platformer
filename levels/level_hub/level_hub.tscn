@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=30 format=3 uid="uid://b3sg8isli1i7w"]
 
 [ext_resource type="Material" uid="uid://bvpl8cd75jrer" path="res://materials/ship_visor_mat.tres" id="1_dl3s2"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
@@ -7,33 +7,88 @@
 [ext_resource type="Script" uid="uid://iet5irh8g2xy" path="res://levels/level_hub/worlds.gd" id="2_yrwlk"]
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="5_78q5s"]
 [ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="6_78q5s"]
-[ext_resource type="Material" uid="uid://dr48476rdb2wt" path="res://materials/star_mat.tres" id="7_1wam8"]
+[ext_resource type="Script" uid="uid://cyskcx6udgssu" path="res://levels/level_hub/level.gd" id="7_kjme3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrwlk"]
 albedo_color = Color(4.04298e-06, 0.603729, 0.780475, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wam8"]
+[sub_resource type="SphereMesh" id="SphereMesh_78q5s"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78q5s"]
 shading_mode = 0
 
-[sub_resource type="TextMesh" id="TextMesh_kjme3"]
-material = SubResource("StandardMaterial3D_1wam8")
-text = "World 1"
-font = ExtResource("5_78q5s")
-font_size = 120
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhb0"]
-albedo_color = Color(0.811415, 0.439274, 1.92523e-07, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j44j"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_sstcx"]
-material = SubResource("StandardMaterial3D_4j44j")
-text = "World 2"
+[sub_resource type="TextMesh" id="TextMesh_1wam8"]
+material = SubResource("StandardMaterial3D_78q5s")
+text = "First World"
 font = ExtResource("5_78q5s")
 font_size = 120
 
 [sub_resource type="SphereMesh" id="SphereMesh_kjme3"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjme3"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_4j44j"]
+material = SubResource("StandardMaterial3D_kjme3")
+text = "Example Level"
+font = ExtResource("5_78q5s")
+font_size = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sstcx"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_1uirp"]
+material = SubResource("StandardMaterial3D_sstcx")
+text = "2level 2furious"
+font = ExtResource("5_78q5s")
+font_size = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhb0"]
+albedo_color = Color(0.811415, 0.439274, 1.92523e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4j44j"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se5p2"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_ap8xr"]
+material = SubResource("StandardMaterial3D_se5p2")
+text = "Second world"
+font = ExtResource("5_78q5s")
+font_size = 120
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2ypr"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_4wkui"]
+material = SubResource("StandardMaterial3D_c2ypr")
+text = "Example Level"
+font = ExtResource("5_78q5s")
+font_size = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd2n8"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_a6a4n"]
+material = SubResource("StandardMaterial3D_yd2n8")
+text = "2level 2furious"
+font = ExtResource("5_78q5s")
+font_size = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj6ye"]
+shading_mode = 0
+
+[sub_resource type="TextMesh" id="TextMesh_qvt0v"]
+material = SubResource("StandardMaterial3D_hj6ye")
+text = "3level 3furious"
+font = ExtResource("5_78q5s")
+font_size = 32
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_78q5s"]
 size = Vector3(345, 212, 180.462)
@@ -67,72 +122,120 @@ size = Vector3(7.3584, 3.63001, 0.252)
 material = ExtResource("1_dl3s2")
 
 [node name="Player" parent="ShipInner" instance=ExtResource("2_1bb6e")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0172296, -1.53784, -0.749699)
 
 [node name="Worlds" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
-[node name="World 1" type="CSGSphere3D" parent="Worlds"]
-transform = Transform3D(-0.162941, 0, 0.985902, 0, 1, 0, -0.985902, 0, -0.162941, 0, 0, 0)
+[node name="World 1" type="MeshInstance3D" parent="Worlds"]
+transform = Transform3D(-0.95669, 0, 0.286126, 0, 1, 0, -0.286126, 0, -0.95669, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
-radius = 10.0
-rings = 12
+mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
+world_name = "First World"
 
 [node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
-mesh = SubResource("TextMesh_kjme3")
+mesh = SubResource("TextMesh_1wam8")
 
 [node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/World 1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
-mesh = SubResource("TextMesh_kjme3")
+mesh = SubResource("TextMesh_1wam8")
 
 [node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/World 1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
-mesh = SubResource("TextMesh_kjme3")
+mesh = SubResource("TextMesh_1wam8")
 
 [node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 1"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
-mesh = SubResource("TextMesh_kjme3")
+mesh = SubResource("TextMesh_1wam8")
 
 [node name="Levels" type="Node3D" parent="Worlds/World 1"]
+transform = Transform3D(0.999258, 0, 0, 0, 0.999876, 0, 0, 0, 0.999258, 0, -2, 20)
+top_level = true
 
-[node name="World 2" type="CSGSphere3D" parent="Worlds"]
-transform = Transform3D(-0.162941, 0, 0.985902, 0, 1, 0, -0.985902, 0, -0.162941, 50, 0, 0)
+[node name="Level1" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
+mesh = SubResource("SphereMesh_kjme3")
+script = ExtResource("7_kjme3")
+
+[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("TextMesh_4j44j")
+
+[node name="Level2" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
+mesh = SubResource("SphereMesh_kjme3")
+script = ExtResource("7_kjme3")
+level_number = 1
+level_name = "2level 2furious"
+
+[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("TextMesh_1uirp")
+
+[node name="World 2" type="MeshInstance3D" parent="Worlds"]
+transform = Transform3D(-0.934664, 0, -0.351447, 0, 1, 0, 0.351447, 0, -0.934664, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
-radius = 10.0
-rings = 12
+mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
 world_number = 1
 world_name = "Second world"
 
 [node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
-mesh = SubResource("TextMesh_sstcx")
+mesh = SubResource("TextMesh_ap8xr")
 
 [node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
-mesh = SubResource("TextMesh_sstcx")
+mesh = SubResource("TextMesh_ap8xr")
 
 [node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
-mesh = SubResource("TextMesh_sstcx")
+mesh = SubResource("TextMesh_ap8xr")
 
 [node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
-mesh = SubResource("TextMesh_sstcx")
+mesh = SubResource("TextMesh_ap8xr")
 
 [node name="Levels" type="Node3D" parent="Worlds/World 2"]
+transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 50, -2, 20)
+top_level = true
+
+[node name="Level1" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
+mesh = SubResource("SphereMesh_kjme3")
+script = ExtResource("7_kjme3")
+
+[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("TextMesh_4wkui")
+
+[node name="Level2" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
+mesh = SubResource("SphereMesh_kjme3")
+script = ExtResource("7_kjme3")
+level_number = 1
+level_name = "2level 2furious"
+
+[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("TextMesh_a6a4n")
+
+[node name="Level3" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 8, 0, 0)
+mesh = SubResource("SphereMesh_kjme3")
+script = ExtResource("7_kjme3")
+level_number = 2
+level_name = "3level 3furious"
+
+[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("TextMesh_qvt0v")
 
 [node name="Stars" type="Node3D" parent="Worlds"]
 script = ExtResource("6_78q5s")
 star_number = 300
-
-[node name="Star" type="MeshInstance3D" parent="Worlds/Stars"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8284, 0, 0)
-material_override = ExtResource("7_1wam8")
-mesh = SubResource("SphereMesh_kjme3")
 
 [node name="StarArea" type="Area3D" parent="Worlds/Stars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.191)
