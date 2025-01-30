@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="16_4b1us"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="16_quii4"]
 [ext_resource type="PackedScene" uid="uid://do0qhs5cp2o0o" path="res://reusables/auto_cam_switcher/boundaries/look_pos_cubic_cam_boundary.tscn" id="16_xlt82"]
-[ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://levels/Test/enemy.gd" id="19_evj46"]
+[ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://levels/Test/turret.gd" id="19_evj46"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
@@ -76,6 +76,7 @@ environment = SubResource("Environment_y05tk")
 script = ExtResource("2_co74o")
 
 [node name="TestLevel" type="Node3D" parent="."]
+visible = false
 
 [node name="Floor" type="StaticBody3D" parent="TestLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
