@@ -130,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.95669, 0, 0.286126, 0, 1, 0, -0.286126, 0, -0.95669, 0, 0, 0)
+transform = Transform3D(0.0385807, 0, 0.997797, 0, 1, 0, -0.997797, 0, 0.0385807, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -161,7 +161,7 @@ mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_4j44j")
 
 [node name="Level2" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
@@ -172,11 +172,11 @@ level_number = 1
 level_name = "2level 2furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_1uirp")
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.934664, 0, -0.351447, 0, 1, 0, 0.351447, 0, -0.934664, 50, 0, 0)
+transform = Transform3D(-0.573339, 0, 0.817514, 0, 1, 0, -0.817514, 0, -0.573339, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -208,7 +208,7 @@ mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_4wkui")
 
 [node name="Level2" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
@@ -219,7 +219,7 @@ level_number = 1
 level_name = "2level 2furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_a6a4n")
 
 [node name="Level3" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
