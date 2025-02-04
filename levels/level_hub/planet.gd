@@ -46,6 +46,7 @@ func _ready() -> void:
 	for child in level_container.get_children():
 		if child is Level:
 			total_levels += 1
+			assert(!levels.has(child.level_number), "Levels under a planet should not share level numbers.")
 			child.position = Vector3(inter_level_distance*child.level_number, 0, 0)
 
 			levels[child.level_number] = child

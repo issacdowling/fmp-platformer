@@ -12,9 +12,12 @@ func _ready() -> void:
 		# If there are ever issues recognising worlds in the future, it'll be because of this
 		if child is Planet:
 			child.global_position = Vector3(intergalactic_planetary*child.world_number, 0, 0)
+			assert(!planets.has(child.world_number), "Worlds should not share the same world number.")
 			planets[child.world_number] = child
 			total_worlds += 1
 			child.selecting_levels.connect(_inhibit_level_controls)
+			
+		print("Total worlds: ", total_worlds)
 
 func _process(delta: float) -> void:
 	self.position.x = lerp(self.position.x, -intergalactic_planetary*target_world, 0.1)
