@@ -1,10 +1,10 @@
 [gd_scene load_steps=51 format=4 uid="uid://bp88r7c146h7x"]
 
 [ext_resource type="Script" uid="uid://b487f0jvleb6i" path="res://player/player.gd" id="1_ipr3t"]
-[ext_resource type="Script" uid="uid://di2qa8bok7k1b" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_gbp7t"]
-[ext_resource type="Script" uid="uid://hba4466hpptk" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_siun6"]
-[ext_resource type="Script" uid="uid://c8umwf1kog5gv" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6nn8r"]
-[ext_resource type="Script" uid="uid://bjymlr87qk4d1" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_mlpwk"]
+[ext_resource type="Script" uid="uid://la8br4v5nwj1" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_gbp7t"]
+[ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_siun6"]
+[ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6nn8r"]
+[ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_mlpwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r36s3"]
 resource_name = "BackpackMat"

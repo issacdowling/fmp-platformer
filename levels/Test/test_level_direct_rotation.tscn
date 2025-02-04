@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=32 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_tgr5i"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="16_quii4"]
 [ext_resource type="PackedScene" uid="uid://do0qhs5cp2o0o" path="res://reusables/auto_cam_switcher/boundaries/look_pos_cubic_cam_boundary.tscn" id="16_xlt82"]
 [ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://levels/Test/turret.gd" id="19_evj46"]
+[ext_resource type="Script" uid="uid://dnayqjtla6kfi" path="res://reusables/enemy.gd" id="20_4yqp4"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
@@ -59,6 +60,10 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_bnadc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4yqp4"]
+
 [node name="TestLevelDirectRotation" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dxe4g")]
@@ -76,7 +81,6 @@ environment = SubResource("Environment_y05tk")
 script = ExtResource("2_co74o")
 
 [node name="TestLevel" type="Node3D" parent="."]
-visible = false
 
 [node name="Floor" type="StaticBody3D" parent="TestLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
@@ -232,7 +236,10 @@ spring_length = 6.0
 [node name="Camera" parent="LookPosCubicCamBoundary" index="1" node_paths=PackedStringArray("look_at_target")]
 look_at_target = NodePath("../../Player")
 
-[node name="enemy" type="CSGTorus3D" parent="."]
+[node name="Enemies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12869, 0, 0)
+
+[node name="Turret" type="CSGTorus3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 0, 0)
 inner_radius = 0.652
 outer_radius = 0.189985
@@ -240,6 +247,17 @@ sides = 3
 ring_sides = 3
 script = ExtResource("19_evj46")
 delay_seconds = 0.2
+
+[node name="Test_enemy" type="MeshInstance3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
+mesh = SubResource("CylinderMesh_bnadc")
+skeleton = NodePath("../Turret")
+script = ExtResource("20_4yqp4")
+
+[node name="EnemyArea" type="Area3D" parent="Enemies/Test_enemy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Test_enemy/EnemyArea"]
+shape = SubResource("CylinderShape3D_4yqp4")
 
 [editable path="TestLevel/Bridge/MovingPlatform"]
 [editable path="TestLevel/BreakingPlatform"]
