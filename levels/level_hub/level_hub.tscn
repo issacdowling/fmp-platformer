@@ -107,7 +107,7 @@ shading_mode = 0
 
 [sub_resource type="TextMesh" id="TextMesh_ac7hc"]
 material = SubResource("StandardMaterial3D_bdsrw")
-text = "Example Level"
+text = "Test Scene"
 font = ExtResource("5_78q5s")
 font_size = 32
 
@@ -169,7 +169,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.997756, 0, -0.0386649, 0, 1, 0, 0.0386649, 0, 0.997756, 0, 0, 0)
+transform = Transform3D(0.560606, 0, 0.826123, 0, 1, 0, -0.826123, 0, 0.560606, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -215,7 +215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_1uirp")
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.817524, 0, 0.573248, 0, 1, 0, -0.573248, 0, 0.817524, 50, 0, 0)
+transform = Transform3D(-0.053933, 0, 0.99695, 0, 1, 0, -0.99695, 0, -0.053933, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -273,7 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_qvt0v")
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.988061, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.988061, 100, 0, 0)
+transform = Transform3D(0.409684, 0, 0.908858, 0, 1, 0, -0.908858, 0, 0.409684, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")

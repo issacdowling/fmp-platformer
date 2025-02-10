@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt4a1hytlvg6l"]
+
+[ext_resource type="Script" uid="uid://bus0ebdjimboy" path="res://globals/collectables/collectables.gd" id="1_jd3wc"]
+
+[node name="Collectables" type="Node"]
+script = ExtResource("1_jd3wc")
+
+[node name="CollectableDisplayTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
