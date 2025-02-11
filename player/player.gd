@@ -11,6 +11,8 @@ class_name Player
 
 @export var STEAL_MOUSE_ON_START: bool = true
 
+@onready var health: HealthEntity = $HealthEntity
+
 var air_time: float = 0
 var current_walk_speed: float
 var wall_time: float = 0

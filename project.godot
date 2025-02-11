@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Toast="*res://globals/toast/toast.tscn"
 Menu="*res://globals/menu/pause.tscn"
-HealthSystem="*res://globals/health_system/health_system.gd"
 Collectables="*res://globals/collectables/collectables.tscn"
 
 [debug]

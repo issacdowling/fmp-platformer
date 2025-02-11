@@ -6,4 +6,6 @@ func _ready() -> void:
 	area.area_entered.connect(_on_collision)
 	
 func _on_collision(area: Area3D) -> void:
-	HealthSystem.hit(1, )
+	if area.is_in_group("player"):
+		print("Test player hit")
+		(%Player as Player).health.current_health -= 1
