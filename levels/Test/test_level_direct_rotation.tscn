@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=31 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_tgr5i"]
@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="16_4b1us"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="16_quii4"]
 [ext_resource type="PackedScene" uid="uid://do0qhs5cp2o0o" path="res://reusables/auto_cam_switcher/boundaries/look_pos_cubic_cam_boundary.tscn" id="16_xlt82"]
-[ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://reusables/enemies/turret/turret_enemy.gd" id="19_evj46"]
+[ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="19_p7i0g"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="20_4yqp4"]
-[ext_resource type="Script" uid="uid://dnayqjtla6kfi" path="res://reusables/enemies/debug/debug_enemy.gd" id="20_bnadc"]
+[ext_resource type="PackedScene" uid="uid://okisigeoecgq" path="res://reusables/enemies/debug/debug_enemy.tscn" id="20_bnadc"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
@@ -60,16 +60,6 @@ size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
-
-[sub_resource type="TorusMesh" id="TorusMesh_bnadc"]
-inner_radius = 0.231
-outer_radius = 0.762
-rings = 3
-ring_segments = 3
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_bnadc"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_4yqp4"]
 
 [node name="TestLevelDirectRotation" type="Node3D"]
 
@@ -246,54 +236,44 @@ look_at_target = NodePath("../../Player")
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12869, 0, 0)
 
-[node name="Turret" type="MeshInstance3D" parent="Enemies"]
-mesh = SubResource("TorusMesh_bnadc")
-script = ExtResource("19_evj46")
+[node name="Turret" parent="Enemies" instance=ExtResource("19_p7i0g")]
 
-[node name="Test_enemy" type="MeshInstance3D" parent="Enemies"]
+[node name="DebugEnemy" parent="Enemies" instance=ExtResource("20_bnadc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
-mesh = SubResource("CylinderMesh_bnadc")
-skeleton = NodePath("")
-script = ExtResource("20_bnadc")
-
-[node name="EnemyArea" type="Area3D" parent="Enemies/Test_enemy"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Test_enemy/EnemyArea"]
-shape = SubResource("CylinderShape3D_4yqp4")
 
 [node name="Collectables" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.330349, 0, -0.943822, 0, 1, 0, 0.94381, 0, 0.330326, 0, 0, 0)
+transform = Transform3D(-0.514828, 0, 0.857257, 0, 1, 0, -0.857242, 0, -0.514805, 0, 0, 0)
 degress_per_second = 2.5
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.440966, 0, -0.897445, 0, 1, 0, 0.897445, 0, 0.440966, 0, 0, -0.464284)
+transform = Transform3D(-0.613745, 0, 0.789412, 0, 1, 0, -0.789412, 0, -0.613745, 0, 0, -0.464284)
 degress_per_second = 2.5
 
 [node name="Coin3" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.994378, 0, -0.105297, 0, 1, 0, 0.105303, 0, -0.994385, 0, 0, -0.863834)
+transform = Transform3D(0.952379, 0, 0.304701, 0, 1, 0, -0.304705, 0, 0.952385, 0, 0, -0.863834)
 degress_per_second = 2.5
 
 [node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.974625, 0, -0.223602, 0, 1, 0, 0.223607, 0, -0.97461, 0, 0, -1.32812)
+transform = Transform3D(0.909054, 0, 0.416538, 0, 1, 0, -0.416547, 0, 0.909038, 0, 0, -1.32812)
 degress_per_second = 2.5
 
 [node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.130727, 0, -0.991386, 0, 1, 0, 0.991386, 0, -0.130727, 0, 0, -1.79335)
+transform = Transform3D(-0.0729686, 0, 0.997298, 0, 1, 0, -0.997298, 0, -0.0729686, 0, 0, -1.79335)
 degress_per_second = 2.5
 
 [node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.0110537, 0, -0.999886, 0, 1, 0, 0.999886, 0, -0.0110537, 0, 0, -2.25763)
+transform = Transform3D(-0.19188, 0, 0.981366, 0, 1, 0, -0.981366, 0, -0.19188, 0, 0, -2.25763)
 degress_per_second = 2.5
 
 [node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.935042, 0, 0.354383, 0, 1, 0, -0.354372, 0, -0.935046, 0, 0, -2.65718)
+transform = Transform3D(0.987464, 0, -0.157465, 0, 1, 0, 0.157453, 0, 0.987474, 0, 0, -2.65718)
 degress_per_second = 2.5
 
 [node name="Coin8" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.970757, 0, 0.239868, 0, 1, 0, -0.239869, 0, -0.97075, 0, 0, -3.12146)
+transform = Transform3D(0.999227, 0, -0.0380872, 0, 1, 0, 0.0380912, 0, 0.999219, 0, 0, -3.12146)
 degress_per_second = 2.5
 
 [editable path="TestLevel/Bridge/MovingPlatform"]

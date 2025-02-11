@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var player: CharacterBody3D = %Player
+@onready var health: HealthEntity = $HealthEntity
 var positions_list: Array[Vector3]
 # This will be multiplied by physics ticks per second to allow changing
 # the physics tick without breaking this.
@@ -20,6 +21,7 @@ func _ready() -> void:
 	# so that the current position is always that number of physics ticks behind.
 	for x in range(delay_seconds * Engine.physics_ticks_per_second):
 		positions_list.append(Vector3(0,0,0))
+	health.dead.connect(_died)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,3 +34,6 @@ func _physics_process(delta: float) -> void:
 		self.look_at(positions_list.pop_front())
 	else:
 		self.look_at(player.global_position)
+		
+func _died() -> void:
+	queue_free()
