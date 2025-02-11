@@ -32,5 +32,3 @@ func _physics_process(delta: float) -> void:
 		self.look_at(positions_list.pop_front())
 	else:
 		self.look_at(player.global_position)
-	
-	
