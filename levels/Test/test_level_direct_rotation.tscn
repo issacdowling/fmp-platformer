@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b1gv2lqrimfto"]
+[gd_scene load_steps=34 format=3 uid="uid://b1gv2lqrimfto"]
 
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_tgr5i"]
@@ -60,6 +60,12 @@ size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_bnadc"]
+inner_radius = 0.231
+outer_radius = 0.762
+rings = 3
+ring_segments = 3
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bnadc"]
 
@@ -240,19 +246,14 @@ look_at_target = NodePath("../../Player")
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12869, 0, 0)
 
-[node name="Turret" type="CSGTorus3D" parent="Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 0, 0)
-inner_radius = 0.652
-outer_radius = 0.189985
-sides = 3
-ring_sides = 3
+[node name="Turret" type="MeshInstance3D" parent="Enemies"]
+mesh = SubResource("TorusMesh_bnadc")
 script = ExtResource("19_evj46")
-delay_seconds = 0.2
 
 [node name="Test_enemy" type="MeshInstance3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
 mesh = SubResource("CylinderMesh_bnadc")
-skeleton = NodePath("../Turret")
+skeleton = NodePath("")
 script = ExtResource("20_bnadc")
 
 [node name="EnemyArea" type="Area3D" parent="Enemies/Test_enemy"]
@@ -264,35 +265,35 @@ shape = SubResource("CylinderShape3D_4yqp4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.309986, 0, -0.950707, 0, 1, 0, 0.95069, 0, 0.30996, 0, 0, 0)
+transform = Transform3D(0.488351, 0, -0.87261, 0, 1, 0, 0.872596, 0, 0.488329, 0, 0, 0)
 degress_per_second = 2.5
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.421573, 0, -0.906718, 0, 1, 0, 0.906718, 0, 0.421573, 0, 0, -0.464284)
+transform = Transform3D(0.589299, 0, -0.807828, 0, 1, 0, 0.807828, 0, 0.589299, 0, 0, -0.464284)
 degress_per_second = 2.5
 
 [node name="Coin3" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.99641, 0, -0.0838975, 0, 1, 0, 0.0839017, 0, -0.996417, 0, 0, -0.863834)
+transform = Transform3D(-0.961262, 0, -0.27541, 0, 1, 0, 0.275414, 0, -0.961271, 0, 0, -0.863834)
 degress_per_second = 2.5
 
 [node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.979202, 0, -0.202601, 0, 1, 0, 0.202603, 0, -0.979193, 0, 0, -1.32812)
+transform = Transform3D(-0.921377, 0, -0.388525, 0, 1, 0, 0.388532, 0, -0.921365, 0, 0, -1.32812)
 degress_per_second = 2.5
 
 [node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.152008, 0, -0.988341, 0, 1, 0, 0.988341, 0, -0.152008, 0, 0, -1.79335)
+transform = Transform3D(0.0424128, 0, -0.999067, 0, 1, 0, 0.999067, 0, 0.0424128, 0, 0, -1.79335)
 degress_per_second = 2.5
 
 [node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.0325462, 0, -0.999416, 0, 1, 0, 0.999416, 0, -0.0325462, 0, 0, -2.25763)
+transform = Transform3D(0.161759, 0, -0.986778, 0, 1, 0, 0.986778, 0, 0.161759, 0, 0, -2.25763)
 degress_per_second = 2.5
 
 [node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.927208, 0, 0.374399, 0, 1, 0, -0.374387, 0, -0.927208, 0, 0, -2.65718)
+transform = Transform3D(-0.982186, 0, 0.187611, 0, 1, 0, -0.187601, 0, -0.982193, 0, 0, -2.65718)
 degress_per_second = 2.5
 
 [node name="Coin8" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.965373, 0, 0.260684, 0, 1, 0, -0.260682, 0, -0.965366, 0, 0, -3.12146)
+transform = Transform3D(-0.997594, 0, 0.0686516, 0, 1, 0, -0.0686503, 0, -0.997588, 0, 0, -3.12146)
 degress_per_second = 2.5
 
 [editable path="TestLevel/Bridge/MovingPlatform"]

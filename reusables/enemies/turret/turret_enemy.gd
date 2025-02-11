@@ -1,4 +1,4 @@
-extends CSGTorus3D
+extends Node3D
 
 @onready var player: CharacterBody3D = %Player
 var positions_list: Array[Vector3]
