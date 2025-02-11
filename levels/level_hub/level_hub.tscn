@@ -1,13 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=40 format=3 uid="uid://b3sg8isli1i7w"]
 
-[ext_resource type="Material" uid="uid://bvpl8cd75jrer" path="res://materials/ship_visor_mat.tres" id="1_dl3s2"]
-[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
+[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_1bb6e"]
 [ext_resource type="Script" uid="uid://dmjkvru848mbq" path="res://levels/level_hub/planet.gd" id="2_4k3rs"]
 [ext_resource type="Script" uid="uid://iet5irh8g2xy" path="res://levels/level_hub/worlds.gd" id="2_yrwlk"]
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="5_78q5s"]
 [ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="6_78q5s"]
 [ext_resource type="Script" uid="uid://cyskcx6udgssu" path="res://levels/level_hub/level.gd" id="7_kjme3"]
+[ext_resource type="PackedScene" uid="uid://lvdluvqcy6jj" path="res://levels/level_hub/control_panel.glb" id="9_1wam8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrwlk"]
 albedo_color = Color(4.04298e-06, 0.603729, 0.780475, 1)
@@ -137,6 +137,9 @@ background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
 sdfgi_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmiyc"]
+size = Vector3(6.41647, 4.51268, 0.177795)
+
 [node name="LevelHub" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -145,31 +148,12 @@ light_color = Color(1, 0.523991, 0.338518, 1)
 light_energy = 1.55
 shadow_enabled = true
 
-[node name="ShipInner" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114, -3, 27.655)
-use_collision = true
-size = Vector3(13.893, 6, 8.51852)
-
-[node name="ShipHollow" type="CSGBox3D" parent="ShipInner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.152142, -0.117357)
-operation = 2
-size = Vector3(8.9, 4.4056, 4.58071)
-
-[node name="ShipVisor" type="CSGBox3D" parent="ShipInner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00958203, -0.209087, -2.485)
-size = Vector3(7.3584, 3.63001, 0.252)
-material = ExtResource("1_dl3s2")
-
-[node name="Player" parent="ShipInner" instance=ExtResource("2_1bb6e")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0172296, -1.53784, -0.749699)
-
 [node name="Worlds" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.560606, 0, 0.826123, 0, 1, 0, -0.826123, 0, 0.560606, 0, 0, 0)
+transform = Transform3D(-0.569526, 0, -0.81962, 0, 1, 0, 0.81962, 0, -0.569526, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -215,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_1uirp")
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.053933, 0, 0.99695, 0, 1, 0, -0.99695, 0, -0.053933, 50, 0, 0)
+transform = Transform3D(0.0428974, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0428974, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -273,7 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_qvt0v")
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.409684, 0, 0.908858, 0, 1, 0, -0.908858, 0, 0.409684, 100, 0, 0)
+transform = Transform3D(-0.419578, 0, -0.903979, 0, 1, 0, 0.903979, 0, -0.419578, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")
@@ -347,3 +331,102 @@ disabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ju51b")
 script = ExtResource("1_y2wm1")
+
+[node name="Ship" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7419, 27.0921)
+
+[node name="Player" parent="Ship" instance=ExtResource("2_1bb6e")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.13123, -1.51617, -0.186749)
+
+[node name="Interior" parent="Ship" instance=ExtResource("9_1wam8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.114, -0.258095, 2.75522)
+
+[node name="panic_button_light" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27545, -1.32437, 3.87182)
+light_color = Color(0.849565, 0, 0.241254, 1)
+light_energy = 0.988
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.407
+
+[node name="panic_button_light2" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27545, -1.50336, -4.26217)
+light_color = Color(0.849565, 0, 0.241254, 1)
+light_energy = 0.988
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.407
+
+[node name="purple_button_light" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4752, -1.11514, -0.795892)
+light_color = Color(0.929265, 0.00120365, 0.996647, 1)
+light_energy = 1.057
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.169
+
+[node name="purple_button_light2" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4752, -1.2003, 2.37351)
+light_color = Color(0.929265, 0.00120365, 0.996647, 1)
+light_energy = 1.057
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.169
+
+[node name="blue_button_light" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5324, -1.5238, 5.04429)
+light_color = Color(0, 0.666503, 0.833193, 1)
+light_energy = 1.563
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.879
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ship/Interior"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75522, 0.258095, -0.114)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship/Interior/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.30624, -0.711487, 0.799376)
+shape = SubResource("BoxShape3D_rmiyc")
+
+[node name="blue_button_light2" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.66733, -1.27135, -5.68505)
+light_color = Color(0, 0.666503, 0.833193, 1)
+light_energy = 1.563
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.879
+
+[node name="green_button_light" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.60894, -1.32568, -2.50823)
+light_color = Color(0.150456, 0.574174, 0, 1)
+light_energy = 0.791
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.306
+
+[node name="green_button_light2" type="OmniLight3D" parent="Ship/Interior"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.92258, -1.85061, 0.492814)
+light_color = Color(0.150456, 0.574174, 0, 1)
+light_energy = 0.791
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.306
+
+[node name="blue_ceiling_light" type="SpotLight3D" parent="Ship/Interior"]
+transform = Transform3D(0.211255, -0.929476, -0.3024, 0.352185, -0.216217, 0.910613, -0.911777, -0.298872, 0.281671, -5.0088, 2.20634, 5.38195)
+light_color = Color(9.2411e-06, 0.562334, 0.753767, 1)
+light_energy = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 10.9743
+spot_angle = 70.82
+
+[node name="orange_ceiling_light" type="SpotLight3D" parent="Ship/Interior"]
+transform = Transform3D(0.211255, -0.929476, -0.3024, 0.0571277, -0.297112, 0.953132, -0.97576, -0.218629, -0.00966753, -5.0088, 2.20634, -5.33728)
+light_color = Color(0.622014, 0.502035, 1.92523e-07, 1)
+light_energy = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 10.9743
+spot_angle = 70.82
