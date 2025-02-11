@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 52.916665 52.916666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="corn_icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.0584622"
+     inkscape:cx="121.46627"
+     inkscape:cy="150.56586"
+     inkscape:window-width="2148"
+     inkscape:window-height="1402"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1" />
+  <path
+     style="display:inline;fill:#ffd946;fill-opacity:1;stroke:none;stroke-width:4.14907;stroke-dasharray:none;stroke-opacity:1"
+     d="m 27.267775,9.9273909 c 0,0 17.69242,-6.8803857 20.434229,-4.6559 2.741807,2.2244855 -4.811098,18.0545451 -4.811098,18.0545451 0,0 -20.589426,23.331234 -26.797291,24.210683 C 9.8857475,48.416166 8.5924416,48.002308 5.8506338,47.950578 3.1088259,47.898848 5.643705,41.070191 6.885278,39.466493 8.1268519,37.862793 10.868659,22.498322 27.267775,9.9273909 Z"
+     id="path1-5-5"
+     inkscape:label="YellowCornInside" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#cf9634;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+     d="M 35.446906,5.2932458 46.330772,13.262853 44.487054,21.589307 29.856287,7.9101315 23.195123,12.132834 39.193811,27.536774 34.554784,32.354223 19.507693,16.296061 14.868669,21.291933 30.629458,36.874298 25.336211,42.167544 11.478612,27.477299 8.5048782,33.603191 20.99456,45.3197 14.928143,49.780303 4.8174483,39.669608"
+     id="path2"
+     inkscape:label="CornLines" />
+  <path
+     style="display:inline;fill:none;fill-opacity:1;stroke:#36c447;stroke-width:6.642;stroke-dasharray:none;stroke-opacity:1"
+     d="m 27.231234,10.639381 c 0,0 16.929433,-6.5836679 19.553,-4.4551133 2.623568,2.1285543 -4.603619,17.2759433 -4.603619,17.2759433 0,0 -19.701503,22.32507 -25.641654,23.166591 -5.940152,0.841523 -7.1776847,0.445512 -9.801252,0.396012 C 4.1141423,46.97331 6.5397044,40.439145 7.7277348,38.904606 8.9157651,37.370068 11.539333,22.668189 27.231234,10.639381 Z"
+     id="path1-5"
+     inkscape:label="GreenCornInnerline" />
+  <path
+     style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4.06773;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+     d="m 27.561581,7.9029241 c 0,0 19.584167,-7.61606521 22.619141,-5.1537282 3.034972,2.4623368 -5.32552,19.9850131 -5.32552,19.9850131 0,0 -22.790932,25.825905 -29.662569,26.799388 C 8.3209944,50.507079 6.8894031,50.048969 3.8544297,49.991706 0.81945644,49.934442 3.6253753,42.375641 4.9997029,40.600469 6.3740305,38.825296 9.4090037,21.817991 27.561581,7.9029241 Z"
+     id="path1"
+     inkscape:label="CornOutline" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+      <cc:Work
+         rdf:about="">
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

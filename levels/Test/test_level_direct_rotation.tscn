@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dxe4g"]
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_tgr5i"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev/dev_walkable.tres" id="2_26yhc"]
-[ext_resource type="Script" path="res://levels/Test/world_environment_setting_controller.gd" id="2_co74o"]
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="2_co74o"]
 [ext_resource type="Material" uid="uid://bm1p24h4j8ywx" path="res://materials/dev/dev_too_steep.tres" id="5_wwn3t"]
 [ext_resource type="Material" uid="uid://di7ikawiyw206" path="res://materials/dev/dev_walljump.tres" id="7_v51du"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="7_wv8t6"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://do0qhs5cp2o0o" path="res://reusables/auto_cam_switcher/boundaries/look_pos_cubic_cam_boundary.tscn" id="16_xlt82"]
 [ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://levels/Test/turret.gd" id="19_evj46"]
 [ext_resource type="Script" uid="uid://dnayqjtla6kfi" path="res://reusables/enemy.gd" id="20_4yqp4"]
+[ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="20_4yqp4"]
 
 [sub_resource type="Environment" id="Environment_y05tk"]
 background_mode = 1
@@ -258,6 +259,41 @@ script = ExtResource("20_4yqp4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Test_enemy/EnemyArea"]
 shape = SubResource("CylinderShape3D_4yqp4")
+
+[node name="Collectables" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
+
+[node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(-0.0574014, 0, 0.998338, 0, 1, 0, -0.998332, 0, -0.0573848, 0, 0, 0)
+degress_per_second = 2.5
+
+[node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(-0.176514, 0, 0.984266, 0, 1, 0, -0.984266, 0, -0.176514, 0, 0, -0.464284)
+degress_per_second = 2.5
+
+[node name="Coin3" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.984909, 0, -0.172875, 0, 1, 0, 0.172873, 0, 0.984912, 0, 0, -0.863834)
+degress_per_second = 2.5
+
+[node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.998526, 0, -0.0537044, 0, 1, 0, 0.0537033, 0, 0.998529, 0, 0, -1.32812)
+degress_per_second = 2.5
+
+[node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.398926, 0, 0.916968, 0, 1, 0, -0.916968, 0, 0.398926, 0, 0, -1.79335)
+degress_per_second = 2.5
+
+[node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.286242, 0, 0.95813, 0, 1, 0, -0.958127, 0, 0.286242, 0, 0, -2.25763)
+degress_per_second = 2.5
+
+[node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.801168, 0, -0.598394, 0, 1, 0, 0.598389, 0, 0.80116, 0, 0, -2.65718)
+degress_per_second = 2.5
+
+[node name="Coin8" parent="Collectables" instance=ExtResource("20_4yqp4")]
+transform = Transform3D(0.867056, 0, -0.498171, 0, 1, 0, 0.498179, 0, 0.867045, 0, 0, -3.12146)
+degress_per_second = 2.5
 
 [editable path="TestLevel/Bridge/MovingPlatform"]
 [editable path="TestLevel/BreakingPlatform"]

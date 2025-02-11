@@ -36,9 +36,14 @@ signal setting_changed
 @onready var settings_button: Button = %SettingsBtn
 @onready var quit_button: Button = %QuitBtn
 
+@onready var collectables_hud_control: Control = %CollectablesHUD
+@onready var collectables_animator: AnimationPlayer = %CollectablesAnimator
+@onready var coin_Label: RichTextLabel = %CoinLabel
+@onready var corn_Label: RichTextLabel = %CornLabel
 
 # This is not called on level scene changes, just the initial game load.
 func _ready() -> void:
+	collectables_hud_control.visible = false
 	PauseControl.visible = false
 	TransitionControl.visible = false
 	main_menu_control.visible = true
@@ -70,6 +75,9 @@ func _ready() -> void:
 	settings_settings_button.pressed.connect(func() -> void: Menu.toggle_pause_menu())
 	quit_button.pressed.connect(func() -> void: get_tree().quit())
 	settings_quit_button.pressed.connect(func() -> void: get_tree().quit())
+	
+	# Connect Collectables Signals
+	Collectables.update.connect(_collectables_update)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -89,19 +97,32 @@ func toggle_pause_menu() -> void:
 		main_menu_control.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	PauseControl.visible = !PauseControl.visible
-	
+
 func begin_transition() -> float:
 	TransitionAnimator.play("RESET")
 	TransitionControl.visible = true
 	TransitionAnimator.play("in_slide_down")
 	return TransitionAnimator.get_animation("in_slide_down").length
-		
-		
-	
+
 func exit_transition() -> void:
 	TransitionAnimator.play("out_slide_up")
 	await TransitionAnimator.animation_finished
 	TransitionControl.visible = false
+
+func show_collectables() -> void:
+	# Don't re-run if already visible
+	if collectables_hud_control.visible:
+		return
+	collectables_animator.play("slide_in")
+	collectables_hud_control.visible = true
+
+func hide_collectables() -> void:
+	# Don't re-run if already not visible
+	if not collectables_hud_control.visible:
+		return
+	collectables_animator.play("slide_out")
+	await collectables_animator.animation_finished
+	collectables_hud_control.visible = false
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
@@ -117,3 +138,8 @@ func _on_scaling_amount_value_changed(value: float) -> void:
 	
 func _on_renderer_options_item_selected(index: int) -> void:
 	setting_changed.emit(RENDERER, RendererOptionsDropdown.get_item_text(index))
+	
+func _collectables_update(values: Dictionary) -> void:
+	coin_Label.text = "[wave]%d[/wave]" % values["Coin"]
+	corn_Label.text = "[wave]%d[/wave]" % values["Corn"]
+	

@@ -15,7 +15,6 @@ func _ready() -> void:
 	var star_mesh: SphereMesh = SphereMesh.new()
 	star_mesh.material = star_mat
 	for i in range(star_number):
-		print(1)
 		var star: MeshInstance3D = MeshInstance3D.new()
 		star_shape.add_child(star)
 		star.position = Vector3(randf_range(-star_area.size.x/2, star_area.size.x/2), randf_range(-star_area.size.y/2, star_area.size.y/2), randf_range(-star_area.size.z/2, star_area.size.z/2))
