@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2dt6e5a7p78k"]
+[gd_scene load_steps=26 format=3 uid="uid://c2dt6e5a7p78k"]
 
 [ext_resource type="Script" uid="uid://cekq2gyciyi2c" path="res://globals/menu/menu.gd" id="1_uhrtt"]
 [ext_resource type="Script" uid="uid://c58f63ecb32x3" path="res://globals/menu/setting_setter.gd" id="2_7tkhg"]
@@ -25,12 +25,8 @@ draw_center = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk5v"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wmks"]
-bg_color = Color(0, 0, 0, 0.498039)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di1th"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_j775s"]
 length = 0.001
@@ -85,6 +81,13 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yviql"]
 bg_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wmks"]
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="Animation" id="Animation_8tq1c"]
 resource_name = "RESET"
@@ -142,7 +145,6 @@ script = ExtResource("1_uhrtt")
 
 [node name="Pause" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 0
@@ -358,13 +360,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 8094.0
-offset_bottom = 80.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 7994.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0wmks")
+theme_override_styles/panel = SubResource("StyleBoxFlat_di1th")
 
 [node name="TransitionAnimator" type="AnimationPlayer" parent="Transitions"]
 unique_name_in_owner = true
