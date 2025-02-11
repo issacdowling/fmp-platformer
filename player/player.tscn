@@ -2614,7 +2614,7 @@ shape = SubResource("SphereShape3D_b5uy8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 5.99991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.977, 5.99991)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
