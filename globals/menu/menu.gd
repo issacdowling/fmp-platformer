@@ -139,7 +139,7 @@ func _on_scaling_amount_value_changed(value: float) -> void:
 func _on_renderer_options_item_selected(index: int) -> void:
 	setting_changed.emit(RENDERER, RendererOptionsDropdown.get_item_text(index))
 	
-func _collectables_update(values: Dictionary[String, int]) -> void:
+func _collectables_update(values: Dictionary) -> void:
 	coin_Label.text = "[wave]%d[/wave]" % values["Coin"]
 	corn_Label.text = "[wave]%d[/wave]" % values["Corn"]
 	
