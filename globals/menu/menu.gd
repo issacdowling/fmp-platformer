@@ -1,5 +1,8 @@
 extends Node
 
+# Even for other resolutions, this is the size of the canvas
+const DISPLAY_WIDTH: int = 1920
+
 const GLOBAL_ILLUMINATION: String = "global_illumination"
 const GLOBAL_ILLUMINATION_CASCADES = "global_illumination_cascades"
 const SCALING_METHOD: String = "scaling_method"
@@ -13,6 +16,14 @@ const SCALING_METHODS_BILINEAR: String = "Bilinear"
 const RENDERER_ADVANCED: String = "Advanced (Forward+)"
 const RENDERER_BASIC: String = "Basic (Mobile)"
 const RENDERER_COMPATIBILITY: String = "Compatibility (OpenGL)"
+
+const HEALTHBAR_MARGIN_PX: float = 12.5
+const HEALTHBAR_CHUNK_PX: float = 125 
+const HEALTHBAR_RADIUS_PX: float = 20
+const HEALTHBAR_HEIGHT_PX: float = 100
+var HEALTHBAR_GOOD_COLOUR: Color = Color.from_rgba8(124, 255, 99, 255) # Light green
+var  HEALTHBAR_MEH_COLOUR: Color = Color.from_rgba8(255, 220, 99, 255) # Light yellow/orange
+var  HEALTHBAR_BAD_COLOUR: Color = Color.from_rgba8(255, 78, 62, 255) # Light red
 
 signal setting_changed
 
@@ -41,8 +52,14 @@ signal setting_changed
 @onready var coin_Label: RichTextLabel = %CoinLabel
 @onready var corn_Label: RichTextLabel = %CornLabel
 
+@onready var health_hud_control: Control = %HealthHUD
+@onready var health_background: Panel = %HealthBackground
+@onready var health_bar: Panel = %HealthBar
+@onready var health_animator: AnimationPlayer = %HealthAnimator
+
 # This is not called on level scene changes, just the initial game load.
 func _ready() -> void:
+	health_hud_control.visible = false
 	collectables_hud_control.visible = false
 	PauseControl.visible = false
 	TransitionControl.visible = false
@@ -123,6 +140,44 @@ func hide_collectables() -> void:
 	collectables_animator.play("slide_out")
 	await collectables_animator.animation_finished
 	collectables_hud_control.visible = false
+
+func show_health() -> void:
+	# Don't re-run if already visible
+	if health_hud_control.visible:
+		return
+	health_animator.play("slide_in")
+	health_hud_control.visible = true
+
+func hide_health() -> void:
+	# Don't re-run if already not visible
+	if not health_hud_control.visible:
+		return
+	health_animator.play("slide_out")
+	await health_animator.animation_finished
+	health_hud_control.visible = false
+
+func set_health(amount: int, total: int) -> void:
+	var healthbar_style: StyleBoxFlat = StyleBoxFlat.new()
+	if amount/float(total) <= 0.25:
+		healthbar_style.bg_color = HEALTHBAR_BAD_COLOUR
+	elif amount/float(total) <= 0.8:
+		healthbar_style.bg_color = HEALTHBAR_MEH_COLOUR
+	else:
+		healthbar_style.bg_color = HEALTHBAR_GOOD_COLOUR
+	# Since the health section itself is smaller, the radius must be related but less high
+	healthbar_style.set_corner_radius_all(HEALTHBAR_RADIUS_PX * 0.5)
+	health_bar.add_theme_stylebox_override("panel", healthbar_style)
+	
+	health_background.size.x = HEALTHBAR_CHUNK_PX * total
+	health_background.size.y = HEALTHBAR_HEIGHT_PX
+	
+	health_background.position.x = DISPLAY_WIDTH/2 - health_background.size.x / 2
+	
+	health_bar.size.x = (health_background.size.x - HEALTHBAR_MARGIN_PX * 2) * amount/total
+	health_bar.size.y = health_background.size.y - HEALTHBAR_MARGIN_PX * 2
+	
+	health_bar.position.x = HEALTHBAR_MARGIN_PX
+	health_bar.position.y = HEALTHBAR_MARGIN_PX
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)

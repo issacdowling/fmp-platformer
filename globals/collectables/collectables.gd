@@ -5,7 +5,7 @@ signal update(values: Dictionary)
 # This is a Dictionary[String, int], but json.parse doesn't like me and needs it to be a plain Dictionary
 var collected: Dictionary = {"Coin": 0, "Corn": 0}
 var json: JSON = JSON.new()
-@export var popup_display_length_seconds: float = 1.5
+@export var popup_display_length_seconds: float = 3
 @onready var display_timer: Timer = $CollectableDisplayTimer
 
 const COLLECTABLES_FILE_PATH: String = "user://collectables.json"

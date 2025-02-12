@@ -2,6 +2,7 @@ extends Node
 class_name HealthEntity
 
 signal dead
+signal update(amount: int)
 
 @export var peak_health: int = 4
 var current_health: int = peak_health:
@@ -13,4 +14,5 @@ var current_health: int = peak_health:
 			dead.emit()
 		else:
 			current_health = value
+		update.emit(current_health)
 		print("I've been set to: ", current_health)

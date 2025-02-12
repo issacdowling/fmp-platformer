@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2dt6e5a7p78k"]
+[gd_scene load_steps=32 format=3 uid="uid://c2dt6e5a7p78k"]
 
 [ext_resource type="Script" uid="uid://cekq2gyciyi2c" path="res://globals/menu/menu.gd" id="1_uhrtt"]
 [ext_resource type="Script" uid="uid://c58f63ecb32x3" path="res://globals/menu/setting_setter.gd" id="2_7tkhg"]
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpff0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_di1th"]
 _data = {
 &"RESET": SubResource("Animation_j775s"),
 &"in_slide_down": SubResource("Animation_ly2dx"),
@@ -89,7 +89,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Animation" id="Animation_8tq1c"]
+[sub_resource type="Animation" id="Animation_ou863"]
 resource_name = "RESET"
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -103,7 +103,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_v8nyn"]
+[sub_resource type="Animation" id="Animation_akh5k"]
 resource_name = "slide_in"
 length = 0.3683
 tracks/0/type = "bezier"
@@ -118,13 +118,78 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.366667)
 }
 
-[sub_resource type="Animation" id="Animation_di1th"]
+[sub_resource type="Animation" id="Animation_sj24q"]
 resource_name = "slide_out"
 length = 0.3683
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("CollectablesBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.133333, 1.75977, -234.504, -0.0666667, 336.051, 0.0333333, -182.637),
+"times": PackedFloat32Array(0, 0.366667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqnc0"]
+_data = {
+&"RESET": SubResource("Animation_ou863"),
+&"slide_in": SubResource("Animation_akh5k"),
+&"slide_out": SubResource("Animation_sj24q")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tq1c"]
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8nyn"]
+bg_color = Color(0.486275, 1, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_8tq1c"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-234.504, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_v8nyn"]
+resource_name = "slide_in"
+length = 0.3683
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-234.504, -0.0666667, 336.051, 0.0333333, -182.637, 40, -0.25, 0, 0.133333, 1.75977),
+"times": PackedFloat32Array(0, 0.366667)
+}
+
+[sub_resource type="Animation" id="Animation_di1th"]
+resource_name = "slide_out"
+length = 0.3683
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -361,7 +426,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_di1th")
 [node name="TransitionAnimator" type="AnimationPlayer" parent="Transitions"]
 unique_name_in_owner = true
 libraries = {
-&"": SubResource("AnimationLibrary_dpff0")
+&"": SubResource("AnimationLibrary_di1th")
 }
 
 [node name="MainMenu" type="Control" parent="."]
@@ -545,6 +610,48 @@ bbcode_enabled = true
 text = "[wave]150[/wave]"
 
 [node name="CollectablesAnimator" type="AnimationPlayer" parent="CollectablesHUD"]
+unique_name_in_owner = true
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_yqnc0")
+}
+
+[node name="HealthHUD" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBackground" type="Panel" parent="HealthHUD"]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 690.0
+offset_top = -254.504
+offset_right = 1190.0
+offset_bottom = -154.504
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8tq1c")
+
+[node name="HealthBar" type="Panel" parent="HealthHUD/HealthBackground"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 488.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8nyn")
+
+[node name="HealthAnimator" type="AnimationPlayer" parent="HealthHUD"]
 unique_name_in_owner = true
 reset_on_save = false
 libraries = {
