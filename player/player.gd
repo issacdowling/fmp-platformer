@@ -160,7 +160,7 @@ var max_pitch: float = 50
 func _input(event: InputEvent) -> void:
 	if Menu.is_in_menu():
 		return
-	  # Trigger whenever the mouse moves.
+	# Trigger whenever the mouse moves.
 	if event is InputEventMouseMotion:
 		var pcam_rotation_degrees: Vector3
 		# Assigns the current 3D rotation of the SpringArm3D node - to start off where it is in the editor.
