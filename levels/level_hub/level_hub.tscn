@@ -153,7 +153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.569526, 0, -0.81962, 0, 1, 0, 0.81962, 0, -0.569526, 0, 0, 0)
+transform = Transform3D(-0.322586, 0, -0.944498, 0, 1, 0, 0.944498, 0, -0.322586, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_1uirp")
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.0428974, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0428974, 50, 0, 0)
+transform = Transform3D(0.315063, 0, -0.947108, 0, 1, 0, 0.947108, 0, 0.315063, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -257,7 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("TextMesh_qvt0v")
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.419578, 0, -0.903979, 0, 1, 0, 0.903979, 0, -0.419578, 100, 0, 0)
+transform = Transform3D(-0.155238, 0, -0.984441, 0, 1, 0, 0.984441, 0, -0.155238, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")

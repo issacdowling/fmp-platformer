@@ -245,35 +245,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.721316, 0, 0.692567, 0, 1, 0, -0.692577, 0, 0.721331, 0, 0, 0)
+transform = Transform3D(-0.708349, 0, -0.705824, 0, 1, 0, 0.705834, 0, -0.708365, 0, 0, 0)
 degress_per_second = 2.5
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.6332, 0, 0.773946, 0, 1, 0, -0.773946, 0, 0.6332, 0, 0, -0.464284)
+transform = Transform3D(-0.61874, 0, -0.785554, 0, 1, 0, 0.785554, 0, -0.61874, 0, 0, -0.464284)
 degress_per_second = 2.5
 
 [node name="Coin3" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.508866, 0, -0.860808, 0, 1, 0, 0.860802, 0, 0.508866, 0, 0, -0.863834)
+transform = Transform3D(-0.52474, 0, 0.851223, 0, 1, 0, -0.851218, 0, -0.524741, 0, 0, -0.863834)
 degress_per_second = 2.5
 
 [node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.608273, 0, -0.79369, 0, 1, 0, 0.793687, 0, 0.608274, 0, 0, -1.32812)
+transform = Transform3D(-0.622885, 0, 0.782274, 0, 1, 0, -0.782271, 0, -0.622887, 0, 0, -1.32812)
 degress_per_second = 2.5
 
 [node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.956119, 0, 0.292924, 0, 1, 0, -0.292924, 0, 0.956119, 0, 0, -1.79335)
+transform = Transform3D(-0.950522, 0, -0.310604, 0, 1, 0, 0.310604, 0, -0.950522, 0, 0, -1.79335)
 degress_per_second = 2.5
 
 [node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.914147, 0, 0.405309, 0, 1, 0, -0.405307, 0, 0.914152, 0, 0, -2.25763)
+transform = Transform3D(-0.906474, 0, -0.42219, 0, 1, 0, 0.422188, 0, -0.906479, 0, 0, -2.25763)
 degress_per_second = 2.5
 
 [node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.0660756, 0, -0.997782, 0, 1, 0, 0.997782, 0, 0.0660687, 0, 0, -2.65718)
+transform = Transform3D(-0.0845659, 0, 0.996386, 0, 1, 0, -0.996386, 0, -0.0845594, 0, 0, -2.65718)
 degress_per_second = 2.5
 
 [node name="Coin8" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.185057, 0, -0.982695, 0, 1, 0, 0.98271, 0, 0.185055, 0, 0, -3.12146)
+transform = Transform3D(-0.203247, 0, 0.979094, 0, 1, 0, -0.979109, 0, -0.203245, 0, 0, -3.12146)
 degress_per_second = 2.5
 
 [editable path="TestLevel/Bridge/MovingPlatform"]
