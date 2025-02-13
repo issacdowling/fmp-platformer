@@ -40,11 +40,8 @@ func _process(delta: float) -> void:
 
 		
 	platform.global_position = lerp(start_pos, end_pos, progress)
-	
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_PRE_SAVE:
-		set_process(false)
-		platform.global_position = start_pos
-		progress = 0
-	elif what == NOTIFICATION_EDITOR_POST_SAVE:
-		set_process(true)
+	##TODO: Smoothly move using physics force (or some other way that will bring character along)
+	#if position == start_pos:
+		#position = end_pos
+	#else:
+		#position = start_pos

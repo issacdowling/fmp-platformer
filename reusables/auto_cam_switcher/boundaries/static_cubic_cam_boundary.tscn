@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://rsbuvtbn3mr6"]
+
+[ext_resource type="Script" path="res://reusables/auto_cam_switcher/cam_boundary.gd" id="1_l6ycn"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_55b4l"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_v3n66"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_f4h8a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4oj26"]
+size = Vector3(2.5, 1, 2.5)
+
+[sub_resource type="Resource" id="Resource_bvarm"]
+script = ExtResource("3_v3n66")
+duration = 1.0
+transition = 7
+ease = 2
+
+[sub_resource type="Resource" id="Resource_6lvbk"]
+script = ExtResource("4_f4h8a")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
+[node name="StaticCubicCamBoundary" type="Node3D"]
+script = ExtResource("1_l6ycn")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+shape = SubResource("BoxShape3D_4oj26")
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07888, 1.86759)
+script = ExtResource("2_55b4l")
+tween_resource = SubResource("Resource_bvarm")
+camera_3d_resource = SubResource("Resource_6lvbk")

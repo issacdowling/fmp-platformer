@@ -2614,15 +2614,15 @@ shape = SubResource("SphereShape3D_b5uy8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8026e-45, 1.477, 5.9999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 5.99991)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_gbp7t")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 2.8026e-45, 1.477, 5.9999)
+[node name="DebugPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 5.99991)
 script = ExtResource("3_siun6")
 priority = 1
 follow_mode = 6

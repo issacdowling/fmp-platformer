@@ -5,8 +5,8 @@ extends WorldEnvironment
 func _init() -> void:
 	Menu.setting_changed.connect(_setting_changed)
 
-func _setting_changed(setting_name: String, value: Variant) -> void:
-	match setting_name:
+func _setting_changed(name: String, value: Variant) -> void:
+	match name:
 		Menu.GLOBAL_ILLUMINATION:
 			self.environment.sdfgi_enabled = value as bool
 		Menu.GLOBAL_ILLUMINATION_CASCADES:

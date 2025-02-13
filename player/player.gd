@@ -12,10 +12,6 @@ class_name Player
 @export var STEAL_MOUSE_ON_START: bool = true
 
 @onready var health: HealthEntity = $HealthEntity
-@export var health_popup_display_length_seconds: float = 3
-@onready var display_timer: Timer = $HealthEntity/Timer
-
-var suggested_look_dir: Vector3
 
 var air_time: float = 0
 var current_walk_speed: float
@@ -30,7 +26,6 @@ func _ready() -> void:
 	
 	health.update.connect(_on_health_update)
 	Menu.set_health(health.current_health, health.peak_health)
-	display_timer.timeout.connect(_on_health_display_done)
 
 func switch_scene(scene_file: String) -> void:
 	# As begin_transition returns the length of the transition, we wait for that long before switching scene
@@ -39,7 +34,6 @@ func switch_scene(scene_file: String) -> void:
 	Menu.exit_transition()
 
 func _physics_process(delta: float) -> void:
-	
 	move(delta)
 
 func move(delta: float) -> void:
@@ -135,39 +129,3 @@ func jump() -> void:
 
 func _on_health_update(amount: int) -> void:
 	Menu.set_health(amount, health.peak_health)
-	Menu.show_health()
-	display_timer.start(health_popup_display_length_seconds)
-
-func _on_health_display_done() -> void:
-	display_timer.stop()
-
-	# Health should always be showing if below 25%, but not if above
-	if health.current_health / float(health.peak_health) <= 0.25:
-		return
-	Menu.hide_health()
-
-# For now, this is just the example from https://phantom-camera.dev/follow-modes/third-person
-var mouse_sensitivity: float = 0.05
-
-var min_yaw: float = 0
-var max_yaw: float = 360
-
-var min_pitch: float = -89.9
-var max_pitch: float = 50
-
-@onready var pcam: PhantomCamera3D = $PhantomCamera3D
-
-func _input(event: InputEvent) -> void:
-	if Menu.is_in_menu():
-		return
-	# Trigger whenever the mouse moves.
-	if event is InputEventMouseMotion:
-		var pcam_rotation_degrees: Vector3
-		# Assigns the current 3D rotation of the SpringArm3D node - to start off where it is in the editor.
-		pcam_rotation_degrees = pcam.get_third_person_rotation_degrees()
-		
-		pcam_rotation_degrees.x -= event.relative.y * mouse_sensitivity
-		pcam_rotation_degrees.x = clampf(pcam_rotation_degrees.x, min_pitch, max_pitch)
-		pcam_rotation_degrees.y -= event.relative.x * mouse_sensitivity
-		pcam_rotation_degrees.y = wrapf(pcam_rotation_degrees.y, min_yaw, max_yaw)
-		pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
