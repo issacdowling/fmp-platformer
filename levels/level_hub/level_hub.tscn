@@ -82,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.997952, 0, 0.011423, 0, 1, 0, -0.011423, 0, 0.997952, 0, 0, 0)
+transform = Transform3D(0.997929, 0, 0.0114227, 0, 1, 0, -0.0114227, 0, 0.997929, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -105,7 +105,7 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 
 mesh = SubResource("TextMesh_kjme3")
 
 [node name="Levels" type="Node3D" parent="Worlds/World 1"]
-transform = Transform3D(0.999258, 0, 0, 0, 0.999876, 0, 0, 0, 0.999258, 0, -2, 20)
+transform = Transform3D(0.999258, 0, 0, 0, 0.999876, 0, 0, 0, 0.999258, 0, -1, 25)
 top_level = true
 
 [node name="Level1" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
@@ -128,7 +128,7 @@ level_name = "2level 2furious"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.998004, 0, 0.0114236, 0, 1, 0, -0.0114236, 0, 0.998004, 50, 0, 0)
+transform = Transform3D(0.99798, 0, 0.0114233, 0, 1, 0, -0.0114233, 0, 0.99798, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -152,7 +152,7 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 
 mesh = SubResource("TextMesh_sstcx")
 
 [node name="Levels" type="Node3D" parent="Worlds/World 2"]
-transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 50, -2, 20)
+transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 50, -1, 25)
 top_level = true
 
 [node name="Level1" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
@@ -183,7 +183,7 @@ level_name = "3level 3furious"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.996486, 0, 0.0114062, 0, 1, 0, -0.0114062, 0, 0.996486, 100, 0, 0)
+transform = Transform3D(0.996461, 0, 0.0114059, 0, 1, 0, -0.0114059, 0, 0.996461, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")
@@ -208,7 +208,7 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 
 mesh = SubResource("TextMesh_se5p2")
 
 [node name="Levels" type="Node3D" parent="Worlds/TestWorld"]
-transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 100, -2, 20)
+transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 100, -1, 25)
 top_level = true
 
 [node name="Level1" type="MeshInstance3D" parent="Worlds/TestWorld/Levels"]
@@ -255,7 +255,7 @@ environment = SubResource("Environment_ju51b")
 script = ExtResource("1_y2wm1")
 
 [node name="Ship" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7419, 27.0921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7419, 33.792)
 
 [node name="Player" parent="Ship" instance=ExtResource("2_1bb6e")]
 unique_name_in_owner = true
