@@ -1,14 +1,13 @@
-[gd_scene load_steps=134 format=4 uid="uid://c6yc33n5qy0uh"]
+[gd_scene load_steps=133 format=4 uid="uid://c6yc33n5qy0uh"]
 
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_pmayf"]
 [ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev/dev_wall.tres" id="2_2r5qb"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev/dev_walkable.tres" id="3_mu51g"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="4_bxdgg"]
-[ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="5_ppptb"]
+[ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/cam_boundary.tscn" id="5_ppptb"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="5_sxtm4"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="7_bi7qn"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="8_au8mo"]
-[ext_resource type="PackedScene" uid="uid://4ltkjln326sy" path="res://reusables/auto_cam_switcher/auto_cam_switcher.tscn" id="11_67qxt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qdaj7"]
 _surfaces = [{
@@ -1453,16 +1452,8 @@ jump_velocity = 25.0
 
 [node name="FollowPosCubicCamBoundary" parent="Outside/LowerFloor/SpawnArea" instance=ExtResource("5_ppptb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.369, 0.135074, 3.52361)
-original_priority = 1
-
-[node name="Camera" parent="Outside/LowerFloor/SpawnArea/FollowPosCubicCamBoundary" index="1" node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999986, -3.4596e-05, 0.000100175, 7.29223e-09, 0.945181, 0.326365, -0.000105984, -0.326359, 0.945201, -0.301107, 3.46793, 8.63137)
-top_level = false
-follow_mode = 6
-follow_target = NodePath("../../../../Player")
-follow_offset = Vector3(0, 1.7, 2)
-follow_distance = 6.878
-spring_length = 6.878
+debug_bounds_editor = true
+debug_bounds_runtime = false
 
 [node name="TVArea" type="Node3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.533, 16.7198, -77.7075)
@@ -2112,35 +2103,18 @@ shape = SubResource("ConvexPolygonShape3D_y4gb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
 
 [node name="Skeleton3D" parent="Outside/Player/Armature" index="1"]
-bones/0/rotation = Quaternion(0.00645855, 0, 0, 0.999979)
-bones/1/rotation = Quaternion(-0.0801557, 1.77636e-15, -2.48068e-07, 0.996782)
-bones/7/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
-bones/8/rotation = Quaternion(-0.0246064, -0.0025614, 0.103505, 0.994321)
-bones/11/rotation = Quaternion(0.484431, -0.570964, 0.526164, 0.403087)
-bones/12/rotation = Quaternion(-0.0246162, 0.00256229, -0.103498, 0.994322)
-bones/15/rotation = Quaternion(2.80852e-09, 0.010368, 0.999946, 2.71714e-07)
-bones/16/rotation = Quaternion(-0.0381125, -8.73115e-10, 2.054e-08, 0.999274)
-bones/17/rotation = Quaternion(0.459749, 1.86264e-09, -1.1659e-07, 0.888049)
-bones/18/rotation = Quaternion(0.335241, 1.86265e-09, -1.16881e-07, 0.942132)
 bones/19/rotation = Quaternion(-9.78174e-07, 4.90851e-10, -0.000501806, 1)
-bones/20/rotation = Quaternion(2.69938e-09, 0.0103565, 0.999946, 2.61236e-07)
-bones/21/rotation = Quaternion(-0.0380914, -6.98492e-10, 1.70912e-08, 0.999274)
-bones/22/rotation = Quaternion(0.45974, 0, -1.22149e-07, 0.888054)
-bones/23/rotation = Quaternion(0.335242, 9.31323e-09, -1.03842e-07, 0.942132)
 bones/24/rotation = Quaternion(-1.19923e-13, -7.7412e-17, -0.000221515, 1)
 
 [node name="Camera3D" parent="Outside/Player" index="5"]
-transform = Transform3D(1, -3.45983e-05, 0.000100179, 7.29233e-09, 0.945239, 0.326379, -0.000105985, -0.326379, 0.945239, 0.000692368, 3.94474, 8.50108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 5.9999)
 
-[node name="DebugPhantomCamera3D" parent="Outside/Player" index="6"]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 3.8147e-06, 1.477, 5.9999)
+[node name="PhantomCamera3D" parent="Outside/Player" index="6"]
+transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 5.9999)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_at3ae")
 script = ExtResource("8_au8mo")
-
-[node name="AutoCamSwitcher" parent="." instance=ExtResource("11_67qxt")]
-unique_name_in_owner = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8791, 10.4786, -50.3098)
