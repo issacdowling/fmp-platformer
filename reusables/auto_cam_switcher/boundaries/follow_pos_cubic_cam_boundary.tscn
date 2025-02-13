@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://gil1nlo1oqy6"]
 
-[ext_resource type="Script" path="res://reusables/auto_cam_switcher/cam_boundary.gd" id="1_5idvh"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_bdxql"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_g4ci0"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_0h0k7"]
+[ext_resource type="Script" uid="uid://vfdpgc45xvo" path="res://reusables/auto_cam_switcher/cam_boundary.gd" id="1_5idvh"]
+[ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_bdxql"]
+[ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_g4ci0"]
+[ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_0h0k7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egada"]
 size = Vector3(2.5, 1, 2.5)
@@ -38,7 +38,6 @@ shape = SubResource("BoxShape3D_egada")
 transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 0, 1.477, 3.838)
 top_level = true
 script = ExtResource("2_bdxql")
-priority = 1
 follow_mode = 2
 tween_resource = SubResource("Resource_ftu2j")
 camera_3d_resource = SubResource("Resource_sd4sl")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://do0qhs5cp2o0o"]
 
-[ext_resource type="Script" path="res://reusables/auto_cam_switcher/cam_boundary.gd" id="1_5gn48"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_rmtdv"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_dgogc"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_w77sg"]
+[ext_resource type="Script" uid="uid://vfdpgc45xvo" path="res://reusables/auto_cam_switcher/cam_boundary.gd" id="1_5gn48"]
+[ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_rmtdv"]
+[ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_dgogc"]
+[ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_w77sg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k4igg"]
 size = Vector3(2.89111, 1, 2.7685)
@@ -27,20 +27,17 @@ near = 0.05
 far = 4000.0
 
 [node name="LookPosCubicCamBoundary" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66387, 0, 3.09514)
 script = ExtResource("1_5gn48")
 
 [node name="Area" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4948, 0, 1.06681)
 shape = SubResource("BoxShape3D_k4igg")
 
-[node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+[node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(0.790795, 0.114171, -0.601339, -7.45058e-09, 0.982449, 0.186529, 0.612081, -0.147506, 0.776916, -1.34162, 2.05265, 3.37184)
 script = ExtResource("2_rmtdv")
 look_at_mode = 2
-look_at_target = NodePath("")
 tween_resource = SubResource("Resource_bvarm")
 camera_3d_resource = SubResource("Resource_umakp")
 look_at_damping = true

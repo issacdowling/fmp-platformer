@@ -5,7 +5,7 @@ class_name Collectable
 # Dicts or exporting seems to make the first letter uppercase, so make sure it's that way anyway?????
 @export var type: String = "Coin"
 @export var value: int = 1
-@export var degress_per_second: float = 10
+@export var degress_per_second: float = 2.5
 
 @onready var collectable_area: Area3D = $CollectableArea
 var initial_rotation: Vector3
