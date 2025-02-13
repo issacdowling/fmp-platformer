@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpobhijshgqig"]
 
-[ext_resource type="Script" path="res://reusables/bouncy_platform/bouncy_platform.gd" id="1_5b1le"]
+[ext_resource type="Script" uid="uid://b2ejvddmt3l4e" path="res://reusables/bouncy_platform/bouncy_platform.gd" id="1_5b1le"]
 
 [node name="BouncyPlatform" type="Node3D"]
 script = ExtResource("1_5b1le")
