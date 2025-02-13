@@ -12,6 +12,8 @@ class_name Player
 @export var STEAL_MOUSE_ON_START: bool = true
 
 @onready var health: HealthEntity = $HealthEntity
+@export var health_popup_display_length_seconds: float = 3
+@onready var display_timer: Timer = $HealthEntity/Timer
 
 var air_time: float = 0
 var current_walk_speed: float
@@ -26,6 +28,7 @@ func _ready() -> void:
 	
 	health.update.connect(_on_health_update)
 	Menu.set_health(health.current_health, health.peak_health)
+	display_timer.timeout.connect(_on_health_display_done)
 
 func switch_scene(scene_file: String) -> void:
 	# As begin_transition returns the length of the transition, we wait for that long before switching scene
@@ -129,3 +132,13 @@ func jump() -> void:
 
 func _on_health_update(amount: int) -> void:
 	Menu.set_health(amount, health.peak_health)
+	Menu.show_health()
+	display_timer.start(health_popup_display_length_seconds)
+
+func _on_health_display_done() -> void:
+	display_timer.stop()
+
+	# Health should always be showing if below 25%, but not if above
+	if health.current_health / float(health.peak_health) <= 0.25:
+		return
+	Menu.hide_health()
