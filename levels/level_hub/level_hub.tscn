@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=24 format=3 uid="uid://b3sg8isli1i7w"]
 
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_1bb6e"]
@@ -29,24 +29,6 @@ font_size = 120
 radius = 1.0
 height = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjme3"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_4j44j"]
-material = SubResource("StandardMaterial3D_kjme3")
-text = "Example Level"
-font = ExtResource("5_78q5s")
-font_size = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sstcx"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_1uirp"]
-material = SubResource("StandardMaterial3D_sstcx")
-text = "2level 2furious"
-font = ExtResource("5_78q5s")
-font_size = 32
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhb0"]
 albedo_color = Color(0.811415, 0.439274, 1.92523e-07, 1)
 
@@ -54,83 +36,29 @@ albedo_color = Color(0.811415, 0.439274, 1.92523e-07, 1)
 radius = 10.0
 height = 20.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se5p2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjme3"]
 shading_mode = 0
 
-[sub_resource type="TextMesh" id="TextMesh_ap8xr"]
-material = SubResource("StandardMaterial3D_se5p2")
+[sub_resource type="TextMesh" id="TextMesh_4j44j"]
+material = SubResource("StandardMaterial3D_kjme3")
 text = "Second world"
 font = ExtResource("5_78q5s")
 font_size = 120
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2ypr"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_4wkui"]
-material = SubResource("StandardMaterial3D_c2ypr")
-text = "Example Level"
-font = ExtResource("5_78q5s")
-font_size = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd2n8"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_a6a4n"]
-material = SubResource("StandardMaterial3D_yd2n8")
-text = "2level 2furious"
-font = ExtResource("5_78q5s")
-font_size = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj6ye"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_qvt0v"]
-material = SubResource("StandardMaterial3D_hj6ye")
-text = "3level 3furious"
-font = ExtResource("5_78q5s")
-font_size = 32
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqw5m"]
 albedo_color = Color(0.908126, 0.0331328, 0.816464, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oibs8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sstcx"]
 shading_mode = 0
 
-[sub_resource type="TextMesh" id="TextMesh_tbapj"]
-material = SubResource("StandardMaterial3D_oibs8")
+[sub_resource type="TextMesh" id="TextMesh_1uirp"]
+material = SubResource("StandardMaterial3D_sstcx")
 text = "Test World"
 font = ExtResource("5_78q5s")
 font_size = 120
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdsrw"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_ac7hc"]
-material = SubResource("StandardMaterial3D_bdsrw")
-text = "Test Scene"
-font = ExtResource("5_78q5s")
-font_size = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlm8u"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_ionx1"]
-material = SubResource("StandardMaterial3D_rlm8u")
-text = "2level 2furious"
-font = ExtResource("5_78q5s")
-font_size = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58lx7"]
-shading_mode = 0
-
-[sub_resource type="TextMesh" id="TextMesh_gn0m2"]
-material = SubResource("StandardMaterial3D_58lx7")
-text = "3level 3furious"
-font = ExtResource("5_78q5s")
-font_size = 32
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_78q5s"]
-size = Vector3(345, 212, 180.462)
+size = Vector3(649, 281, 716)
 
 [sub_resource type="Environment" id="Environment_ju51b"]
 background_mode = 1
@@ -153,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.760577, 0, 0.646246, 0, 1, 0, -0.646246, 0, 0.760577, 0, 0, 0)
+transform = Transform3D(0.997953, 0, 0.011423, 0, 1, 0, -0.011423, 0, 0.997953, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -185,7 +113,6 @@ script = ExtResource("7_kjme3")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_4j44j")
 
 [node name="Level2" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
@@ -196,10 +123,9 @@ level_name = "2level 2furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_1uirp")
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.214136, 0, 0.974869, 0, 1, 0, -0.974869, 0, 0.214136, 50, 0, 0)
+transform = Transform3D(0.998006, 0, 0.0114236, 0, 1, 0, -0.0114236, 0, 0.998006, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -208,19 +134,19 @@ world_name = "Second world"
 
 [node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
-mesh = SubResource("TextMesh_ap8xr")
+mesh = SubResource("TextMesh_4j44j")
 
 [node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
-mesh = SubResource("TextMesh_ap8xr")
+mesh = SubResource("TextMesh_4j44j")
 
 [node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
-mesh = SubResource("TextMesh_ap8xr")
+mesh = SubResource("TextMesh_4j44j")
 
 [node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/World 2"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
-mesh = SubResource("TextMesh_ap8xr")
+mesh = SubResource("TextMesh_4j44j")
 
 [node name="Levels" type="Node3D" parent="Worlds/World 2"]
 transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 50, -2, 20)
@@ -232,7 +158,6 @@ script = ExtResource("7_kjme3")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_4wkui")
 
 [node name="Level2" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
@@ -243,7 +168,6 @@ level_name = "2level 2furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_a6a4n")
 
 [node name="Level3" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 8, 0, 0)
@@ -254,10 +178,9 @@ level_name = "3level 3furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_qvt0v")
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.637248, 0, 0.76622, 0, 1, 0, -0.76622, 0, 0.637248, 100, 0, 0)
+transform = Transform3D(0.996487, 0, 0.0114062, 0, 1, 0, -0.0114062, 0, 0.996487, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")
@@ -267,19 +190,19 @@ world_name = "Test World"
 
 [node name="PlanetTextFront" type="MeshInstance3D" parent="Worlds/TestWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83845, 8.5311)
-mesh = SubResource("TextMesh_tbapj")
+mesh = SubResource("TextMesh_1uirp")
 
 [node name="PlanetTextBack" type="MeshInstance3D" parent="Worlds/TestWorld"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.838, -8.531)
-mesh = SubResource("TextMesh_tbapj")
+mesh = SubResource("TextMesh_1uirp")
 
 [node name="PlanetTextLeft" type="MeshInstance3D" parent="Worlds/TestWorld"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.531, 5.838, 0)
-mesh = SubResource("TextMesh_tbapj")
+mesh = SubResource("TextMesh_1uirp")
 
 [node name="PlanetTextRight" type="MeshInstance3D" parent="Worlds/TestWorld"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.531, 5.838, 0)
-mesh = SubResource("TextMesh_tbapj")
+mesh = SubResource("TextMesh_1uirp")
 
 [node name="Levels" type="Node3D" parent="Worlds/TestWorld"]
 transform = Transform3D(0.999241, 0, 0, 0, 1, 0, 0, 0, 0.999241, 100, -2, 20)
@@ -292,7 +215,6 @@ level_name = "Test Scene"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/TestWorld/Levels/Level1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_ac7hc")
 
 [node name="Level2" type="MeshInstance3D" parent="Worlds/TestWorld/Levels"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
@@ -303,7 +225,6 @@ level_name = "2level 2furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/TestWorld/Levels/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_ionx1")
 
 [node name="Level3" type="MeshInstance3D" parent="Worlds/TestWorld/Levels"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 8, 0, 0)
@@ -314,19 +235,17 @@ level_name = "3level 3furious"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/TestWorld/Levels/Level3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("TextMesh_gn0m2")
 
 [node name="Stars" type="Node3D" parent="Worlds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26)
 script = ExtResource("6_78q5s")
-star_number = 300
+star_number = 500
 
 [node name="StarArea" type="Area3D" parent="Worlds/Stars"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.191)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Worlds/Stars/StarArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0931, 11, -80.231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7913, 70.4245, -342.5)
 shape = SubResource("BoxShape3D_78q5s")
-disabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ju51b")

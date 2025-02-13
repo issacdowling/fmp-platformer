@@ -136,7 +136,7 @@ mesh = SubResource("BoxMesh_p4gp2")
 shape = SubResource("BoxShape3D_ncwfv")
 
 [node name="MovingPlatform" parent="TestLevel/Bridge" instance=ExtResource("7_wv8t6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.05, -7.77579)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.223911, -7.59563)
 travel_seconds = 1.5
 
 [node name="StartMarker" parent="TestLevel/Bridge/MovingPlatform" index="0"]
@@ -220,7 +220,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15773, 0, 3.8711)
 original_priority = 1
 
 [node name="Camera" parent="FollowPosCubicCamBoundary" index="1" node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, -2.15773, 1.977, 2.12881)
+transform = Transform3D(0.473299, 0, 0.880885, 0, 0.999978, 0, -0.880889, 0, 0.473297, 3.12758, 1.977, -1.03132)
 top_level = false
 follow_mode = 6
 follow_target = NodePath("../../Player")
@@ -245,35 +245,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.627659, 0, -0.778444, 0, 1, 0, 0.778455, 0, -0.627676, 0, 0, 0)
+transform = Transform3D(0.354931, 0, -0.934863, 0, 1, 0, 0.934853, 0, 0.354935, 0, 0, 0)
 degress_per_second = 2.5
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.529935, 0, -0.847997, 0, 1, 0, 0.847997, 0, -0.529935, 0, 0, -0.464284)
+transform = Transform3D(0.354927, 0, -0.934845, 0, 1, 0, 0.934845, 0, 0.354927, 0, 0, -0.464284)
 degress_per_second = 2.5
 
 [node name="Coin3" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.613925, 0, 0.789325, 0, 1, 0, -0.789319, 0, -0.613925, 0, 0, -0.863834)
+transform = Transform3D(0.354927, 0, -0.934857, 0, 1, 0, 0.934845, 0, 0.354932, 0, 0, -0.863834)
 degress_per_second = 2.5
 
 [node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.704018, 0, 0.710137, 0, 1, 0, -0.710141, 0, -0.704018, 0, 0, -1.32812)
+transform = Transform3D(0.354931, 0, -0.93485, 0, 1, 0, 0.934853, 0, 0.35493, 0, 0, -1.32812)
 degress_per_second = 2.5
 
 [node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.911255, 0, -0.411809, 0, 1, 0, 0.411809, 0, -0.911255, 0, 0, -1.79335)
+transform = Transform3D(0.354935, 0, -0.934864, 0, 1, 0, 0.934864, 0, 0.354935, 0, 0, -1.79335)
 degress_per_second = 2.5
 
 [node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.855365, 0, -0.517965, 0, 1, 0, 0.517963, 0, -0.85537, 0, 0, -2.25763)
+transform = Transform3D(0.354931, 0, -0.93486, 0, 1, 0, 0.934857, 0, 0.354932, 0, 0, -2.25763)
 degress_per_second = 2.5
 
 [node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.192076, 0, 0.981349, 0, 1, 0, -0.981345, 0, -0.192071, 0, 0, -2.65718)
+transform = Transform3D(0.354927, 0, -0.934859, 0, 1, 0, 0.934845, 0, 0.354932, 0, 0, -2.65718)
 degress_per_second = 2.5
 
 [node name="Coin8" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(-0.308187, 0, 0.951297, 0, 1, 0, -0.951303, 0, -0.308183, 0, 0, -3.12146)
+transform = Transform3D(0.354933, 0, -0.934853, 0, 1, 0, 0.93486, 0, 0.35493, 0, 0, -3.12146)
 degress_per_second = 2.5
 
 [editable path="TestLevel/Bridge/MovingPlatform"]

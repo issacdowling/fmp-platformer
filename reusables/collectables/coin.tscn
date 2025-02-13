@@ -7,7 +7,6 @@
 radius = 0.15
 
 [node name="Coin" instance=ExtResource("1_vgsqt")]
-transform = Transform3D(0.558171, 0, 0.82973, 0, 1, 0, -0.82973, 0, 0.558171, 0, 0, 0)
 script = ExtResource("2_itjm7")
 
 [node name="CollectableArea" type="Area3D" parent="." index="1"]
