@@ -1,7 +1,8 @@
-[gd_scene load_steps=108 format=4 uid="uid://c6yc33n5qy0uh"]
+[gd_scene load_steps=103 format=4 uid="uid://c6yc33n5qy0uh"]
 
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_pmayf"]
 [ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev/dev_wall.tres" id="2_2r5qb"]
+[ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="3_gvysq"]
 [ext_resource type="Material" uid="uid://df5e8kneqopjw" path="res://materials/dev/dev_walkable.tres" id="3_mu51g"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="4_bxdgg"]
 [ext_resource type="PackedScene" uid="uid://gil1nlo1oqy6" path="res://reusables/auto_cam_switcher/boundaries/follow_pos_cubic_cam_boundary.tscn" id="5_ppptb"]
@@ -662,68 +663,6 @@ shadow_mesh = SubResource("ArrayMesh_mn1j2")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2jkys"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_iimay"]
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 5, 4, 18),
-"format": 34359738369,
-"material": ExtResource("2_2r5qb"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("AAAAAAAAgEAAAAAAAAAAAAAAgEAAAJBBAAAAAAAAAAAAAJBBAAAAAAAAgEAAAAAAAAAAAAAAAAAAAJBBAAAAAAAAAAAAAAAAAACgQAAAAAAAAAAAAACgQAAAAAAAAJBBAACgQAAAgEAAAJBBAACgQAAAAAAAAAAAAACgQAAAgEAAAJBBAACgQAAAgEAAAAAAAAAAAAAAgEAAAJBBAAAAAAAAgEAAAAAAAACgQAAAgEAAAAAAAAAAAAAAgEAAAJBBAACgQAAAgEAAAAAAAACgQAAAgEAAAJBBAAAAAAAAAAAAAJBBAAAAAAAAgEAAAJBBAACgQAAAgEAAAJBBAAAAAAAAAAAAAJBBAACgQAAAgEAAAJBBAACgQAAAAAAAAJBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBBAACgQAAAAAAAAJBBAAAAAAAAAAAAAAAAAACgQAAAAAAAAJBBAACgQAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAACgQAAAAAAAAAAAAAAAAAAAgEAAAAAAAACgQAAAAAAAAAAAAACgQAAAgEAAAAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_vm0bx"]
-lightmap_size_hint = Vector2i(1000, 1000)
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 5, 4, 18),
-"attribute_data": PackedByteArray("/////wAAAAAAAIDA5yF0PXTNaj3/////AACQwQAAgMBP1yc/dM1qPf////8AAJDBAAAAAE/XJz+BJT0+/////wAAAAAAAAAA5yF0PYElPT7/////AAAAAAAAAADnIXQ9HUaZPv////8AAJDBAAAAAE/XJz8dRpk+/////wAAkMEAAIDAT9cnPy9/2j7/////AAAAAAAAgMDnIXQ9L3/aPv////8AAAAAAACQwechdD1GmQo//////wAAAAAAAAAAT9cnP0aZCj//////AACgwAAAAABP1yc/8lwzP/////8AAKDAAACQwechdD3yXDM//////wAAAAAAAAAAjFtGP3hjXz//////AAAAAAAAgMCMW0Y/7sY+P/////8AAKDAAACAwOK9cD/uxj4//////wAAoMAAAAAA4r1wP3hjXz//////AAAAAAAAAACMW0Y/dM1qPf////8AAAAAAACQwYxbRj8/bSE//////wAAoMAAAJDB4r1wPz9tIT//////AACgwAAAAADivXA/dM1qPf////8AAAAAAACAwOchdD0oU3E//////wAAAAAAAAAA5yF0PZ+2UD//////AACgwAAAAADNkWY+n7ZQP/////8AAKDAAACAwM2RZj4oU3E/"),
-"format": 34359742527,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("2_2r5qb"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAAgEAAAAAAAAAAAAAAgEAAAJBBAAAAAAAAAAAAAJBBAAAAAAAAAAAAAAAAAACgQAAAAAAAAAAAAACgQAAAAAAAAJBBAACgQAAAgEAAAJBBAACgQAAAgEAAAAAAAAAAAAAAgEAAAJBBAAAAAAAAgEAAAAAAAACgQAAAgEAAAAAAAACgQAAAgEAAAJBBAAAAAAAAAAAAAJBBAAAAAAAAgEAAAJBBAACgQAAAgEAAAJBBAACgQAAAAAAAAJBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBBAACgQAAAAAAAAJBBAACgQAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAACgQAAAAAAAAAAAAACgQAAAgEAAAAAAAAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAD///9//////////3//////////f/////////9///////9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/P/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_iimay")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rjor3"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_3owgi"]
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 3, 1, 19),
-"format": 34359738369,
-"material": ExtResource("2_2r5qb"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAJhBAAAAAAAAAAAAAJhBAAAAAAAAgD8AAAAAAAAAAAAAAAAAAJhBAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAABAQAAAAAAAAJhBAABAQAAAgD8AAJhBAABAQAAAAAAAAAAAAABAQAAAgD8AAJhBAABAQAAAgD8AAAAAAAAAAAAAgD8AAJhBAAAAAAAAgD8AAAAAAABAQAAAgD8AAAAAAAAAAAAAgD8AAJhBAABAQAAAgD8AAAAAAABAQAAAgD8AAJhBAAAAAAAAAAAAAJhBAAAAAAAAgD8AAJhBAABAQAAAgD8AAJhBAAAAAAAAAAAAAJhBAABAQAAAgD8AAJhBAABAQAAAAAAAAJhBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJhBAABAQAAAAAAAAJhBAAAAAAAAAAAAAAAAAABAQAAAAAAAAJhBAABAQAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAgD8AAAAAAABAQAAAAAAAAAAAAABAQAAAgD8AAAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_nw5ji"]
-lightmap_size_hint = Vector2i(1000, 1000)
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 3, 1, 19),
-"attribute_data": PackedByteArray("/////wAAAAAAAIC/SvyMPWC5pz3/////AACYwQAAgL/l2kE/YLmnPf////8AAJjBAAAAAOXaQT////89/////wAAAAAAAAAASvyMPf///z3/////AAAAAAAAAABK/Iw9sNyTPv////8AAJjBAAAAAOXaQT+w3JM+/////wAAmMEAAIC/5dpBP1juqT7/////AAAAAAAAgL9K/Iw9WO6pPv////8AAAAAAACYwUr8jD0Iy/0+/////wAAAAAAAAAA5dpBPwjL/T7/////AABAwAAAAADl2kE///8fP/////8AAEDAAACYwUr8jD3//x8//////wAAAAAAAAAAdmBuP2C5pz3/////AAAAAAAAgL/3GWU/YLmnPf////8AAEDAAACAv/cZZT+eRlg+/////wAAQMAAAAAAdmBuP55GWD7/////AAAAAAAAAABK/Iw9WO5JP/////8AAAAAAACYweXaQT9Y7kk//////wAAQMAAAJjB5dpBP9QIaz//////AABAwAAAAABK/Iw91AhrP/////8AAAAAAACAv3Zgbj8Iy/0+/////wAAAAAAAAAA9xllPwjL/T7/////AABAwAAAAAD3GWU///8fP/////8AAEDAAACAv3Zgbj///x8/"),
-"format": 34359742527,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("2_2r5qb"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAJhBAAAAAAAAAAAAAJhBAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAABAQAAAAAAAAJhBAABAQAAAgD8AAJhBAABAQAAAgD8AAAAAAAAAAAAAgD8AAJhBAAAAAAAAgD8AAAAAAABAQAAAgD8AAAAAAABAQAAAgD8AAJhBAAAAAAAAAAAAAJhBAAAAAAAAgD8AAJhBAABAQAAAgD8AAJhBAABAQAAAAAAAAJhBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJhBAABAQAAAAAAAAJhBAABAQAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAABAQAAAgD8AAAAAAAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAD///9//////////3//////////f/////////9///////9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/P/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_3owgi")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_57t12"]
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_pftre"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 2, 3),
@@ -1088,6 +1027,13 @@ material_override = ExtResource("2_2r5qb")
 use_collision = true
 size = Vector3(47.6425, 27.1425, 2.61621)
 
+[node name="kitchen_wall8" type="CSGBox3D" parent="Outside/LowerFloor/RightmostCubbyRoom/LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6749, -4.02243, -0.00897217)
+material_override = ExtResource("2_2r5qb")
+operation = 2
+use_collision = true
+size = Vector3(1.83696, 2.25433, 5.92828)
+
 [node name="DoorFrame" type="CSGBox3D" parent="Outside/LowerFloor/RightmostCubbyRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7918, 13.0713, 0.472112)
 material_override = ExtResource("2_2r5qb")
@@ -1149,6 +1095,12 @@ size = Vector3(10.7124, 3.32417, 2.11383)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.221283, 6.19477, -1.00108)
 operation = 2
 size = Vector3(10.7124, 1.21726, 2.11383)
+
+[node name="Coin" parent="Outside/LowerFloor/Stairs" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.546721, 0, 0.837315, 0, 1, 0, -0.837315, 0, 0.546721, -24.8544, 4.29933, 37.5205)
+
+[node name="Coin2" parent="Outside/LowerFloor/Stairs" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.125614, 0, -0.992083, 0, 1, 0, 0.992083, 0, 0.125614, -24.859, 4.2126, 40.8098)
 
 [node name="SpawnArea" type="Node3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5754, 1.34146, -49.9049)
@@ -1284,7 +1236,7 @@ use_collision = true
 size = Vector3(5.8871, 21.8934, 11.9691)
 
 [node name="Platform12" type="CSGBox3D" parent="Outside/LowerFloor/TVArea/MiddleWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18199, 12.6307, -25.785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18199, 12.6025, -25.785)
 material_override = ExtResource("3_mu51g")
 operation = 2
 use_collision = true
@@ -1299,6 +1251,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725159, 0, 0.225037)
 [node name="Camera" parent="Outside/LowerFloor/TVArea/FollowPosCubicCamBoundary" index="1" node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1.19247e-08, 0, -0.999984, 0, 0.999978, 0, 0.999989, 0, 1.19247e-08, 16.9046, 2.47673, -42.413)
 follow_target = NodePath("../../../../Player")
+
+[node name="Coin" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.0405136, 0, -0.99918, 0, 1, 0, 0.99918, 0, 0.0405136, 5.39914, 7.44923, 2.06588)
+
+[node name="Coin2" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.182379, 0, -0.983236, 0, 1, 0, 0.983236, 0, -0.182379, 6.98098, 7.44923, 2.10236)
+
+[node name="Coin3" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.924616, 0, 0.380887, 0, 1, 0, -0.380887, 0, -0.924616, 8.86111, 7.44923, 2.13425)
+
+[node name="Coin4" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.333762, 0, 0.942657, 0, 1, 0, -0.942657, 0, 0.333762, -0.625019, 3.80455, 2.33536)
+
+[node name="Coin5" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.991995, 0, -0.12627, 0, 1, 0, 0.12627, 0, 0.991995, 3.09807, 0.790977, 2.36787)
+
+[node name="Coin6" parent="Outside/LowerFloor/TVArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.55187, 0, -0.833922, 0, 1, 0, 0.833922, 0, 0.55187, -0.0935974, -2.21978, 2.34357)
 
 [node name="TopShelfArea" type="Node3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.197, 24.6538, -74.8508)
@@ -1320,6 +1290,15 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.856
 
 [node name="EndMarker" parent="Outside/LowerFloor/TopShelfArea/MovingPlatform" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6742, 0, 0)
+
+[node name="Coin" parent="Outside/LowerFloor/TopShelfArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.619852, 0, 0.78473, 0, 1, 0, -0.78473, 0, 0.619852, -0.48378, -0.472126, 31.3894)
+
+[node name="Coin2" parent="Outside/LowerFloor/TopShelfArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.280348, 0, 0.959902, 0, 1, 0, -0.959902, 0, 0.280348, -0.501816, -0.472126, 28.3014)
+
+[node name="Coin3" parent="Outside/LowerFloor/TopShelfArea" instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.312151, 0, -0.950044, 0, 1, 0, 0.950044, 0, 0.312151, -0.586182, -0.472126, 25.1556)
 
 [node name="TableArea" type="Node3D" parent="Outside/LowerFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5776, 6.88137, -35.3491)
@@ -1630,30 +1609,6 @@ mesh = SubResource("ArrayMesh_67isi")
 [node name="couch_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/couch/couch_col"]
 shape = SubResource("ConvexPolygonShape3D_2jkys")
 
-[node name="Block_54" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
-transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 110.577, -0.00186157, -41.4772)
-metadata/_edit_group_ = true
-
-[node name="Block_54_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_54"]
-mesh = SubResource("ArrayMesh_vm0bx")
-
-[node name="Block_54_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_54"]
-
-[node name="Block_54_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_54/Block_54_col"]
-shape = SubResource("ConvexPolygonShape3D_rjor3")
-
-[node name="Block_55" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
-transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 112.577, 7.99814, -41.4772)
-metadata/_edit_group_ = true
-
-[node name="Block_55_mesh" type="MeshInstance3D" parent="Outside/autoconverted_cyclops_blocks/Block_55"]
-mesh = SubResource("ArrayMesh_nw5ji")
-
-[node name="Block_55_col" type="StaticBody3D" parent="Outside/autoconverted_cyclops_blocks/Block_55"]
-
-[node name="Block_55_col_shp" type="CollisionShape3D" parent="Outside/autoconverted_cyclops_blocks/Block_55/Block_55_col"]
-shape = SubResource("ConvexPolygonShape3D_57t12")
-
 [node name="Block_56" type="Node3D" parent="Outside/autoconverted_cyclops_blocks"]
 transform = Transform3D(1, 0, 1.77636e-14, 0, 1, 0, -1.77636e-14, 0, 1, 94.577, -2.00186, -66.4772)
 metadata/_edit_group_ = true
@@ -1771,6 +1726,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18724, 0.370605, -1.80589)
 [node name="Camera" parent="Outside/autoconverted_cyclops_blocks/StaticCubicCamBoundary" index="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.7693, 0.0161343, 10.3502)
 
+[node name="Coin" parent="Outside/autoconverted_cyclops_blocks" instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.144789, 0, -0.989467, 0, 1, 0, 0.989467, 0, -0.144789, 114.274, 0.155318, -47.0816)
+
 [node name="Player" parent="Outside" instance=ExtResource("7_bi7qn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
 
@@ -1821,6 +1779,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42212, 0)
 [node name="shelf_interior" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.097, 4.67835, -52.2762)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(10.1434, 9.71368, 22.9798)
 
 [node name="shelf_interior_cutout_1" type="CSGBox3D" parent="shelf_interior"]
@@ -1836,21 +1795,37 @@ size = Vector3(1.23431, 1.9621, 10.8621)
 [node name="kitchen_wall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.201, 17.2142, -41.5257)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(9.9349, 15.4127, 1.46099)
+
+[node name="kitchen_wall6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.662, 1.69305, -31.9542)
+material_override = ExtResource("2_2r5qb")
+use_collision = true
+size = Vector3(4.1401, 3.44363, 17.7097)
+
+[node name="kitchen_wall7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.761, 7.69568, -31.9542)
+material_override = ExtResource("2_2r5qb")
+use_collision = true
+size = Vector3(1.94076, 0.479251, 17.7097)
 
 [node name="kitchen_wall3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.679, 3.43023, -50.5792)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(0.72218, 0.0462668, 19.2178)
 
 [node name="kitchen_wall4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.679, 5.44118, -50.6867)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(0.72218, 0.0462668, 18.9188)
 
 [node name="kitchen_wall2" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 106.607, 19.7533, -54.219)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(25.0134, 20.4909, 1.06013)
 
 [node name="shelf_interior_cutout_1" type="CSGBox3D" parent="kitchen_wall2"]
@@ -1866,6 +1841,7 @@ size = Vector3(1.23431, 1.9621, 11.778)
 [node name="kitchen_wall5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.617, 12.9307, -66.8364)
 material_override = ExtResource("2_2r5qb")
+use_collision = true
 size = Vector3(13.0327, 26.0953, 2.21303)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_sxtm4")]
@@ -1876,6 +1852,138 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.21479)
 
 [node name="MovingPlatform" parent="MovingPlatform2" instance=ExtResource("5_sxtm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2737, -0.317249, -5.13806)
+
+[node name="EndMarker" parent="MovingPlatform2/MovingPlatform" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07821, 0.284811, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.6362, 15.2622, -56.0199)
+light_color = Color(0.770188, 0.609566, 0.466909, 1)
+light_energy = 16.0
+omni_range = 45.477
+
+[node name="BouncyPlatform" parent="." instance=ExtResource("4_bxdgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.6191, 4.06276, -33.7185)
+
+[node name="Coin" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.794171, 0, 0.607686, 0, 1, 0, -0.607686, 0, -0.794171, 84.902, 4.2126, -33.6402)
+
+[node name="Coin2" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.483223, 0, 0.875511, 0, 1, 0, -0.875511, 0, -0.483223, 83.248, 4.2126, -35.1686)
+
+[node name="Coin3" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.142747, 0, 0.989757, 0, 1, 0, -0.989757, 0, -0.142747, 83.2542, 4.2126, -31.9798)
+
+[node name="Coin4" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.205962, 0, 0.978567, 0, 1, 0, -0.978567, 0, -0.205962, 81.6108, 4.2126, -33.6124)
+
+[node name="Coin5" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.878326, 0, -0.478069, 0, 1, 0, 0.478069, 0, 0.878326, 80.014, 4.21261, -35.2782)
+
+[node name="Coin6" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.208516, 0, 0.978021, 0, 1, 0, -0.978021, 0, 0.208516, 79.9196, 4.2126, -31.9794)
+
+[node name="Coin7" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.979347, 0, 0.202189, 0, 1, 0, -0.202189, 0, -0.979347, 87.5527, 4.2126, -33.7325)
+
+[node name="Coin8" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.945623, 0, 0.325263, 0, 1, 0, -0.325263, 0, 0.945623, 88.4128, 4.21261, -33.7487)
+
+[node name="Coin9" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.7424, 0, 0.669949, 0, 1, 0, -0.669949, 0, -0.7424, 89.2044, 4.2126, -33.7943)
+
+[node name="Coin10" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.540525, 0, -0.841332, 0, 1, 0, 0.841332, 0, -0.540525, 90.0687, 4.2126, -33.8824)
+
+[node name="Coin11" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.918139, 0, -0.396268, 0, 1, 0, 0.396268, 0, 0.918139, 89.6387, 4.2126, -34.6338)
+
+[node name="Coin12" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.658723, 0, 0.752367, 0, 1, 0, -0.752367, 0, 0.658723, 89.53, 4.2126, -32.9684)
+
+[node name="Coin13" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.972318, 0, -0.233631, 0, 1, 0, 0.233631, 0, -0.972318, 71.8707, 24.0633, -72.2842)
+
+[node name="Coin14" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.946706, 0, 0.322088, 0, 1, 0, -0.322088, 0, -0.946706, 71.828, 24.1817, -74.0449)
+
+[node name="Coin15" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.319707, 0, -0.947525, 0, 1, 0, 0.947525, 0, 0.319707, 71.7857, 24.169, -75.5937)
+
+[node name="Coin16" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.495202, 0, -0.868774, 0, 1, 0, 0.868774, 0, -0.495202, 60.3009, 23.1117, -75.5795)
+
+[node name="Coin17" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.549643, 0, 0.835404, 0, 1, 0, -0.835404, 0, -0.549643, 51.3795, 12.4887, -75.5164)
+
+[node name="Coin18" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.84782, 0, 0.530286, 0, 1, 0, -0.530286, 0, -0.84782, 53.2707, 13.2869, -75.5235)
+
+[node name="Coin19" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.18049, 0, 0.983571, 0, 1, 0, -0.983571, 0, -0.18049, 49.5104, 11.1636, -75.4404)
+
+[node name="Coin20" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.219515, 0, -0.975602, 0, 1, 0, 0.975602, 0, -0.219515, 46.6845, 9.98788, -75.5006)
+
+[node name="Coin21" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.237043, 0, -0.971496, 0, 1, 0, 0.971496, 0, 0.237043, 44.1301, 8.87409, -75.5781)
+
+[node name="Coin22" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.039492, 0, -0.999214, 0, 1, 0, 0.999214, 0, 0.039492, 39.806, 14.9652, -75.7732)
+
+[node name="Coin23" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.670242, 0, -0.742152, 0, 1, 0, 0.742152, 0, -0.670242, 35.1839, 14.9652, -75.6673)
+
+[node name="Coin24" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.969011, 0, -0.247055, 0, 1, 0, 0.247055, 0, -0.969011, 30.4953, 14.9652, -75.6984)
+
+[node name="Coin25" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.560819, 0, 0.827941, 0, 1, 0, -0.827941, 0, -0.560819, 26.643, 14.9652, -75.8412)
+
+[node name="Coin26" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.294661, 0, -0.955601, 0, 1, 0, 0.955601, 0, 0.294661, 18.932, 8.32247, -62.1553)
+
+[node name="Coin27" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.669344, 0, 0.742952, 0, 1, 0, -0.742952, 0, 0.669344, 19.0366, 8.32247, -65.1943)
+
+[node name="Coin28" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.00755626, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00755626, 18.9855, 8.32247, -68.4229)
+
+[node name="Coin29" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.584935, 0, -0.811086, 0, 1, 0, 0.811086, 0, 0.584935, 18.9269, 8.32247, -71.7169)
+
+[node name="Coin30" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.334751, 0, 0.942314, 0, 1, 0, -0.942314, 0, -0.334751, 112.473, 3.56486, -33.237)
+
+[node name="Coin31" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.571048, 0, -0.82092, 0, 1, 0, 0.82092, 0, -0.571048, 114.24, 3.56486, -29.7859)
+
+[node name="Coin32" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.976457, 0, -0.215701, 0, 1, 0, 0.215701, 0, -0.976457, 112.665, 3.56486, -26.3377)
+
+[node name="Coin33" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.856075, 0, -0.51685, 0, 1, 0, 0.51685, 0, 0.856075, 114.269, 3.56486, -36.4855)
+
+[node name="Coin34" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.0975036, 0, 0.995236, 0, 1, 0, -0.995236, 0, 0.0975036, 112.566, 3.56486, -39.1298)
+
+[node name="BouncyPlatform2" parent="." instance=ExtResource("4_bxdgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.754, 3.41486, -24.3471)
+
+[node name="Coin35" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.999912, 0, 0.012865, 0, 1, 0, -0.012865, 0, -0.999912, 114.838, 8.08531, -40.0169)
+
+[node name="Coin36" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.305036, 0, 0.95234, 0, 1, 0, -0.95234, 0, 0.305036, 114.831, 8.08531, -37.2759)
+
+[node name="Coin37" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.466303, 0, -0.884627, 0, 1, 0, 0.884627, 0, 0.466303, 114.741, 8.08531, -34.0011)
+
+[node name="Coin38" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(-0.900573, 0, 0.434705, 0, 1, 0, -0.434705, 0, -0.900573, 114.767, 8.08531, -30.558)
+
+[node name="Coin39" parent="." instance=ExtResource("3_gvysq")]
+transform = Transform3D(0.991631, 0, -0.129103, 0, 1, 0, 0.129103, 0, 0.991631, 114.801, 8.08531, -25.9578)
 
 [editable path="Outside/LowerFloor/SpawnArea/FollowPosCubicCamBoundary"]
 [editable path="Outside/LowerFloor/TVArea/FollowPosCubicCamBoundary"]
