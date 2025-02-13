@@ -12,6 +12,9 @@ class_name Level
 @onready var level_text: MeshInstance3D = $LevelText
 
 func _ready() -> void:
+	_generate_text()
+	
+func _generate_text() -> void:
 	var text_mat: StandardMaterial3D = StandardMaterial3D.new()
 	text_mat.albedo_color = Color.WHITE
 	text_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -25,4 +28,9 @@ func _ready() -> void:
 	level_text.mesh = text_mesh
 	level_text.position = text_relative_pos
 	
-	
+# Ensure text isn't being saved
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EDITOR_PRE_SAVE:
+		level_text.mesh = null
+	elif what == NOTIFICATION_EDITOR_POST_SAVE:
+		_generate_text()

@@ -33,8 +33,11 @@ var inter_level_distance: float = 4
 
 var revealed_timer: float = 0
 
+var initial_rotation: Vector3
+
 
 func _ready() -> void:
+	initial_rotation = self.rotation
 	# By default, level containers should be deactivated,
 	# but only in-game. In the editor, we want to make them visible and properly positioned
 	level_container.top_level = true
@@ -111,3 +114,11 @@ func _process(delta: float) -> void:
 		level_container.position = lerp(level_container.position, Vector3.ZERO, 0.25)
 		if level_container.position.distance_to(Vector3.ZERO) < 1:
 			level_container.visible = false
+			
+# Ensure @tool rotation previews aren't being saved
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EDITOR_PRE_SAVE:
+		set_process(false)
+		self.rotation = initial_rotation
+	elif what == NOTIFICATION_EDITOR_POST_SAVE:
+		set_process(true)

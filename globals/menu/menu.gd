@@ -165,19 +165,24 @@ func set_health(amount: int, total: int) -> void:
 	else:
 		healthbar_style.bg_color = HEALTHBAR_GOOD_COLOUR
 	# Since the health section itself is smaller, the radius must be related but less high
-	healthbar_style.set_corner_radius_all(HEALTHBAR_RADIUS_PX * 0.5)
+	healthbar_style.set_corner_radius_all(int(HEALTHBAR_RADIUS_PX * 0.5))
 	health_bar.add_theme_stylebox_override("panel", healthbar_style)
 	
 	health_background.size.x = HEALTHBAR_CHUNK_PX * total
 	health_background.size.y = HEALTHBAR_HEIGHT_PX
 	
-	health_background.position.x = DISPLAY_WIDTH/2 - health_background.size.x / 2
+	health_background.position.x = DISPLAY_WIDTH/2.0 - health_background.size.x / 2.0
 	
-	health_bar.size.x = (health_background.size.x - HEALTHBAR_MARGIN_PX * 2) * amount/total
+	health_bar.size.x = (health_background.size.x - HEALTHBAR_MARGIN_PX * 2) * amount/float(total)
 	health_bar.size.y = health_background.size.y - HEALTHBAR_MARGIN_PX * 2
 	
 	health_bar.position.x = HEALTHBAR_MARGIN_PX
 	health_bar.position.y = HEALTHBAR_MARGIN_PX
+
+func is_in_menu() -> bool:
+	if PauseControl.visible or main_menu_control.visible:
+		return true
+	return false
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
