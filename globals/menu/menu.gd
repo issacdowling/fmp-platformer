@@ -179,6 +179,11 @@ func set_health(amount: int, total: int) -> void:
 	health_bar.position.x = HEALTHBAR_MARGIN_PX
 	health_bar.position.y = HEALTHBAR_MARGIN_PX
 
+func is_in_menu() -> bool:
+	if PauseControl.visible or main_menu_control.visible:
+		return true
+	return false
+
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
 	

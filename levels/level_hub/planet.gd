@@ -21,7 +21,7 @@ var levels_revealed: bool = false:
 
 @onready var player: Player = %Player
 
-const levels_relative_pos: Vector3 = Vector3(0, -5, 20)
+const levels_relative_pos: Vector3 = Vector3(0, -4, 25)
 
 @export var world_number: int = 0
 @export var world_name: String = "Example World"
