@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://okisigeoecgq"]
+
+[ext_resource type="Script" uid="uid://dnayqjtla6kfi" path="res://reusables/enemies/debug/debug_enemy.gd" id="1_rkxoc"]
+[ext_resource type="PackedScene" uid="uid://bc16h4j1k1kx8" path="res://reusables/health/HealthEntity.tscn" id="2_jfbx7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bnadc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4yqp4"]
+
+[node name="DebugEnemy" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_bnadc")
+skeleton = NodePath("")
+script = ExtResource("1_rkxoc")
+
+[node name="EnemyArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyArea"]
+shape = SubResource("CylinderShape3D_4yqp4")
+
+[node name="HealthEntity" parent="." instance=ExtResource("2_jfbx7")]

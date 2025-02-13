@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bir6nt44bsoee"]
+
+[ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://reusables/enemies/turret/turret_enemy.gd" id="1_ouojb"]
+[ext_resource type="PackedScene" uid="uid://bc16h4j1k1kx8" path="res://reusables/health/HealthEntity.tscn" id="2_j8mog"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_bnadc"]
+inner_radius = 0.231
+outer_radius = 0.762
+rings = 3
+ring_segments = 3
+
+[node name="Turret" type="MeshInstance3D"]
+mesh = SubResource("TorusMesh_bnadc")
+script = ExtResource("1_ouojb")
+
+[node name="HealthEntity" parent="." instance=ExtResource("2_j8mog")]
