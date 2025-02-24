@@ -186,7 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131909, 1, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71639, 0.300694, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.827171, 0, -0.561888, 0, 1, 0, 0.561884, 0, 0.827178, 0, 0, 0)
+transform = Transform3D(0.827171, 0, -0.561889, 0, 1, 0, 0.561884, 0, 0.827178, 0, 0, 0)
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("20_4yqp4")]
 transform = Transform3D(0.827164, 0, -0.561879, 0, 1, 0, 0.561879, 0, 0.827164, 0, 0, -0.464284)
@@ -195,13 +195,13 @@ transform = Transform3D(0.827164, 0, -0.561879, 0, 1, 0, 0.561879, 0, 0.827164, 
 transform = Transform3D(0.827164, 0, -0.561886, 0, 1, 0, 0.561881, 0, 0.827171, 0, 0, -0.863834)
 
 [node name="Coin4" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.827172, 0, -0.56188, 0, 1, 0, 0.561884, 0, 0.827165, 0, 0, -1.32812)
+transform = Transform3D(0.827172, 0, -0.561879, 0, 1, 0, 0.561884, 0, 0.827165, 0, 0, -1.32812)
 
 [node name="Coin5" parent="Collectables" instance=ExtResource("20_4yqp4")]
 transform = Transform3D(0.82718, 0, -0.561891, 0, 1, 0, 0.561891, 0, 0.82718, 0, 0, -1.79335)
 
 [node name="Coin6" parent="Collectables" instance=ExtResource("20_4yqp4")]
-transform = Transform3D(0.827172, 0, -0.561888, 0, 1, 0, 0.561885, 0, 0.827175, 0, 0, -2.25763)
+transform = Transform3D(0.827172, 0, -0.561887, 0, 1, 0, 0.561885, 0, 0.827175, 0, 0, -2.25763)
 
 [node name="Coin7" parent="Collectables" instance=ExtResource("20_4yqp4")]
 transform = Transform3D(0.827164, 0, -0.561888, 0, 1, 0, 0.561881, 0, 0.827175, 0, 0, -2.65718)

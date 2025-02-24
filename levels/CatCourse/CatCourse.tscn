@@ -1696,7 +1696,21 @@ transform = Transform3D(-0.755639, 0, -0.654966, 0, 1, 0, 0.654966, 0, -0.755639
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9046, 0.999727, -46.251)
 
 [node name="Skeleton3D" parent="Outside/Player/Armature" index="1"]
+bones/0/rotation = Quaternion(0.00645855, 0, 0, 0.999979)
+bones/1/rotation = Quaternion(-0.0801557, 1.77636e-15, -2.48068e-07, 0.996782)
+bones/7/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
+bones/8/rotation = Quaternion(-0.0246064, -0.0025614, 0.103505, 0.994321)
+bones/11/rotation = Quaternion(0.484431, -0.570964, 0.526164, 0.403087)
+bones/12/rotation = Quaternion(-0.0246162, 0.00256229, -0.103498, 0.994322)
+bones/15/rotation = Quaternion(2.80852e-09, 0.010368, 0.999946, 2.71714e-07)
+bones/16/rotation = Quaternion(-0.0381125, -8.73115e-10, 2.054e-08, 0.999274)
+bones/17/rotation = Quaternion(0.459749, 1.86264e-09, -1.1659e-07, 0.888049)
+bones/18/rotation = Quaternion(0.335241, 1.86265e-09, -1.16881e-07, 0.942132)
 bones/19/rotation = Quaternion(-9.78174e-07, 4.90851e-10, -0.000501806, 1)
+bones/20/rotation = Quaternion(2.69938e-09, 0.0103565, 0.999946, 2.61236e-07)
+bones/21/rotation = Quaternion(-0.0380914, -6.98492e-10, 1.70912e-08, 0.999274)
+bones/22/rotation = Quaternion(0.45974, 0, -1.22149e-07, 0.888054)
+bones/23/rotation = Quaternion(0.335242, 9.31323e-09, -1.03842e-07, 0.942132)
 bones/24/rotation = Quaternion(-1.19923e-13, -7.7412e-17, -0.000221515, 1)
 
 [node name="Camera3D" parent="Outside/Player" index="5"]
@@ -2052,7 +2066,7 @@ transform = Transform3D(-0.572271, 0, -0.820035, 0, 1, 0, 0.820035, 0, -0.572271
 transform = Transform3D(-0.856796, 0, -0.515624, 0, 1, 0, 0.515624, 0, -0.856796, 105.81, 19.3639, -19.3023)
 
 [node name="Coin46" parent="." instance=ExtResource("3_gvysq")]
-transform = Transform3D(-0.997222, 0, 0.0742855, 0, 1, 0, -0.0742855, 0, -0.997222, 109.469, 19.3639, -20.1809)
+transform = Transform3D(-0.997222, 0, 0.0742854, 0, 1, 0, -0.0742854, 0, -0.997222, 109.469, 19.3639, -20.1809)
 
 [node name="Coin47" parent="." instance=ExtResource("3_gvysq")]
 transform = Transform3D(0.917444, 0, -0.397814, 0, 1, 0, 0.397814, 0, 0.917444, 113.132, 19.3639, -19.4994)
@@ -2142,7 +2156,7 @@ transform = Transform3D(-0.142595, 0, -0.989764, 0, 1, 0, 0.989764, 0, -0.142595
 transform = Transform3D(-0.971227, 0, -0.238065, 0, 1, 0, 0.238065, 0, -0.971227, 114.411, 12.2045, -14.0484)
 
 [node name="Coin76" parent="." instance=ExtResource("3_gvysq")]
-transform = Transform3D(-0.0826102, 0, -0.996555, 0, 1, 0, 0.996555, 0, -0.0826102, 115.182, 12.2045, -10.5253)
+transform = Transform3D(-0.0826101, 0, -0.996555, 0, 1, 0, 0.996555, 0, -0.0826101, 115.182, 12.2045, -10.5253)
 
 [node name="Coin77" parent="." instance=ExtResource("3_gvysq")]
 transform = Transform3D(-0.240245, 0, -0.970696, 0, 1, 0, 0.970696, 0, -0.240245, 114.534, 12.2045, -6.08949)
