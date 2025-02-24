@@ -26,6 +26,8 @@ var sprinting: bool = false
 
 const show_health_seconds: float = 3
 
+var can_look: bool = true
+
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -100,19 +102,20 @@ func move(delta: float) -> void:
 		$AnimationTree.set("parameters/conditions/run", false)
 		
 	# Controller / Arrow key looking
-	# Get input, and move by input vector multiplied by the current transform	
-	var look_dir := Input.get_vector("look_left", "look_right", "look_up", "look_down")
-	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
-	var look_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
-	var pcam_rotation_degrees: Vector3
-	# Assigns the current 3D rotation of the SpringArm3D node - to start off where it is in the editor.
-	pcam_rotation_degrees = pcam.get_third_person_rotation_degrees()
-		
-	pcam_rotation_degrees.x -= look_dir.y * CONTROLLER_LOOK_SENSITIVITY
-	pcam_rotation_degrees.x = clampf(pcam_rotation_degrees.x, min_pitch, max_pitch)
-	pcam_rotation_degrees.y -= look_dir.x * CONTROLLER_LOOK_SENSITIVITY
-	pcam_rotation_degrees.y = wrapf(pcam_rotation_degrees.y, min_yaw, max_yaw)
-	pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
+	if can_look:
+		# Get input, and move by input vector multiplied by the current transform	
+		var look_dir := Input.get_vector("look_left", "look_right", "look_up", "look_down")
+		# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
+		var look_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
+		var pcam_rotation_degrees: Vector3
+		# Assigns the current 3D rotation of the SpringArm3D node - to start off where it is in the editor.
+		pcam_rotation_degrees = pcam.get_third_person_rotation_degrees()
+			
+		pcam_rotation_degrees.x -= look_dir.y * CONTROLLER_LOOK_SENSITIVITY
+		pcam_rotation_degrees.x = clampf(pcam_rotation_degrees.x, min_pitch, max_pitch)
+		pcam_rotation_degrees.y -= look_dir.x * CONTROLLER_LOOK_SENSITIVITY
+		pcam_rotation_degrees.y = wrapf(pcam_rotation_degrees.y, min_yaw, max_yaw)
+		pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
 
 	if is_on_wall_only():
 		wall_time += delta
@@ -170,6 +173,8 @@ var max_pitch: float = 50
 
 func _input(event: InputEvent) -> void:
 	if Menu.is_in_menu():
+		return
+	if !can_look:
 		return
 	# Trigger whenever the mouse moves.
 	if event is InputEventMouseMotion:

@@ -109,6 +109,7 @@ func _process(delta: float) -> void:
 			spinning = true
 			levels_revealed = false
 		elif Input.is_action_just_pressed("interact"): 
+			player.can_look = true
 			player.switch_scene(levels[target_level].level_scene.resource_path)
 	else: 
 		level_container.position = lerp(level_container.position, Vector3.ZERO, 0.25)

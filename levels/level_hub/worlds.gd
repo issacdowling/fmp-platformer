@@ -3,10 +3,12 @@ extends Node3D
 var planets: Dictionary[int, Planet]
 var target_world: int = 0
 var total_worlds: int = 0
+@onready var player: Player = %Player
 
 @export var intergalactic_planetary: float = 60
 
 func _ready() -> void:
+	player.can_look = false
 	Toast.make_timed_toast("E / Square / X to select		</>/^ / Right stick to navigate", 10)
 	for child in get_children():
 		# If there are ever issues recognising worlds in the future, it'll be because of this
