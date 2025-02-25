@@ -255,6 +255,9 @@ offset_top = 9.0
 offset_right = 865.0
 offset_bottom = 33.0
 scale = Vector2(5, 5)
+focus_neighbor_top = NodePath("../SettingsFromSettingsBtn")
+focus_neighbor_right = NodePath("../QuitFromSettingsBtn")
+focus_neighbor_bottom = NodePath("../GlobalIlluminationCascades")
 
 [node name="GILabel" type="Label" parent="Pause"]
 layout_mode = 0
@@ -279,6 +282,8 @@ offset_right = -30.0
 offset_bottom = 113.0
 grow_horizontal = 0
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../SettingsFromSettingsBtn")
+focus_neighbor_right = NodePath("../SettingsFromSettingsBtn")
 theme_override_colors/font_hover_color = Color(0.949738, 0.627519, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.712708, 0.00067152, 0.766327, 1)
 theme_override_fonts/font = ExtResource("4_h1kxx")
@@ -304,6 +309,7 @@ offset_right = 509.0
 offset_bottom = -40.0
 grow_vertical = 0
 size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../QuitFromSettingsBtn")
 theme_override_colors/font_hover_color = Color(0.949738, 0.627519, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.712708, 0.00067152, 0.766327, 1)
 theme_override_fonts/font = ExtResource("4_h1kxx")
@@ -325,6 +331,8 @@ offset_top = 146.0
 offset_right = 912.0
 offset_bottom = 178.0
 scale = Vector2(5, 5)
+focus_neighbor_top = NodePath("../GlobalIlluminationToggle")
+focus_neighbor_bottom = NodePath("../ScalingOptions")
 min_value = 1.0
 max_value = 8.0
 value = 1.0
@@ -349,6 +357,8 @@ offset_top = 337.0
 offset_right = 913.0
 offset_bottom = 368.0
 scale = Vector2(5, 5)
+focus_neighbor_top = NodePath("../GlobalIlluminationCascades")
+focus_neighbor_bottom = NodePath("../ScalingAmount")
 theme_override_fonts/font = ExtResource("4_h1kxx")
 
 [node name="UpscalerLabel" type="Label" parent="Pause/ScalingOptions"]
@@ -370,6 +380,8 @@ offset_top = 517.0
 offset_right = 911.0
 offset_bottom = 549.0
 scale = Vector2(5, 5)
+focus_neighbor_top = NodePath("../ScalingOptions")
+focus_neighbor_bottom = NodePath("../RendererOptions")
 max_value = 1.0
 step = 0.01
 
@@ -392,6 +404,8 @@ offset_top = 709.0
 offset_right = 1048.05
 offset_bottom = 740.0
 scale = Vector2(5, 5)
+focus_neighbor_top = NodePath("../ScalingAmount")
+focus_neighbor_bottom = NodePath("../SettingsFromSettingsBtn")
 theme_override_fonts/font = ExtResource("4_h1kxx")
 
 [node name="RendererLabel" type="Label" parent="Pause/RendererOptions"]
