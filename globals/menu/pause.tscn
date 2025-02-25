@@ -210,6 +210,7 @@ script = ExtResource("1_uhrtt")
 
 [node name="Pause" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 0
@@ -445,7 +446,6 @@ libraries = {
 
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -492,6 +492,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
 theme_override_colors/font_hover_color = Color(0.949738, 0.627519, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.712708, 0.00067152, 0.766327, 1)
 theme_override_fonts/font = ExtResource("4_h1kxx")
@@ -513,6 +515,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../StartBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
 theme_override_colors/font_hover_color = Color(0.949738, 0.627519, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.712708, 0.00067152, 0.766327, 1)
 theme_override_fonts/font = ExtResource("4_h1kxx")
@@ -534,6 +538,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_neighbor_bottom = NodePath("../StartBtn")
 theme_override_colors/font_hover_color = Color(0.949738, 0.627519, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.712708, 0.00067152, 0.766327, 1)
 theme_override_fonts/font = ExtResource("4_h1kxx")
