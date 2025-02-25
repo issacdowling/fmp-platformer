@@ -65,6 +65,9 @@ func _ready() -> void:
 	TransitionControl.visible = false
 	main_menu_control.visible = true
 	
+	# Main menu grab focus for controller controls
+	start_button.grab_focus()
+	
 	GlobalIlluminationToggle.toggled.connect(_on_global_illumination_toggle_toggled)
 	GlobalIlluminationCascadesSlider.value_changed.connect(on_global_illumination_cascades_value_changed)
 	ScalingOptionsDropdown.item_selected.connect(_on_scaling_options_item_selected)
@@ -113,7 +116,11 @@ func toggle_pause_menu() -> void:
 		pause_should_reopen_main = main_menu_control.visible
 		main_menu_control.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	PauseControl.visible = !PauseControl.visible
+	if PauseControl.visible:
+		PauseControl.visible = false
+	else:
+		PauseControl.visible = true
+		settings_settings_button.grab_focus()
 
 func begin_transition() -> float:
 	TransitionAnimator.play("RESET")

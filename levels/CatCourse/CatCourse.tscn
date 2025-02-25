@@ -1303,7 +1303,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42212, 0)
 [node name="MovingPlatform" parent="Outside/LowerFloor" instance=ExtResource("5_sxtm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.12, 7.50254, -33.977)
 
-[node name="EndMarker" parent="Outside/LowerFloor/MovingPlatform" index="1"]
+[node name="EndMarker" parent="Outside/LowerFloor/TableArea/MovingPlatform2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42212, 0)
+
+[node name="MovingPlatform3" parent="Outside/LowerFloor/TableArea" instance=ExtResource("5_sxtm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3908, 0.595931, 1.2942)
+
+[node name="EndMarker" parent="Outside/LowerFloor/TableArea/MovingPlatform3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42212, 0)
+
+[node name="MovingPlatform" parent="Outside/LowerFloor/TableArea" instance=ExtResource("5_sxtm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8407, 0.62117, 1.3721)
+
+[node name="EndMarker" parent="Outside/LowerFloor/TableArea/MovingPlatform" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.48764, 0)
 
 [node name="autoconverted_cyclops_blocks" type="Node3D" parent="Outside"]
@@ -1880,7 +1892,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.6191, 4.06276, -33.7185)
 jump_velocity = 20.0
 
 [node name="Coin" parent="." instance=ExtResource("3_gvysq")]
-transform = Transform3D(-0.204834, 0, 0.97876, 0, 1, 0, -0.97876, 0, -0.204834, 84.902, 4.2126, -33.6402)
+transform = Transform3D(-0.204834, 0, 0.978759, 0, 1, 0, -0.978759, 0, -0.204834, 84.902, 4.2126, -33.6402)
 
 [node name="Coin2" parent="." instance=ExtResource("3_gvysq")]
 transform = Transform3D(0.205538, 0, 0.978636, 0, 1, 0, -0.978636, 0, 0.205538, 83.248, 4.2126, -35.1686)
