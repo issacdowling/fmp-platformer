@@ -63,7 +63,7 @@ func _ready() -> void:
 	collectables_hud_control.visible = false
 	PauseControl.visible = false
 	TransitionControl.visible = false
-	main_menu_control.visible = true
+	main_menu_control.visible = false
 	
 	# Main menu grab focus for controller controls
 	start_button.grab_focus()
@@ -132,6 +132,9 @@ func exit_transition() -> void:
 	TransitionAnimator.play("out_slide_up")
 	await TransitionAnimator.animation_finished
 	TransitionControl.visible = false
+
+func show_main() -> void:
+	main_menu_control.visible = true
 
 func show_collectables() -> void:
 	# Don't re-run if already visible
