@@ -108,7 +108,6 @@ func move(delta: float) -> void:
 		# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 		var look_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 		var pcam_rotation_degrees: Vector3
-		# Assigns the current 3D rotation of the SpringArm3D node - to start off where it is in the editor.
 		pcam_rotation_degrees = pcam.get_third_person_rotation_degrees()
 			
 		pcam_rotation_degrees.x -= look_dir.y * CONTROLLER_LOOK_SENSITIVITY

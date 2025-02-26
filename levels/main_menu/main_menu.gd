@@ -4,4 +4,4 @@ extends Node3D
 
 func _ready() -> void:
 	player.can_look = false
-	
+	Menu.show_main()
