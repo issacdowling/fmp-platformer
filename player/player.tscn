@@ -2625,7 +2625,7 @@ metadata/_custom_type_script = ExtResource("2_g6k8r")
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 2.8026e-45, 1.477, 5.9999)
 script = ExtResource("3_siun6")
-priority = 1
+priority = 10
 follow_mode = 6
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_ldx6w")

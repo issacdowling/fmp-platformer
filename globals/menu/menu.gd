@@ -27,6 +27,8 @@ var  HEALTHBAR_BAD_COLOUR: Color = Color.from_rgba8(255, 78, 62, 255) # Light re
 
 signal setting_changed
 
+signal dialogue_interact
+
 @onready var SettingSetter: Node = %SettingSetter
 
 @onready var GlobalIlluminationToggle: CheckButton = %GlobalIlluminationToggle
@@ -57,8 +59,14 @@ signal setting_changed
 @onready var health_bar: Panel = %HealthBar
 @onready var health_animator: AnimationPlayer = %HealthAnimator
 
+@onready var dialogue_control: Control = %Dialogue
+@onready var dialogue_background: Panel = %DialogueBackground
+@onready var dialogue_label: RichTextLabel = %DialogueLabel
+@onready var dialogue_animator: AnimationPlayer = %DialogueAnimator
+
 # This is not called on level scene changes, just the initial game load.
 func _ready() -> void:
+	dialogue_control.visible = false
 	health_hud_control.visible = false
 	collectables_hud_control.visible = false
 	PauseControl.visible = false
@@ -177,15 +185,15 @@ func set_health(amount: int, total: int) -> void:
 	# Since the health section itself is smaller, the radius must be related but less high
 	healthbar_style.set_corner_radius_all(int(HEALTHBAR_RADIUS_PX * 0.5))
 	health_bar.add_theme_stylebox_override("panel", healthbar_style)
-	
+
 	health_background.size.x = HEALTHBAR_CHUNK_PX * total
 	health_background.size.y = HEALTHBAR_HEIGHT_PX
-	
+
 	health_background.position.x = DISPLAY_WIDTH/2.0 - health_background.size.x / 2.0
-	
+
 	health_bar.size.x = (health_background.size.x - HEALTHBAR_MARGIN_PX * 2) * amount/float(total)
 	health_bar.size.y = health_background.size.y - HEALTHBAR_MARGIN_PX * 2
-	
+
 	health_bar.position.x = HEALTHBAR_MARGIN_PX
 	health_bar.position.y = HEALTHBAR_MARGIN_PX
 
@@ -193,6 +201,23 @@ func is_in_menu() -> bool:
 	if PauseControl.visible or main_menu_control.visible:
 		return true
 	return false
+
+# Scripts using this should call show_captive_dialogue, then await the dialogue_interact signal, 
+# before either calling show again for new text, or finish to make it go away 
+func show_captive_dialogue(text: String) -> void:
+	const dialogue_format: String = "[type] [wave amp=10.0 freq=10.0] %s [/wave] [/type]"
+	if !dialogue_control.visible:
+		dialogue_animator.play("slide_in")
+		dialogue_control.visible = true
+	
+	# Set it to nothing first so it always re-types
+	dialogue_label.text = ""
+	dialogue_label.text = dialogue_format % text
+
+func finish_captive_dialogue() -> void:
+	dialogue_animator.play("slide_out")
+	await dialogue_animator.animation_finished
+	dialogue_control.visible = false
 
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
@@ -205,11 +230,14 @@ func _on_scaling_options_item_selected(index: int) -> void:
 
 func _on_scaling_amount_value_changed(value: float) -> void:
 	setting_changed.emit(SCALING_AMOUNT, value)
-	
+
 func _on_renderer_options_item_selected(index: int) -> void:
 	setting_changed.emit(RENDERER, RendererOptionsDropdown.get_item_text(index))
-	
+
 func _collectables_update(values: Dictionary) -> void:
 	coin_Label.text = "[wave]%d[/wave]" % values["Coin"]
 	corn_Label.text = "[wave]%d[/wave]" % values["Corn"]
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		dialogue_interact.emit()

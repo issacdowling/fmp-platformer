@@ -24,6 +24,8 @@ var time_since_wall: float = 0
 
 var sprinting: bool = false
 
+var controls_allowed: bool = true
+
 const show_health_seconds: float = 3
 
 var can_look: bool = true
@@ -43,10 +45,14 @@ func switch_scene(scene_file: String) -> void:
 	Menu.exit_transition()
 
 func _physics_process(delta: float) -> void:
-	
 	move(delta)
 
-func move(delta: float) -> void:	
+func move(delta: float) -> void:
+	# For situations where controls are locked, allow dialogue
+	if not controls_allowed:
+		move_and_slide()
+		return
+
 	## Apply gravity when in the air
 	if not is_on_floor():
 		_do_gravity(delta)
@@ -54,7 +60,7 @@ func move(delta: float) -> void:
 	## clear jump time when on ground or wall
 	if is_on_floor() or is_on_wall():
 		air_time = 0
-		
+
 	# Toggle sprint
 	if Input.is_action_just_pressed("sprint"):
 		sprinting = !sprinting
@@ -171,10 +177,9 @@ var max_pitch: float = 50
 @onready var pcam: PhantomCamera3D = $PhantomCamera3D
 
 func _input(event: InputEvent) -> void:
-	if Menu.is_in_menu():
+	if Menu.is_in_menu() or !can_look or !controls_allowed:
 		return
-	if !can_look:
-		return
+
 	# Trigger whenever the mouse moves.
 	if event is InputEventMouseMotion:
 		var pcam_rotation_degrees: Vector3
