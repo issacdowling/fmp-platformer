@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2dt6e5a7p78k"]
+[gd_scene load_steps=37 format=3 uid="uid://c2dt6e5a7p78k"]
 
 [ext_resource type="Script" uid="uid://cekq2gyciyi2c" path="res://globals/menu/menu.gd" id="1_uhrtt"]
 [ext_resource type="Script" uid="uid://c58f63ecb32x3" path="res://globals/menu/setting_setter.gd" id="2_7tkhg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8cnpv2dkamom" path="res://globals/collectables/coin_icon.svg" id="4_xembm"]
 [ext_resource type="FontFile" uid="uid://cyx84r2wkuk22" path="res://reusables/fonts/sora/Sora-ExtraBold.otf" id="5_di1th"]
 [ext_resource type="Texture2D" uid="uid://bmvwi8bhdfht0" path="res://globals/collectables/corn_icon.svg" id="6_v8nyn"]
+[ext_resource type="FontFile" uid="uid://bp62rx7c3lt88" path="res://reusables/fonts/sora/Sora-Bold.otf" id="7_v8nyn"]
+[ext_resource type="Script" uid="uid://c2iscq4m1glig" path="res://globals/menu/typewriter_effect_sydistt.gd" id="8_8tq1c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225hg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -159,46 +161,65 @@ resource_name = "RESET"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HealthBackground:position:y")
+tracks/0/path = NodePath("DialogueBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-234.504, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1380, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_v8nyn"]
 resource_name = "slide_in"
-length = 0.3683
+length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HealthBackground:position:y")
+tracks/0/path = NodePath("DialogueBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-234.504, -0.0666667, 336.051, 0.0333333, -182.637, 40, -0.25, 0, 0.133333, 1.75977),
-"times": PackedFloat32Array(0, 0.366667)
+"points": PackedFloat32Array(1380, -0.0666667, 336.051, 0.0333333, -182.637, 790, -0.25, 0, 0.133333, 1.75977),
+"times": PackedFloat32Array(0, 0.433333)
 }
 
 [sub_resource type="Animation" id="Animation_di1th"]
 resource_name = "slide_out"
-length = 0.3683
+length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HealthBackground:position:y")
+tracks/0/path = NodePath("DialogueBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(40, -0.25, 0, 0.133333, 1.75977, -234.504, -0.0666667, 336.051, 0.0333333, -182.637),
-"times": PackedFloat32Array(0, 0.366667)
+"points": PackedFloat32Array(790, -0.25, 0, 0.133333, 1.75977, 1380, -0.0666667, 336.051, 0.0333333, -182.637),
+"times": PackedFloat32Array(0, 0.433333)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tq1c"]
+_data = {
+&"RESET": SubResource("Animation_8tq1c"),
+&"slide_in": SubResource("Animation_v8nyn"),
+&"slide_out": SubResource("Animation_di1th")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou863"]
+bg_color = Color(0, 0, 0, 0.498039)
+border_color = Color(0.74185, 0.677794, 0.955267, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ou863"]
+script = ExtResource("8_8tq1c")
+metadata/_custom_type_script = ExtResource("8_8tq1c")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_akh5k"]
 _data = {
 &"RESET": SubResource("Animation_8tq1c"),
 &"slide_in": SubResource("Animation_v8nyn"),
@@ -446,6 +467,7 @@ libraries = {
 
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -676,4 +698,49 @@ unique_name_in_owner = true
 reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_8tq1c")
+}
+
+[node name="Dialogue" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueBackground" type="Panel" parent="Dialogue"]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = 1360.0
+offset_right = 1750.0
+offset_bottom = 1610.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ou863")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="Dialogue/DialogueBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1600.0
+offset_bottom = 230.0
+theme_override_fonts/normal_font = ExtResource("7_v8nyn")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[type speed=60] [wave amp=10.0 freq=10.0] Writing the longest sentence that could reasonably go in here, then adjusting text size until it matches. Isn't that cool? I think so. Extra words, more letters, etc etc. Done now.  [/wave] [/type] "
+custom_effects = [SubResource("RichTextEffect_ou863")]
+
+[node name="DialogueAnimator" type="AnimationPlayer" parent="Dialogue"]
+unique_name_in_owner = true
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_akh5k")
 }

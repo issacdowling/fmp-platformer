@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3sg8isli1i7w"]
+[gd_scene load_steps=26 format=3 uid="uid://b3sg8isli1i7w"]
 
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_y2wm1"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_1bb6e"]
 [ext_resource type="Script" uid="uid://dmjkvru848mbq" path="res://levels/level_hub/planet.gd" id="2_4k3rs"]
 [ext_resource type="Script" uid="uid://iet5irh8g2xy" path="res://levels/level_hub/worlds.gd" id="2_yrwlk"]
-[ext_resource type="PackedScene" uid="uid://c6yc33n5qy0uh" path="res://levels/CatCourse/CatCourse.tscn" id="5_1wam8"]
+[ext_resource type="PackedScene" uid="uid://tily01fh1va3" path="res://levels/intro/intro_level.tscn" id="5_1wam8"]
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="5_78q5s"]
 [ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="6_78q5s"]
+[ext_resource type="PackedScene" uid="uid://c6yc33n5qy0uh" path="res://levels/CatCourse/CatCourse.tscn" id="6_kjme3"]
 [ext_resource type="Script" uid="uid://cyskcx6udgssu" path="res://levels/level_hub/level.gd" id="7_kjme3"]
 [ext_resource type="PackedScene" uid="uid://lvdluvqcy6jj" path="res://levels/level_hub/control_panel.glb" id="9_1wam8"]
 
@@ -82,7 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.997762, 0, 0.0209548, 0, 1, 0, -0.0209548, 0, 0.997762, 0, 0, 0)
+transform = Transform3D(0.996998, 0, 0.0436719, 0, 1, 0, -0.0436719, 0, 0.996998, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -111,7 +112,7 @@ top_level = true
 [node name="Level1" type="MeshInstance3D" parent="Worlds/World 1/Levels"]
 mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
-level_name = "Cat Course"
+level_name = "Intro"
 level_scene = ExtResource("5_1wam8")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level1"]
@@ -122,13 +123,14 @@ transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
 mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
 level_number = 1
-level_name = "2level 2furious"
+level_name = "Cat Course"
+level_scene = ExtResource("6_kjme3")
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 1/Levels/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.997813, 0, 0.0209559, 0, 1, 0, -0.0209559, 0, 0.997813, 50, 0, 0)
+transform = Transform3D(0.997057, 0, 0.0436746, 0, 1, 0, -0.0436746, 0, 0.997057, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -183,7 +185,7 @@ level_name = "3level 3furious"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(0.996294, 0, 0.020924, 0, 1, 0, -0.020924, 0, 0.996294, 100, 0, 0)
+transform = Transform3D(0.995543, 0, 0.0436082, 0, 1, 0, -0.0436082, 0, 0.995543, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")
