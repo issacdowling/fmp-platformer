@@ -2,8 +2,8 @@ extends CharacterBody3D
 class_name Player
 
 
-@export var WALK_SPEED: float = 3.0
-@export var SPRINT_MULTIPLIER: float = 1.6
+@export var WALK_SPEED: float = 4.7
+@export var SPRINT_MULTIPLIER: float = 1.5
 @export var JUMP_VELOCITY: float = 7.5
 
 @export var MOUSE_LOOK_SENSITIVITY: float = 0.05
@@ -61,9 +61,10 @@ func move(delta: float) -> void:
 	if is_on_floor() or is_on_wall():
 		air_time = 0
 
+	# Removed to experiment with always sprinting
 	# Toggle sprint
-	if Input.is_action_just_pressed("sprint"):
-		sprinting = !sprinting
+	#if Input.is_action_just_pressed("sprint"):
+		#sprinting = !sprinting
 
 	# Floor jumping
 	if not is_on_wall_only() and Input.is_action_pressed("jump") and (is_on_floor_only() or (air_time < 0.1)):
