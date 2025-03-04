@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6j8kfnvb8jdr"]
+
+[ext_resource type="ArrayMesh" uid="uid://vsfne0mrc0r6" path="res://reusables/bouncy_platform/platforms/umbrella_top_Circle_001.res" id="1_8hans"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8hans"]
+points = PackedVector3Array(0.0267372, 0.409817, 0.187833, -0.0634423, 0.0290674, -1.01587, -0.666642, 0.0290674, -0.761905, 0.666642, 0.0290674, 0.761905, -0.730084, 0.0290674, 0.730084, 1.01587, 0.0290674, -0.0634423, -0.026743, 0.409855, -0.187874, -0.760719, 0.193141, -0.0563169, 0.598778, 0.164127, -0.570196, -0.0286715, 0.134668, 0.863392, 0.520376, 0.303832, 0.0272889, -0.327352, 0.330844, 0.327352, -1.01587, 0.0290674, -0.0634423, 0.730084, 0.0290674, -0.730084, -0.327657, 0.330933, -0.327657, 0.517241, 0.221795, 0.490117, 0.0563234, 0.193136, -0.760807, 0.0634423, 0.0290674, 1.01587, -0.570216, 0.164124, -0.598798, 0.270524, 0.357097, -0.270524, -0.187799, 0.409785, 0.0267323, -0.598832, 0.16412, 0.570248, 0.0273067, 0.303876, 0.520717, 0.863406, 0.134666, 0.028672, 0.186785, 0.408843, 0.026588, -0.761051, 0.193123, 0.0563415, 0.761905, 0.0290674, 0.666642, 0.327624, 0.330923, 0.327624, -0.0273079, 0.303879, -0.520739, 0.0563411, 0.193123, 0.761046, 0.761094, 0.19312, -0.0563446, -0.520672, 0.303871, 0.0273044)
+
+[node name="BouncyDevPlatform" type="AnimatableBody3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = ExtResource("1_8hans")
+
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0772989, 0)
+shape = SubResource("ConvexPolygonShape3D_8hans")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8hans")
