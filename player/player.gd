@@ -11,11 +11,16 @@ class_name Player
 
 @export var STEAL_MOUSE_ON_START: bool = true
 
+# 40 because it's just less than 45, which is what you get if you hold W and A/D at once. 
+# On keyboard, you should need to be specifically holding the direction of the wall.
+@export var player_stick_wall_angle: float = 40
+
 @onready var health: HealthEntity = $HealthEntity
 @export var health_popup_display_length_seconds: float = 3
 @onready var display_timer: Timer = $HealthEntity/Timer
 
 var suggested_look_dir: Vector3
+var last_non_zero_move_vector: Vector3
 
 var air_time: float = 0
 var current_walk_speed: float
@@ -74,7 +79,7 @@ func move(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
-
+	
 	if move_vector and time_since_wall <= 0.0 and not is_on_wall_only():
 		# Make sure to set appropriate animations AND DISABLE THE OTHERS
 		$AnimationTree.set("parameters/conditions/idle", false)
@@ -110,8 +115,8 @@ func move(delta: float) -> void:
 		
 	# Controller / Arrow key looking
 	if can_look:
-		# Get input, and move by input vector multiplied by the current transform	
 		var look_dir := Input.get_vector("look_left", "look_right", "look_up", "look_down")
+		# Got input earlier, move by input vector multiplied by the current transform	
 		# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 		var look_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 		var pcam_rotation_degrees: Vector3
@@ -124,8 +129,9 @@ func move(delta: float) -> void:
 		pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
 
 	if is_on_wall_only():
+		if move_vector != Vector3.ZERO:
+			last_non_zero_move_vector = move_vector
 		wall_time += delta
-
 		# You can jump no matter what, if you're only on a wall. Only regular movement is restricted
 		# based on the time you've been there.
 		if Input.is_action_just_pressed("jump"):
@@ -133,8 +139,8 @@ func move(delta: float) -> void:
 			velocity.y += JUMP_VELOCITY
 			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
 			wall_time = 0
-		# If we've been on the wall without jumping off for more than 1s, we should lose grip and slip down
-		elif wall_time < 1 and not Input.is_action_pressed("jump"):
+		# If we've been not been on the wall without jumping off for more than 1s, and the last direction we moved was towards the wall, we should stick. Else, slip down
+		elif wall_time < 1 and not Input.is_action_pressed("jump") and last_non_zero_move_vector.angle_to(-get_wall_normal()) <= deg_to_rad(player_stick_wall_angle):
 			# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
 			velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
 			#_do_gravity(delta)
