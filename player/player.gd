@@ -25,6 +25,7 @@ var last_non_zero_move_vector: Vector3
 var air_time: float = 0
 var current_walk_speed: float
 var wall_time: float = 0
+
 var time_since_wall: float = 0
 
 var sprinting: bool = false
