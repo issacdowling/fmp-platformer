@@ -13,7 +13,7 @@ class_name Player
 
 # 40 because it's just less than 45, which is what you get if you hold W and A/D at once. 
 # On keyboard, you should need to be specifically holding the direction of the wall.
-@export var player_stick_wall_angle: float = 40
+@export var player_stick_wall_angle: float = 35
 
 @onready var health: HealthEntity = $HealthEntity
 @export var health_popup_display_length_seconds: float = 3
@@ -66,11 +66,6 @@ func move(delta: float) -> void:
 	if is_on_floor() or is_on_wall():
 		air_time = 0
 
-	# Removed to experiment with always sprinting
-	# Toggle sprint
-	#if Input.is_action_just_pressed("sprint"):
-		#sprinting = !sprinting
-
 	# Floor jumping
 	if not is_on_wall_only() and Input.is_action_pressed("jump") and (is_on_floor_only() or (air_time < 0.1)):
 		jump()
@@ -80,7 +75,7 @@ func move(delta: float) -> void:
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	
-	if move_vector and time_since_wall <= 0.0 and not is_on_wall_only():
+	if move_vector and time_since_wall <= 0.0:  #  and not is_on_wall_only()  (removed because it makes things better now, but I'm not sure if it broke anything
 		# Make sure to set appropriate animations AND DISABLE THE OTHERS
 		$AnimationTree.set("parameters/conditions/idle", false)
 		if sprinting:
@@ -128,13 +123,15 @@ func move(delta: float) -> void:
 		pcam_rotation_degrees.y = wrapf(pcam_rotation_degrees.y, min_yaw, max_yaw)
 		pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
 
+	if move_vector != Vector3.ZERO:
+		last_non_zero_move_vector = move_vector
 	if is_on_wall_only():
-		if move_vector != Vector3.ZERO:
-			last_non_zero_move_vector = move_vector
 		wall_time += delta
 		# You can jump no matter what, if you're only on a wall. Only regular movement is restricted
 		# based on the time you've been there.
 		if Input.is_action_just_pressed("jump"):
+			# This makes it so you stick to walls opposite to ones that you jump off of.
+			last_non_zero_move_vector = get_wall_normal()
 			time_since_wall = 0.3
 			velocity.y += JUMP_VELOCITY
 			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
