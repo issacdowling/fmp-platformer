@@ -145,7 +145,7 @@ script = ExtResource("4_folbh")
 transform = Transform3D(0.554075, 0, -0.832467, 0, 1, 0, 0.832467, 0, 0.554075, -0.977412, 0.309005, 2.39343)
 script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_pkc22")
-metadata/_custom_type_script = ExtResource("4_okaux")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [node name="Area3D" type="Area3D" parent="Sprite3D"]
 
@@ -158,20 +158,20 @@ transform = Transform3D(0.965926, -0.119141, 0.229767, 0, 0.887751, 0.460324, -0
 script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_b4154")
-metadata/_custom_type_script = ExtResource("4_okaux")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [node name="BigGapCamera" type="Node3D" parent="Sprite3D"]
 transform = Transform3D(0.241613, 0.0799531, -0.967073, 0.00415428, 0.996505, 0.0834243, 0.970363, -0.0241739, 0.240437, 2.95633, 0.0268595, -3.55239)
 script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_liwqe")
-metadata/_custom_type_script = ExtResource("4_okaux")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [node name="TowerCamera" type="Node3D" parent="Sprite3D"]
 transform = Transform3D(0.743145, 0, -0.669131, 0, 1, 0, 0.669131, 0, 0.743145, 5.73435, 2.53296, -4.3861)
 script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_u47wj")
-metadata/_custom_type_script = ExtResource("4_okaux")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [editable path="MovingPlatform"]
