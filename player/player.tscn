@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bp88r7c146h7x"]
+[gd_scene load_steps=53 format=4 uid="uid://bp88r7c146h7x"]
 
 [ext_resource type="Script" uid="uid://b487f0jvleb6i" path="res://player/player.gd" id="1_ipr3t"]
 [ext_resource type="Script" uid="uid://la8br4v5nwj1" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_g6k8r"]
@@ -2369,6 +2369,9 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6k8r"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ipr3t")
 
@@ -2642,6 +2645,7 @@ follow_damping = true
 follow_damping_value = Vector3(0.15, 0.3, 0.15)
 follow_distance = 6.0
 spring_length = 6.0
+shape = SubResource("BoxShape3D_g6k8r")
 look_at_offset = Vector3(0, 1.016, 0)
 look_at_damping = true
 
