@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://y1p2vsemdyno"]
+
+[resource]
+transparency = 1
+distance_fade_mode = 2
+distance_fade_min_distance = 6.68
+distance_fade_max_distance = 12.91
