@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cceqtvp4ihln3"]
 
 [ext_resource type="Script" uid="uid://dqqihaj1d548o" path="res://globals/toast/toast.gd" id="1_3f8ve"]
-[ext_resource type="FontFile" uid="uid://bp62rx7c3lt88" path="res://reusables/fonts/sora/Sora-Bold.otf" id="2_mvh6k"]
+[ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="2_mvh6k"]
 
 [sub_resource type="Animation" id="Animation_bcdup"]
 length = 0.001
