@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yydwt4bvbkbv"]
+
+[ext_resource type="PackedScene" uid="uid://bfcuc2dmgw807" path="res://levels/intro/wall_jump_platform.glb" id="1_prvtd"]
+[ext_resource type="Material" uid="uid://bqmgqkwlcr0ql" path="res://levels/intro/wall_jump_platform.tres" id="2_otjay"]
+
+[node name="wall_jump_platform" instance=ExtResource("1_prvtd")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_otjay")

@@ -134,5 +134,5 @@ common/physics_interpolation=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-scaling_3d/mode=1
-scaling_3d/scale=0.7
+scaling_3d/mode=2
+scaling_3d/scale=0.8
