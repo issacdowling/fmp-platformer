@@ -2557,30 +2557,37 @@ bones/24/rotation = Quaternion(-3.41287e-17, -2.87428e-17, 6.93889e-18, 1)
 bones/24/scale = Vector3(1, 1, 1)
 
 [node name="Backpack" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_141sv")
 skin = SubResource("Skin_qvm0k")
 
 [node name="FrontpackBottom" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_eeju5")
 skin = SubResource("Skin_kt3cg")
 
 [node name="FrontpackLeft" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_k5gco")
 skin = SubResource("Skin_u6i6y")
 
 [node name="Helmet" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_7nbkl")
 skin = SubResource("Skin_od5tj")
 
 [node name="Torso" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_c02oy")
 skin = SubResource("Skin_diyf6")
 
 [node name="HeadlampBulb" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_ovaq4")
 skin = SubResource("Skin_io6xf")
 
 [node name="Visor" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_r1i72")
 skin = SubResource("Skin_at025")
 
@@ -2620,7 +2627,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8026e-45, 1.477, 5.9999)
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_g6k8r")
-metadata/_custom_type_script = ExtResource("2_g6k8r")
+metadata/_custom_type_script = "uid://la8br4v5nwj1"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(0.999989, 0, 0, 0, 0.999978, 0, 0, 0, 0.999984, 2.8026e-45, 1.477, 5.9999)
