@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_7now6"]
 [ext_resource type="PackedScene" uid="uid://v6fuc6d1sejx" path="res://reusables/enemies/turret/turret.glb" id="11_liwqe"]
 [ext_resource type="PackedScene" uid="uid://c04dpk3f3emmk" path="res://levels/intro/hexagon.glb" id="12_u47wj"]
-[ext_resource type="PackedScene" uid="uid://yydwt4bvbkbv" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
+[ext_resource type="PackedScene" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
 ground_bottom_color = Color(0.134438, 0.122311, 0.123804, 1)
