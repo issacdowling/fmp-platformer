@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxisf1tcokvy"]
+
+[ext_resource type="PackedScene" uid="uid://b4calvq2svuea" path="res://levels/CatCourse/models/side_table_01_2k.gltf/side_table_01_2k.gltf" id="1_4rn8x"]
+
+[node name="SideTable01" type="Node3D"]
+
+[node name="side_table_01_2k" parent="." instance=ExtResource("1_4rn8x")]
+transform = Transform3D(15, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)

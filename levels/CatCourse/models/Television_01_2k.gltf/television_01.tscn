@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bib623wl7unsi"]
+
+[ext_resource type="PackedScene" uid="uid://cki0m7hbqlrw1" path="res://levels/CatCourse/models/Television_01_2k.gltf/Television_01_2k.gltf" id="1_hs51b"]
+
+[node name="Television01" type="Node3D"]
+
+[node name="Television_01_2k" parent="." instance=ExtResource("1_hs51b")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
