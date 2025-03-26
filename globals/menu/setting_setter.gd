@@ -9,11 +9,6 @@ const PROJECT_OVERRIDE_PATH: String = "user://project_overrides.cfg"
 func _ready() -> void:
 	await Menu.ready # Ensure all setting things are prepared before changing.
 	
-	# The generic Xbox controller I'm using to test things has broken buttons by default.
-	# Used an Xbox Elite Series 2 SDL remap but with this controller's ID to fix it.
-	# Upstream in future?
-	Input.add_joy_mapping("03000000d62000000620000050010000,Xbox 360 Controller,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b8,start:b7,leftstick:b9,rightstick:b10,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,righttrigger:a5,crc:f003,platform:Linux,", true)
-	
 	Menu.setting_changed.connect(_change_setting)
 	
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
@@ -24,7 +19,7 @@ func _ready() -> void:
 		settings_file.close()
 	else:
 		var found_renderer: String = "gl_compatibility"
-		match ProjectSettings.get_setting("rendering/renderer/rendering_method"):
+		match ProjectSettings.get_setting("renderer/rendering_method"):
 			"forward_plus":
 				found_renderer = Menu.RENDERER_ADVANCED
 			"mobile":
@@ -35,12 +30,11 @@ func _ready() -> void:
 		current_settings = {
 			Menu.GLOBAL_ILLUMINATION: true,
 			Menu.GLOBAL_ILLUMINATION_HALF_RES: true,
-			Menu.GLOBAL_ILLUMINATION_RAY_COUNT: Menu.RAY_COUNT_32,
+			Menu.GLOBAL_ILLUMINATION_RAY_COUNT: Menu.RAY_COUNT_64,
 			Menu.GLOBAL_ILLUMINATION_CASCADES: 4,
 			Menu.SCALING_METHOD: Menu.SCALING_METHODS_FSR2,
 			Menu.SCALING_AMOUNT: 0.75,
-			Menu.RENDERER: found_renderer,
-			Menu.VSYNC: true
+			Menu.RENDERER: found_renderer
 		}
 		
 	for setting: String in current_settings.keys():
@@ -59,15 +53,6 @@ func _change_setting(setting: String, value: Variant) -> void:
 	match setting:
 		Menu.GLOBAL_ILLUMINATION:
 			print("WorldEnvironment Node will handle this")
-			if value == false:
-				Menu.GlobalIlluminationHalfResToggle.disabled = true
-				Menu.GlobalIlluminationRayCountDropdown.disabled = true
-				Menu.GlobalIlluminationCascadesSlider.editable = true
-			else:
-				Menu.GlobalIlluminationHalfResToggle.disabled = false
-				Menu.GlobalIlluminationRayCountDropdown.disabled = false
-				Menu.GlobalIlluminationCascadesSlider.editable = false
-
 		Menu.GLOBAL_ILLUMINATION_HALF_RES:
 			RenderingServer.gi_set_use_half_resolution(value as bool)
 		Menu.GLOBAL_ILLUMINATION_RAY_COUNT:
@@ -108,15 +93,10 @@ func _change_setting(setting: String, value: Variant) -> void:
 					Menu.setting_changed.emit(Menu.GLOBAL_ILLUMINATION, false)				
 				
 				Menu.GlobalIlluminationToggle.disabled = true
-				Menu.GlobalIlluminationHalfResToggle.disabled = true
-				Menu.GlobalIlluminationRayCountDropdown.disabled = true
-				Menu.GlobalIlluminationCascadesSlider.editable = true
+				
 				Menu.ScalingOptionsDropdown.disabled = true
 			else:
 				Menu.GlobalIlluminationToggle.disabled = false
-				Menu.GlobalIlluminationHalfResToggle.disabled = false
-				Menu.GlobalIlluminationRayCountDropdown.disabled = false
-				Menu.GlobalIlluminationCascadesSlider.editable = false
 				Menu.ScalingOptionsDropdown.disabled = false
 				
 			config_override.load(PROJECT_OVERRIDE_PATH)
@@ -135,27 +115,12 @@ func _change_setting(setting: String, value: Variant) -> void:
 			
 			config_override.save(PROJECT_OVERRIDE_PATH)
 			
-		Menu.VSYNC:
-			match value:
-				true:
-					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
-				false:
-					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-			
 	# Although changing these through the UI makes the UI match the settings,
 	# changes done otherwise do not affect the UI by default, so I make sure they do.
 	match setting:
 		Menu.GLOBAL_ILLUMINATION:
 			Menu.GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
 			Menu.GlobalIlluminationCascadesSlider.editable = current_settings[setting] as bool
-			
-		Menu.GLOBAL_ILLUMINATION_HALF_RES:
-			Menu.GlobalIlluminationHalfResToggle.button_pressed = current_settings[setting] as bool
-			
-		Menu.GLOBAL_ILLUMINATION_RAY_COUNT:
-			for index in range(Menu.GlobalIlluminationRayCountDropdown.item_count):
-				if Menu.GlobalIlluminationRayCountDropdown.get_item_text(index) == current_settings[setting]:
-					Menu.GlobalIlluminationRayCountDropdown.select(index)
 				
 			
 		Menu.GLOBAL_ILLUMINATION_CASCADES:
@@ -172,9 +137,6 @@ func _change_setting(setting: String, value: Variant) -> void:
 			for index in range(Menu.RendererOptionsDropdown.item_count):
 				if Menu.RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
 					Menu.RendererOptionsDropdown.select(index)
-					
-		Menu.VSYNC:
-			Menu.VsyncToggle.button_pressed = current_settings[setting] as bool
 	print(current_settings)
 
 		

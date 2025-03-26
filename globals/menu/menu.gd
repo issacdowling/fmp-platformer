@@ -20,6 +20,14 @@ const RAY_COUNT_64: String = "64"
 const RAY_COUNT_96: String = "96"
 const RAY_COUNT_128: String = "128"
 
+const RAY_COUNT_4: String = "4"
+const RAY_COUNT_8: String = "8"
+const RAY_COUNT_16: String = "16"
+const RAY_COUNT_32: String = "32"
+const RAY_COUNT_64: String = "64"
+const RAY_COUNT_96: String = "96"
+const RAY_COUNT_128: String = "128"
+
 const SCALING_METHODS_FSR2: String = "FSR 2"
 const SCALING_METHODS_FSR1: String = "FSR 1"
 const SCALING_METHODS_BILINEAR: String = "Bilinear"
@@ -98,6 +106,15 @@ func _ready() -> void:
 	ScalingAmountSlider.value_changed.connect(_on_scaling_amount_value_changed)
 	RendererOptionsDropdown.item_selected.connect(_on_renderer_options_item_selected)
 	VsyncToggle.toggled.connect(_on_vsync_toggle_toggled)
+	
+	# Add all ray count options
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_4)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_8)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_16)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_32)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_64)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_96)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_128)
 	
 	# Add all ray count options
 	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_4)
