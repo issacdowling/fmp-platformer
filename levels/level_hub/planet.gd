@@ -91,12 +91,6 @@ func _process(delta: float) -> void:
 	else:
 		self.rotation.y = lerp_angle(self.rotation.y, 0, 0.25)
 
-	# Wrap around
-	if target_level < 0:
-		target_level = total_levels - 1
-	elif target_level > total_levels - 1:
-		target_level = 0
-
 	if levels_revealed:
 		# If the level container wasn't already visible, we should load the first scene before
 		# any user interaction
@@ -133,6 +127,12 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("interact"): 
 			player.can_look = true
 			player.switch_scene_threaded(levels[target_level].level_scene)
+			
+			# Wrap around
+		if target_level < 0:
+			target_level = total_levels - 1
+		elif target_level > total_levels - 1:
+			target_level = 0
 	else: 
 		level_container.position = lerp(level_container.position, Vector3.ZERO, 0.25)
 		if level_container.position.distance_to(Vector3.ZERO) < 1:
