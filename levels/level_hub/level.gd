@@ -5,7 +5,7 @@ class_name Level
 
 @export var level_number: int = 0
 @export var level_name: String = "Example Level"
-@export var level_scene: PackedScene = preload("res://levels/Test/test_level_direct_rotation.tscn")
+@export var level_scene: String = "res://levels/Test/test_level_direct_rotation.tscn"
 @export var text_relative_pos: Vector3 = Vector3(0, 1.2, 0)
 @export var font_size: int = 32
 
