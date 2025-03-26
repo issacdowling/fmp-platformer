@@ -49,6 +49,19 @@ func switch_scene(scene_file: String) -> void:
 	await get_tree().create_timer(Menu.begin_transition()).timeout 
 	get_tree().change_scene_to_file(scene_file)
 	Menu.exit_transition()
+	
+func switch_scene_packed(scene_file: PackedScene) -> void:
+	# As begin_transition returns the length of the transition, we wait for that long before switching scene
+	await get_tree().create_timer(Menu.begin_transition()).timeout 
+	get_tree().change_scene_to_packed(scene_file)
+	Menu.exit_transition()
+	
+# ONLY CALL THIS IF YOU'VE REQUESTED THE SCENE TO BE LOADED WITH RESOURCELOADER FIRST
+func switch_scene_threaded(scene_file: String) -> void:
+	# As begin_transition returns the length of the transition, we wait for that long before switching scene
+	await get_tree().create_timer(Menu.begin_transition()).timeout 
+	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(scene_file))
+	Menu.exit_transition()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
