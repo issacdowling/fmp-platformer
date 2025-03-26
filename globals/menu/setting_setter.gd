@@ -29,6 +29,8 @@ func _ready() -> void:
 				
 		current_settings = {
 			Menu.GLOBAL_ILLUMINATION: true,
+			Menu.GLOBAL_ILLUMINATION_HALF_RES: true,
+			Menu.GLOBAL_ILLUMINATION_RAY_COUNT: Menu.RAY_COUNT_64,
 			Menu.GLOBAL_ILLUMINATION_CASCADES: 4,
 			Menu.SCALING_METHOD: Menu.SCALING_METHODS_FSR2,
 			Menu.SCALING_AMOUNT: 0.75,
@@ -51,6 +53,24 @@ func _change_setting(setting: String, value: Variant) -> void:
 	match setting:
 		Menu.GLOBAL_ILLUMINATION:
 			print("WorldEnvironment Node will handle this")
+		Menu.GLOBAL_ILLUMINATION_HALF_RES:
+			RenderingServer.gi_set_use_half_resolution(value as bool)
+		Menu.GLOBAL_ILLUMINATION_RAY_COUNT:
+			match value:
+				Menu.RAY_COUNT_4:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_4)
+				Menu.RAY_COUNT_8:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_8)
+				Menu.RAY_COUNT_16:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_16)
+				Menu.RAY_COUNT_32:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_32)
+				Menu.RAY_COUNT_64:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_64)
+				Menu.RAY_COUNT_96:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_96)
+				Menu.RAY_COUNT_128:
+					RenderingServer.environment_set_sdfgi_ray_count(RenderingServer.ENV_SDFGI_RAY_COUNT_128)
 		Menu.GLOBAL_ILLUMINATION_CASCADES:
 			print("WorldEnvironment Node will handle this")
 		Menu.SCALING_METHOD:
