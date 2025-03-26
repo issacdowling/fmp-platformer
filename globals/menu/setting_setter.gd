@@ -53,6 +53,15 @@ func _change_setting(setting: String, value: Variant) -> void:
 	match setting:
 		Menu.GLOBAL_ILLUMINATION:
 			print("WorldEnvironment Node will handle this")
+			if value == false:
+				Menu.GlobalIlluminationHalfResToggle.disabled = true
+				Menu.GlobalIlluminationRayCountDropdown.disabled = true
+				Menu.GlobalIlluminationCascadesSlider.editable = true
+			else:
+				Menu.GlobalIlluminationHalfResToggle.disabled = false
+				Menu.GlobalIlluminationRayCountDropdown.disabled = false
+				Menu.GlobalIlluminationCascadesSlider.editable = false
+
 		Menu.GLOBAL_ILLUMINATION_HALF_RES:
 			RenderingServer.gi_set_use_half_resolution(value as bool)
 		Menu.GLOBAL_ILLUMINATION_RAY_COUNT:
@@ -93,10 +102,15 @@ func _change_setting(setting: String, value: Variant) -> void:
 					Menu.setting_changed.emit(Menu.GLOBAL_ILLUMINATION, false)				
 				
 				Menu.GlobalIlluminationToggle.disabled = true
-				
+				Menu.GlobalIlluminationHalfResToggle.disabled = true
+				Menu.GlobalIlluminationRayCountDropdown.disabled = true
+				Menu.GlobalIlluminationCascadesSlider.editable = true
 				Menu.ScalingOptionsDropdown.disabled = true
 			else:
 				Menu.GlobalIlluminationToggle.disabled = false
+				Menu.GlobalIlluminationHalfResToggle.disabled = false
+				Menu.GlobalIlluminationRayCountDropdown.disabled = false
+				Menu.GlobalIlluminationCascadesSlider.editable = false
 				Menu.ScalingOptionsDropdown.disabled = false
 				
 			config_override.load(PROJECT_OVERRIDE_PATH)
@@ -121,6 +135,14 @@ func _change_setting(setting: String, value: Variant) -> void:
 		Menu.GLOBAL_ILLUMINATION:
 			Menu.GlobalIlluminationToggle.button_pressed = current_settings[setting] as bool
 			Menu.GlobalIlluminationCascadesSlider.editable = current_settings[setting] as bool
+			
+		Menu.GLOBAL_ILLUMINATION_HALF_RES:
+			Menu.GlobalIlluminationHalfResToggle.button_pressed = current_settings[setting] as bool
+			
+		Menu.GLOBAL_ILLUMINATION_RAY_COUNT:
+			for index in range(Menu.GlobalIlluminationRayCountDropdown.item_count):
+				if Menu.GlobalIlluminationRayCountDropdown.get_item_text(index) == current_settings[setting]:
+					Menu.GlobalIlluminationRayCountDropdown.select(index)
 				
 			
 		Menu.GLOBAL_ILLUMINATION_CASCADES:
