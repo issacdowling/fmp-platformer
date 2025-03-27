@@ -14494,52 +14494,52 @@ use_collision = true
 size = Vector3(17.6174, 0.124756, 17.5195)
 
 [node name="Coin" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.999898, 0, 0, 0, 1, 0, 0, 0, 0.999898, 5, 0.0768782, -113)
+transform = Transform3D(0.749069, 0, 0.662333, 0, 1, 0, -0.662333, 0, 0.749069, 5, 0.0768782, -113)
 
 [node name="Coin2" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.898398, 0, -0.438955, 0, 1, 0, 0.438955, 0, -0.898398, 5, 0.0768782, -114.279)
+transform = Transform3D(-0.382267, 0, -0.923943, 0, 1, 0, 0.923943, 0, -0.382267, 5, 0.0768782, -114.279)
 
 [node name="Coin3" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.923812, 0, 0.382645, 0, 1, 0, -0.382645, 0, -0.923812, 5, 0.0768782, -115.521)
+transform = Transform3D(-0.945529, 0, -0.325276, 0, 1, 0, 0.325276, 0, -0.945529, 5, 0.0768782, -115.521)
 
 [node name="Coin4" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.00301356, 0, -0.999915, 0, 1, 0, 0.999915, 0, 0.00301356, 5, 0.0768782, -116.498)
+transform = Transform3D(0.664597, 0, -0.747082, 0, 1, 0, 0.747082, 0, 0.664597, 5, 0.0768782, -116.498)
 
 [node name="Coin5" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.960662, 0, -0.277347, 0, 1, 0, 0.277347, 0, -0.960662, 5, 0.0768782, -117.463)
+transform = Transform3D(-0.535958, 0, -0.844115, 0, 1, 0, 0.844115, 0, -0.535958, 5, 0.0768782, -117.463)
 
 [node name="Coin6" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.548871, 0, -0.835811, 0, 1, 0, 0.835811, 0, 0.548871, 5, 0.0768782, -118.375)
+transform = Transform3D(0.964822, 0, -0.262569, 0, 1, 0, 0.262569, 0, 0.964822, 5, 0.0768782, -118.375)
 
 [node name="Coin7" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.974393, 0, -0.224496, 0, 1, 0, 0.224496, 0, -0.974393, 5, 0.0768782, -119.378)
+transform = Transform3D(-0.581256, 0, -0.813619, 0, 1, 0, 0.813619, 0, -0.581256, 5, 0.0768782, -119.378)
 
 [node name="Coin8" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.933081, 0, -0.35949, 0, 1, 0, 0.35949, 0, 0.933081, 5, 0.0768782, -120.403)
+transform = Transform3D(0.937134, 0, 0.348764, 0, 1, 0, -0.348764, 0, 0.937134, 5, 0.0768782, -120.403)
 
 [node name="Coin9" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.939283, 0, -0.34284, 0, 1, 0, 0.34284, 0, -0.939283, 2.74645, 0.0768782, -113)
+transform = Transform3D(-0.47656, 0, -0.879014, 0, 1, 0, 0.879014, 0, -0.47656, 2.74645, 0.0768782, -113)
 
 [node name="Coin10" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.693432, 0, 0.720387, 0, 1, 0, -0.720387, 0, 0.693432, 2.74645, 0.0768782, -114.279)
+transform = Transform3D(0.0422961, 0, 0.999003, 0, 1, 0, -0.999003, 0, 0.0422961, 2.74645, 0.0768782, -114.279)
 
 [node name="Coin11" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.999015, 0, -0.0426977, 0, 1, 0, 0.0426977, 0, 0.999015, 2.74645, 0.0768782, -115.521)
+transform = Transform3D(0.776687, 0, 0.629761, 0, 1, 0, -0.629761, 0, 0.776687, 2.74645, 0.0768782, -115.521)
 
 [node name="Coin12" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.345672, 0, 0.938254, 0, 1, 0, -0.938254, 0, -0.345672, 2.74645, 0.0768782, -116.498)
+transform = Transform3D(-0.88046, 0, 0.473914, 0, 1, 0, -0.473914, 0, -0.88046, 2.74645, 0.0768782, -116.498)
 
 [node name="Coin13" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.807338, 0, 0.589924, 0, 1, 0, -0.589924, 0, 0.807338, 2.74645, 0.0768782, -117.463)
+transform = Transform3D(0.214044, 0, 0.976717, 0, 1, 0, -0.976717, 0, 0.214044, 2.74645, 0.0768782, -117.463)
 
 [node name="Coin14" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.802169, 0, 0.596938, 0, 1, 0, -0.596938, 0, -0.802169, 2.74645, 0.0768782, -118.375)
+transform = Transform3D(-0.996349, 0, -0.0841656, 0, 1, 0, 0.0841656, 0, -0.996349, 2.74645, 0.0768782, -118.375)
 
 [node name="Coin15" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.838353, 0, 0.544986, 0, 1, 0, -0.544986, 0, 0.838353, 2.74645, 0.0768782, -119.378)
+transform = Transform3D(0.267047, 0, 0.9636, 0, 1, 0, -0.9636, 0, 0.267047, 2.74645, 0.0768782, -119.378)
 
 [node name="Coin16" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.999764, 0, 0.0177719, 0, 1, 0, -0.0177719, 0, -0.999764, 2.74645, 0.0768782, -120.403)
+transform = Transform3D(-0.760737, 0, -0.648928, 0, 1, 0, 0.648928, 0, -0.760737, 2.74645, 0.0768782, -120.403)
 
 [node name="HelperGuy" type="Sprite3D" parent="."]
 transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, 0.0272207, 0.480662, 3.01533)
