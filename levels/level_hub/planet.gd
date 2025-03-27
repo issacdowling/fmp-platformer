@@ -35,6 +35,8 @@ var revealed_timer: float = 0
 
 var initial_rotation: Vector3
 
+var target_packed_up_to_date: bool = true
+var target_packed_progress: float = 0
 
 func _ready() -> void:
 	initial_rotation = self.rotation
@@ -70,18 +72,30 @@ func _ready() -> void:
 	back_text.mesh = text_mesh
 
 func _process(delta: float) -> void:
+	if !target_packed_up_to_date and level_container.visible:
+		print("Background loading new level: ", levels[target_level].level_scene)
+		ResourceLoader.load_threaded_request(levels[target_level].level_scene)
+		target_packed_up_to_date = true
+		# If the load is instantly complete, it must be from cache, so the output should say as such
+		if ResourceLoader.load_threaded_get_status(levels[target_level].level_scene) == ResourceLoader.THREAD_LOAD_LOADED:
+			print("Background load (from cache) complete for: ", levels[target_level].level_scene)
+			
+	# If not instantly loaded from cache, update status when it changes, but don't waste space printing messages if not
+	if ResourceLoader.load_threaded_get_status(levels[target_level].level_scene) != target_packed_progress:
+		target_packed_progress = ResourceLoader.load_threaded_get_status(levels[target_level].level_scene)
+		if target_packed_progress == ResourceLoader.THREAD_LOAD_LOADED:
+			print("Background load complete for: ", levels[target_level].level_scene)
+			
 	if spinning:
 		self.rotate_y(deg_to_rad(degrees_per_second) * delta)
 	else:
 		self.rotation.y = lerp_angle(self.rotation.y, 0, 0.25)
 
-	# Wrap around
-	if target_level < 0:
-		target_level = total_levels - 1
-	elif target_level > total_levels - 1:
-		target_level = 0
-
 	if levels_revealed:
+		# If the level container wasn't already visible, we should load the first scene before
+		# any user interaction
+		if !level_container.visible:
+			target_packed_up_to_date = false
 		level_container.visible = true
 
 		# Awkward workaround since global and relative positions act weirdly in edit mode,
@@ -102,15 +116,23 @@ func _process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("look_left"):
 			target_level -= 1
+			target_packed_up_to_date = false
 		elif Input.is_action_just_pressed("look_right"):
 			target_level += 1
+			target_packed_up_to_date = false
 		elif Input.is_action_just_pressed("look_up"):
 			target_level = 0
 			spinning = true
 			levels_revealed = false
 		elif Input.is_action_just_pressed("interact"): 
 			player.can_look = true
-			player.switch_scene(levels[target_level].level_scene.resource_path)
+			player.switch_scene_threaded(levels[target_level].level_scene)
+			
+			# Wrap around
+		if target_level < 0:
+			target_level = total_levels - 1
+		elif target_level > total_levels - 1:
+			target_level = 0
 	else: 
 		level_container.position = lerp(level_container.position, Vector3.ZERO, 0.25)
 		if level_container.position.distance_to(Vector3.ZERO) < 1:

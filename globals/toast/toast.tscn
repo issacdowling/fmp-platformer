@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cceqtvp4ihln3"]
+[gd_scene load_steps=7 format=3 uid="uid://cceqtvp4ihln3"]
 
-[ext_resource type="Script" path="res://globals/toast/toast.gd" id="1_3f8ve"]
+[ext_resource type="Script" uid="uid://dqqihaj1d548o" path="res://globals/toast/toast.gd" id="1_3f8ve"]
+[ext_resource type="FontFile" uid="uid://bp62rx7c3lt88" path="res://reusables/fonts/sora/Sora-Bold.otf" id="2_mvh6k"]
 
 [sub_resource type="Animation" id="Animation_bcdup"]
 length = 0.001
@@ -87,9 +88,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u70bd"]
 _data = {
-"RESET": SubResource("Animation_bcdup"),
-"fade_in": SubResource("Animation_akina"),
-"fade_out": SubResource("Animation_t5ubm")
+&"RESET": SubResource("Animation_bcdup"),
+&"fade_in": SubResource("Animation_akina"),
+&"fade_out": SubResource("Animation_t5ubm")
 }
 
 [node name="Toast" type="Control"]
@@ -108,9 +109,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_top = -63.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_mvh6k")
 theme_override_font_sizes/bold_italics_font_size = 48
 theme_override_font_sizes/italics_font_size = 48
 theme_override_font_sizes/mono_font_size = 48
@@ -122,7 +124,7 @@ fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_u70bd")
+&"": SubResource("AnimationLibrary_u70bd")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
