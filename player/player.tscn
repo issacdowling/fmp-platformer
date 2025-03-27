@@ -2373,6 +2373,7 @@ far = 4000.0
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_ipr3t")
 
 [node name="Armature" type="Node3D" parent="."]
