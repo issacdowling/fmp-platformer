@@ -8,6 +8,7 @@ class_name Collectable
 @export var degress_per_second: float = 2.5
 
 @onready var collectable_area: Area3D = $CollectableArea
+@onready var collectable_mesh: Node3D = $collectable_mesh
 var initial_rotation: Vector3
 
 func _ready() -> void:
@@ -20,7 +21,7 @@ func _on_collected(area: Area3D) -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
-	rotate_y(degress_per_second * delta)
+	collectable_mesh.rotate_y(degress_per_second * delta)
 
 # Ensure @tool rotation previews aren't being saved
 func _notification(what: int) -> void:
