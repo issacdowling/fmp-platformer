@@ -9,6 +9,11 @@ const PROJECT_OVERRIDE_PATH: String = "user://project_overrides.cfg"
 func _ready() -> void:
 	await Menu.ready # Ensure all setting things are prepared before changing.
 	
+	# The generic Xbox controller I'm using to test things has broken buttons by default.
+	# Used an Xbox Elite Series 2 SDL remap but with this controller's ID to fix it.
+	# Upstream in future?
+	Input.add_joy_mapping("03000000d62000000620000050010000,Xbox 360 Controller,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b8,start:b7,leftstick:b9,rightstick:b10,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,righttrigger:a5,crc:f003,platform:Linux,", true)
+	
 	Menu.setting_changed.connect(_change_setting)
 	
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
