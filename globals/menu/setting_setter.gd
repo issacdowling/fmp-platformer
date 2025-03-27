@@ -24,7 +24,7 @@ func _ready() -> void:
 		settings_file.close()
 	else:
 		var found_renderer: String = "gl_compatibility"
-		match ProjectSettings.get_setting("renderer/rendering_method"):
+		match ProjectSettings.get_setting("rendering/renderer/rendering_method"):
 			"forward_plus":
 				found_renderer = Menu.RENDERER_ADVANCED
 			"mobile":
@@ -39,7 +39,8 @@ func _ready() -> void:
 			Menu.GLOBAL_ILLUMINATION_CASCADES: 4,
 			Menu.SCALING_METHOD: Menu.SCALING_METHODS_FSR2,
 			Menu.SCALING_AMOUNT: 0.75,
-			Menu.RENDERER: found_renderer
+			Menu.RENDERER: found_renderer,
+			Menu.VSYNC: true
 		}
 		
 	for setting: String in current_settings.keys():
@@ -134,6 +135,13 @@ func _change_setting(setting: String, value: Variant) -> void:
 			
 			config_override.save(PROJECT_OVERRIDE_PATH)
 			
+		Menu.VSYNC:
+			match value:
+				true:
+					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+				false:
+					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			
 	# Although changing these through the UI makes the UI match the settings,
 	# changes done otherwise do not affect the UI by default, so I make sure they do.
 	match setting:
@@ -164,6 +172,9 @@ func _change_setting(setting: String, value: Variant) -> void:
 			for index in range(Menu.RendererOptionsDropdown.item_count):
 				if Menu.RendererOptionsDropdown.get_item_text(index) == current_settings[setting]:
 					Menu.RendererOptionsDropdown.select(index)
+					
+		Menu.VSYNC:
+			Menu.VsyncToggle.button_pressed = current_settings[setting] as bool
 	print(current_settings)
 
 		

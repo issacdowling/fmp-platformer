@@ -10,6 +10,7 @@ const GLOBAL_ILLUMINATION_CASCADES = "global_illumination_cascades"
 const SCALING_METHOD: String = "scaling_method"
 const SCALING_AMOUNT: String = "scaling_amount"
 const RENDERER: String = "renderer"
+const VSYNC: String = "vsync"
 
 const RAY_COUNT_4: String = "4"
 const RAY_COUNT_8: String = "8"
@@ -48,6 +49,7 @@ signal dialogue_interact
 @onready var ScalingOptionsDropdown: OptionButton = %ScalingOptions
 @onready var ScalingAmountSlider: HSlider = %ScalingAmount
 @onready var RendererOptionsDropdown: OptionButton = %RendererOptions
+@onready var VsyncToggle: CheckButton = %VsyncToggle
 
 @onready var TransitionControl: Control = %Transitions
 @onready var TransitionAnimator: AnimationPlayer = %TransitionAnimator
@@ -95,6 +97,7 @@ func _ready() -> void:
 	ScalingOptionsDropdown.item_selected.connect(_on_scaling_options_item_selected)
 	ScalingAmountSlider.value_changed.connect(_on_scaling_amount_value_changed)
 	RendererOptionsDropdown.item_selected.connect(_on_renderer_options_item_selected)
+	VsyncToggle.toggled.connect(_on_vsync_toggle_toggled)
 	
 	# Add all ray count options
 	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_4)
@@ -262,6 +265,9 @@ func _on_scaling_amount_value_changed(value: float) -> void:
 
 func _on_renderer_options_item_selected(index: int) -> void:
 	setting_changed.emit(RENDERER, RendererOptionsDropdown.get_item_text(index))
+
+func _on_vsync_toggle_toggled(toggled_on: bool) -> void:
+	setting_changed.emit(VSYNC, toggled_on)
 
 func _collectables_update(values: Dictionary) -> void:
 	coin_Label.text = "[wave]%d[/wave]" % values["Coin"]
