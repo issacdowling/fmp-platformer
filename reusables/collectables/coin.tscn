@@ -6,10 +6,14 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_itjm7"]
 radius = 0.15
 
-[node name="Coin" instance=ExtResource("1_vgsqt")]
+[node name="Coin" type="Node3D"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 script = ExtResource("2_itjm7")
 
-[node name="CollectableArea" type="Area3D" parent="." index="1"]
+[node name="CollectableArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectableArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectableArea"]
 shape = SubResource("SphereShape3D_itjm7")
+
+[node name="collectable_mesh" parent="." instance=ExtResource("1_vgsqt")]
+transform = Transform3D(0.85212, 0, -0.523347, 0, 1, 0, 0.523347, 0, 0.85212, 0, 0, 0)
