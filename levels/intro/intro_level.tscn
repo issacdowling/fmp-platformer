@@ -217,50 +217,10 @@ use_collision = true
 size = Vector3(6.30673, 0.809998, 9.40736)
 
 [node name="roof" type="CSGBox3D" parent="Main/jump_room/floor_walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0736022, 10.8472, -34.4352)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0736022, 10.5535, -34.4352)
 material_override = ExtResource("5_1qytf")
 use_collision = true
 size = Vector3(0.236816, 14.7868, 83.439)
-
-[node name="back_wall" type="CSGBox3D" parent="Main/jump_room/floor_walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0509453, 5.99652, -16.5323)
-use_collision = true
-size = Vector3(0.236816, 12.993, 14.4882)
-
-[node name="door_cutout" type="CSGBox3D" parent="Main/jump_room/floor_walls/back_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00165176, 1.38608, -0.0237236)
-operation = 2
-size = Vector3(1.39966, 2.1983, 1)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -25.296)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -39.7485)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -52.1478)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -66.5856)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Main/jump_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.69855, -14.1244)
-light_color = Color(0.818169, 0.198064, 0.904916, 1)
-omni_range = 29.643
 
 [node name="platform_room" type="Node3D" parent="Main"]
 
@@ -400,16 +360,6 @@ operation = 2
 use_collision = true
 size = Vector3(4.96912, 0.975311, 16.7123)
 
-[node name="back_wall" type="CSGBox3D" parent="Main/platform_room/floor_walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0509453, 5.99652, -76.1888)
-use_collision = true
-size = Vector3(0.236816, 12.993, 14.4882)
-
-[node name="door_cutout2" type="CSGBox3D" parent="Main/platform_room/floor_walls/back_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0569153, -1.31394, -0.0237236)
-operation = 2
-size = Vector3(1.39966, 2.1983, 1)
-
 [node name="BreakingPlatform2" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45782, -0.194338, -49.3703)
 
@@ -449,10 +399,16 @@ use_collision = true
 size = Vector3(35.9917, 0.124756, 32.5854)
 
 [node name="roof" type="CSGBox3D" parent="Main/enemy_room/floor_walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0466986, 11.158, -92.423)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0466986, 10.5526, -92.423)
 material_override = ExtResource("5_1qytf")
 use_collision = true
 size = Vector3(0.236816, 35.9667, 32.8195)
+
+[node name="roof2" type="CSGBox3D" parent="Main/enemy_room/floor_walls"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.272008, 11.158, -117.473)
+material_override = ExtResource("5_1qytf")
+use_collision = true
+size = Vector3(0.236816, 16.941, 17.4555)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Main/enemy_room/floor_walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 6.5, -87)
@@ -466,46 +422,70 @@ use_collision = true
 radius = 1.167
 height = 15.0
 
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Main/enemy_room/floor_walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87519, 6.5, -109.626)
+use_collision = true
+radius = 1.167
+height = 15.0
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Main/enemy_room/floor_walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8771, 6.5, -109.689)
+use_collision = true
+radius = 1.167
+height = 15.0
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Main/enemy_room/floor_walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8771, 6.5, -125.982)
+use_collision = true
+radius = 1.167
+height = 15.0
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Main/enemy_room/floor_walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4848, 6.5, -125.982)
+use_collision = true
+radius = 1.167
+height = 15.0
+
 [node name="enemies_layout" type="Node3D" parent="Main/enemy_room"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 1.69698, -76.7752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0381847, 1.69698, -76.7752)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 3.76953, 1)
+size = Vector3(1.74046, 3.76953, 1)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186774, 5.8491, -79.7674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135521, 6.68613, -79.7087)
 use_collision = true
-size = Vector3(1.66991, 0.115193, 6.98438)
+size = Vector3(1.73437, 0.115193, 7.10184)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 1.39772, -77.7853)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0489268, 1.39772, -77.7853)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 3.17102, 1)
+size = Vector3(1.77757, 3.17102, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 1.10469, -78.791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0467296, 1.10469, -78.791)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 2.58495, 1)
+size = Vector3(1.75072, 2.58495, 1)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79479, 2.85805, -79.7644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.878843, 3.27855, -79.7414)
 use_collision = true
-size = Vector3(0.1483, 6.09167, 6.99338)
+size = Vector3(0.1483, 6.93268, 7.03942)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754114, 2.85805, -79.7644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.951765, 3.28386, -79.7394)
 use_collision = true
-size = Vector3(0.1483, 6.09167, 6.99338)
+size = Vector3(0.1483, 6.9433, 7.04344)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 0.851028, -79.7874)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281749, 0.851028, -79.7874)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 2.07763, 1)
+size = Vector3(1.71361, 2.07763, 1)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64547, 2.41536, -88.7499)
@@ -523,22 +503,22 @@ use_collision = true
 size = Vector3(8.811, 5.2063, 0.507324)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 0.587053, -80.7892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00431015, 0.587053, -80.7892)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 1.54968, 1)
+size = Vector3(1.71153, 1.54968, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 0.352954, -81.7759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0557017, 0.352954, -81.7759)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 1.08148, 1)
+size = Vector3(1.78453, 1.08148, 1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0300598, 0.0911672, -82.7614)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0439184, 0.0911672, -82.7614)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(1.40131, 0.557907, 1)
+size = Vector3(1.70263, 0.557907, 1)
 
 [node name="turret" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
 transform = Transform3D(0.499985, 0, 0.866034, 0, 1, 0, -0.866034, 0, 0.499985, 13.4438, -0.155283, -104.139)
@@ -11814,37 +11794,2752 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
 [node name="hexagon897" parent="Main/hexagon_wall9" instance=ExtResource("12_u47wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
 
+[node name="hexagon_wall10" type="Node3D" parent="Main"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -3.05326e-15, 3.05326e-15, -1.33462e-22, 1, 30.5339, 32.4617, -124.265)
+
+[node name="hexagon793" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall10" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall16" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -14.5413, 32.0508, -98.5815)
+
+[node name="hexagon793" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon871" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon875" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon889" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon893" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall16" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall17" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -5.81762, 32.0508, -98.5815)
+
+[node name="hexagon793" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall17" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall18" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -14.5413, 34.369, -38.0507)
+
+[node name="hexagon795" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon797" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon813" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon815" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon831" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon833" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon849" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon851" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon809" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3444, 22.3736, 8.79866)
+
+[node name="hexagon845" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3444, 22.3736, 11.7341)
+
+[node name="hexagon870" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3444, 22.3736, 14.6192)
+
+[node name="hexagon866" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon868" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon871" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon875" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon884" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon886" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon889" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon893" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall19" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -5.81762, 34.369, -38.0507)
+
+[node name="hexagon795" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon797" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon813" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon815" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon831" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon833" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon849" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon851" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon809" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3444, 22.3736, 8.79866)
+
+[node name="hexagon845" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3444, 22.3736, 11.7341)
+
+[node name="hexagon866" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon868" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon871" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon876" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon878" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon884" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon886" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon889" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon894" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon896" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon_wall11" type="Node3D" parent="Main"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -3.05326e-15, 3.05326e-15, -1.33462e-22, 1, 30.5339, 32.4617, -133.021)
+
+[node name="hexagon793" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall11" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall12" type="Node3D" parent="Main"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -3.05326e-15, -6.87463e-15, -8.74228e-08, -1, -31.0589, 32.4617, -102.505)
+
+[node name="hexagon793" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall12" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall13" type="Node3D" parent="Main"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -3.05326e-15, -6.87463e-15, -8.74228e-08, -1, -31.0589, 32.4617, -111.261)
+
+[node name="hexagon793" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall13" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon_wall14" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -15.7026, 32.4617, -148.61)
+
+[node name="hexagon793" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon801" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon802" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon805" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon806" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon807" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon808" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon811" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon819" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 7.25813)
+
+[node name="hexagon820" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon823" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 7.27633)
+
+[node name="hexagon824" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 8.72681)
+
+[node name="hexagon825" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 7.32378)
+
+[node name="hexagon826" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 8.77426)
+
+[node name="hexagon829" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon841" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon842" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon843" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon844" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon859" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 10.2117)
+
+[node name="hexagon860" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon861" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 10.2592)
+
+[node name="hexagon862" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon882" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall14" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon_wall15" type="Node3D" parent="Main"]
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -7.01407, 32.4617, -148.61)
+
+[node name="hexagon793" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon794" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon795" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon796" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon797" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon798" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon799" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon800" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon802" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon803" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon804" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon811" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 7.17482)
+
+[node name="hexagon812" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 8.60479)
+
+[node name="hexagon813" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
+
+[node name="hexagon814" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 8.61682)
+
+[node name="hexagon815" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 7.19574)
+
+[node name="hexagon816" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 8.64323)
+
+[node name="hexagon817" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 8.66442)
+
+[node name="hexagon818" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 7.21389)
+
+[node name="hexagon820" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 7.23722)
+
+[node name="hexagon821" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 8.69756)
+
+[node name="hexagon822" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 8.70192)
+
+[node name="hexagon829" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon830" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon831" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon832" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon833" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon834" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon835" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon836" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon837" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon838" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon839" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon840" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon842" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon844" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon847" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 10.1102)
+
+[node name="hexagon848" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 11.5402)
+
+[node name="hexagon849" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 10.1222)
+
+[node name="hexagon850" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3736, 11.5522)
+
+[node name="hexagon851" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 10.1311)
+
+[node name="hexagon852" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 11.5786)
+
+[node name="hexagon853" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 11.5998)
+
+[node name="hexagon854" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 10.1493)
+
+[node name="hexagon855" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 10.1935)
+
+[node name="hexagon856" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 10.1726)
+
+[node name="hexagon857" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 11.6329)
+
+[node name="hexagon858" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 11.6373)
+
+[node name="hexagon860" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 11.6622)
+
+[node name="hexagon862" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 11.7096)
+
+[node name="hexagon864" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon865" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon866" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon867" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon868" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon869" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon870" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon871" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon872" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon873" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon874" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon875" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon876" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon877" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon878" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon879" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
+[node name="hexagon882" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0302, 22.3736, 12.9953)
+
+[node name="hexagon883" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1968, 22.3736, 14.4253)
+
+[node name="hexagon884" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 13.0074)
+
+[node name="hexagon885" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8534, 22.3735, 14.4373)
+
+[node name="hexagon886" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3424, 22.3736, 13.0163)
+
+[node name="hexagon887" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5001, 22.3736, 14.4638)
+
+[node name="hexagon888" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.127, 22.3736, 14.4849)
+
+[node name="hexagon889" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9505, 22.3736, 13.0344)
+
+[node name="hexagon890" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2689, 22.3736, 13.0787)
+
+[node name="hexagon891" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6023, 22.3736, 13.0577)
+
+[node name="hexagon892" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7489, 22.3736, 14.5181)
+
+[node name="hexagon893" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3853, 22.3736, 14.5225)
+
+[node name="hexagon894" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8741, 22.3736, 13.0969)
+
+[node name="hexagon895" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0534, 22.3736, 14.5473)
+
+[node name="hexagon896" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
+
+[node name="hexagon897" parent="Main/hexagon_wall15" instance=ExtResource("12_u47wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
+
 [node name="collectable_room" type="Node3D" parent="Main"]
 
 [node name="floor2" type="CSGBox3D" parent="Main/collectable_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169503, -0.173218, -118.714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159997, -0.173218, -117.445)
 material_override = ExtResource("5_1qytf")
 use_collision = true
-size = Vector3(19.4048, 0.124756, 20.0567)
+size = Vector3(17.6174, 0.124756, 17.5195)
 
 [node name="Coin" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999995, 5, 0.0768782, -113)
+transform = Transform3D(0.999898, 0, 0, 0, 1, 0, 0, 0, 0.999898, 5, 0.0768782, -113)
 
 [node name="Coin2" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.898486, 0, -0.438998, 0, 1, 0, 0.438998, 0, -0.898486, 5, 0.0768782, -114.279)
+transform = Transform3D(-0.898398, 0, -0.438955, 0, 1, 0, 0.438955, 0, -0.898398, 5, 0.0768782, -114.279)
 
 [node name="Coin3" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.923877, 0, 0.382672, 0, 1, 0, -0.382672, 0, -0.923877, 5, 0.0768782, -115.521)
+transform = Transform3D(-0.923812, 0, 0.382645, 0, 1, 0, -0.382645, 0, -0.923812, 5, 0.0768782, -115.521)
 
 [node name="Coin4" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.00301379, 0, -0.999993, 0, 1, 0, 0.999993, 0, 0.00301379, 5, 0.0768782, -116.498)
+transform = Transform3D(0.00301356, 0, -0.999915, 0, 1, 0, 0.999915, 0, 0.00301356, 5, 0.0768782, -116.498)
 
 [node name="Coin5" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.960758, 0, -0.277374, 0, 1, 0, 0.277374, 0, -0.960758, 5, 0.0768782, -117.463)
+transform = Transform3D(-0.960662, 0, -0.277347, 0, 1, 0, 0.277347, 0, -0.960662, 5, 0.0768782, -117.463)
 
 [node name="Coin6" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.548916, 0, -0.835877, 0, 1, 0, 0.835877, 0, 0.548916, 5, 0.0768782, -118.375)
+transform = Transform3D(0.548871, 0, -0.835811, 0, 1, 0, 0.835811, 0, 0.548871, 5, 0.0768782, -118.375)
 
 [node name="Coin7" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.974468, 0, -0.224514, 0, 1, 0, 0.224514, 0, -0.974468, 5, 0.0768782, -119.378)
+transform = Transform3D(-0.974393, 0, -0.224496, 0, 1, 0, 0.224496, 0, -0.974393, 5, 0.0768782, -119.378)
 
 [node name="Coin8" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.933138, 0, -0.359512, 0, 1, 0, 0.359512, 0, 0.933138, 5, 0.0768782, -120.403)
+transform = Transform3D(0.933081, 0, -0.35949, 0, 1, 0, 0.35949, 0, 0.933081, 5, 0.0768782, -120.403)
+
+[node name="Coin9" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(-0.939283, 0, -0.34284, 0, 1, 0, 0.34284, 0, -0.939283, 2.74645, 0.0768782, -113)
+
+[node name="Coin10" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(0.693432, 0, 0.720387, 0, 1, 0, -0.720387, 0, 0.693432, 2.74645, 0.0768782, -114.279)
+
+[node name="Coin11" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(0.999015, 0, -0.0426977, 0, 1, 0, 0.0426977, 0, 0.999015, 2.74645, 0.0768782, -115.521)
+
+[node name="Coin12" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(-0.345672, 0, 0.938254, 0, 1, 0, -0.938254, 0, -0.345672, 2.74645, 0.0768782, -116.498)
+
+[node name="Coin13" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(0.807338, 0, 0.589924, 0, 1, 0, -0.589924, 0, 0.807338, 2.74645, 0.0768782, -117.463)
+
+[node name="Coin14" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(-0.802169, 0, 0.596938, 0, 1, 0, -0.596938, 0, -0.802169, 2.74645, 0.0768782, -118.375)
+
+[node name="Coin15" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(0.838353, 0, 0.544986, 0, 1, 0, -0.544986, 0, 0.838353, 2.74645, 0.0768782, -119.378)
+
+[node name="Coin16" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
+transform = Transform3D(-0.999764, 0, 0.0177719, 0, 1, 0, -0.0177719, 0, -0.999764, 2.74645, 0.0768782, -120.403)
 
 [node name="HelperGuy" type="Sprite3D" parent="."]
 transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, 0.0272207, 0.480662, 3.01533)
