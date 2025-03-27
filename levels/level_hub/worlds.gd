@@ -21,8 +21,8 @@ func _ready() -> void:
 			
 		print("Total worlds: ", total_worlds)
 
-func _process(_delta: float) -> void:
-	self.position.x = lerp(self.position.x, -intergalactic_planetary*target_world, 0.1)
+func _process(delta: float) -> void:
+	self.position.x = lerp(self.position.x, -intergalactic_planetary*target_world, 6 * delta)
 
 	# Don't waste cycles handling movement logic in edit mode
 	if is_part_of_edited_scene():

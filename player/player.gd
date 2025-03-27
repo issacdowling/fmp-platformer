@@ -143,7 +143,7 @@ func move(delta: float) -> void:
 
 		# Look in direction of movement
 		var lookdir: float = atan2(-velocity.x, -velocity.z)
-		$Armature.rotation.y = lerp_angle($Armature.rotation.y, lookdir, 0.1)
+		$Armature.rotation.y = lerp_angle($Armature.rotation.y, lookdir, 6 * delta)
 
 
 	# Stop when not pressing move buttons and grounded (THIS was stopping my wall jumps!)
