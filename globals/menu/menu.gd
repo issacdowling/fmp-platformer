@@ -4,10 +4,21 @@ extends Node
 const DISPLAY_WIDTH: int = 1920
 
 const GLOBAL_ILLUMINATION: String = "global_illumination"
+const GLOBAL_ILLUMINATION_HALF_RES: String = "global_illumination_half_res"
+const GLOBAL_ILLUMINATION_RAY_COUNT: String = "global_illumination_ray_count"
 const GLOBAL_ILLUMINATION_CASCADES = "global_illumination_cascades"
 const SCALING_METHOD: String = "scaling_method"
 const SCALING_AMOUNT: String = "scaling_amount"
 const RENDERER: String = "renderer"
+const VSYNC: String = "vsync"
+
+const RAY_COUNT_4: String = "4"
+const RAY_COUNT_8: String = "8"
+const RAY_COUNT_16: String = "16"
+const RAY_COUNT_32: String = "32"
+const RAY_COUNT_64: String = "64"
+const RAY_COUNT_96: String = "96"
+const RAY_COUNT_128: String = "128"
 
 const SCALING_METHODS_FSR2: String = "FSR 2"
 const SCALING_METHODS_FSR1: String = "FSR 1"
@@ -32,10 +43,13 @@ signal dialogue_interact
 @onready var SettingSetter: Node = %SettingSetter
 
 @onready var GlobalIlluminationToggle: CheckButton = %GlobalIlluminationToggle
+@onready var GlobalIlluminationHalfResToggle: CheckButton = %HalfResGIToggle
+@onready var GlobalIlluminationRayCountDropdown: OptionButton = %GlobalIlluminationRayCountDropdown
 @onready var GlobalIlluminationCascadesSlider: HSlider = %GlobalIlluminationCascades
 @onready var ScalingOptionsDropdown: OptionButton = %ScalingOptions
 @onready var ScalingAmountSlider: HSlider = %ScalingAmount
 @onready var RendererOptionsDropdown: OptionButton = %RendererOptions
+@onready var VsyncToggle: CheckButton = %VsyncToggle
 
 @onready var TransitionControl: Control = %Transitions
 @onready var TransitionAnimator: AnimationPlayer = %TransitionAnimator
@@ -73,14 +87,26 @@ func _ready() -> void:
 	TransitionControl.visible = false
 	main_menu_control.visible = false
 	
-	# Main menu grab focus for controller controls
-	start_button.grab_focus()
+	# Main menu grab focus for controller controls (broken right now)
+	#start_button.grab_focus()
 	
 	GlobalIlluminationToggle.toggled.connect(_on_global_illumination_toggle_toggled)
+	GlobalIlluminationHalfResToggle.toggled.connect(_on_global_illumination_half_res_toggle_toggled)
+	GlobalIlluminationRayCountDropdown.item_selected.connect(_on_global_illumination_ray_count_item_selected)
 	GlobalIlluminationCascadesSlider.value_changed.connect(on_global_illumination_cascades_value_changed)
 	ScalingOptionsDropdown.item_selected.connect(_on_scaling_options_item_selected)
 	ScalingAmountSlider.value_changed.connect(_on_scaling_amount_value_changed)
 	RendererOptionsDropdown.item_selected.connect(_on_renderer_options_item_selected)
+	VsyncToggle.toggled.connect(_on_vsync_toggle_toggled)
+	
+	# Add all ray count options
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_4)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_8)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_16)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_32)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_64)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_96)
+	GlobalIlluminationRayCountDropdown.add_item(RAY_COUNT_128)
 	
 	# Add all scaling options
 	ScalingOptionsDropdown.add_item(SCALING_METHODS_FSR2)
@@ -222,9 +248,15 @@ func finish_captive_dialogue() -> void:
 func _on_global_illumination_toggle_toggled(toggled_on: bool) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION, toggled_on)
 	
+func _on_global_illumination_half_res_toggle_toggled(toggled_on: bool) -> void:
+	setting_changed.emit(GLOBAL_ILLUMINATION_HALF_RES, toggled_on)
+
+func _on_global_illumination_ray_count_item_selected(index: int) -> void:
+	setting_changed.emit(GLOBAL_ILLUMINATION_RAY_COUNT, GlobalIlluminationRayCountDropdown.get_item_text(index))	
+
 func on_global_illumination_cascades_value_changed(value: int) -> void:
 	setting_changed.emit(GLOBAL_ILLUMINATION_CASCADES, value)
-
+	
 func _on_scaling_options_item_selected(index: int) -> void:
 	setting_changed.emit(SCALING_METHOD, ScalingOptionsDropdown.get_item_text(index))
 
@@ -233,6 +265,9 @@ func _on_scaling_amount_value_changed(value: float) -> void:
 
 func _on_renderer_options_item_selected(index: int) -> void:
 	setting_changed.emit(RENDERER, RendererOptionsDropdown.get_item_text(index))
+
+func _on_vsync_toggle_toggled(toggled_on: bool) -> void:
+	setting_changed.emit(VSYNC, toggled_on)
 
 func _collectables_update(values: Dictionary) -> void:
 	coin_Label.text = "[wave]%d[/wave]" % values["Coin"]

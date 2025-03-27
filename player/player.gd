@@ -49,19 +49,34 @@ func switch_scene(scene_file: String) -> void:
 	await get_tree().create_timer(Menu.begin_transition()).timeout 
 	get_tree().change_scene_to_file(scene_file)
 	Menu.exit_transition()
+	
+func switch_scene_packed(scene_file: PackedScene) -> void:
+	# As begin_transition returns the length of the transition, we wait for that long before switching scene
+	await get_tree().create_timer(Menu.begin_transition()).timeout 
+	get_tree().change_scene_to_packed(scene_file)
+	Menu.exit_transition()
+	
+# ONLY CALL THIS IF YOU'VE REQUESTED THE SCENE TO BE LOADED WITH RESOURCELOADER FIRST
+func switch_scene_threaded(scene_file: String) -> void:
+	# As begin_transition returns the length of the transition, we wait for that long before switching scene
+	await get_tree().create_timer(Menu.begin_transition()).timeout 
+	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(scene_file))
+	Menu.exit_transition()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
 
 func move(delta: float) -> void:
+	## Apply gravity when in the air
+	if not is_on_floor():
+		_do_gravity(delta)
+
 	# For situations where controls are locked, allow dialogue
 	if not controls_allowed:
 		move_and_slide()
 		return
 
-	## Apply gravity when in the air
-	if not is_on_floor():
-		_do_gravity(delta)
+
 
 	## clear jump time when on ground or wall
 	if is_on_floor() or is_on_wall():
@@ -75,7 +90,38 @@ func move(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
-	
+		# Put something here that prevents move_vector being in the direction of the wall
+
+	if move_vector != Vector3.ZERO:
+		last_non_zero_move_vector = move_vector
+	if is_on_wall_only():
+		wall_time += delta
+		# You can jump no matter what, if you're only on a wall. Only regular movement is restricted
+		# based on the time you've been there.
+		if Input.is_action_just_pressed("jump"):
+			# This makes it so you stick to walls opposite to ones that you jump off of.
+			last_non_zero_move_vector = get_wall_normal()
+			time_since_wall = 0.3
+			velocity.y += JUMP_VELOCITY
+			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
+			wall_time = 0 
+		# If we've been not been on the wall without jumping off for more than 1s, and the last direction we moved was towards the wall, we should stick. Else, slip down
+		elif wall_time < 1 and not Input.is_action_pressed("jump") and last_non_zero_move_vector.angle_to(-get_wall_normal()) <= deg_to_rad(player_stick_wall_angle):
+			# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
+			velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
+			#_do_gravity(delta)
+		else:
+			_do_gravity(delta)
+	else:
+		wall_time = 0
+		if time_since_wall >= 0:
+			time_since_wall -= delta
+			
+	# If the player just jumped off the wall, don't let them keep moving
+	if time_since_wall > 0:
+		move_and_slide()
+		return
+		
 	if move_vector and time_since_wall <= 0.0:  #  and not is_on_wall_only()  (removed because it makes things better now, but I'm not sure if it broke anything
 		# Make sure to set appropriate animations AND DISABLE THE OTHERS
 		$AnimationTree.set("parameters/conditions/idle", false)
@@ -124,30 +170,7 @@ func move(delta: float) -> void:
 		pcam_rotation_degrees.y = wrapf(pcam_rotation_degrees.y, min_yaw, max_yaw)
 		pcam.set_third_person_rotation_degrees(pcam_rotation_degrees)
 
-	if move_vector != Vector3.ZERO:
-		last_non_zero_move_vector = move_vector
-	if is_on_wall_only():
-		wall_time += delta
-		# You can jump no matter what, if you're only on a wall. Only regular movement is restricted
-		# based on the time you've been there.
-		if Input.is_action_just_pressed("jump"):
-			# This makes it so you stick to walls opposite to ones that you jump off of.
-			last_non_zero_move_vector = get_wall_normal()
-			time_since_wall = 0.3
-			velocity.y += JUMP_VELOCITY
-			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
-			wall_time = 0
-		# If we've been not been on the wall without jumping off for more than 1s, and the last direction we moved was towards the wall, we should stick. Else, slip down
-		elif wall_time < 1 and not Input.is_action_pressed("jump") and last_non_zero_move_vector.angle_to(-get_wall_normal()) <= deg_to_rad(player_stick_wall_angle):
-			# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
-			velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
-			#_do_gravity(delta)
-		else:
-			_do_gravity(delta)
-	else:
-		wall_time = 0
-		if time_since_wall >= 0:
-			time_since_wall -= delta
+
 
 	move_and_slide()
 

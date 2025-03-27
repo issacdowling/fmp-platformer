@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx5iirhwqsuoe"]
+
+[ext_resource type="Script" uid="uid://yj6y433hapx" path="res://reusables/spaceship_exit/spaceship.gd" id="1_3v4bb"]
+[ext_resource type="PackedScene" uid="uid://dq3hs5begqork" path="res://reusables/spaceship_exit/spaceship.glb" id="1_wisy2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wisy2"]
+size = Vector3(6.43004, 2.09053, 7.47241)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v4bb"]
+size = Vector3(3.021, 2.00778, 1.58334)
+
+[node name="Spaceship" type="Node3D"]
+script = ExtResource("1_3v4bb")
+
+[node name="spaceship_model" parent="." instance=ExtResource("1_wisy2")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CanExitArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanExitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305037, 1.01652, -0.00742698)
+shape = SubResource("BoxShape3D_wisy2")
+
+[node name="RegularCollisionBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RegularCollisionBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272461, 1.0302, -0.00242615)
+shape = SubResource("BoxShape3D_3v4bb")

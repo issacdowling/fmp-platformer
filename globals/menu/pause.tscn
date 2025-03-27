@@ -231,7 +231,6 @@ script = ExtResource("1_uhrtt")
 
 [node name="Pause" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 0
@@ -272,11 +271,11 @@ unique_name_in_owner = true
 z_index = 1
 z_as_relative = false
 layout_mode = 1
-offset_left = 821.0
-offset_top = 9.0
-offset_right = 865.0
-offset_bottom = 33.0
-scale = Vector2(5, 5)
+offset_left = 517.0
+offset_top = 4.0
+offset_right = 561.0
+offset_bottom = 28.0
+scale = Vector2(3.698, 3.698)
 focus_neighbor_top = NodePath("../SettingsFromSettingsBtn")
 focus_neighbor_right = NodePath("../QuitFromSettingsBtn")
 focus_neighbor_bottom = NodePath("../GlobalIlluminationCascades")
@@ -285,11 +284,11 @@ focus_neighbor_bottom = NodePath("../GlobalIlluminationCascades")
 layout_mode = 0
 offset_left = 22.0
 offset_top = 19.0
-offset_right = 946.0
-offset_bottom = 141.0
+offset_right = 658.0
+offset_bottom = 106.0
 scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("4_h1kxx")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "Global Illumination"
 
 [node name="QuitFromSettingsBtn" type="Button" parent="Pause"]
@@ -345,14 +344,62 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8p5a2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_avk5v")
 text = "Close Settings"
 
+[node name="HalfResGIToggle" type="CheckButton" parent="Pause"]
+unique_name_in_owner = true
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+offset_left = 516.0
+offset_top = 65.0
+offset_right = 560.0
+offset_bottom = 89.0
+scale = Vector2(3.698, 3.698)
+focus_neighbor_top = NodePath("../SettingsFromSettingsBtn")
+focus_neighbor_right = NodePath("../QuitFromSettingsBtn")
+focus_neighbor_bottom = NodePath("../GlobalIlluminationCascades")
+
+[node name="HalfResGILabel" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 75.0
+offset_right = 441.0
+offset_bottom = 157.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_h1kxx")
+theme_override_font_sizes/font_size = 64
+text = "Half-res GI"
+
+[node name="GlobalIlluminationRayCountDropdown" type="OptionButton" parent="Pause"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 547.0
+offset_top = 147.0
+offset_right = 639.0
+offset_bottom = 178.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../GlobalIlluminationCascades")
+focus_neighbor_bottom = NodePath("../ScalingAmount")
+theme_override_fonts/font = ExtResource("4_h1kxx")
+
+[node name="GIRayCountLabel" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 135.0
+offset_right = 444.0
+offset_bottom = 217.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_h1kxx")
+theme_override_font_sizes/font_size = 64
+text = "GI Ray Count"
+
 [node name="GlobalIlluminationCascades" type="HSlider" parent="Pause"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 821.0
-offset_top = 146.0
-offset_right = 912.0
-offset_bottom = 178.0
-scale = Vector2(5, 5)
+offset_left = 547.0
+offset_top = 197.0
+offset_right = 638.0
+offset_bottom = 229.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("../GlobalIlluminationToggle")
 focus_neighbor_bottom = NodePath("../ScalingOptions")
 min_value = 1.0
@@ -360,86 +407,122 @@ max_value = 8.0
 value = 1.0
 editable = false
 
-[node name="GICascadeLabel" type="Label" parent="Pause/GlobalIlluminationCascades"]
+[node name="GICascadeLabel" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = -160.0
-offset_top = 6.0
-offset_right = 764.0
-offset_bottom = 128.0
-scale = Vector2(0.171, 0.171)
+offset_left = 22.0
+offset_top = 197.0
+offset_right = 439.0
+offset_bottom = 279.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("4_h1kxx")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "GI Cascades"
 
 [node name="ScalingOptions" type="OptionButton" parent="Pause"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 821.0
-offset_top = 337.0
-offset_right = 913.0
-offset_bottom = 368.0
-scale = Vector2(5, 5)
+offset_left = 548.0
+offset_top = 267.0
+offset_right = 640.0
+offset_bottom = 298.0
+scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../GlobalIlluminationCascades")
 focus_neighbor_bottom = NodePath("../ScalingAmount")
 theme_override_fonts/font = ExtResource("4_h1kxx")
 
-[node name="UpscalerLabel" type="Label" parent="Pause/ScalingOptions"]
+[node name="UpscalerLabel" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = -160.0
-offset_top = 5.2
-offset_right = 764.0
-offset_bottom = 127.2
-scale = Vector2(0.171, 0.171)
+offset_left = 24.0
+offset_top = 256.0
+offset_right = 359.0
+offset_bottom = 339.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("4_h1kxx")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "Upscaler"
 
 [node name="ScalingAmount" type="HSlider" parent="Pause"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 820.0
-offset_top = 517.0
-offset_right = 911.0
-offset_bottom = 549.0
-scale = Vector2(5, 5)
+offset_left = 547.0
+offset_top = 316.0
+offset_right = 638.0
+offset_bottom = 348.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("../ScalingOptions")
 focus_neighbor_bottom = NodePath("../RendererOptions")
 max_value = 1.0
 step = 0.01
 
-[node name="UpscaleAmountLabel" type="Label" parent="Pause/ScalingAmount"]
+[node name="UpscaleAmountLabel" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = -160.0
-offset_top = 6.0
-offset_right = 764.0
-offset_bottom = 128.0
-scale = Vector2(0.171, 0.171)
+offset_left = 24.0
+offset_top = 311.0
+offset_right = 521.0
+offset_bottom = 396.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("4_h1kxx")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "Upscaler Scale"
 
 [node name="RendererOptions" type="OptionButton" parent="Pause"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 821.0
-offset_top = 709.0
-offset_right = 1048.05
-offset_bottom = 740.0
-scale = Vector2(5, 5)
+offset_left = 548.0
+offset_top = 373.0
+offset_right = 775.05
+offset_bottom = 404.0
+scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../ScalingAmount")
 focus_neighbor_bottom = NodePath("../SettingsFromSettingsBtn")
 theme_override_fonts/font = ExtResource("4_h1kxx")
 
-[node name="RendererLabel" type="Label" parent="Pause/RendererOptions"]
+[node name="RendererLabel" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = -160.0
-offset_top = 5.2
-offset_right = 764.0
-offset_bottom = 127.2
-scale = Vector2(0.171, 0.171)
+offset_left = 26.0
+offset_top = 365.0
+offset_right = 392.0
+offset_bottom = 460.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("4_h1kxx")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "Renderer"
+
+[node name="VsyncToggle" type="CheckButton" parent="Pause"]
+unique_name_in_owner = true
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+offset_left = 525.0
+offset_top = 465.0
+offset_right = 569.0
+offset_bottom = 489.0
+scale = Vector2(3.698, 3.698)
+focus_neighbor_top = NodePath("../SettingsFromSettingsBtn")
+focus_neighbor_right = NodePath("../QuitFromSettingsBtn")
+focus_neighbor_bottom = NodePath("../GlobalIlluminationCascades")
+
+[node name="VsyncLabel" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 480.0
+offset_right = 666.0
+offset_bottom = 567.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_h1kxx")
+theme_override_font_sizes/font_size = 64
+text = "Vsync"
+
+[node name="VsyncDetailsLabel" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 537.0
+offset_right = 328.0
+offset_bottom = 566.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_h1kxx")
+theme_override_font_sizes/font_size = 19
+text = " (change if getting hard to explain stutters)"
 
 [node name="SettingSetter" type="Node" parent="Pause"]
 unique_name_in_owner = true
