@@ -80,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0477558, 0, 0.996651, 0, 1, 0, -0.996651, 0, -0.0477558, 0, 0, 0)
+transform = Transform3D(-0.0477548, 0, 0.99663, 0, 1, 0, -0.99663, 0, -0.0477548, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -127,7 +127,7 @@ level_scene = "res://levels/CatCourse/CatCourse.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0477583, 0, 0.996701, 0, 1, 0, -0.996701, 0, -0.0477583, 50, 0, 0)
+transform = Transform3D(-0.0477575, 0, 0.996684, 0, 1, 0, -0.996684, 0, -0.0477575, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -182,7 +182,7 @@ level_name = "3level 3furious"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0476855, 0, 0.995192, 0, 1, 0, -0.995192, 0, -0.0476855, 100, 0, 0)
+transform = Transform3D(-0.0476847, 0, 0.995174, 0, 1, 0, -0.995174, 0, -0.0476847, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")
@@ -259,6 +259,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7419, 33.792)
 [node name="Player" parent="Ship" instance=ExtResource("2_1bb6e")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.13123, -2.93429, -0.440693)
+
+[node name="Skeleton3D" parent="Ship/Player/Armature" index="1"]
+bones/0/rotation = Quaternion(0.00645855, 0, 0, 0.999979)
+bones/1/rotation = Quaternion(-0.0801557, 1.77636e-15, -2.48068e-07, 0.996782)
+bones/7/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
+bones/8/rotation = Quaternion(-0.0246064, -0.0025614, 0.103505, 0.994321)
+bones/11/rotation = Quaternion(0.484431, -0.570964, 0.526164, 0.403087)
+bones/12/rotation = Quaternion(-0.0246162, 0.00256229, -0.103498, 0.994322)
+bones/15/rotation = Quaternion(2.80852e-09, 0.010368, 0.999946, 2.71714e-07)
+bones/16/rotation = Quaternion(-0.0381125, -8.73115e-10, 2.054e-08, 0.999274)
+bones/17/rotation = Quaternion(0.459749, 1.86264e-09, -1.1659e-07, 0.888049)
+bones/18/rotation = Quaternion(0.335241, 1.86265e-09, -1.16881e-07, 0.942132)
+bones/20/rotation = Quaternion(2.69938e-09, 0.0103565, 0.999946, 2.61236e-07)
+bones/21/rotation = Quaternion(-0.0380914, -6.98492e-10, 1.70912e-08, 0.999274)
+bones/22/rotation = Quaternion(0.45974, 0, -1.22149e-07, 0.888054)
+bones/23/rotation = Quaternion(0.335242, 9.31323e-09, -1.03842e-07, 0.942132)
 
 [node name="Camera3D" parent="Ship/Player" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.477, 4.92793)

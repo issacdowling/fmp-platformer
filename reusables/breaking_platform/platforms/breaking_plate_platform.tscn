@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsugbqknly6dv"]
+
+[ext_resource type="Material" uid="uid://cjm68y7hwyp5r" path="res://levels/CatCourse/models/plate/plate_mat.tres" id="1_7j0ip"]
+[ext_resource type="Material" uid="uid://dscgtq6bx04qn" path="res://materials/dev/dev_breaking.tres" id="1_vnyrs"]
+[ext_resource type="Script" uid="uid://ca2xius60is4v" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="2_ds6f5"]
+[ext_resource type="ArrayMesh" uid="uid://fi5bufbac22q" path="res://levels/CatCourse/models/plate/plate_mesh.res" id="2_eco0h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fthqv"]
+height = 0.064415
+radius = 1.16748
+
+[node name="BreakingDevPlatform" type="MeshInstance3D"]
+material_override = ExtResource("1_7j0ip")
+mesh = ExtResource("2_eco0h")
+surface_material_override/0 = ExtResource("1_7j0ip")
+script = ExtResource("2_ds6f5")
+cache_name = "19206473057004"
+original_mesh = ExtResource("2_eco0h")
+chunk_inner_material = ExtResource("1_vnyrs")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00568999, 0)
+shape = SubResource("CylinderShape3D_fthqv")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0214729, 0)
+shape = SubResource("CylinderShape3D_fthqv")
