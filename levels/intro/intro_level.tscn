@@ -1,21 +1,26 @@
-[gd_scene load_steps=33 format=3 uid="uid://tily01fh1va3"]
+[gd_scene load_steps=40 format=3 uid="uid://tily01fh1va3"]
 
 [ext_resource type="Material" uid="uid://bqmgqkwlcr0ql" path="res://levels/intro/wall_jump_platform.tres" id="1_1qytf"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_qrren"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="2_1s78d"]
 [ext_resource type="Texture2D" uid="uid://dm8sb5jfg0xm" path="res://materials/test_guy.png" id="3_32i32"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="4_7now6"]
+[ext_resource type="PackedScene" uid="uid://s4pprh6bd7om" path="res://reusables/moving_platform/platforms/moving_hexagon_platform.tscn" id="4_b0dg5"]
 [ext_resource type="Material" uid="uid://b4tb6l40abkxr" path="res://levels/intro/intro_lift_glas.tres" id="4_elk5s"]
 [ext_resource type="Script" uid="uid://0x85d14x2tos" path="res://levels/intro/welcome_talk.gd" id="4_folbh"]
 [ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_okaux"]
 [ext_resource type="Material" uid="uid://vc5sbyjx8ryp" path="res://levels/intro/floor_metal.tres" id="5_1qytf"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="5_b4154"]
 [ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_folbh"]
+[ext_resource type="PackedScene" uid="uid://clqr5mivhc2u6" path="res://reusables/bouncy_platform/platforms/bouncy_hexagon_platform.tscn" id="8_0382p"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_7now6"]
+[ext_resource type="PackedScene" uid="uid://c1svlbocpwlb6" path="res://reusables/breaking_platform/platforms/breaking_hexagon_platform.tscn" id="10_2kph0"]
 [ext_resource type="PackedScene" uid="uid://v6fuc6d1sejx" path="res://reusables/enemies/turret/turret.glb" id="11_liwqe"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="11_u36mb"]
 [ext_resource type="PackedScene" uid="uid://c04dpk3f3emmk" path="res://levels/intro/hexagon.glb" id="12_u47wj"]
-[ext_resource type="PackedScene" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
+[ext_resource type="PackedScene" uid="uid://yydwt4bvbkbv" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
+[ext_resource type="PackedScene" uid="uid://bhr7wkf5q4qek" path="res://reusables/collectables/corn.tscn" id="17_pcrvq"]
+[ext_resource type="PackedScene" uid="uid://dx5iirhwqsuoe" path="res://reusables/spaceship_exit/spaceship_exit.tscn" id="18_5wmox"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
 ground_bottom_color = Color(0.134438, 0.122311, 0.123804, 1)
@@ -48,9 +53,15 @@ size = Vector3(15.8198, 0.353455, 93.9001)
 size = Vector3(14.2284, 0.272156, 15.9973)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1qytf"]
-size = Vector3(14.1725, 0.276306, 38.8131)
+size = Vector3(9.95588, 0.276306, 38.8131)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u36mb"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0382p"]
+size = Vector3(2.49834, 0.276306, 19.6445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kph0"]
+size = Vector3(2.49834, 0.276306, 19.6445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0dg5"]
 size = Vector3(13.9318, 37.0362, 0.293945)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcrvq"]
@@ -127,10 +138,10 @@ environment = SubResource("Environment_cja2a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4334, 0, -10)
 
 [node name="wall_jump_platform" type="CSGBox3D" parent="Main/jump_room/WallJump"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46958, 6.14298, -3.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46958, 6.14298, -3.71465)
 material_override = ExtResource("1_1qytf")
 use_collision = true
-size = Vector3(4.66084, 0.264771, 5.4)
+size = Vector3(4.66084, 0.264771, 5.2293)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main/jump_room/WallJump"]
 
@@ -156,6 +167,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.068, 0, -1, 0, -4.37114e-08, -0
 [node name="MovingPlatform" parent="Main/jump_room/elevator" instance=ExtResource("2_1s78d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125111, 0, 5.96745)
 travel_seconds = 6.0
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/jump_room/elevator/MovingPlatform" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.03013, 0)
@@ -164,20 +176,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.03013, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293376, 0)
 
 [node name="Player" parent="Main/jump_room/elevator/MovingPlatform" instance=ExtResource("1_qrren")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452197, 9.6084, -0.213454)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Main/jump_room/elevator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14881, 5.1572, 6.36316)
 material_override = ExtResource("4_elk5s")
 use_collision = true
+collision_layer = 2
 size = Vector3(0.021, 12.0374, 3)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Main/jump_room/elevator/CSGBox3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.03193, 1.67553, -1.492)
+layers = 2
 size = Vector3(0.021, 8.68635, 2.07349)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Main/jump_room/elevator/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05171, 0, 0)
+layers = 2
 size = Vector3(0.021, 12.0374, 3)
 
 [node name="floor_walls" type="Node3D" parent="Main/jump_room"]
@@ -204,12 +220,6 @@ operation = 2
 use_collision = true
 size = Vector3(6.20038, 0.809998, 9.40736)
 
-[node name="floor_cutout_6" type="CSGBox3D" parent="Main/jump_room/floor_walls/floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330634, 0.00320433, -9.12384)
-operation = 2
-use_collision = true
-size = Vector3(6.20038, 0.809998, 3.31595)
-
 [node name="floor_cutout_4" type="CSGBox3D" parent="Main/jump_room/floor_walls/floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09213, 0.00320433, -12.1695)
 operation = 2
@@ -226,48 +236,34 @@ size = Vector3(0.236816, 14.7868, 83.439)
 
 [node name="platforms_layout" type="Node3D" parent="Main/platform_room"]
 
-[node name="entrance_bottom" type="CSGBox3D" parent="Main/platform_room/platforms_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257263, 6.26965, -18.2408)
-use_collision = true
-size = Vector3(1.39703, 0.0253906, 3.22278)
-
-[node name="entrance_top" type="CSGBox3D" parent="Main/platform_room/platforms_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257263, 8.50194, -18.2408)
-use_collision = true
-size = Vector3(1.39703, 0.0253906, 3.22278)
-
-[node name="entrance_left" type="CSGBox3D" parent="Main/platform_room/platforms_layout"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.684705, 7.3833, -18.2408)
-use_collision = true
-size = Vector3(2.255, 0.025, 3.223)
-
-[node name="entrance_right" type="CSGBox3D" parent="Main/platform_room/platforms_layout"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.726753, 7.3833, -18.2408)
-use_collision = true
-size = Vector3(2.255, 0.025, 3.223)
-
 [node name="BouncyPlatform" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31615, -0.11084, -39.559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280734, -0.11084, -40.193)
+platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform2" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22233, -0.11084, -37.417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54519, -0.11084, -37.0574)
+platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform3" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759932, -0.11084, -33.8966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425958, -0.11084, -33.3473)
+platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform4" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66601, -0.11084, -29.4398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60676, -0.11084, -29.7546)
+platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform5" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0211368, -0.11084, -26.6768)
+platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="MovingPlatform" parent="Main/platform_room/platforms_layout" instance=ExtResource("2_1s78d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00461972, -0.231755, -61.4164)
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/platform_room/platforms_layout/MovingPlatform" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36556, 0)
@@ -275,6 +271,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36556, 0)
 [node name="MovingPlatform2" parent="Main/platform_room/platforms_layout" instance=ExtResource("2_1s78d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176906, 0, -64.5108)
 travel_seconds = 2.0
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/platform_room/platforms_layout/MovingPlatform2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00134, 0)
@@ -285,22 +282,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207652, 0)
 [node name="MovingPlatform3" parent="Main/platform_room/platforms_layout" instance=ExtResource("2_1s78d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00664182, -0.249091, -67.4028)
 travel_seconds = 4.0
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/platform_room/platforms_layout/MovingPlatform3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78388, 0)
 
 [node name="MovingPlatform" parent="Main/platform_room" instance=ExtResource("2_1s78d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185573, -0.11084, -21.0042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185573, -0.11084, -17.4668)
 travel_seconds = 4.0
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/platform_room/MovingPlatform" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.29452, 0)
 
 [node name="BreakingPlatform" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469024, -0.194338, -46.7311)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="MovingPlatform2" parent="Main/platform_room" instance=ExtResource("2_1s78d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131478, 3.43386, -72.0404)
+platform_scene = ExtResource("4_b0dg5")
 
 [node name="StartMarker" parent="Main/platform_room/MovingPlatform2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.05094)
@@ -362,21 +363,27 @@ size = Vector3(4.96912, 0.975311, 16.7123)
 
 [node name="BreakingPlatform2" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45782, -0.194338, -49.3703)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform3" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1137, -0.194338, -51.1271)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform4" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35013, -0.194338, -53.1978)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform5" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10449, -0.194338, -55.8)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform6" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20018, -0.194338, -57.2375)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform7" parent="Main/platform_room" instance=ExtResource("5_b4154")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0624487, 3.43682, -69.9332)
+platform_scene = ExtResource("10_2kph0")
 
 [node name="enemy_room" type="Node3D" parent="Main"]
 
@@ -8804,8 +8811,16 @@ transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -5.96046e-0
 transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -5.96046e-08, -1, 4.37114e-08, 1, -5.96046e-08, -32.9304, 20.1303, -21.0858)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/hexagon_wall4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -3.39407e-30, 0, 1, -27.3498, 22.4336, -3.79352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.39407e-30, 0, 1, -25.2415, 22.4336, -3.79352)
 shape = SubResource("BoxShape3D_1qytf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/hexagon_wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.39407e-30, 0, 1, -31.4316, 22.4336, -13.3778)
+shape = SubResource("BoxShape3D_0382p")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Main/hexagon_wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.39407e-30, 0, 1, -31.4316, 22.4336, 7.37829)
+shape = SubResource("BoxShape3D_2kph0")
 
 [node name="hexagon_wall5" type="StaticBody3D" parent="Main"]
 transform = Transform3D(1.77636e-15, 0, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, 0, -11.4361, 32.4617, -130.879)
@@ -9856,7 +9871,7 @@ transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -5.96046e-0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/hexagon_wall5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -3.39407e-30, 0, 1, -26.7262, 37.8462, -6.4146)
-shape = SubResource("BoxShape3D_u36mb")
+shape = SubResource("BoxShape3D_b0dg5")
 
 [node name="hexagon_wall6" type="Node3D" parent="Main"]
 transform = Transform3D(1.77636e-15, 0, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, 0, -26.1311, 32.4617, -130.879)
@@ -12656,7 +12671,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
 
 [node name="hexagon_wall18" type="Node3D" parent="Main"]
-transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -14.5413, 34.369, -38.0507)
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -14.5413, 34.369, -38.8162)
 
 [node name="hexagon795" parent="Main/hexagon_wall18" instance=ExtResource("12_u47wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
@@ -12890,7 +12905,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5139, 22.3736, 13.1443)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6933, 22.3736, 14.5948)
 
 [node name="hexagon_wall19" type="Node3D" parent="Main"]
-transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -5.81762, 34.369, -38.0507)
+transform = Transform3D(4.96395e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.05326e-15, 4.37114e-08, 1, -4.37114e-08, -5.81762, 34.369, -38.7927)
 
 [node name="hexagon795" parent="Main/hexagon_wall19" instance=ExtResource("12_u47wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6868, 22.3736, 7.18683)
@@ -14514,9 +14529,6 @@ transform = Transform3D(0.964822, 0, -0.262569, 0, 1, 0, 0.262569, 0, 0.964822, 
 [node name="Coin7" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
 transform = Transform3D(-0.581256, 0, -0.813619, 0, 1, 0, 0.813619, 0, -0.581256, 5, 0.0768782, -119.378)
 
-[node name="Coin8" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(0.937134, 0, 0.348764, 0, 1, 0, -0.348764, 0, 0.937134, 5, 0.0768782, -120.403)
-
 [node name="Coin9" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
 transform = Transform3D(-0.47656, 0, -0.879014, 0, 1, 0, 0.879014, 0, -0.47656, 2.74645, 0.0768782, -113)
 
@@ -14538,8 +14550,44 @@ transform = Transform3D(-0.996349, 0, -0.0841656, 0, 1, 0, 0.0841656, 0, -0.9963
 [node name="Coin15" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
 transform = Transform3D(0.267047, 0, 0.9636, 0, 1, 0, -0.9636, 0, 0.267047, 2.74645, 0.0768782, -119.378)
 
-[node name="Coin16" parent="Main/collectable_room" instance=ExtResource("11_u36mb")]
-transform = Transform3D(-0.760737, 0, -0.648928, 0, 1, 0, 0.648928, 0, -0.760737, 2.74645, 0.0768782, -120.403)
+[node name="Corn" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -112.994)
+
+[node name="Corn2" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -114.601)
+
+[node name="Corn3" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -116.029)
+
+[node name="Corn4" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -117.353)
+
+[node name="Corn5" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -118.725)
+
+[node name="Corn6" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -1.34518, 0.0197217, -119.782)
+
+[node name="Corn7" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -112.994)
+
+[node name="Corn8" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -114.601)
+
+[node name="Corn9" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -116.029)
+
+[node name="Corn10" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -117.353)
+
+[node name="Corn11" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -118.725)
+
+[node name="Corn12" parent="Main/collectable_room" instance=ExtResource("17_pcrvq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197217, -119.782)
+
+[node name="Spaceship" parent="Main/collectable_room" instance=ExtResource("18_5wmox")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.225936, -0.11084, -124.969)
 
 [node name="HelperGuy" type="Sprite3D" parent="."]
 transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, 0.0272207, 0.480662, 3.01533)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://s4pprh6bd7om"]
+
+[ext_resource type="PackedScene" uid="uid://bmhlght7ecgvb" path="res://reusables/moving_platform/platforms/green_hexagon.glb" id="1_v863j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahyin"]
+size = Vector3(2, 0.2, 2)
+
+[node name="DevPlatform" type="AnimatableBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ahyin")
+
+[node name="green_hexagon" parent="." instance=ExtResource("1_v863j")]
