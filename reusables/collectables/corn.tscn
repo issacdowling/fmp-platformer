@@ -9,7 +9,6 @@ radius = 0.15
 [node name="Corn" type="Node3D"]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 script = ExtResource("2_lur5g")
-type = "Corn"
 
 [node name="CollectableArea" type="Area3D" parent="."]
 
@@ -17,4 +16,4 @@ type = "Corn"
 shape = SubResource("SphereShape3D_itjm7")
 
 [node name="collectable_mesh" parent="." instance=ExtResource("2_epd53")]
-transform = Transform3D(-0.371252, -0.861995, 0.0725961, -0.639563, 0.50302, 0, -0.0270226, -0.0627423, -0.997362, 0, 0, 0)
+transform = Transform3D(-0.23489, -0.545381, 0.775762, -0.639563, 0.50302, 0, -0.288765, -0.67047, -0.631027, 0, 0, 0)

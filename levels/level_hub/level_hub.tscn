@@ -63,7 +63,6 @@ size = Vector3(649, 281, 716)
 [sub_resource type="Environment" id="Environment_ju51b"]
 background_mode = 1
 background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
-sdfgi_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmiyc"]
 size = Vector3(6.41647, 4.51268, 0.177795)
@@ -81,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0192851, 0, 0.997667, 0, 1, 0, -0.997667, 0, -0.0192851, 0, 0, 0)
+transform = Transform3D(-0.0477547, 0, 0.996629, 0, 1, 0, -0.996629, 0, -0.0477547, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -128,7 +127,7 @@ level_scene = "res://levels/CatCourse/CatCourse.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0192863, 0, 0.997723, 0, 1, 0, -0.997723, 0, -0.0192863, 50, 0, 0)
+transform = Transform3D(-0.0477574, 0, 0.996682, 0, 1, 0, -0.996682, 0, -0.0477574, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -183,7 +182,7 @@ level_name = "3level 3furious"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0192567, 0, 0.996216, 0, 1, 0, -0.996216, 0, -0.0192567, 100, 0, 0)
+transform = Transform3D(-0.0476845, 0, 0.995174, 0, 1, 0, -0.995174, 0, -0.0476845, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")

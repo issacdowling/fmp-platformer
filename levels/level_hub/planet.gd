@@ -103,7 +103,7 @@ func _process(delta: float) -> void:
 		if is_part_of_edited_scene():
 			level_container.global_position = self.global_position + levels_relative_pos
 		else:
-			level_container.position = lerp(level_container.position, levels_relative_pos + Vector3(-inter_level_distance*target_level,0,0), 0.25)
+			level_container.position = lerp(level_container.position, levels_relative_pos + Vector3(-inter_level_distance*target_level,0,0), 15 * delta)
 
 		# Input errors with these custom actions in editor, so avoid
 		if is_part_of_edited_scene():
@@ -134,7 +134,7 @@ func _process(delta: float) -> void:
 		elif target_level > total_levels - 1:
 			target_level = 0
 	else: 
-		level_container.position = lerp(level_container.position, Vector3.ZERO, 0.25)
+		level_container.position = lerp(level_container.position, Vector3.ZERO, 15 * delta)
 		if level_container.position.distance_to(Vector3.ZERO) < 1:
 			level_container.visible = false
 			

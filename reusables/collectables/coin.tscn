@@ -16,4 +16,4 @@ script = ExtResource("2_itjm7")
 shape = SubResource("SphereShape3D_itjm7")
 
 [node name="collectable_mesh" parent="." instance=ExtResource("1_vgsqt")]
-transform = Transform3D(0.85212, 0, -0.523347, 0, 1, 0, 0.523347, 0, 0.85212, 0, 0, 0)
+transform = Transform3D(-0.252493, 0, 0.9676, 0, 1, 0, -0.9676, 0, -0.252493, 0, 0, 0)
