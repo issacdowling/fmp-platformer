@@ -31,7 +31,8 @@ func spawn_platform() -> void:
 	platform_body.area_entered.connect(_area_entered_platform)
 	
 func bounce(area: Area3D) -> void:
-	(area.get_parent() as CharacterBody3D).velocity.y = jump_velocity
+	(area.get_parent() as Player).velocity.y = jump_velocity
+	(area.get_parent() as Player).air_time = 0
 	if shake_on_bounce:
 		translate(Vector3.UP * 0.2)
 		await get_tree().create_timer(0.05).timeout

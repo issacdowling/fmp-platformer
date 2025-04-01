@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhr7wkf5q4qek"]
+
+[ext_resource type="PackedScene" uid="uid://bavh0ljw1i7mb" path="res://reusables/collectables/corn.glb" id="2_epd53"]
+[ext_resource type="Script" uid="uid://dk3gks5wo6ojo" path="res://reusables/collectables/collectable.gd" id="2_lur5g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_itjm7"]
+radius = 0.15
+
+[node name="Corn" type="Node3D"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
+script = ExtResource("2_lur5g")
+type = "Corn"
+
+[node name="CollectableArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectableArea"]
+shape = SubResource("SphereShape3D_itjm7")
+
+[node name="collectable_mesh" parent="." instance=ExtResource("2_epd53")]
+transform = Transform3D(-0.371252, -0.861995, 0.0725961, -0.639563, 0.50302, 0, -0.0270226, -0.0627423, -0.997362, 0, 0, 0)

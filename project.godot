@@ -33,6 +33,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=2
 
 [dotnet]
 
@@ -125,6 +126,11 @@ sprint={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="world_ignore_cam"
+
 [physics]
 
 3d/run_on_separate_thread=true
@@ -134,5 +140,8 @@ common/physics_interpolation=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+global_illumination/gi/use_half_resolution=true
 scaling_3d/mode=1
 scaling_3d/scale=0.7
+global_illumination/sdfgi/probe_ray_count=3
+global_illumination/sdfgi/frames_to_update_lights=4

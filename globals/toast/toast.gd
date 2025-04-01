@@ -17,3 +17,12 @@ func make_timed_toast(text: String, duration: float = 4) -> void:
 	background.visible = true
 	await get_tree().create_timer(duration).timeout
 	animation_player.play("fade_out")
+
+func make_script_dismissable_toast(text: String) -> void:
+	animation_player.play("fade_in")
+	text_label.text = "[center]" + text + "[/center]"
+	text_label.visible = true
+	background.visible = true
+	
+func dismiss_script_dismissable_toast() -> void:
+	animation_player.play("fade_out")
