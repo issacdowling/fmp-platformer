@@ -67,6 +67,12 @@ func _physics_process(delta: float) -> void:
 	move(delta)
 
 func move(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		$AnimationTree.active = false
+		$AnimationPlayer.play("punch1", 0.1)
+		await $AnimationPlayer.animation_finished
+		$AnimationTree.active = true
+		
 	## Apply gravity when in the air
 	if not is_on_floor():
 		_do_gravity(delta)
