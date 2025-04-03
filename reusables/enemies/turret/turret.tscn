@@ -92,7 +92,7 @@ script = ExtResource("1_ouojb")
 peak_health = 1
 
 [node name="body" type="Node3D" parent="."]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
 [node name="stand" type="MeshInstance3D" parent="body"]
 transform = Transform3D(0.684698, 0, 0, 0, 0.0994887, 0, 0, 0, 0.684046, 0, 0, 0)

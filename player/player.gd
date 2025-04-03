@@ -26,6 +26,8 @@ var air_time: float = 0
 var current_walk_speed: float
 var wall_time: float = 0
 
+@onready var area: Area3D = $Area3D
+
 var time_since_wall: float = 0
 
 var sprinting: bool = false
@@ -35,6 +37,8 @@ var controls_allowed: bool = true
 const show_health_seconds: float = 3
 
 var can_look: bool = true
+
+var currently_attacking: bool = false
 
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
@@ -68,10 +72,13 @@ func _physics_process(delta: float) -> void:
 
 func move(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
+		# This is awkward, since blending doesn't happen as the other animations are based on the tree
+		currently_attacking = true
 		$AnimationTree.active = false
 		$AnimationPlayer.play("punch1", 0.1)
 		await $AnimationPlayer.animation_finished
 		$AnimationTree.active = true
+		currently_attacking = false
 		
 	## Apply gravity when in the air
 	if not is_on_floor():
@@ -96,7 +103,9 @@ func move(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
-		# Put something here that prevents move_vector being in the direction of the wall
+		
+	# Make "forwards" the direction that the camera's facing
+	move_vector = move_vector.rotated(Vector3.UP, get_viewport().get_camera_3d().rotation.y)
 
 	if move_vector != Vector3.ZERO:
 		last_non_zero_move_vector = move_vector
@@ -139,9 +148,6 @@ func move(delta: float) -> void:
 			current_walk_speed = WALK_SPEED
 			$AnimationTree.set("parameters/conditions/walk", true)
 			$AnimationTree.set("parameters/conditions/run", false)
-			
-		# Make "forwards" the direction that the camera's facing
-		move_vector = move_vector.rotated(Vector3.UP, get_viewport().get_camera_3d().rotation.y)
 
 		# Move
 		velocity.z = move_vector.z * current_walk_speed
