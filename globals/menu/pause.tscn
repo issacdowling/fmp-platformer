@@ -166,7 +166,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1380, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-120, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -176,12 +176,12 @@ length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1380, -0.0666667, 336.051, 0.0333333, -182.637, 790, -0.25, 0, 0.133333, 1.75977),
+"points": PackedFloat32Array(-120, -0.0666667, 336.051, 0.0333333, -182.637, 40, -0.25, 0, 0.133333, 1.75977),
 "times": PackedFloat32Array(0, 0.433333)
 }
 
@@ -191,12 +191,12 @@ length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(790, -0.25, 0, 0.133333, 1.75977, 1380, -0.0666667, 336.051, 0.0333333, -182.637),
+"points": PackedFloat32Array(40, -0.25, 0, 0.133333, 1.75977, -120, -0.0666667, 336.051, 0.0333333, -182.637),
 "times": PackedFloat32Array(0, 0.433333)
 }
 
@@ -675,9 +675,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 20.0
-offset_top = -254.504
+offset_top = 20.0
 offset_right = 255.0
-offset_bottom = -54.504
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0wmks")
@@ -759,9 +759,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 690.0
-offset_top = -254.504
+offset_top = -140.0
 offset_right = 1190.0
-offset_bottom = -154.504
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8tq1c")
