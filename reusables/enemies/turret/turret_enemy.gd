@@ -21,6 +21,12 @@ const head_rotation_offset_deg: float = 4.6
 
 @onready var turret_neck: Node3D = $body/Neck
 @onready var turret_head: Node3D = $body/Neck/Head
+@onready var project_hole: Node3D = $body/Neck/Head/ProjectHole
+
+@onready var projectile: PackedScene = preload("res://reusables/enemies/turret/projectile.tscn")
+
+var neck_initial_z: float 
+var counter: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +35,9 @@ func _ready() -> void:
 	for x in range(delay_seconds * Engine.physics_ticks_per_second):
 		positions_list.append(Vector3(0,0,0))
 	health.dead.connect(_died)
+	
+	
+	neck_initial_z = turret_neck.rotation.z
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -38,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 
 	turret_neck.look_at(current_pos)
 	turret_neck.rotation_degrees.x = 0
-	turret_neck.rotation_degrees.z = 0
+	turret_neck.rotation.z = neck_initial_z
 	
 	# Ideally wouldn't be necessary because the model would be set up right, but this is faster
 	turret_neck.rotate_y(deg_to_rad(-90))
@@ -46,7 +55,7 @@ func _physics_process(_delta: float) -> void:
 	turret_neck.rotation.x = clamp(turret_neck.rotation.x, rad_x_min, rad_x_max)
 	turret_neck.rotation.y = clamp(turret_neck.rotation.y, rad_y_min, rad_y_max)
 	
-	assert(locked_vertical_aim, "Vertical aim must be locked for now.")
+	assert(locked_vertical_aim, "Turret vertical aim must be locked for now.")
 	if !locked_vertical_aim:
 		turret_head.look_at(current_pos, Vector3.LEFT)
 		#turret_head.rotate_z(deg_to_rad(-90))
@@ -56,7 +65,20 @@ func _physics_process(_delta: float) -> void:
 		
 	#else:
 		#turret_neck.look_at(Vector3(current_pos.x, current_pos.y, current_pos.z))
+		
+func _process(delta: float) -> void:
+	counter += delta
+	if counter > 2.5:
+		counter = 0
+		print("projecting")
+		var projectile_instance: Node3D = projectile.instantiate()
+		turret_head.add_child(projectile_instance)
+		projectile_instance.top_level = true # We don't want it to follow the head movement
+		projectile_instance.player = player # The projecticles can't get the player by %Player for some reason
+		projectile_instance.global_position = project_hole.global_position
+		projectile_instance.global_rotation = project_hole.global_rotation
 
 func _died() -> void:
-	print("Turret died")
 	queue_free()
+
+		
