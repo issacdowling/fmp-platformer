@@ -43,8 +43,10 @@ func _physics_process(_delta: float) -> void:
 	positions_list.append(player.global_position)
 
 	var current_pos: Vector3 = positions_list.pop_front()
+	print(current_pos)
 
 	turret_neck.look_at(current_pos)
+	#turret_neck.rotation.y += deg_to_rad(1)
 	turret_neck.rotation_degrees.x = 0
 	turret_neck.rotation.z = neck_initial_z
 
