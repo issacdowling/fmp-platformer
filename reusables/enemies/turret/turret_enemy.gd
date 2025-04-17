@@ -35,8 +35,7 @@ func _ready() -> void:
 	for x in range(delay_seconds * Engine.physics_ticks_per_second):
 		positions_list.append(Vector3(0,0,0))
 	health.dead.connect(_died)
-	
-	
+
 	neck_initial_z = turret_neck.rotation.z
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,10 +47,10 @@ func _physics_process(_delta: float) -> void:
 	turret_neck.look_at(current_pos)
 	turret_neck.rotation_degrees.x = 0
 	turret_neck.rotation.z = neck_initial_z
-	
+
 	# Ideally wouldn't be necessary because the model would be set up right, but this is faster
 	turret_neck.rotate_y(deg_to_rad(-90))
-	
+
 	turret_neck.rotation.x = clamp(turret_neck.rotation.x, rad_x_min, rad_x_max)
 	turret_neck.rotation.y = clamp(turret_neck.rotation.y, rad_y_min, rad_y_max)
 	
@@ -62,10 +61,10 @@ func _physics_process(_delta: float) -> void:
 		#turret_head.rotation_degrees.x = 0
 		turret_head.rotation_degrees.y = 0
 		#turret_head.rotate_z(deg_to_rad(head_rotation_offset_deg))
-		
+
 	#else:
 		#turret_neck.look_at(Vector3(current_pos.x, current_pos.y, current_pos.z))
-		
+
 func _process(delta: float) -> void:
 	counter += delta
 	if counter > 2.5:
@@ -80,5 +79,3 @@ func _process(delta: float) -> void:
 
 func _died() -> void:
 	queue_free()
-
-		
