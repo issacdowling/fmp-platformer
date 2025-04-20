@@ -87,7 +87,7 @@ func move(delta: float) -> void:
 
 	# For situations where controls are locked, allow dialogue
 	if not controls_allowed:
-		move_and_slide()
+		#move_and_slide()
 		return
 
 
@@ -199,6 +199,14 @@ func _on_health_update(amount: int) -> void:
 	Menu.set_health(amount, health.peak_health)
 	Menu.show_health()
 	display_timer.start(health_popup_display_length_seconds)
+	
+	if amount == 0:
+		controls_allowed = false
+		move
+		$AnimationTree.active = false
+		$AnimationPlayer.play("death", 0.1, 1.5)
+		await get_tree().create_timer(1).timeout 
+		switch_scene(get_tree().current_scene.scene_file_path)
 
 func _on_health_display_done() -> void:
 	display_timer.stop()
