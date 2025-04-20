@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 
 func move(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
+		Input.start_joy_vibration(0, 0.2, 0.5, 0.1)
 		# This is awkward, since blending doesn't happen as the other animations are based on the tree
 		currently_attacking = true
 		$AnimationTree.active = false
@@ -194,6 +195,7 @@ func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
 func _on_health_update(amount: int) -> void:
+	Input.start_joy_vibration(0, 0.8, 1, 0.15)
 	Menu.set_health(amount, health.peak_health)
 	Menu.show_health()
 	display_timer.start(health_popup_display_length_seconds)

@@ -31,6 +31,7 @@ func spawn_platform() -> void:
 	platform_body.area_entered.connect(_area_entered_platform)
 	
 func bounce(area: Area3D) -> void:
+	Input.start_joy_vibration(0, 0.5, 0.5, 0.1)
 	(area.get_parent() as Player).velocity.y = jump_velocity
 	(area.get_parent() as Player).air_time = 0
 	if shake_on_bounce:
