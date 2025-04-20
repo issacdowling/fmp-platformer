@@ -11,6 +11,9 @@ func _ready() -> void:
 
 
 func make_timed_toast(text: String, duration: float = 4) -> void:
+	# If they try to make a new toast with the same value as the old one, just return
+	if text_label.text == "[center]" + text + "[/center]":
+		return
 	animation_player.play("fade_in")
 	text_label.text = "[center]" + text + "[/center]"
 	text_label.visible = true
@@ -19,6 +22,9 @@ func make_timed_toast(text: String, duration: float = 4) -> void:
 	animation_player.play("fade_out")
 
 func make_script_dismissable_toast(text: String) -> void:
+	# If they try to make a new toast with the same value as the old one, just return
+	if text_label.text == "[center]" + text + "[/center]":
+		return
 	animation_player.play("fade_in")
 	text_label.text = "[center]" + text + "[/center]"
 	text_label.visible = true
@@ -26,3 +32,5 @@ func make_script_dismissable_toast(text: String) -> void:
 	
 func dismiss_script_dismissable_toast() -> void:
 	animation_player.play("fade_out")
+	await animation_player.animation_finished
+	text_label.text = ""
