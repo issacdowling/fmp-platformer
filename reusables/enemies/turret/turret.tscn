@@ -127,16 +127,18 @@ transform = Transform3D(0.956325, 0.292305, 0, -0.292305, 0.956325, 0, 0, 0, 1, 
 shape = SubResource("BoxShape3D_2q6v6")
 
 [node name="Head" type="Node3D" parent="body/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215849, 1.18835, 0)
 
 [node name="TurretHeadMesh" type="MeshInstance3D" parent="body/Neck/Head"]
-transform = Transform3D(1, 0.000540614, 0, -0.000541806, 0.999999, 0, 0, 0, 1, 0.0178819, 0.0895683, 0.0107635)
+transform = Transform3D(1, 0.000540614, 0, -0.000541806, 0.999999, 0, 0, 0, 1, -0.197967, -1.09878, 0.0107635)
 mesh = ExtResource("4_2q6v6")
 skeleton = NodePath("../../../..")
 
 [node name="ProjectHole" type="Node3D" parent="body/Neck/Head"]
-transform = Transform3D(-4.1883e-08, 0.000540614, 1, 1.25105e-08, 0.999999, -0.000541806, -1, 1.24879e-08, -4.18898e-08, -0.420049, 1.19567, 0.0107635)
+transform = Transform3D(-4.1883e-08, 0.000540614, 1, 1.25105e-08, 0.999999, -0.000541806, -1, 1.24879e-08, -4.18898e-08, -0.635898, 0.00732481, 0.0107635)
 
 [node name="HeadCollision" type="AnimatableBody3D" parent="body/Neck/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215849, -1.18835, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="body/Neck/Head/HeadCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0744629, 1.1933, 0.0226135)

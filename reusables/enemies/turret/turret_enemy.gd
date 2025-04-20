@@ -43,7 +43,6 @@ func _physics_process(_delta: float) -> void:
 	positions_list.append(player.global_position)
 
 	var current_pos: Vector3 = positions_list.pop_front()
-	print(current_pos)
 
 	turret_neck.look_at(current_pos)
 	#turret_neck.rotation.y += deg_to_rad(1)
@@ -57,15 +56,6 @@ func _physics_process(_delta: float) -> void:
 	turret_neck.rotation.y = clamp(turret_neck.rotation.y, rad_y_min, rad_y_max)
 	
 	assert(locked_vertical_aim, "Turret vertical aim must be locked for now.")
-	if !locked_vertical_aim:
-		turret_head.look_at(current_pos, Vector3.LEFT)
-		#turret_head.rotate_z(deg_to_rad(-90))
-		#turret_head.rotation_degrees.x = 0
-		turret_head.rotation_degrees.y = 0
-		#turret_head.rotate_z(deg_to_rad(head_rotation_offset_deg))
-
-	#else:
-		#turret_neck.look_at(Vector3(current_pos.x, current_pos.y, current_pos.z))
 
 func _process(delta: float) -> void:
 	counter += delta
