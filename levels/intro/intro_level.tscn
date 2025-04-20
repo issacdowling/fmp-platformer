@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://clqr5mivhc2u6" path="res://reusables/bouncy_platform/platforms/bouncy_hexagon_platform.tscn" id="8_0382p"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_7now6"]
 [ext_resource type="PackedScene" uid="uid://c1svlbocpwlb6" path="res://reusables/breaking_platform/platforms/breaking_hexagon_platform.tscn" id="10_2kph0"]
-[ext_resource type="PackedScene" uid="uid://v6fuc6d1sejx" path="res://reusables/enemies/turret/turret.glb" id="11_liwqe"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="11_u36mb"]
 [ext_resource type="PackedScene" uid="uid://c04dpk3f3emmk" path="res://levels/intro/hexagon.glb" id="12_u47wj"]
 [ext_resource type="PackedScene" uid="uid://yydwt4bvbkbv" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
 [ext_resource type="PackedScene" uid="uid://bhr7wkf5q4qek" path="res://reusables/collectables/corn.tscn" id="17_pcrvq"]
 [ext_resource type="PackedScene" uid="uid://dx5iirhwqsuoe" path="res://reusables/spaceship_exit/spaceship_exit.tscn" id="18_5wmox"]
+[ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="21_b0dg5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
 ground_bottom_color = Color(0.134438, 0.122311, 0.123804, 1)
@@ -526,24 +526,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0439184, 0.0911672, -82.76
 material_override = ExtResource("5_1qytf")
 use_collision = true
 size = Vector3(1.70263, 0.557907, 1)
-
-[node name="turret" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(0.499985, 0, 0.866034, 0, 1, 0, -0.866034, 0, 0.499985, 13.4438, -0.155283, -104.139)
-
-[node name="turret2" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.582903, 0, 0.812542, 0, 1, 0, -0.812542, 0, -0.582903, -12.8254, -0.0518363, -103.308)
-
-[node name="turret6" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.812542, 0, -0.582903, 0, 1, 0, 0.582903, 0, -0.812542, -12.6792, 0.531712, -81.5701)
-
-[node name="turret3" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.673374, 0, -0.739302, 0, 1, 0, 0.739302, 0, -0.673374, -13.2946, -0.134185, -91.0061)
-
-[node name="turret4" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(0.510948, 0, -0.859612, 0, 1, 0, 0.859612, 0, 0.510948, 12.961, -0.0748314, -90.9973)
-
-[node name="turret5" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.417867, 0, 0.908508, 0, 1, 0, -0.908508, 0, -0.417867, -4.43036, -0.0552571, -93.0099)
 
 [node name="hexagon_wall" type="StaticBody3D" parent="Main"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -6.95872, 32.4617, -40.0297)
@@ -14627,6 +14609,15 @@ script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_u47wj")
 metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="Turret" parent="." instance=ExtResource("21_b0dg5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000816151, -0.0404942, -96.2153)
+
+[node name="Turret2" parent="." instance=ExtResource("21_b0dg5")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -10.315, -0.0404942, -102.13)
+
+[node name="Turret3" parent="." instance=ExtResource("21_b0dg5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9.10993, -0.0404942, -102.13)
 
 [editable path="Main/jump_room/elevator/MovingPlatform"]
 [editable path="Main/platform_room/platforms_layout/MovingPlatform"]
