@@ -13,6 +13,8 @@ var expiration_counter: float = 4
 func _ready() -> void:
 	particle_emitter.visible = true
 	particle_emitter.emitting = false
+	damage_area.area_entered.connect(_on_damage_collision)
+
 
 func _process(delta: float) -> void:
 	expiration_counter -= delta
@@ -20,8 +22,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 	translate(Vector3.FORWARD * delta * speed)
-	damage_area.area_entered.connect(_on_damage_collision)
-	shot_back_area.area_entered.connect(_on_attack_collision)
+
 		
 	# If the player hits the projectile broadly back in the direction of the turret, it should go straight back to it
 	# If not, it should still fly away
@@ -58,7 +59,3 @@ func _on_damage_collision(other_area: Area3D) -> void:
 		
 		await get_tree().create_timer(particle_emitter.lifetime).timeout
 		queue_free()
-
-func _on_attack_collision(other_area: Area3D) -> void:
-	if other_area.is_in_group("player"):
-		damage_area.area_entered.disconnect(_on_damage_collision)
