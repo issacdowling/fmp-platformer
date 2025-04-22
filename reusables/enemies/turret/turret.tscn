@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bir6nt44bsoee"]
+[gd_scene load_steps=14 format=4 uid="uid://bir6nt44bsoee"]
 
 [ext_resource type="Script" uid="uid://c26uvf5mugdgp" path="res://reusables/enemies/turret/turret_enemy.gd" id="1_ouojb"]
 [ext_resource type="PackedScene" uid="uid://bc16h4j1k1kx8" path="res://reusables/health/HealthEntity.tscn" id="2_j8mog"]
@@ -88,6 +88,9 @@ size = Vector3(0.308823, 0.983429, 0.218262)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mobl2"]
 size = Vector3(0.851074, 0.414185, 0.645935)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fylf"]
+size = Vector3(1, 1.09201, 1)
+
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_ouojb")
 
@@ -143,3 +146,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215849, -1.18835, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="body/Neck/Head/HeadCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0744629, 1.1933, 0.0226135)
 shape = SubResource("BoxShape3D_mobl2")
+
+[node name="HitArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468521, 0)
+shape = SubResource("BoxShape3D_8fylf")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://bp88r7c146h7x"]
+[gd_scene load_steps=64 format=4 uid="uid://bp88r7c146h7x"]
 
 [ext_resource type="Script" uid="uid://b487f0jvleb6i" path="res://player/player.gd" id="1_ipr3t"]
 [ext_resource type="Script" uid="uid://la8br4v5nwj1" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_g6k8r"]
@@ -3264,7 +3264,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g6k8r"]
 radius = 0.246879
-height = 0.754767
+height = 0.802471
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rgyib"]
 animation = &"punch1"
@@ -3368,6 +3368,10 @@ states/Walk/node = SubResource("AnimationNodeBlendTree_68jnx")
 states/Walk/position = Vector2(179.721, -34.4765)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2dkrk"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_cd1wb"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_4vkhl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_a5w5e"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_o3dg4"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_0kjaw"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_4o0ub"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_hg6s5"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_boad6"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_8t03j"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_2ieo8")]
 graph_offset = Vector2(-199.438, -428.008)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_boad6"]
+radius = 0.246879
+height = 0.802471
 
 [sub_resource type="Resource" id="Resource_ldx6w"]
 script = ExtResource("4_6nn8r")
@@ -3620,6 +3624,7 @@ libraries = {
 
 [node name="PlayerCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398953, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_g6k8r")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -3637,8 +3642,8 @@ parameters/Walk/TimeScale/scale = 1.0
 [node name="Area3D" type="Area3D" parent="." groups=["player"]]
 
 [node name="PlayerAreaCollider" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398953, 0)
-shape = SubResource("CapsuleShape3D_g6k8r")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.402151, 0)
+shape = SubResource("CapsuleShape3D_boad6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1

@@ -39,6 +39,7 @@ const show_health_seconds: float = 3
 var can_look: bool = true
 
 var currently_attacking: bool = false
+signal attack
 
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
@@ -74,6 +75,7 @@ func _physics_process(delta: float) -> void:
 
 func move(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
+		attack.emit()
 		Input.start_joy_vibration(0, 0.2, 0.5, 0.1)
 		# This is awkward, since blending doesn't happen as the other animations are based on the tree
 		currently_attacking = true
