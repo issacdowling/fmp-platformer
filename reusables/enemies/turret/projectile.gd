@@ -14,9 +14,7 @@ var player: Player:
 		player.attack.connect(_on_hit)
 
 var has_been_hit: bool = false
-
 var expiration_counter: float = 4
-
 const player_attack_distance: float = 3
 
 func _ready() -> void:
@@ -44,20 +42,20 @@ func _on_hit() -> void:
 			await get_tree().create_timer(particle_emitter.lifetime).timeout
 			queue_free()
 
-
 func _process(delta: float) -> void:
 	expiration_counter -= delta
 	if expiration_counter <= 0:
 		queue_free()
 	translate(Vector3.FORWARD * delta * speed)
 
-
 func _on_damage_collision(other_area: Area3D) -> void:
-	if other_area.is_in_group("player"):
+	if other_area.is_in_group("player") or other_area.is_in_group("enemy"):
 		# Sometimes, when moving, multiple collisions happem, but we just need one
 		damage_area.area_entered.disconnect(_on_damage_collision)
 		print("Player hit by projectile")
-		player.health.current_health -= 1
+		print(other_area.get_parent_node_3d().name)
+		print(other_area.get_parent_node_3d().health.current_health)
+		other_area.get_parent_node_3d().health.current_health -= 1 # This requires that any above groups must have health attributes
 		particle_emitter.emitting = true
 		# Free the mesh immediately, but only free the emitter once all of its particles are gone
 		mesh.queue_free()

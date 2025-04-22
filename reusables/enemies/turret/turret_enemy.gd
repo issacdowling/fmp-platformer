@@ -23,8 +23,9 @@ const head_rotation_offset_deg: float = 4.6
 @onready var turret_head: Node3D = $body/Neck/Head
 @onready var project_hole: Node3D = $body/Neck/Head/ProjectHole
 @onready var hit_area: Area3D = $HitArea
-
+@onready var gpu_particles_3d: GPUParticles3D = $GPUParticles3D
 @onready var projectile: PackedScene = preload("res://reusables/enemies/turret/projectile.tscn")
+@onready var body: Node3D = $body
 
 var neck_initial_z: float 
 var counter: float = 0
@@ -37,14 +38,17 @@ func _ready() -> void:
 	for x in range(delay_seconds * Engine.physics_ticks_per_second):
 		positions_list.append(Vector3(0,0,0))
 	health.dead.connect(_died)
+	health.current_health = 1 # Don't set current health for health stuff using the editor, set it using code
 
 	neck_initial_z = turret_neck.rotation.z
 	
 	player.attack.connect(_on_hit)
+	
+	gpu_particles_3d.emitting = false
 
 func _on_hit() -> void:
 	if player.global_position.distance_to(self.global_position) < player_attack_distance:
-		queue_free()
+		_died()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -78,4 +82,11 @@ func _process(delta: float) -> void:
 		projectile_instance.global_rotation = project_hole.global_rotation
 
 func _died() -> void:
+	body.visible = false
+	set_process(false)
+	
+	gpu_particles_3d.emitting = true
+	await get_tree().create_timer(0.1).timeout
+	gpu_particles_3d.emitting = false
+	await get_tree().create_timer(gpu_particles_3d.lifetime).timeout
 	queue_free()
