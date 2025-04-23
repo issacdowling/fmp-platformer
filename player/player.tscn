@@ -3674,3 +3674,5 @@ look_at_damping = true
 [node name="HealthEntity" parent="." instance=ExtResource("6_g6k8r")]
 
 [node name="Timer" type="Timer" parent="HealthEntity"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]

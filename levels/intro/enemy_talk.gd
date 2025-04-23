@@ -5,6 +5,7 @@ extends Sprite3D
 @onready var front_cam: PhantomCamera3D = $FrontEnemyCamera
 @onready var rear_cam: PhantomCamera3D = $RearEnemyCamera
 @onready var shields: Node3D = $"../Shields"
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var done_once: bool = false
 var shield_destination_pos: Vector3
@@ -18,17 +19,22 @@ func _player_entered(area: Area3D) -> void:
 	if area.is_in_group("player") and !done_once:
 		print(1)
 		done_once = true
+		audio_stream_player_3d.play()
 		Menu.show_captive_dialogue("These are turrets.")
 		front_cam.set_priority(100)
 		await Menu.dialogue_interact
+		audio_stream_player_3d.play()
 		Menu.show_captive_dialogue("They shoot energy balls. They hurt.")
 		await Menu.dialogue_interact
+		audio_stream_player_3d.play()
 		Menu.show_captive_dialogue("But you can destroy them, or even hit them right back! (Keyboard: F, Controller: X/Square)")
 		await Menu.dialogue_interact
+		audio_stream_player_3d.play()
 		front_cam.set_priority(-1)
 		rear_cam.set_priority(100)
 		Menu.show_captive_dialogue("And most turrets can't look backwards, so they're vulnerable to punches (and friendly fire!)")
 		await Menu.dialogue_interact
+		audio_stream_player_3d.play()
 		rear_cam.set_priority(-1)
 		Menu.show_captive_dialogue("Let's see if you can get past. Disabling shields.")
 		await Menu.dialogue_interact

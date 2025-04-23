@@ -11,6 +11,7 @@ extends Node3D
 @export var platform_scene: PackedScene = preload("res://reusables/bouncy_platform/platforms/bouncy_dev_platform.tscn")
 @export var shake_on_bounce: bool = true
 @export var jump_velocity: float = 10
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var platform: AnimatableBody3D
 var platform_body: Area3D
@@ -43,3 +44,4 @@ func bounce(area: Area3D) -> void:
 func _area_entered_platform(area: Area3D) -> void:
 	if area.is_in_group("player"):
 		bounce(area)
+		audio_stream_player_3d.play(0.1)

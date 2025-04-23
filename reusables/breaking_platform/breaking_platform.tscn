@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvtbiek41oaqo"]
+[gd_scene load_steps=3 format=3 uid="uid://dvtbiek41oaqo"]
 
-[ext_resource type="Script" path="res://reusables/breaking_platform/breaking_platform.gd" id="1_11xh8"]
+[ext_resource type="Script" uid="uid://ddk7hgm17tqsp" path="res://reusables/breaking_platform/breaking_platform.gd" id="1_11xh8"]
+[ext_resource type="AudioStream" uid="uid://cvvhedchp61ro" path="res://sounds/Breaking platform.ogg" id="2_g4jal"]
 
 [node name="BreakingPlatform" type="Node3D"]
 script = ExtResource("1_11xh8")
@@ -10,3 +11,6 @@ script = ExtResource("1_11xh8")
 [node name="EndMarker" type="Node3D" parent="."]
 
 [node name="PlatformHolder" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_g4jal")

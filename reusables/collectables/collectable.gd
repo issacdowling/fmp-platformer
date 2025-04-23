@@ -9,6 +9,7 @@ class_name Collectable
 
 @onready var collectable_area: Area3D = $CollectableArea
 @onready var collectable_mesh: Node3D = $collectable_mesh
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var initial_rotation: Vector3
 
 func _ready() -> void:
@@ -17,8 +18,11 @@ func _ready() -> void:
 	
 func _on_collected(area: Area3D) -> void:
 	if area.is_in_group("player"):
+		collectable_mesh.visible = false
+		audio_stream_player_3d.play()
 		Input.start_joy_vibration(0, 0.1, 0.2, 0.1)
 		Collectables.report_collected(value, type)
+		await audio_stream_player_3d.finished
 		queue_free()
 
 func _process(delta: float) -> void:
