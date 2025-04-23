@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvvhedchp61ro"
+path="res://.godot/imported/Breaking platform.ogg-def9720b470e57bfad8d32fe299ce92f.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Breaking platform.ogg"
+dest_files=["res://.godot/imported/Breaking platform.ogg-def9720b470e57bfad8d32fe299ce92f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
