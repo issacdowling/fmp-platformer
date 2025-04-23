@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bptohnt5exvxa"
+path="res://.godot/imported/Talking .ogg-3ee81fbb5118a36c617be70c2e958d16.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Talking .ogg"
+dest_files=["res://.godot/imported/Talking .ogg-3ee81fbb5118a36c617be70c2e958d16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
