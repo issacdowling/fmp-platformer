@@ -3394,7 +3394,7 @@ far = 4000.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6k8r"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_ipr3t")
 
@@ -3622,9 +3622,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_g6k8r")
 }
 
-[node name="PlayerCollider" type="CollisionShape3D" parent="."]
+[node name="PlayerCollider" type="CollisionShape3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398953, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_g6k8r")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

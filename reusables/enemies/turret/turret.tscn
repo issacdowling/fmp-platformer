@@ -120,7 +120,7 @@ peak_health = 1
 [node name="body" type="Node3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="Base" type="StaticBody3D" parent="body"]
+[node name="Base" type="StaticBody3D" parent="body" groups=["enemy"]]
 
 [node name="stand" type="MeshInstance3D" parent="body/Base"]
 transform = Transform3D(0.684698, 0, 0, 0, 0.0994887, 0, 0, 0, 0.684046, 0, 0, 0)
@@ -143,7 +143,7 @@ transform = Transform3D(0.14684, 0.194265, 0, -0.0438613, 0.650363, 0, 0, 0, 0.1
 mesh = ExtResource("3_gphew")
 skeleton = NodePath("../../..")
 
-[node name="NeckCollision" type="AnimatableBody3D" parent="body/Neck"]
+[node name="NeckCollision" type="AnimatableBody3D" parent="body/Neck" groups=["enemy"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="body/Neck/NeckCollision"]
 transform = Transform3D(0.956325, 0.292305, 0, -0.292305, 0.956325, 0, 0, 0, 1, 0.117799, 0.584694, 0.00268553)
@@ -160,7 +160,7 @@ skeleton = NodePath("../../../..")
 [node name="ProjectHole" type="Node3D" parent="body/Neck/Head"]
 transform = Transform3D(-4.1883e-08, 0.000540614, 1, 1.25105e-08, 0.999999, -0.000541806, -1, 1.24879e-08, -4.18898e-08, -1.15328, 0.00732481, 0.0107635)
 
-[node name="HeadCollision" type="AnimatableBody3D" parent="body/Neck/Head"]
+[node name="HeadCollision" type="AnimatableBody3D" parent="body/Neck/Head" groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215849, -1.18835, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="body/Neck/Head/HeadCollision"]

@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func _player_entered(area: Area3D) -> void:
 	if area.is_in_group("player") and !done_once:
+		print(1)
 		done_once = true
 		Menu.show_captive_dialogue("Welcome, brave astronaut!")
 		await Menu.dialogue_interact

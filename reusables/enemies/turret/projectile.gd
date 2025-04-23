@@ -21,6 +21,13 @@ func _ready() -> void:
 	particle_emitter.visible = true
 	particle_emitter.emitting = false
 	damage_area.area_entered.connect(_on_damage_collision)
+	damage_area.body_entered.connect(_on_obstacle_collision)
+
+func _on_obstacle_collision(body: Node3D) -> void:
+	if !body.is_in_group("player") and !body.is_in_group("enemy"):
+		print("Projectile hit a wall")
+		_explode()
+	
 
 # If the player hits the projectile broadly back in the direction of the turret, it should go straight back to it
 # If not, it should still fly away
@@ -31,16 +38,7 @@ func _on_hit() -> void:
 		if player.last_non_zero_move_vector.angle_to(global_transform.basis.z) <= deg_to_rad(25) and player.last_non_zero_move_vector.angle_to(global_transform.basis.z) >= deg_to_rad(-25):
 			speed = -speed
 		else:
-			damage_area.area_entered.disconnect(_on_damage_collision)
-			particle_emitter.emitting = true
-			# Free the mesh immediately, but only free the emitter once all of its particles are gone
-			mesh.queue_free()
-			set_process(false) # Stop the particle from moving
-			await get_tree().create_timer(0.1).timeout
-			particle_emitter.emitting = false
-			
-			await get_tree().create_timer(particle_emitter.lifetime).timeout
-			queue_free()
+			_explode()
 
 func _process(delta: float) -> void:
 	expiration_counter -= delta
@@ -52,7 +50,7 @@ func _on_damage_collision(other_area: Area3D) -> void:
 	if other_area.is_in_group("player") or other_area.is_in_group("enemy"):
 		# Sometimes, when moving, multiple collisions happem, but we just need one
 		damage_area.area_entered.disconnect(_on_damage_collision)
-		print("Player hit by projectile")
+		print("Player/enemy hit by projectile")
 		print(other_area.get_parent_node_3d().name)
 		print(other_area.get_parent_node_3d().health.current_health)
 		other_area.get_parent_node_3d().health.current_health -= 1 # This requires that any above groups must have health attributes
@@ -65,3 +63,16 @@ func _on_damage_collision(other_area: Area3D) -> void:
 		
 		await get_tree().create_timer(particle_emitter.lifetime).timeout
 		queue_free()
+
+func _explode() -> void:
+	damage_area.area_entered.disconnect(_on_damage_collision)
+	damage_area.body_entered.disconnect(_on_obstacle_collision)
+	particle_emitter.emitting = true
+	# Free the mesh immediately, but only free the emitter once all of its particles are gone
+	mesh.queue_free()
+	set_process(false) # Stop the particle from moving
+	await get_tree().create_timer(0.1).timeout
+	particle_emitter.emitting = false
+	
+	await get_tree().create_timer(particle_emitter.lifetime).timeout
+	queue_free()
