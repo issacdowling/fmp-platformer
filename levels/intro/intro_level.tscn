@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://tily01fh1va3"]
+[gd_scene load_steps=46 format=3 uid="uid://tily01fh1va3"]
 
 [ext_resource type="Material" uid="uid://bqmgqkwlcr0ql" path="res://levels/intro/wall_jump_platform.tres" id="1_1qytf"]
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_2nmnq"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_qrren"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="2_1s78d"]
 [ext_resource type="Texture2D" uid="uid://dm8sb5jfg0xm" path="res://materials/test_guy.png" id="3_32i32"]
@@ -15,12 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://clqr5mivhc2u6" path="res://reusables/bouncy_platform/platforms/bouncy_hexagon_platform.tscn" id="8_0382p"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_7now6"]
 [ext_resource type="PackedScene" uid="uid://c1svlbocpwlb6" path="res://reusables/breaking_platform/platforms/breaking_hexagon_platform.tscn" id="10_2kph0"]
-[ext_resource type="PackedScene" uid="uid://v6fuc6d1sejx" path="res://reusables/enemies/turret/turret.glb" id="11_liwqe"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="11_u36mb"]
 [ext_resource type="PackedScene" uid="uid://c04dpk3f3emmk" path="res://levels/intro/hexagon.glb" id="12_u47wj"]
 [ext_resource type="PackedScene" uid="uid://yydwt4bvbkbv" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
 [ext_resource type="PackedScene" uid="uid://bhr7wkf5q4qek" path="res://reusables/collectables/corn.tscn" id="17_pcrvq"]
+[ext_resource type="Script" uid="uid://dhe01hcko74hm" path="res://levels/intro/platform_talk.gd" id="17_srfe1"]
 [ext_resource type="PackedScene" uid="uid://dx5iirhwqsuoe" path="res://reusables/spaceship_exit/spaceship_exit.tscn" id="18_5wmox"]
+[ext_resource type="Script" uid="uid://b5sddgjwt64py" path="res://levels/intro/enemy_talk.gd" id="19_m72vn"]
+[ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="21_b0dg5"]
+[ext_resource type="Material" uid="uid://dq54ceeicdptw" path="res://materials/glass/shield_glass.tres" id="21_o2yvo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
 ground_bottom_color = Color(0.134438, 0.122311, 0.123804, 1)
@@ -36,36 +40,15 @@ sky_custom_fov = 45.7
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.06
+ssao_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
-glow_intensity = 4.39
-glow_strength = 0.89
+glow_normalized = true
+glow_intensity = 2.54
+glow_strength = 0.62
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wmox"]
 size = Vector3(3.02368, 6.99932, 1.66737)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u47wj"]
-size = Vector3(15.0376, 0.507263, 94.1006)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rrjtn"]
-size = Vector3(15.8198, 0.353455, 93.9001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_elk5s"]
-size = Vector3(14.2284, 0.272156, 15.9973)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1qytf"]
-size = Vector3(9.95588, 0.276306, 38.8131)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0382p"]
-size = Vector3(2.49834, 0.276306, 19.6445)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2kph0"]
-size = Vector3(2.49834, 0.276306, 19.6445)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b0dg5"]
-size = Vector3(13.9318, 37.0362, 0.293945)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pcrvq"]
-size = Vector3(14.0927, 0.33844, 38.3933)
 
 [sub_resource type="Resource" id="Resource_pkc22"]
 script = ExtResource("5_folbh")
@@ -74,7 +57,7 @@ transition = 0
 ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okaux"]
-size = Vector3(2.67474, 1, 3.53613)
+size = Vector3(2.67474, 2.41711, 3.53613)
 
 [sub_resource type="Resource" id="Resource_csx6t"]
 script = ExtResource("5_folbh")
@@ -121,14 +104,46 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = ExtResource("9_7now6")
 
+[sub_resource type="BoxMesh" id="BoxMesh_o2yvo"]
+size = Vector3(5, 2, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfbfx"]
+size = Vector3(5, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u47wj"]
+size = Vector3(15.0376, 0.507263, 94.1006)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrjtn"]
+size = Vector3(15.8198, 0.353455, 93.9001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elk5s"]
+size = Vector3(14.2284, 0.272156, 15.9973)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qytf"]
+size = Vector3(9.95588, 0.276306, 38.8131)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0382p"]
+size = Vector3(2.49834, 0.276306, 19.6445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kph0"]
+size = Vector3(2.49834, 0.276306, 19.6445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0dg5"]
+size = Vector3(13.9318, 37.0362, 0.293945)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcrvq"]
+size = Vector3(14.0927, 0.33844, 38.3933)
+
 [node name="IntroLevel" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.514859, -0.0414368, 0.856273, -0.207829, 0.963002, 0.171565, -0.831702, -0.26629, 0.487198, 0, 4, 0)
-light_energy = 0.409
+light_energy = 0.353
+light_bake_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cja2a")
+script = ExtResource("1_2nmnq")
 
 [node name="Main" type="Node3D" parent="."]
 
@@ -138,10 +153,10 @@ environment = SubResource("Environment_cja2a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4334, 0, -10)
 
 [node name="wall_jump_platform" type="CSGBox3D" parent="Main/jump_room/WallJump"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46958, 6.14298, -3.71465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47862, 6.00805, -3.71465)
 material_override = ExtResource("1_1qytf")
 use_collision = true
-size = Vector3(4.66084, 0.264771, 5.2293)
+size = Vector3(4.55248, 0.557282, 5.2293)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main/jump_room/WallJump"]
 
@@ -231,6 +246,45 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0736
 material_override = ExtResource("5_1qytf")
 use_collision = true
 size = Vector3(0.236816, 14.7868, 83.439)
+
+[node name="HelperGuy1" type="Sprite3D" parent="Main/jump_room"]
+transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, -1.56097, 0.480662, 3.05498)
+pixel_size = 0.06
+texture = ExtResource("3_32i32")
+script = ExtResource("4_folbh")
+
+[node name="PhantomCamera3D" type="Node3D" parent="Main/jump_room/HelperGuy1"]
+transform = Transform3D(0.554075, 0, -0.832467, 0, 1, 0, 0.832467, 0, 0.554075, -0.977412, 0.309005, 2.39343)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_pkc22")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="Area3D" type="Area3D" parent="Main/jump_room/HelperGuy1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/jump_room/HelperGuy1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731843, 0.708557, 1.26807)
+shape = SubResource("BoxShape3D_okaux")
+
+[node name="LittleGapCamera" type="Node3D" parent="Main/jump_room/HelperGuy1"]
+transform = Transform3D(0.965926, -0.0783672, 0.24667, 0, 0.953059, 0.302786, -0.258819, -0.292469, 0.920584, 3.64885, 0.33562, 1.03759)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_b4154")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="BigGapCamera" type="Node3D" parent="Main/jump_room/HelperGuy1"]
+transform = Transform3D(0.241613, 0.0799531, -0.967073, 0.00415428, 0.996505, 0.0834243, 0.970363, -0.0241739, 0.240437, 2.62898, 0.0212311, -4.86708)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_liwqe")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="TowerCamera" type="Node3D" parent="Main/jump_room/HelperGuy1"]
+transform = Transform3D(0.743145, -0.284014, -0.605865, -1.49012e-08, 0.90545, -0.424452, 0.669131, 0.31543, 0.672881, 6.20557, -0.0314688, -4.54973)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_u47wj")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [node name="platform_room" type="Node3D" parent="Main"]
 
@@ -385,6 +439,45 @@ platform_scene = ExtResource("10_2kph0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0624487, 3.43682, -69.9332)
 platform_scene = ExtResource("10_2kph0")
 
+[node name="HelperGuy2" type="Sprite3D" parent="Main/platform_room"]
+transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, -0.555994, 0.480662, -21.2067)
+pixel_size = 0.06
+texture = ExtResource("3_32i32")
+script = ExtResource("17_srfe1")
+
+[node name="PhantomCamera3D" type="Node3D" parent="Main/platform_room/HelperGuy2"]
+transform = Transform3D(0.554075, 0, -0.832467, 0, 1, 0, 0.832467, 0, 0.554075, -0.977412, 0.309005, 2.39343)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_pkc22")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="Area3D" type="Area3D" parent="Main/platform_room/HelperGuy2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/platform_room/HelperGuy2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731843, 0.708557, 1.26807)
+shape = SubResource("BoxShape3D_okaux")
+
+[node name="BounceCamera" type="Node3D" parent="Main/platform_room/HelperGuy2"]
+transform = Transform3D(0.998214, 0.0469193, 0.0369862, -0.0585223, 0.892485, 0.447264, -0.0120243, -0.44863, 0.893637, 6.8652, 3.35341, -0.188203)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_b4154")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="BreakingCamera" type="Node3D" parent="Main/platform_room/HelperGuy2"]
+transform = Transform3D(0.0369221, 0.384716, -0.922296, 0.0926494, 0.917632, 0.38648, 0.995013, -0.0997199, -0.00176242, 14.6053, 2.54131, -21.3319)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_liwqe")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="MovingCamera" type="Node3D" parent="Main/platform_room/HelperGuy2"]
+transform = Transform3D(-0.674762, 0.151155, -0.722391, 0.0141942, 0.981279, 0.192068, 0.737899, 0.119346, -0.664276, 24.9342, 2.54131, -35.8564)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_u47wj")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
 [node name="enemy_room" type="Node3D" parent="Main"]
 
 [node name="floor_walls" type="Node3D" parent="Main/enemy_room"]
@@ -462,9 +555,9 @@ use_collision = true
 size = Vector3(1.74046, 3.76953, 1)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135521, 6.68613, -79.7087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135521, 6.68613, -78.11)
 use_collision = true
-size = Vector3(1.73437, 0.115193, 7.10184)
+size = Vector3(1.73437, 0.115193, 3.90444)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0489268, 1.39772, -77.7853)
@@ -479,14 +572,14 @@ use_collision = true
 size = Vector3(1.75072, 2.58495, 1)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.878843, 3.27855, -79.7414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.878843, 3.27855, -78.1583)
 use_collision = true
-size = Vector3(0.1483, 6.93268, 7.03942)
+size = Vector3(0.1483, 6.93268, 3.87314)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.951765, 3.28386, -79.7394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.951765, 3.28386, -78.1563)
 use_collision = true
-size = Vector3(0.1483, 6.9433, 7.04344)
+size = Vector3(0.1483, 6.9433, 3.87719)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Main/enemy_room/enemies_layout"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281749, 0.851028, -79.7874)
@@ -527,23 +620,87 @@ material_override = ExtResource("5_1qytf")
 use_collision = true
 size = Vector3(1.70263, 0.557907, 1)
 
-[node name="turret" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(0.499985, 0, 0.866034, 0, 1, 0, -0.866034, 0, 0.499985, 13.4438, -0.155283, -104.139)
+[node name="HelperGuy3" type="Sprite3D" parent="Main/enemy_room"]
+transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, -1.60399, 0.480662, -85.8537)
+pixel_size = 0.06
+texture = ExtResource("3_32i32")
+script = ExtResource("19_m72vn")
 
-[node name="turret2" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.582903, 0, 0.812542, 0, 1, 0, -0.812542, 0, -0.582903, -12.8254, -0.0518363, -103.308)
+[node name="PhantomCamera3D" type="Node3D" parent="Main/enemy_room/HelperGuy3"]
+transform = Transform3D(0.554075, 0, -0.832467, 0, 1, 0, 0.832467, 0, 0.554075, -0.977412, 0.309005, 2.39343)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_pkc22")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
-[node name="turret6" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.812542, 0, -0.582903, 0, 1, 0, 0.582903, 0, -0.812542, -12.6792, 0.531712, -81.5701)
+[node name="Area3D" type="Area3D" parent="Main/enemy_room/HelperGuy3"]
 
-[node name="turret3" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.673374, 0, -0.739302, 0, 1, 0, 0.739302, 0, -0.673374, -13.2946, -0.134185, -91.0061)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/HelperGuy3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731843, 0.708557, 1.26807)
+shape = SubResource("BoxShape3D_okaux")
 
-[node name="turret4" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(0.510948, 0, -0.859612, 0, 1, 0, 0.859612, 0, 0.510948, 12.961, -0.0748314, -90.9973)
+[node name="FrontEnemyCamera" type="Node3D" parent="Main/enemy_room/HelperGuy3"]
+transform = Transform3D(0.73247, 0.27015, -0.624906, 0.0083282, 0.914275, 0.405008, 0.680749, -0.30186, 0.667429, 4.31822, 3.93285, -2.19828)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_b4154")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
-[node name="turret5" parent="Main/enemy_room/enemies_layout" instance=ExtResource("11_liwqe")]
-transform = Transform3D(-0.417867, 0, 0.908508, 0, 1, 0, -0.908508, 0, -0.417867, -4.43036, -0.0552571, -93.0099)
+[node name="RearEnemyCamera" type="Node3D" parent="Main/enemy_room/HelperGuy3"]
+transform = Transform3D(0.25801, -0.445997, 0.85704, -0.0186588, 0.884608, 0.46596, -0.965962, -0.136213, 0.219916, 22.5403, 3.35341, -1.26044)
+script = ExtResource("4_okaux")
+tween_resource = SubResource("Resource_csx6t")
+camera_3d_resource = SubResource("Resource_b4154")
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="Turret" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000816151, -0.0404942, -96.2153)
+
+[node name="Turret2" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -10.315, -0.0404942, -102.13)
+
+[node name="Turret3" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10.3172, -0.0404942, -102.13)
+
+[node name="Turret4" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 10.7395, -0.0404942, -81.9533)
+
+[node name="Turret5" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -13.2605, -0.0404942, -81.9533)
+
+[node name="Shields" type="Node3D" parent="Main/enemy_room"]
+
+[node name="Shield1_1" type="StaticBody3D" parent="Main/enemy_room/Shields"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892773, -91.7556)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/enemy_room/Shields/Shield1_1"]
+material_override = ExtResource("21_o2yvo")
+mesh = SubResource("BoxMesh_o2yvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/Shields/Shield1_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.790405)
+shape = SubResource("BoxShape3D_qfbfx")
+
+[node name="Shield1_2" type="StaticBody3D" parent="Main/enemy_room/Shields"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.08225, 0.892773, -94.8737)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/enemy_room/Shields/Shield1_2"]
+material_override = ExtResource("21_o2yvo")
+mesh = SubResource("BoxMesh_o2yvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/Shields/Shield1_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.794327)
+shape = SubResource("BoxShape3D_qfbfx")
+
+[node name="Shield1_3" type="StaticBody3D" parent="Main/enemy_room/Shields"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 5.21861, 0.892773, -94.8737)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/enemy_room/Shields/Shield1_3"]
+material_override = ExtResource("21_o2yvo")
+mesh = SubResource("BoxMesh_o2yvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/Shields/Shield1_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.794327)
+shape = SubResource("BoxShape3D_qfbfx")
 
 [node name="hexagon_wall" type="StaticBody3D" parent="Main"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -6.95872, 32.4617, -40.0297)
@@ -14588,45 +14745,6 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197
 
 [node name="Spaceship" parent="Main/collectable_room" instance=ExtResource("18_5wmox")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.225936, -0.11084, -124.969)
-
-[node name="HelperGuy" type="Sprite3D" parent="."]
-transform = Transform3D(0.745162, 0, 0.666884, 0, 1, 0, -0.666884, 0, 0.745162, 0.0272207, 0.480662, 3.01533)
-pixel_size = 0.06
-texture = ExtResource("3_32i32")
-script = ExtResource("4_folbh")
-
-[node name="PhantomCamera3D" type="Node3D" parent="HelperGuy"]
-transform = Transform3D(0.554075, 0, -0.832467, 0, 1, 0, 0.832467, 0, 0.554075, -0.977412, 0.309005, 2.39343)
-script = ExtResource("4_okaux")
-tween_resource = SubResource("Resource_pkc22")
-metadata/_custom_type_script = "uid://diwyfaatdbp2g"
-
-[node name="Area3D" type="Area3D" parent="HelperGuy"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HelperGuy/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731843, 0, 1.26807)
-shape = SubResource("BoxShape3D_okaux")
-
-[node name="LittleGapCamera" type="Node3D" parent="HelperGuy"]
-transform = Transform3D(0.965926, -0.119141, 0.229767, 0, 0.887751, 0.460324, -0.258819, -0.444639, 0.857502, 3.6413, 0.427432, 1.00942)
-script = ExtResource("4_okaux")
-tween_resource = SubResource("Resource_csx6t")
-camera_3d_resource = SubResource("Resource_b4154")
-metadata/_custom_type_script = "uid://diwyfaatdbp2g"
-
-[node name="BigGapCamera" type="Node3D" parent="HelperGuy"]
-transform = Transform3D(0.241613, 0.0799531, -0.967073, 0.00415428, 0.996505, 0.0834243, 0.970363, -0.0241739, 0.240437, 2.95633, 0.0268595, -3.55239)
-script = ExtResource("4_okaux")
-tween_resource = SubResource("Resource_csx6t")
-camera_3d_resource = SubResource("Resource_liwqe")
-metadata/_custom_type_script = "uid://diwyfaatdbp2g"
-
-[node name="TowerCamera" type="Node3D" parent="HelperGuy"]
-transform = Transform3D(0.743145, 0, -0.669131, 0, 1, 0, 0.669131, 0, 0.743145, 5.73435, 2.53296, -4.3861)
-script = ExtResource("4_okaux")
-tween_resource = SubResource("Resource_csx6t")
-camera_3d_resource = SubResource("Resource_u47wj")
-metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
 [editable path="Main/jump_room/elevator/MovingPlatform"]
 [editable path="Main/platform_room/platforms_layout/MovingPlatform"]

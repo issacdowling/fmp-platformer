@@ -11,7 +11,11 @@ func _ready() -> void:
 	canExitArea.area_entered.connect(_player_nearby.bind(true))
 	canExitArea.area_exited.connect(_player_nearby.bind(false))
 	
-func _player_nearby(_area: Area3D, in_area: bool) -> void:
+func _player_nearby(area: Area3D, in_area: bool) -> void:
+	# Only respond to the player's area, not other things (like projectiles)
+	if !area.is_in_group("player"):
+		return
+		
 	canExit = in_area
 	if canExit:
 		Toast.make_script_dismissable_toast("Press Interact to exit level")

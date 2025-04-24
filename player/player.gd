@@ -26,6 +26,8 @@ var air_time: float = 0
 var current_walk_speed: float
 var wall_time: float = 0
 
+@onready var area: Area3D = $Area3D
+
 var time_since_wall: float = 0
 
 var sprinting: bool = false
@@ -36,12 +38,17 @@ const show_health_seconds: float = 3
 
 var can_look: bool = true
 
+var currently_attacking: bool = false
+signal attack
+
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	health.update.connect(_on_health_update)
 	Menu.set_health(health.current_health, health.peak_health)
+	# Needed so the health bar doesn't stay open when respawning
+	Menu.hide_health()
 	display_timer.timeout.connect(_on_health_display_done)
 
 func switch_scene(scene_file: String) -> void:
@@ -67,13 +74,24 @@ func _physics_process(delta: float) -> void:
 	move(delta)
 
 func move(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		attack.emit()
+		Input.start_joy_vibration(0, 0.2, 0.5, 0.1)
+		# This is awkward, since blending doesn't happen as the other animations are based on the tree
+		currently_attacking = true
+		$AnimationTree.active = false
+		$AnimationPlayer.play("punch1", 0.1)
+		await $AnimationPlayer.animation_finished
+		$AnimationTree.active = true
+		currently_attacking = false
+		
 	## Apply gravity when in the air
 	if not is_on_floor():
 		_do_gravity(delta)
 
 	# For situations where controls are locked, allow dialogue
 	if not controls_allowed:
-		move_and_slide()
+		#move_and_slide()
 		return
 
 
@@ -90,7 +108,9 @@ func move(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	# Unlike the original example, I DO NOT want this normalised, as analogue inputs should be analogue-ly usable
 	var move_vector := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
-		# Put something here that prevents move_vector being in the direction of the wall
+		
+	# Make "forwards" the direction that the camera's facing
+	move_vector = move_vector.rotated(Vector3.UP, get_viewport().get_camera_3d().rotation.y)
 
 	if move_vector != Vector3.ZERO:
 		last_non_zero_move_vector = move_vector
@@ -133,9 +153,6 @@ func move(delta: float) -> void:
 			current_walk_speed = WALK_SPEED
 			$AnimationTree.set("parameters/conditions/walk", true)
 			$AnimationTree.set("parameters/conditions/run", false)
-			
-		# Make "forwards" the direction that the camera's facing
-		move_vector = move_vector.rotated(Vector3.UP, get_viewport().get_camera_3d().rotation.y)
 
 		# Move
 		velocity.z = move_vector.z * current_walk_speed
@@ -182,9 +199,18 @@ func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
 func _on_health_update(amount: int) -> void:
+	Input.start_joy_vibration(0, 0.8, 1, 0.15)
 	Menu.set_health(amount, health.peak_health)
 	Menu.show_health()
 	display_timer.start(health_popup_display_length_seconds)
+	
+	if amount == 0:
+		controls_allowed = false
+		move
+		$AnimationTree.active = false
+		$AnimationPlayer.play("death", 0.1, 1.5)
+		await get_tree().create_timer(1).timeout 
+		switch_scene(get_tree().current_scene.scene_file_path)
 
 func _on_health_display_done() -> void:
 	display_timer.stop()

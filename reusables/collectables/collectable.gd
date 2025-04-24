@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 func _on_collected(area: Area3D) -> void:
 	if area.is_in_group("player"):
+		Input.start_joy_vibration(0, 0.1, 0.2, 0.1)
 		Collectables.report_collected(value, type)
 		queue_free()
 

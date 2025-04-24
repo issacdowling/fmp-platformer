@@ -37,18 +37,16 @@ func spawn_platform() -> void:
 					platform_body = child_children
 	
 	platform_body.area_entered.connect(_area_entered_platform)
-	
+
 func _process(delta: float) -> void:
 	if about_to_break:
 		break_progress += delta * 45
 		platform.global_position = lerp(global_position, global_position + Vector3.DOWN * 0.1, (sin(break_progress)/2) + 0.5)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _area_entered_platform(area: Area3D) -> void:
-	if area.is_in_group("player"):
+	if area.is_in_group("player") and !about_to_break:
 		begin_failing()
-	
-		
+
 # Blast sends chunks flying, non-blast just lets them fall
 func explode(blast: bool) -> void:
 	about_to_break = false
@@ -75,5 +73,8 @@ func explode(blast: bool) -> void:
 	
 func begin_failing() -> void:
 	about_to_break = true
+	Input.start_joy_vibration(0, 0, 0.2, 0)
 	await get_tree().create_timer(break_seconds).timeout
+	Input.stop_joy_vibration(0)
+	Input.start_joy_vibration(0, 1, 1, 0.1)
 	explode(false)

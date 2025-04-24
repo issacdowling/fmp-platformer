@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://chs81j3sj6x4b"]
+
+[ext_resource type="Script" uid="uid://112l2jmn0glx" path="res://reusables/enemies/turret/projectile.gd" id="1_nhnm6"]
+[ext_resource type="Material" uid="uid://db5ae514enugq" path="res://reusables/enemies/turret/projectile.tres" id="2_axjs1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e740h"]
+material = ExtResource("2_axjs1")
+radius = 0.109
+height = 0.218
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhnm6"]
+radius = 0.106893
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_axjs1"]
+radius = 1.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhnm6"]
+emission_shape_scale = Vector3(0.03, 0.03, 0.03)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 29.06
+scale_min = 0.0
+scale_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhnm6"]
+albedo_color = Color(1, 0.501961, 0.258824, 1)
+emission_enabled = true
+emission = Color(0.831373, 0.262745, 0, 1)
+emission_energy_multiplier = 7.54
+
+[sub_resource type="BoxMesh" id="BoxMesh_e740h"]
+material = SubResource("StandardMaterial3D_nhnm6")
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="Projectile" type="Node3D"]
+script = ExtResource("1_nhnm6")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_e740h")
+
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("SphereShape3D_nhnm6")
+
+[node name="ShotBackArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShotBackArea"]
+shape = SubResource("SphereShape3D_axjs1")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_nhnm6")
+draw_pass_1 = SubResource("BoxMesh_e740h")
