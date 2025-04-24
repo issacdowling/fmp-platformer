@@ -40,6 +40,7 @@ var can_look: bool = true
 
 var currently_attacking: bool = false
 signal attack
+signal interact
 
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
@@ -72,6 +73,9 @@ func switch_scene_threaded(scene_file: String) -> void:
 
 func _physics_process(delta: float) -> void:
 	move(delta)
+	 
+	if Input.is_action_just_pressed("interact"):
+		interact.emit()
 
 func move(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

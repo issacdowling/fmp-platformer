@@ -4,8 +4,9 @@ extends Sprite3D
 
 @onready var front_cam: PhantomCamera3D = $FrontEnemyCamera
 @onready var rear_cam: PhantomCamera3D = $RearEnemyCamera
-@onready var shields: Node3D = $"../Shields"
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var player: Player = %Player
+@onready var switch: Node3D = $"../switch"
 
 var done_once: bool = false
 var shield_destination_pos: Vector3
@@ -13,7 +14,6 @@ var shield_destination_pos: Vector3
 func _ready() -> void:
 	welcome_area.area_entered.connect(_player_entered)
 	set_process(false)
-	shield_destination_pos = shields.global_position - (Vector3.UP * 6)
 
 func _player_entered(area: Area3D) -> void:
 	if area.is_in_group("player") and !done_once:
@@ -36,13 +36,8 @@ func _player_entered(area: Area3D) -> void:
 		await Menu.dialogue_interact
 		audio_stream_player_3d.play()
 		rear_cam.set_priority(-1)
-		Menu.show_captive_dialogue("Let's see if you can get past. Disabling shields.")
+		Menu.show_captive_dialogue("Let's see if you can get past. Disable the shields with that switch (Keyboard: E, Controller: B/Circle).")
 		await Menu.dialogue_interact
 		Menu.finish_captive_dialogue()
-		set_process(true)
-		await get_tree().create_timer(4).timeout
-		queue_free()
-		
-func _process(delta: float) -> void:
-	shields.global_position = shields.global_position.lerp(shield_destination_pos, 0.3 * delta)
+		player.interact.connect(switch.switch)
 		

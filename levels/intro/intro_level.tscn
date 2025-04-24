@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://tily01fh1va3"]
+[gd_scene load_steps=52 format=3 uid="uid://tily01fh1va3"]
 
 [ext_resource type="Material" uid="uid://bqmgqkwlcr0ql" path="res://levels/intro/wall_jump_platform.tres" id="1_1qytf"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_2nmnq"]
@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://b5sddgjwt64py" path="res://levels/intro/enemy_talk.gd" id="19_m72vn"]
 [ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="21_b0dg5"]
 [ext_resource type="Material" uid="uid://dq54ceeicdptw" path="res://materials/glass/shield_glass.tres" id="21_o2yvo"]
+[ext_resource type="PackedScene" uid="uid://lkb57gm3hfub" path="res://reusables/switch/switch.glb" id="23_bxvhc"]
+[ext_resource type="Script" uid="uid://dom3ev1mpe3nm" path="res://levels/intro/shield_switch.gd" id="24_sqdpn"]
 [ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="26_qfbfx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
@@ -138,10 +140,10 @@ size = Vector3(13.9318, 37.0362, 0.293945)
 size = Vector3(14.0927, 0.33844, 38.3933)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es3co"]
-size = Vector3(118, 48.9575, 309)
+size = Vector3(190, 48.958, 309)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxvhc"]
-size = Vector3(100, 178.844, 116.911)
+size = Vector3(190, 178.844, 116.911)
 
 [node name="IntroLevel" type="Node3D"]
 
@@ -722,6 +724,10 @@ mesh = SubResource("BoxMesh_o2yvo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/Shields/Shield1_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.794327)
 shape = SubResource("BoxShape3D_qfbfx")
+
+[node name="switch" parent="Main/enemy_room" instance=ExtResource("23_bxvhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0305516, -0.0696798, -87.7841)
+script = ExtResource("24_sqdpn")
 
 [node name="hexagon_wall" type="StaticBody3D" parent="Main"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -6.95872, 32.4617, -40.0297)
@@ -14774,7 +14780,7 @@ script = ExtResource("26_qfbfx")
 [node name="StarArea" type="Area3D" parent="BottomStars"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BottomStars/StarArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7041, -76.9788, -114.734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.979, -114.734)
 shape = SubResource("BoxShape3D_es3co")
 
 [node name="BottomStars2" type="Node3D" parent="."]
