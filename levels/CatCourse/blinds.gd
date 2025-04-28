@@ -22,6 +22,6 @@ func _process(delta: float) -> void:
 		top_switch.rotate(Vector3.FORWARD, deg_to_rad(180)) # You can see it rotating, which is awkward
 		bottom_switch.rotate(Vector3.FORWARD, deg_to_rad(180))
 	if up:
-		self.global_position = self.global_position.lerp(end_position, 0.5 * delta)
+		self.global_position = self.global_position.lerp(end_position, 0.4 * delta)
 	else:
-		self.global_position =  self.global_position.lerp(initial_position, 0.5 * delta)
+		self.global_position =  self.global_position.lerp(initial_position, 0.4 * delta)
