@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cahsry4m5of3h"]
+
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_noxej"]
+[ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_xr7ui"]
+[ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="3_2yc8a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hf0to"]
+sky_top_color = Color(0.022662, 0.0483335, 0.0737913, 1)
+sky_horizon_color = Color(1.62441e-07, 0.11706, 0.142774, 1)
+
+[sub_resource type="Sky" id="Sky_yr01i"]
+sky_material = SubResource("ProceduralSkyMaterial_hf0to")
+
+[sub_resource type="Environment" id="Environment_23nxf"]
+background_mode = 2
+background_color = Color(0.412971, 0.295915, 0.225819, 1)
+sky = SubResource("Sky_yr01i")
+ssil_intensity = 16.0
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 0.9
+glow_enabled = true
+glow_intensity = 1.22
+glow_bloom = 0.03
+glow_hdr_threshold = 0.0
+fog_light_color = Color(0.273081, 0.594169, 0.855957, 1)
+fog_light_energy = 0.67
+fog_density = 0.0086
+volumetric_fog_density = 0.0163
+adjustment_brightness = 0.93
+adjustment_contrast = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kebs4"]
+size = Vector3(477.426, 351.642, 537.909)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="invisible_wall" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8019, 17.2255, 43.2539)
+visible = false
+use_collision = true
+size = Vector3(0.174805, 35.4511, 204.486)
+
+[node name="invisible_wall3" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47.7798, 17.4092, 143.755)
+visible = false
+use_collision = true
+size = Vector3(0.174805, 35.8184, 187.741)
+
+[node name="invisible_wall4" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.4056, 17.3757, -55.5562)
+visible = false
+use_collision = true
+size = Vector3(0.174805, 35.7515, 188.992)
+
+[node name="invisible_wall2" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.991, 17.5181, 42.3996)
+visible = false
+use_collision = true
+size = Vector3(0.174805, 36.0363, 206.398)
+
+[node name="Sun" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(-0.79229, -0.202667, 0.575502, 0, 0.943223, 0.332161, -0.610145, 0.263168, -0.747306, 0, 0, 0)
+light_color = Color(0.672913, 0.791612, 0.840999, 1)
+light_energy = 2.216
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 5.859
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource("Environment_23nxf")
+script = ExtResource("1_noxej")
+
+[node name="Player" parent="environment" instance=ExtResource("2_xr7ui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578726, 0, -0.797578)
+
+[node name="tunnels" type="Node3D" parent="environment"]
+transform = Transform3D(2, 0, 0, 0, -2, 1.74846e-07, 0, -1.74846e-07, -2, 0.520862, -2.05172, -4.27573)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="environment/tunnels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225709, -0.00437427)
+visible = false
+
+[node name="floor" type="CSGBox3D" parent="environment/tunnels"]
+transform = Transform3D(0.5, 0, 0, 0, -0.5, -4.37114e-08, 0, 4.37114e-08, -0.5, -22.227, 8.47758, -24.5685)
+use_collision = true
+size = Vector3(223.978, 36.7235, 240.843)
+
+[node name="entrance_hole_cutout" type="CSGCylinder3D" parent="environment/tunnels/floor"]
+transform = Transform3D(2, 0, 0, 0, -2, 1.74846e-07, 0, -1.74846e-07, -2, 44.454, 0.467564, -49.137)
+operation = 2
+radius = 1.062
+height = 18.1853
+
+[node name="stars" type="Node3D" parent="environment"]
+script = ExtResource("3_2yc8a")
+star_number = 237
+
+[node name="StarArea" type="Area3D" parent="environment/stars"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/stars/StarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1632, 213.133, 36.7904)
+shape = SubResource("BoxShape3D_kebs4")
