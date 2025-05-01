@@ -97,7 +97,9 @@ func move(delta: float) -> void:
 
 	# For situations where controls are locked, allow dialogue
 	if not controls_allowed:
-		#move_and_slide()
+		velocity.x = 0
+		velocity.z = 0
+		move_and_slide()
 		return
 
 
