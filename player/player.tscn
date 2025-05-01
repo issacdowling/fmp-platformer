@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://bp88r7c146h7x"]
+[gd_scene load_steps=65 format=4 uid="uid://bp88r7c146h7x"]
 
 [ext_resource type="Script" uid="uid://b487f0jvleb6i" path="res://player/player.gd" id="1_ipr3t"]
 [ext_resource type="Script" uid="uid://la8br4v5nwj1" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_g6k8r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6nn8r"]
 [ext_resource type="Script" uid="uid://dt0t8nd6xkcko" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_mlpwk"]
 [ext_resource type="PackedScene" uid="uid://bc16h4j1k1kx8" path="res://reusables/health/HealthEntity.tscn" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://uti8ibsaxfq5" path="res://sounds/LittleGuyFail.ogg" id="7_boad6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r36s3"]
 resource_name = "BackpackMat"
@@ -3676,3 +3677,6 @@ look_at_damping = true
 [node name="Timer" type="Timer" parent="HealthEntity"]
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="FailAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_boad6")
