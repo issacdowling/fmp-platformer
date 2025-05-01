@@ -10,6 +10,8 @@ extends Node3D
 @onready var gpu_particles_3d: GPUParticles3D = $GPUParticles3D
 @onready var projectile: PackedScene = preload("res://reusables/enemies/turret/projectile.tscn")
 
+var fire_interval: float = randf_range(2,3)
+
 var neck_initial_z: float 
 var counter: float = 0
 const player_attack_distance: float = 1.5
@@ -29,7 +31,7 @@ func _on_hit() -> void:
 
 func _process(delta: float) -> void:
 	counter += delta
-	if counter > 2.5 and global_position.distance_to(player.global_position) < 50:
+	if counter > fire_interval and global_position.distance_to(player.global_position) < 50:
 		counter = 0
 		print("immobile projecting")
 		var projectile_instance: Node3D = projectile.instantiate()

@@ -19,6 +19,8 @@ var rad_y_max: float = deg_to_rad(y_max)
 const neck_head_vertical_offset: float = 0.45
 const head_rotation_offset_deg: float = 4.6
 
+var fire_interval: float = randf_range(2,3)
+
 @onready var turret_neck: Node3D = $body/Neck
 @onready var turret_head: Node3D = $body/Neck/Head
 @onready var project_hole: Node3D = $body/Neck/Head/ProjectHole
@@ -71,7 +73,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(delta: float) -> void:
 	counter += delta
-	if counter > 2.5 and global_position.distance_to(player.global_position) < 50:
+	if counter > fire_interval and global_position.distance_to(player.global_position) < 50:
 		counter = 0
 		print("projecting")
 		var projectile_instance: Node3D = projectile.instantiate()
