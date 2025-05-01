@@ -151,12 +151,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.625
 [node name="Turret2" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.625, 7.565, -10.7)
 
-[node name="Turret3" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73638, 7.56493, -10.6999)
-
-[node name="Turret4" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73638, 7.56493, -4.6999)
-
 [node name="FogVolume" type="FogVolume" parent="MainGround/Turrets"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327332, 13.4746, -7.8196)
 size = Vector3(14.692, 2.55359, 11.6589)
