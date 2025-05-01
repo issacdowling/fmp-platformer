@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hig2k7035tul"]
+[gd_scene load_steps=16 format=3 uid="uid://hig2k7035tul"]
 
 [ext_resource type="Script" uid="uid://diml8710pmv8v" path="res://levels/TopsyTurvy/main_ground.gd" id="1_5snd3"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dhln2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="3_4xyim"]
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="3_e3e5f"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="4_j2ttc"]
+[ext_resource type="PackedScene" uid="uid://qy48m5dm5e8a" path="res://reusables/enemies/immobile_turret/immobile_turret.tscn" id="7_vnrut"]
+[ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="8_wsjiq"]
+[ext_resource type="Script" uid="uid://cpsxwe5wwgj2l" path="res://reusables/fail_zone/fail_zone.gd" id="9_yre0b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhln2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -20,6 +23,19 @@ sky = SubResource("Sky_5snd3")
 tonemap_mode = 2
 sdfgi_enabled = true
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_yre0b"]
+density = 0.9888
+albedo = Color(0.894865, 0, 0.261186, 1)
+edge_fade = 0.359526
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yre0b"]
+size = Vector3(15, 2, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsjiq"]
+size = Vector3(80, 60, 80)
 
 [node name="TopsyTurvy" type="Node3D"]
 
@@ -46,6 +62,7 @@ transform = Transform3D(-0.382683, 6.0439e-08, -0.92388, 0.92388, -4.03841e-08, 
 operation = 2
 radius = 7.0
 height = 50.0
+material = ExtResource("3_4xyim")
 
 [node name="StartTowers" type="Node3D" parent="MainGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7.71761, 9.33167)
@@ -122,3 +139,60 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 5.7068
 [node name="BouncyPlatform" parent="MainGround/StartTowers" instance=ExtResource("3_e3e5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6242, -0.259662, 4.33736)
 jump_velocity = 20.0
+
+[node name="Turrets" type="Node3D" parent="MainGround"]
+
+[node name="ImmobileTurret3" parent="MainGround/Turrets" instance=ExtResource("7_vnrut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73638, 7.56493, -7.6999)
+
+[node name="Turret" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.625, 7.565, -4.7)
+
+[node name="Turret2" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.625, 7.565, -10.7)
+
+[node name="Turret3" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73638, 7.56493, -10.6999)
+
+[node name="Turret4" parent="MainGround/Turrets" instance=ExtResource("8_wsjiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73638, 7.56493, -4.6999)
+
+[node name="FogVolume" type="FogVolume" parent="MainGround/Turrets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327332, 13.4746, -7.8196)
+size = Vector3(14.692, 2.55359, 11.6589)
+shape = 0
+material = SubResource("FogMaterial_yre0b")
+
+[node name="FogFailZone" type="Area3D" parent="MainGround/Turrets/FogVolume"]
+script = ExtResource("9_yre0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainGround/Turrets/FogVolume/FogFailZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.213989)
+shape = SubResource("BoxShape3D_yre0b")
+
+[node name="BouncyPlatform" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78847, -6.03667, -2.7901)
+jump_velocity = 20.0
+
+[node name="BouncyPlatform2" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194316, -6.03667, -2.7901)
+jump_velocity = 20.0
+
+[node name="BouncyPlatform3" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21153, -6.03667, -2.7901)
+jump_velocity = 20.0
+
+[node name="BouncyPlatform4" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01726, -6.03667, 0.00442839)
+jump_velocity = 20.0
+
+[node name="BouncyPlatform5" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62874, -6.03667, 0.00442839)
+jump_velocity = 20.0
+
+[node name="FailZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+script = ExtResource("9_yre0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FailZone"]
+shape = SubResource("BoxShape3D_wsjiq")
