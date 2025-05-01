@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://hig2k7035tul"]
+
+[ext_resource type="Script" uid="uid://diml8710pmv8v" path="res://levels/TopsyTurvy/main_ground.gd" id="1_5snd3"]
+[ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dhln2"]
+[ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_ho6pl"]
+[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="3_4xyim"]
+[ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="3_e3e5f"]
+[ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="4_j2ttc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhln2"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_5snd3"]
+sky_material = SubResource("ProceduralSkyMaterial_dhln2")
+
+[sub_resource type="Environment" id="Environment_e3e5f"]
+background_mode = 2
+sky = SubResource("Sky_5snd3")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="TopsyTurvy" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e3e5f")
+script = ExtResource("1_ho6pl")
+
+[node name="Player" parent="." instance=ExtResource("1_dhln2")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200246, 8.53993, 19.9083)
+
+[node name="MainGround" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(15, 15, 45)
+material = ExtResource("3_4xyim")
+script = ExtResource("1_5snd3")
+
+[node name="CentreCutout" type="CSGCylinder3D" parent="MainGround"]
+transform = Transform3D(-0.382683, 6.0439e-08, -0.92388, 0.92388, -4.03841e-08, -0.382683, -6.0439e-08, -1, -4.03841e-08, 0, 0, 0)
+operation = 2
+radius = 7.0
+height = 50.0
+
+[node name="StartTowers" type="Node3D" parent="MainGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7.71761, 9.33167)
+
+[node name="1" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506927, 0)
+use_collision = true
+size = Vector3(5, 1.50977, 5)
+material = ExtResource("3_4xyim")
+
+[node name="Coin" parent="MainGround/StartTowers/1" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 1.5813, 1.58776, 0.00981903)
+
+[node name="Coin2" parent="MainGround/StartTowers/1" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 1.5813, 2.58776, 0.00981903)
+
+[node name="BouncyPlatform3" parent="MainGround/StartTowers/1" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57973, 0.718788, 0.0261555)
+
+[node name="2" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.26524, 0)
+use_collision = true
+size = Vector3(5, 3.18457, 5)
+material = ExtResource("3_4xyim")
+
+[node name="Coin" parent="MainGround/StartTowers/2" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 1.50935, 2.55565, 0.00981903)
+
+[node name="Coin2" parent="MainGround/StartTowers/2" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 1.50935, 3.55565, 0.00981903)
+
+[node name="BouncyPlatform2" parent="MainGround/StartTowers/2" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50778, 1.54572, 0.0261555)
+
+[node name="3" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.11836, 0)
+use_collision = true
+size = Vector3(5, 4.83765, 5)
+material = ExtResource("3_4xyim")
+
+[node name="4" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.506927, -5)
+use_collision = true
+size = Vector3(5, 1.50977, 5)
+material = ExtResource("3_4xyim")
+
+[node name="5" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.506927, -10)
+use_collision = true
+size = Vector3(5, 1.50977, 5)
+material = ExtResource("3_4xyim")
+
+[node name="6" type="CSGBox3D" parent="MainGround/StartTowers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.26524, -5)
+use_collision = true
+size = Vector3(5, 3.18457, 5)
+material = ExtResource("3_4xyim")
+
+[node name="Coin" parent="MainGround/StartTowers" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 1.70681, 4.32102)
+
+[node name="Coin2" parent="MainGround/StartTowers" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 2.70681, 4.32102)
+
+[node name="Coin3" parent="MainGround/StartTowers" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 3.70681, 4.32102)
+
+[node name="Coin4" parent="MainGround/StartTowers" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 4.70681, 4.32102)
+
+[node name="Coin5" parent="MainGround/StartTowers" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 9.62577, 5.70681, 4.32102)
+
+[node name="BouncyPlatform" parent="MainGround/StartTowers" instance=ExtResource("3_e3e5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6242, -0.259662, 4.33736)
+jump_velocity = 20.0
