@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hig2k7035tul"]
+[gd_scene load_steps=17 format=3 uid="uid://hig2k7035tul"]
 
 [ext_resource type="Script" uid="uid://diml8710pmv8v" path="res://levels/TopsyTurvy/main_ground.gd" id="1_5snd3"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dhln2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://qy48m5dm5e8a" path="res://reusables/enemies/immobile_turret/immobile_turret.tscn" id="7_vnrut"]
 [ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="8_wsjiq"]
 [ext_resource type="Script" uid="uid://cpsxwe5wwgj2l" path="res://reusables/fail_zone/fail_zone.gd" id="9_yre0b"]
+[ext_resource type="Material" uid="uid://di7ikawiyw206" path="res://materials/dev/dev_walljump.tres" id="10_vggqd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhln2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -32,7 +33,7 @@ albedo = Color(0.894865, 0, 0.261186, 1)
 edge_fade = 0.359526
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yre0b"]
-size = Vector3(15, 2, 12)
+size = Vector3(15, 2, 10.0757)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsjiq"]
 size = Vector3(80, 60, 80)
@@ -161,7 +162,7 @@ material = SubResource("FogMaterial_yre0b")
 script = ExtResource("9_yre0b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainGround/Turrets/FogVolume/FogFailZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.213989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17615)
 shape = SubResource("BoxShape3D_yre0b")
 
 [node name="BouncyPlatform" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
@@ -183,6 +184,33 @@ jump_velocity = 20.0
 [node name="BouncyPlatform5" parent="MainGround/Turrets/FogVolume" instance=ExtResource("3_e3e5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62874, -6.03667, 0.00442839)
 jump_velocity = 20.0
+
+[node name="WallJumps" type="Node3D" parent="MainGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.57198, -17.9221)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MainGround/WallJumps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3238, 3, 0.5)
+use_collision = true
+size = Vector3(6.28125, 7, 10)
+material = ExtResource("10_vggqd")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MainGround/WallJumps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15373, 3, 0.5)
+use_collision = true
+size = Vector3(6.67383, 7, 10)
+material = ExtResource("10_vggqd")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MainGround/WallJumps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3238, 13, 0.5)
+use_collision = true
+size = Vector3(6.28125, 7, 10)
+material = ExtResource("10_vggqd")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MainGround/WallJumps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15373, 13, 0.5)
+use_collision = true
+size = Vector3(6.67383, 7, 10)
+material = ExtResource("10_vggqd")
 
 [node name="FailZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
