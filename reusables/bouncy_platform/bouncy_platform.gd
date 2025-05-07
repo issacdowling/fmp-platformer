@@ -13,7 +13,7 @@ extends Node3D
 @export var jump_velocity: float = 10
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-var platform: AnimatableBody3D
+var platform: Node3D
 var platform_body: Area3D
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func spawn_platform() -> void:
 	platform = platform_scene.instantiate()
 	add_child(platform)
 	
-	if platform is AnimatableBody3D:
+	if platform is Node3D:
 		for platform_children in platform.get_children():
 			if platform_children is Area3D:
 				platform_body = platform_children
