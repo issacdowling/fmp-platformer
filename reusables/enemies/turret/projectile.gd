@@ -57,8 +57,10 @@ func _on_damage_collision(other_area: Area3D) -> void:
 		print(other_area.get_parent_node_3d().health.current_health)
 		other_area.get_parent_node_3d().health.current_health -= 1 # This requires that any above groups must have health attributes
 		particle_emitter.emitting = true
-		# Free the mesh immediately, but only free the emitter once all of its particles are gone
+		# Free the mesh immediately, but only free the emitter once all of its particles are gone (and, since this is happening, set has_exploded to true so _explode can't cause crashes 
 		mesh.queue_free()
+		has_exploded = true
+		
 		set_process(false) # Stop the particle from moving
 		await get_tree().create_timer(0.1).timeout
 		particle_emitter.emitting = false
@@ -68,9 +70,7 @@ func _on_damage_collision(other_area: Area3D) -> void:
 
 func _explode() -> void:
 	# We return early to prevent multiple _explode() calls from causing issues,
-	# but still error if in the editor to help debugging
 	if has_exploded:
-		push_error("should not explode twice, but did")
 		return
 	
 	has_exploded = true
