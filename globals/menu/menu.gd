@@ -36,9 +36,13 @@ var HEALTHBAR_GOOD_COLOUR: Color = Color.from_rgba8(124, 255, 99, 255) # Light g
 var  HEALTHBAR_MEH_COLOUR: Color = Color.from_rgba8(255, 220, 99, 255) # Light yellow/orange
 var  HEALTHBAR_BAD_COLOUR: Color = Color.from_rgba8(255, 78, 62, 255) # Light red
 
+var rotate_timer_time: int = 0
+
 signal setting_changed
 
 signal dialogue_interact
+
+signal rotate_timer_done
 
 @onready var SettingSetter: Node = %SettingSetter
 
@@ -77,6 +81,11 @@ signal dialogue_interact
 @onready var dialogue_background: Panel = %DialogueBackground
 @onready var dialogue_label: RichTextLabel = %DialogueLabel
 @onready var dialogue_animator: AnimationPlayer = %DialogueAnimator
+
+@onready var rotate_timer_hud: Control = %RotateTimerHUD
+@onready var rotate_timer_label: RichTextLabel = %RotateTimerLabel
+@onready var rotation_animator: AnimationPlayer = $RotateTimerHUD/RotationAnimator
+
 
 # This is not called on level scene changes, just the initial game load.
 func _ready() -> void:
@@ -222,6 +231,29 @@ func set_health(amount: int, total: int) -> void:
 
 	health_bar.position.x = HEALTHBAR_MARGIN_PX
 	health_bar.position.y = HEALTHBAR_MARGIN_PX
+
+func do_rotate_timer(time: int) -> void:
+	if rotate_timer_time != 0:
+		rotate_timer_time = time
+		return
+	rotate_timer_time = time
+	rotation_animator.play("slide_in")
+	rotate_timer_label.text = "[center]" + str(rotate_timer_time) + "[/center]"
+	rotate_timer_hud.visible = true
+	while rotate_timer_time > 0:
+		await get_tree().create_timer(1).timeout
+		rotate_timer_time -= 1
+		rotate_timer_label.text = "[center]" + str(rotate_timer_time) + "[/center]"
+	rotation_animator.play("slide_out")
+	await rotation_animator.animation_finished
+	rotate_timer_hud.visible = false
+	rotate_timer_done.emit()
+
+func early_finish_rotate_timer() -> void:
+	rotation_animator.play("slide_out")
+	await rotation_animator.animation_finished
+	rotate_timer_hud.visible = false
+	rotate_timer_time = 0
 
 func is_in_menu() -> bool:
 	if PauseControl.visible or main_menu_control.visible:
