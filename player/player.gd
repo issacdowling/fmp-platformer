@@ -19,6 +19,8 @@ class_name Player
 @export var health_popup_display_length_seconds: float = 3
 @onready var display_timer: Timer = $HealthEntity/Timer
 
+@onready var fail_audio_player: AudioStreamPlayer3D = $FailAudioPlayer
+
 var suggested_look_dir: Vector3
 var last_non_zero_move_vector: Vector3
 
@@ -40,6 +42,7 @@ var can_look: bool = true
 
 var currently_attacking: bool = false
 signal attack
+signal interact
 
 func _ready() -> void:
 	if STEAL_MOUSE_ON_START:
@@ -72,6 +75,9 @@ func switch_scene_threaded(scene_file: String) -> void:
 
 func _physics_process(delta: float) -> void:
 	move(delta)
+	 
+	if Input.is_action_just_pressed("interact"):
+		interact.emit()
 
 func move(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -91,7 +97,9 @@ func move(delta: float) -> void:
 
 	# For situations where controls are locked, allow dialogue
 	if not controls_allowed:
-		#move_and_slide()
+		velocity.x = 0
+		velocity.z = 0
+		move_and_slide()
 		return
 
 
@@ -125,8 +133,8 @@ func move(delta: float) -> void:
 			velocity.y += JUMP_VELOCITY
 			velocity += get_wall_normal() * 5 # Move in the opposite direction that the wall is facing
 			wall_time = 0 
-		# If we've been not been on the wall without jumping off for more than 1s, and the last direction we moved was towards the wall, we should stick. Else, slip down
-		elif wall_time < 1 and not Input.is_action_pressed("jump") and last_non_zero_move_vector.angle_to(-get_wall_normal()) <= deg_to_rad(player_stick_wall_angle):
+		# If we've been not been on the wall without jumping off for more than 1s, and the last direction we moved was towards the wall, and we aren't still moving up from a previous jump, we should stick. Else, slip down
+		elif wall_time < 1 and not Input.is_action_pressed("jump") and last_non_zero_move_vector.angle_to(-get_wall_normal()) <= deg_to_rad(player_stick_wall_angle) and self.velocity.y < 0:
 			# This accidentally happens to enable wall-running. Keep this in as an "it's a feature, not a bug" thing?
 			velocity.y = (Vector3() + get_gravity()*2 * delta).y #Only affect the player's Y value, or it'll prevent them from moving off the wall without jumping
 			#_do_gravity(delta)
@@ -205,6 +213,7 @@ func _on_health_update(amount: int) -> void:
 	display_timer.start(health_popup_display_length_seconds)
 	
 	if amount == 0:
+		fail_audio_player.play()
 		controls_allowed = false
 		move
 		$AnimationTree.active = false

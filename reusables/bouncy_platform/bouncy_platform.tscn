@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpobhijshgqig"]
+[gd_scene load_steps=3 format=3 uid="uid://bpobhijshgqig"]
 
 [ext_resource type="Script" uid="uid://b2ejvddmt3l4e" path="res://reusables/bouncy_platform/bouncy_platform.gd" id="1_5b1le"]
+[ext_resource type="AudioStream" uid="uid://b8nrpo8wlowmy" path="res://sounds/Boing.ogg" id="2_eiaj7"]
 
 [node name="BouncyPlatform" type="Node3D"]
 script = ExtResource("1_5b1le")
 
 [node name="PlatformHolder" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_eiaj7")

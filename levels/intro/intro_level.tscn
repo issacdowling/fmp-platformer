@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://tily01fh1va3"]
+[gd_scene load_steps=54 format=3 uid="uid://tily01fh1va3"]
 
 [ext_resource type="Material" uid="uid://bqmgqkwlcr0ql" path="res://levels/intro/wall_jump_platform.tres" id="1_1qytf"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_2nmnq"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c1svlbocpwlb6" path="res://reusables/breaking_platform/platforms/breaking_hexagon_platform.tscn" id="10_2kph0"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="11_u36mb"]
 [ext_resource type="PackedScene" uid="uid://c04dpk3f3emmk" path="res://levels/intro/hexagon.glb" id="12_u47wj"]
+[ext_resource type="AudioStream" uid="uid://bptohnt5exvxa" path="res://sounds/Talking .ogg" id="14_es3co"]
 [ext_resource type="PackedScene" uid="uid://yydwt4bvbkbv" path="res://levels/intro/wall_jump_platform.tscn" id="15_1qytf"]
 [ext_resource type="PackedScene" uid="uid://bhr7wkf5q4qek" path="res://reusables/collectables/corn.tscn" id="17_pcrvq"]
 [ext_resource type="Script" uid="uid://dhe01hcko74hm" path="res://levels/intro/platform_talk.gd" id="17_srfe1"]
@@ -25,6 +26,10 @@
 [ext_resource type="Script" uid="uid://b5sddgjwt64py" path="res://levels/intro/enemy_talk.gd" id="19_m72vn"]
 [ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="21_b0dg5"]
 [ext_resource type="Material" uid="uid://dq54ceeicdptw" path="res://materials/glass/shield_glass.tres" id="21_o2yvo"]
+[ext_resource type="PackedScene" uid="uid://lkb57gm3hfub" path="res://reusables/switch/switch.glb" id="23_bxvhc"]
+[ext_resource type="Script" uid="uid://dom3ev1mpe3nm" path="res://levels/intro/shield_switch.gd" id="24_sqdpn"]
+[ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="26_qfbfx"]
+[ext_resource type="Script" uid="uid://cpsxwe5wwgj2l" path="res://reusables/fail_zone/fail_zone.gd" id="30_cyfyi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u47wj"]
 ground_bottom_color = Color(0.134438, 0.122311, 0.123804, 1)
@@ -34,7 +39,8 @@ ground_horizon_color = Color(0.264029, 0.271005, 0.282018, 1)
 sky_material = SubResource("ProceduralSkyMaterial_u47wj")
 
 [sub_resource type="Environment" id="Environment_cja2a"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.0996192, 0.0457459, 0.0829784, 1)
 sky = SubResource("Sky_32i32")
 sky_custom_fov = 45.7
 ambient_light_source = 2
@@ -133,6 +139,15 @@ size = Vector3(13.9318, 37.0362, 0.293945)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcrvq"]
 size = Vector3(14.0927, 0.33844, 38.3933)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es3co"]
+size = Vector3(190, 48.958, 309)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxvhc"]
+size = Vector3(190, 178.844, 116.911)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqdpn"]
+size = Vector3(69.7656, 28.4902, 142.175)
 
 [node name="IntroLevel" type="Node3D"]
 
@@ -286,27 +301,41 @@ tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_u47wj")
 metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/jump_room/HelperGuy1"]
+stream = ExtResource("14_es3co")
+volume_db = -10.0
+
 [node name="platform_room" type="Node3D" parent="Main"]
 
 [node name="platforms_layout" type="Node3D" parent="Main/platform_room"]
 
 [node name="BouncyPlatform" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280734, -0.11084, -40.193)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000472844, -0.11084, -36.4098)
+platform_scene = ExtResource("8_0382p")
+jump_velocity = 20.0
+
+[node name="BouncyPlatform6" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26961, -0.11084, -38.7944)
+platform_scene = ExtResource("8_0382p")
+jump_velocity = 20.0
+
+[node name="BouncyPlatform7" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00145602, -0.11084, -40.9504)
 platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform2" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54519, -0.11084, -37.0574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55317, -0.11084, -33.583)
 platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform3" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425958, -0.11084, -33.3473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011989, -0.11084, -31.367)
 platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
 [node name="BouncyPlatform4" parent="Main/platform_room/platforms_layout" instance=ExtResource("4_7now6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60676, -0.11084, -29.7546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15582, -0.11084, -29.009)
 platform_scene = ExtResource("8_0382p")
 jump_velocity = 20.0
 
@@ -416,7 +445,7 @@ use_collision = true
 size = Vector3(4.96912, 0.975311, 16.7123)
 
 [node name="BreakingPlatform2" parent="Main/platform_room" instance=ExtResource("5_b4154")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45782, -0.194338, -49.3703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45782, -0.194338, -49.0207)
 platform_scene = ExtResource("10_2kph0")
 
 [node name="BreakingPlatform3" parent="Main/platform_room" instance=ExtResource("5_b4154")]
@@ -477,6 +506,10 @@ script = ExtResource("4_okaux")
 tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_u47wj")
 metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/platform_room/HelperGuy2"]
+stream = ExtResource("14_es3co")
+volume_db = -10.0
 
 [node name="enemy_room" type="Node3D" parent="Main"]
 
@@ -652,6 +685,10 @@ tween_resource = SubResource("Resource_csx6t")
 camera_3d_resource = SubResource("Resource_b4154")
 metadata/_custom_type_script = "uid://diwyfaatdbp2g"
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/enemy_room/HelperGuy3"]
+stream = ExtResource("14_es3co")
+volume_db = -10.0
+
 [node name="Turret" parent="Main/enemy_room" instance=ExtResource("21_b0dg5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000816151, -0.0404942, -96.2153)
 
@@ -701,6 +738,10 @@ mesh = SubResource("BoxMesh_o2yvo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/enemy_room/Shields/Shield1_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.794327)
 shape = SubResource("BoxShape3D_qfbfx")
+
+[node name="switch" parent="Main/enemy_room" instance=ExtResource("23_bxvhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0305516, -0.0696798, -87.7841)
+script = ExtResource("24_sqdpn")
 
 [node name="hexagon_wall" type="StaticBody3D" parent="Main"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -6.95872, 32.4617, -40.0297)
@@ -14745,6 +14786,33 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -3.9241, 0.0197
 
 [node name="Spaceship" parent="Main/collectable_room" instance=ExtResource("18_5wmox")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.225936, -0.11084, -124.969)
+
+[node name="BottomStars" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415241, -5.58027, -29.2167)
+script = ExtResource("26_qfbfx")
+
+[node name="StarArea" type="Area3D" parent="BottomStars"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomStars/StarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.979, -114.734)
+shape = SubResource("BoxShape3D_es3co")
+
+[node name="BottomStars2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415241, -5.58027, -29.2167)
+script = ExtResource("26_qfbfx")
+
+[node name="StarArea" type="Area3D" parent="BottomStars2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomStars2/StarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534197, -12.0353, -237.063)
+shape = SubResource("BoxShape3D_bxvhc")
+
+[node name="FailZone" type="Area3D" parent="."]
+script = ExtResource("30_cyfyi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FailZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08228, -18.9181, -62.5696)
+shape = SubResource("BoxShape3D_sqdpn")
 
 [editable path="Main/jump_room/elevator/MovingPlatform"]
 [editable path="Main/platform_room/platforms_layout/MovingPlatform"]

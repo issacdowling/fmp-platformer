@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://clqr5mivhc2u6"]
 
-[ext_resource type="ArrayMesh" uid="uid://wm22sqm63ihv" path="res://reusables/bouncy_platform/platforms/blue_hexagon_Circle_033.res" id="1_nas18"]
+[ext_resource type="ArrayMesh" uid="uid://c3ly1gy86spoj" path="res://reusables/bouncy_platform/platforms/blue_hexagon_Circle_033.res" id="1_nas18"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dfks"]
 size = Vector3(2, 0.309473, 2)
 
-[node name="BouncyDevPlatform" type="AnimatableBody3D"]
+[node name="BouncyDevPlatform" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -16,5 +16,7 @@ shape = SubResource("BoxShape3D_7dfks")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
 mesh = ExtResource("1_nas18")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Collision"]
 shape = SubResource("BoxShape3D_7dfks")

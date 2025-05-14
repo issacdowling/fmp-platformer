@@ -19,10 +19,11 @@ var platform: AnimatableBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_pos = start_marker.global_position
-	end_pos = end_marker.global_position
+	start_pos = start_marker.position
+	end_pos = end_marker.position
 
 	platform = platform_scene.instantiate()
+	platform.sync_to_physics = false # Linus tech tip: This is necessary or any movement of the parent node breaks everything
 	add_child(platform)
 
 
@@ -30,21 +31,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	progress += delta/travel_seconds
 	if progress >= 1:
-		if start_pos == start_marker.global_position:
-			start_pos = end_marker.global_position
-			end_pos = start_marker.global_position
+		if start_pos == start_marker.position:
+			start_pos = end_marker.position
+			end_pos = start_marker.position
 		else:
-			start_pos = start_marker.global_position
-			end_pos = end_marker.global_position
+			start_pos = start_marker.position
+			end_pos = end_marker.position
 		progress = 0
 
 		
-	platform.global_position = lerp(start_pos, end_pos, progress)
+	platform.position = lerp(start_pos, end_pos, progress)
 	
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_EDITOR_PRE_SAVE:
 		set_process(false)
-		platform.global_position = start_pos
+		platform.position = start_pos
 		progress = 0
 	elif what == NOTIFICATION_EDITOR_POST_SAVE:
 		set_process(true)

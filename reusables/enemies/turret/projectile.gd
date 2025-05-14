@@ -6,6 +6,8 @@ extends Node3D
 @onready var particle_emitter: GPUParticles3D = $GPUParticles3D
 @onready var mesh: MeshInstance3D = $Mesh
 
+var has_exploded: bool = false
+
 # This is manually set by the turret, not to be initialised here (weird scene stuff)
 # However, that also means I can't connect signals in _ready, so I do them with a setter
 var player: Player: 
@@ -15,7 +17,7 @@ var player: Player:
 
 var has_been_hit: bool = false
 var expiration_counter: float = 4
-const player_attack_distance: float = 3
+const player_attack_distance: float = 2
 
 func _ready() -> void:
 	particle_emitter.visible = true
@@ -55,8 +57,10 @@ func _on_damage_collision(other_area: Area3D) -> void:
 		print(other_area.get_parent_node_3d().health.current_health)
 		other_area.get_parent_node_3d().health.current_health -= 1 # This requires that any above groups must have health attributes
 		particle_emitter.emitting = true
-		# Free the mesh immediately, but only free the emitter once all of its particles are gone
+		# Free the mesh immediately, but only free the emitter once all of its particles are gone (and, since this is happening, set has_exploded to true so _explode can't cause crashes 
 		mesh.queue_free()
+		has_exploded = true
+		
 		set_process(false) # Stop the particle from moving
 		await get_tree().create_timer(0.1).timeout
 		particle_emitter.emitting = false
@@ -65,6 +69,11 @@ func _on_damage_collision(other_area: Area3D) -> void:
 		queue_free()
 
 func _explode() -> void:
+	# We return early to prevent multiple _explode() calls from causing issues,
+	if has_exploded:
+		return
+	
+	has_exploded = true
 	damage_area.area_entered.disconnect(_on_damage_collision)
 	damage_area.body_entered.disconnect(_on_obstacle_collision)
 	particle_emitter.emitting = true

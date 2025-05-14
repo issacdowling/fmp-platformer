@@ -16,6 +16,7 @@ var start_pos: Vector3
 var end_pos: Vector3
 var break_progress: float = 0
 var about_to_break: bool = false
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 const DESPAWN_SECONDS: float = 3
 
@@ -77,4 +78,5 @@ func begin_failing() -> void:
 	await get_tree().create_timer(break_seconds).timeout
 	Input.stop_joy_vibration(0)
 	Input.start_joy_vibration(0, 1, 1, 0.1)
+	audio_stream_player_3d.play()
 	explode(false)
