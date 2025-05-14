@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cahsry4m5of3h"]
+[gd_scene load_steps=17 format=3 uid="uid://cahsry4m5of3h"]
 
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_noxej"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_xr7ui"]
 [ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="3_2yc8a"]
 [ext_resource type="PackedScene" uid="uid://c2n46e18biacw" path="res://reusables/collectables/coin.tscn" id="3_h84ev"]
 [ext_resource type="PackedScene" uid="uid://bhr7wkf5q4qek" path="res://reusables/collectables/corn.tscn" id="4_3uawd"]
-[ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="5_h84ev"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="6_ohnc2"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="8_t8iy8"]
 [ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="9_t8iy8"]
@@ -262,8 +261,41 @@ transform = Transform3D(0.106673, -2.41699e-22, 0.0183298, -5.06577e-15, 0.15035
 transform = Transform3D(0.106673, -2.41699e-22, 0.0183298, -5.06577e-15, 0.150353, 2.9481e-14, -0.0231986, -2.72537e-14, 0.135008, 0.162832, 0.037096, 0.175238)
 
 [node name="cave_3" type="CSGBox3D" parent="environment/tunnels/floor"]
-transform = Transform3D(15.5314, -1.41441e-13, -2.04269, 5.30958e-13, 4.198, -3.46622e-14, 2.66878, -1.20635e-14, 11.8878, -16.4794, -16.9947, -56.0743)
+transform = Transform3D(0.985556, -3.36923e-14, -0.169349, 3.36923e-14, 1, -2.87368e-15, 0.169349, -2.8736e-15, 0.985556, -16.4794, -16.9947, -56.0743)
 operation = 2
+size = Vector3(15.75, 4.198, 12.06)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="environment/tunnels/floor/cave_3"]
+transform = Transform3D(7.31548e-06, 2.61211e-08, -1, 1.34309e-06, -1, -2.61112e-08, -1, -1.34309e-06, -7.31548e-06, -7.91171, -1.60269, -1.33931)
+use_collision = true
+size = Vector3(0.95, 1, 3.013)
+
+[node name="Corn" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -9.11346, -1.97213, -1.08721)
+
+[node name="Corn2" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -9.17286, -1.97213, -1.35816)
+
+[node name="Corn3" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -9.10854, -1.97213, -1.62137)
+
+[node name="Corn4" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.75405, -1.97213, -1.06494)
+
+[node name="Corn5" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.81345, -1.97213, -1.33589)
+
+[node name="Corn6" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.74913, -1.97213, -1.5991)
+
+[node name="Corn7" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.46239, -1.97213, -1.08314)
+
+[node name="Corn8" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.52179, -1.97213, -1.35408)
+
+[node name="Corn9" parent="environment/tunnels/floor/cave_3" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.985554, -6.77626e-20, 0.169349, -3.36923e-14, 1, 1.96078e-13, -0.169349, -1.98952e-13, 0.985554, -8.45747, -1.97213, -1.61729)
 
 [node name="lights" type="Node3D" parent="environment/tunnels"]
 
@@ -404,6 +436,58 @@ use_collision = true
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="maze"]
 transform = Transform3D(3.00397, 1.13888e-06, 0.00812878, 4.60235e-07, -7.653, 9.81982e-15, 0.516178, 1.95694e-07, -0.0473067, -59.3187, -50.7189, -13.1382)
+use_collision = true
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="maze"]
+transform = Transform3D(3.00397, 1.13888e-06, 0.00812878, 4.60235e-07, -7.653, 9.81982e-15, 0.516178, 1.95694e-07, -0.0473067, -64.2702, -50.7189, -9.74816)
+use_collision = true
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="maze"]
+transform = Transform3D(4.57889, 1.13888e-06, 0.00812881, 7.01526e-07, -7.653, 1.20846e-14, 0.786801, 1.95694e-07, -0.0473067, -65.8352, -50.7189, -13.0007)
+use_collision = true
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="maze"]
+transform = Transform3D(1.87157, 1.13888e-06, 0.00812881, 2.86741e-07, -7.653, 1.20846e-14, 0.321596, 1.95694e-07, -0.0473067, -66.9065, -50.7189, -14.173)
+use_collision = true
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="maze"]
+transform = Transform3D(3.00397, 1.13888e-06, 0.00812878, 4.60235e-07, -7.653, 9.81982e-15, 0.516178, 1.95694e-07, -0.0473067, -65.951, -50.7189, -8.17391)
+use_collision = true
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="maze"]
+transform = Transform3D(3.00397, 1.13888e-06, 0.00812878, 4.60235e-07, -7.653, 9.81982e-15, 0.516178, 1.95694e-07, -0.0473067, -66.1112, -50.7189, -7.24108)
+use_collision = true
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="maze"]
+transform = Transform3D(4.38572, 1.13888e-06, 0.00812881, 6.71931e-07, -7.653, 1.20846e-14, 0.753608, 1.95694e-07, -0.0473067, -64.6704, -50.7189, -11.6168)
+use_collision = true
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.618466, 9.43183e-07, -0.0473067, -5.51437e-07, -7.653, -7.2478e-09, -3.59925, 1.33458e-06, -0.0081288, -67.1483, -50.7189, -10.208)
+use_collision = true
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.723802, 9.43183e-07, -0.0473067, -6.45356e-07, -7.653, -7.2478e-09, -4.21227, 1.33458e-06, -0.0081288, -63.1922, -50.7189, -14.7024)
+use_collision = true
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.723802, 9.43183e-07, -0.0473067, -6.45356e-07, -7.653, -7.2478e-09, -4.21227, 1.33458e-06, -0.0081288, -63.9809, -50.7189, -15.7623)
+use_collision = true
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.723802, 9.43183e-07, -0.0473067, -6.45356e-07, -7.653, -7.2478e-09, -4.21227, 1.33458e-06, -0.0081288, -64.9672, -50.7189, -15.0144)
+use_collision = true
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.723802, 9.43183e-07, -0.0473067, -6.45356e-07, -7.653, -7.2478e-09, -4.21227, 1.33458e-06, -0.0081288, -65.601, -50.7189, -16.0995)
+use_collision = true
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.16681, 9.43183e-07, -0.0473067, -1.48731e-07, -7.653, -7.2478e-09, -0.970773, 1.33458e-06, -0.0081288, -64.5387, -50.7189, -7.45513)
+use_collision = true
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="maze"]
+transform = Transform3D(0.16681, 9.43183e-07, -0.0473067, -1.48731e-07, -7.653, -7.2478e-09, -0.970773, 1.33458e-06, -0.0081288, -67.5287, -50.7189, -7.9689)
 use_collision = true
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="maze"]
@@ -581,6 +665,15 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -58.3933, -51.2
 [node name="Coin24" parent="maze" instance=ExtResource("3_h84ev")]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.6443, -51.2057, -6.45652)
 
+[node name="Coin59" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -55.911, -51.2057, -6.27372)
+
+[node name="Coin63" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -55.0361, -51.2057, -6.06964)
+
+[node name="Coin65" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -54.1514, -51.2057, -5.8741)
+
 [node name="Coin7" parent="maze" instance=ExtResource("3_h84ev")]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -58.0278, -51.2057, -13.8822)
 
@@ -593,11 +686,170 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -60.2385, -51.2
 [node name="Turret" parent="maze" instance=ExtResource("9_t8iy8")]
 transform = Transform3D(-0.986147, 0, 0.165874, 0, 1, 0, -0.165874, 0, -0.986147, -61.2254, -51.2927, -14.3896)
 
+[node name="Turret3" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.986147, 0, 0.165874, 0, 1, 0, -0.165874, 0, -0.986147, -66.2146, -51.2927, -10.9992)
+
+[node name="Turret6" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(0.986147, 0, -0.165874, 0, 1, 0, 0.165874, 0, 0.986147, -62.9928, -51.2927, -11.9155)
+
+[node name="Turret7" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.165874, 0, -0.986147, 0, 1, 0, 0.986147, 0, -0.165874, -63.9523, -51.2927, -13.1752)
+
+[node name="Turret8" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.165874, 0, -0.986147, 0, 1, 0, 0.986147, 0, -0.165874, -65.6975, -51.2927, -13.4688)
+
+[node name="Turret9" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(0.165874, 0, 0.986147, 0, 1, 0, -0.986147, 0, 0.165874, -64.158, -51.2927, -17.5047)
+
+[node name="Turret4" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.165874, 0, -0.986147, 0, 1, 0, 0.986147, 0, -0.165874, -66.5311, -51.2927, -9.11729)
+
+[node name="Turret5" parent="maze" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.986147, 0, 0.165874, 0, 1, 0, -0.165874, 0, -0.986147, -68.5382, -51.2927, -7.08129)
+
 [node name="Turret2" parent="maze" instance=ExtResource("9_t8iy8")]
 transform = Transform3D(0.986147, 0, -0.165874, 0, 1, 0, 0.165874, 0, 0.986147, -58.2412, -51.2927, -15.8409)
 
-[node name="BouncyPlatform" parent="." instance=ExtResource("5_h84ev")]
-transform = Transform3D(0.987735, 0, -0.156141, 0, 1, 0, 0.156141, 0, 0.987735, -54.7673, -51.3576, -5.96586)
+[node name="Coin15" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.7995, -51.2057, -10.4414)
+
+[node name="Coin16" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.5925, -51.2057, -10.551)
+
+[node name="Coin27" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.6324, -51.2057, -10.6779)
+
+[node name="Coin29" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.5088, -51.2057, -10.2047)
+
+[node name="Coin31" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.4209, -51.2057, -9.02746)
+
+[node name="Coin32" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.9881, -51.2057, -8.87421)
+
+[node name="Coin33" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.6705, -51.2057, -7.7503)
+
+[node name="Coin34" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.0751, -51.2057, -6.82343)
+
+[node name="Coin35" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.9249, -51.2057, -6.35509)
+
+[node name="Coin36" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.7865, -51.2057, -6.60048)
+
+[node name="Coin37" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.9524, -51.2057, -6.78164)
+
+[node name="Coin38" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.8617, -51.2057, -6.95111)
+
+[node name="Coin40" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -68.3012, -51.2057, -8.12748)
+
+[node name="Coin41" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -68.2122, -51.2057, -9.21184)
+
+[node name="Coin42" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.8703, -51.2057, -10.3166)
+
+[node name="Coin43" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.7204, -51.2057, -11.3932)
+
+[node name="Coin44" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.6051, -51.2057, -12.176)
+
+[node name="Coin45" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.0749, -51.2057, -12.6549)
+
+[node name="Coin46" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.0098, -51.2057, -12.4644)
+
+[node name="Coin47" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.6244, -51.2057, -12.1881)
+
+[node name="Coin49" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.8205, -51.2057, -12.6409)
+
+[node name="Coin50" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.6931, -51.2057, -13.6668)
+
+[node name="Coin51" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.4207, -51.2057, -14.7507)
+
+[node name="Coin52" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.2207, -51.2057, -15.9031)
+
+[node name="Coin53" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.1107, -51.2057, -16.7857)
+
+[node name="Coin54" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -62.3838, -51.2057, -17.3557)
+
+[node name="Coin55" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.237, -51.2057, -17.2439)
+
+[node name="Coin56" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.3985, -51.2057, -16.3705)
+
+[node name="Coin57" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.526, -51.2057, -15.4202)
+
+[node name="Coin58" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -63.7518, -51.2057, -14.4389)
+
+[node name="Coin60" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.7381, -51.2057, -13.2558)
+
+[node name="Coin61" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.6747, -51.2057, -14.2163)
+
+[node name="Coin62" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.3932, -51.2057, -15.2898)
+
+[node name="Coin64" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -64.302, -51.2057, -16.3438)
+
+[node name="Coin28" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.7642, -51.2057, -5.82962)
+
+[node name="Coin30" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.5185, -51.2057, -7.17105)
+
+[node name="Coin39" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.9299, -51.2057, -5.05073)
+
+[node name="Coin66" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.0525, -51.2057, -5.69482)
+
+[node name="Coin67" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -55.8068, -51.2057, -7.03626)
+
+[node name="Coin68" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -56.2183, -51.2057, -4.91593)
+
+[node name="Coin69" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -55.1443, -51.2057, -5.48082)
+
+[node name="Coin70" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -54.8987, -51.2057, -6.82226)
+
+[node name="Coin71" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -55.3101, -51.2057, -4.70193)
+
+[node name="Coin72" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -54.2817, -51.2057, -5.29049)
+
+[node name="Coin73" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -54.0361, -51.2057, -6.63193)
+
+[node name="Coin74" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -54.4475, -51.2057, -4.5116)
+
+[node name="Coin48" parent="maze" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -57.5306, -51.2057, -6.27737)
 
 [node name="Turret" parent="." instance=ExtResource("9_t8iy8")]
 transform = Transform3D(-0.167061, 0, -0.985947, 0, 1, 0, 0.985947, 0, -0.167061, -58.0004, -51.2927, -7.73375)
@@ -691,6 +943,24 @@ transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -61.216, -51.20
 
 [node name="Coin14" parent="." instance=ExtResource("3_h84ev")]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -60.9074, -51.2057, -16.5366)
+
+[node name="Coin17" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.0062, -51.2057, -17.4702)
+
+[node name="Coin18" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.0937, -51.2057, -16.7015)
+
+[node name="Coin19" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.2411, -51.2057, -15.7182)
+
+[node name="Coin20" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -65.3899, -51.2057, -14.7108)
+
+[node name="Coin22" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.38, -51.2057, -13.6147)
+
+[node name="Coin23" parent="." instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -67.4755, -51.2057, -13.8828)
 
 [editable path="environment/tunnels/floor/cave_2/MovingPlatform"]
 [editable path="environment/tunnels/floor/cave_2/MovingPlatform2"]
