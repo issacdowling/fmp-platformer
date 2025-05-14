@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://hig2k7035tul"]
+[gd_scene load_steps=23 format=3 uid="uid://hig2k7035tul"]
 
 [ext_resource type="Script" uid="uid://diml8710pmv8v" path="res://levels/TopsyTurvy/main_ground.gd" id="1_5snd3"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dhln2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://bm1p24h4j8ywx" path="res://materials/dev/dev_too_steep.tres" id="11_r2pjk"]
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="11_y8bpj"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="12_qugyl"]
+[ext_resource type="Script" uid="uid://unmr7f8d4ac0" path="res://levels/TopsyTurvy/pre_post_platforms.gd" id="14_rwckj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhln2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -36,10 +37,16 @@ albedo = Color(0.894865, 0, 0.261186, 1)
 edge_fade = 0.359526
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yre0b"]
-size = Vector3(15, 2, 10.0757)
+size = Vector3(14.8782, 1.77136, 14.8432)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsjiq"]
 size = Vector3(80, 60, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qugyl"]
+size = Vector3(10.9727, 12, 6.99274)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwckj"]
+size = Vector3(10.9883, 4.70947, 7.3501)
 
 [node name="TopsyTurvy" type="Node3D"]
 
@@ -281,6 +288,18 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 9.8117
 [node name="BreakingPlatform7" parent="MainGround/Side2" instance=ExtResource("12_qugyl")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 9.81179, -0.265396, 3.91095)
 
+[node name="FogVolume" type="FogVolume" parent="MainGround/Side2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 7.80142, 0.0585052, 3.10552)
+size = Vector3(14.943, 1.10141, 15.5091)
+material = SubResource("FogMaterial_yre0b")
+
+[node name="FogFailZone" type="Area3D" parent="MainGround/Side2/FogVolume"]
+script = ExtResource("9_yre0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainGround/Side2/FogVolume/FogFailZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0609131, -0.114319, -0.190764)
+shape = SubResource("BoxShape3D_yre0b")
+
 [node name="Side2Cutout1" type="CSGBox3D" parent="MainGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08385, 0.021591, 15.5249)
 operation = 2
@@ -451,26 +470,45 @@ use_collision = true
 size = Vector3(11, 16.4121, 0.782227)
 material = ExtResource("11_r2pjk")
 
-[node name="BounceBack" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.03366, 26.37)
+[node name="PrePostPlatforms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.8585)
+script = ExtResource("14_rwckj")
+
+[node name="BounceBack" type="CSGBox3D" parent="PrePostPlatforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.03366, 3.57642)
 material_override = ExtResource("3_4xyim")
 use_collision = true
 size = Vector3(11, 1, 7)
 
-[node name="BouncyPlatform" parent="BounceBack" instance=ExtResource("3_e3e5f")]
+[node name="BouncyPlatform" parent="PrePostPlatforms/BounceBack" instance=ExtResource("3_e3e5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432224, 0.134613)
 jump_velocity = 40.0
 
-[node name="BounceBack2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 26.37)
+[node name="EndArea" type="Area3D" parent="PrePostPlatforms/BounceBack"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PrePostPlatforms/BounceBack/EndArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0.00668335)
+shape = SubResource("BoxShape3D_qugyl")
+
+[node name="PreStartPlat" type="CSGBox3D" parent="PrePostPlatforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 3.57642)
 material_override = ExtResource("3_4xyim")
 use_collision = true
 size = Vector3(11, 1, 7)
 
-[node name="BounceBack3" type="CSGBox3D" parent="BounceBack2"]
+[node name="BounceBack3" type="CSGBox3D" parent="PrePostPlatforms/PreStartPlat"]
 material_override = ExtResource("3_4xyim")
 operation = 2
 size = Vector3(5, 1.371, 2)
+
+[node name="StartArea" type="Area3D" parent="PrePostPlatforms/PreStartPlat"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952157, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PrePostPlatforms/PreStartPlat/StartArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85474, -0.178467)
+shape = SubResource("BoxShape3D_rwckj")
 
 [editable path="MainGround/Side2/MovingPlatform"]
 [editable path="MainGround/Side2/MovingPlatform2"]
