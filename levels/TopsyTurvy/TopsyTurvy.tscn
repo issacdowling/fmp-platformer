@@ -46,7 +46,7 @@ size = Vector3(80, 60, 80)
 size = Vector3(10.9727, 12, 6.99274)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwckj"]
-size = Vector3(10.9883, 4.70947, 7.3501)
+size = Vector3(11.0283, 9.16992, 7.34033)
 
 [node name="TopsyTurvy" type="Node3D"]
 
@@ -497,17 +497,18 @@ material_override = ExtResource("3_4xyim")
 use_collision = true
 size = Vector3(11, 1, 7)
 
-[node name="BounceBack3" type="CSGBox3D" parent="PrePostPlatforms/PreStartPlat"]
+[node name="BounceBackCutout" type="CSGBox3D" parent="PrePostPlatforms/PreStartPlat"]
+unique_name_in_owner = true
 material_override = ExtResource("3_4xyim")
 operation = 2
-size = Vector3(5, 1.371, 2)
+size = Vector3(8.89453, 1.371, 4.27173)
 
 [node name="StartArea" type="Area3D" parent="PrePostPlatforms/PreStartPlat"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952157, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989614, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PrePostPlatforms/PreStartPlat/StartArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85474, -0.178467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.46521, -0.198975)
 shape = SubResource("BoxShape3D_rwckj")
 
 [editable path="MainGround/Side2/MovingPlatform"]
