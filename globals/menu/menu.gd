@@ -233,7 +233,7 @@ func set_health(amount: int, total: int) -> void:
 	health_bar.position.y = HEALTHBAR_MARGIN_PX
 
 func do_rotate_timer(time: int) -> void:
-	if rotate_timer_time != 0:
+	if rotate_timer_time > 0:
 		rotate_timer_time = time
 		return
 	rotate_timer_time = time
