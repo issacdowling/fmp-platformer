@@ -13,7 +13,6 @@ extends Node3D
 @export var platform_scene: PackedScene = preload("res://reusables/breaking_platform/platforms/breaking_dev_platform.tscn")
 
 var start_pos: Vector3
-var end_pos: Vector3
 var break_progress: float = 0
 var about_to_break: bool = false
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -24,7 +23,11 @@ var platform: STMCachedInstance3D
 var platform_body: Area3D
 
 func _ready() -> void:
+	start_pos = self.global_position
 	spawn_platform()
+	print(platform.global_position)
+	print(platform_body.global_position)
+
 
 # Called when the node enters the scene tree for the first time.
 func spawn_platform() -> void:
@@ -32,17 +35,19 @@ func spawn_platform() -> void:
 	add_child(platform)
 	
 	for platform_child in platform.get_children():
-		if platform_child is AnimatableBody3D:
+		if platform_child is StaticBody3D:
 			for child_children in platform_child.get_children():
 				if child_children is Area3D:
 					platform_body = child_children
+					#platform_body.global_position = start_pos
 	
 	platform_body.area_entered.connect(_area_entered_platform)
 
 func _process(delta: float) -> void:
 	if about_to_break:
 		break_progress += delta * 45
-		platform.global_position = lerp(global_position, global_position + Vector3.DOWN * 0.1, (sin(break_progress)/2) + 0.5)
+
+		platform.position = lerp(platform.position, platform.position + Vector3.UP * 0.03, (sin(break_progress)/2))
 
 func _area_entered_platform(area: Area3D) -> void:
 	if area.is_in_group("player") and !about_to_break:
@@ -60,7 +65,7 @@ func explode(blast: bool) -> void:
 	if blast:
 		 #Define a callback to apply an impulse to a rigid body chunk
 		var explode_callback: Callable = func(rb: RigidBody3D, _from: Object) -> void:
-			rb.apply_impulse(-rb.global_position.normalized() * Vector3(1, -1, 1) * 5.0)
+			rb.apply_impulse(-rb.position.normalized() * Vector3(1, -1, 1) * 5.0)
 		
 		# Apply the callback to each chunk of the mesh
 		platform.chunks_iterate(explode_callback)

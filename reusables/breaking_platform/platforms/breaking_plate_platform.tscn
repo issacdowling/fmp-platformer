@@ -14,19 +14,18 @@ material_override = ExtResource("1_7j0ip")
 mesh = ExtResource("2_eco0h")
 surface_material_override/0 = ExtResource("1_7j0ip")
 script = ExtResource("2_ds6f5")
-cache_is_saved = true
 cache_name = "19206473057004"
 original_mesh = ExtResource("2_eco0h")
 chunk_inner_material = ExtResource("1_vnyrs")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
 
-[node name="PlayerJumpShape" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00568999, 0)
 shape = SubResource("CylinderShape3D_fthqv")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0214729, 0)
 shape = SubResource("CylinderShape3D_fthqv")

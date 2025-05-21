@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://dscgtq6bx04qn" path="res://materials/dev/dev_breaking.tres" id="1_4k083"]
 [ext_resource type="Material" uid="uid://kwlu1ctl8c14" path="res://reusables/breaking_platform/platforms/Material.004.tres" id="1_lggi1"]
 [ext_resource type="Script" uid="uid://ca2xius60is4v" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="2_cqvcl"]
-[ext_resource type="ArrayMesh" uid="uid://rdmit8au0o5o" path="res://reusables/breaking_platform/platforms/black_hexagon_Circle_033.res" id="2_lggi1"]
+[ext_resource type="ArrayMesh" uid="uid://pdfcmsid4il2" path="res://reusables/breaking_platform/platforms/black_hexagon_Circle_033.res" id="2_lggi1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dfks"]
 size = Vector3(2, 0.309473, 2)
@@ -12,19 +12,18 @@ size = Vector3(2, 0.309473, 2)
 material_override = ExtResource("1_lggi1")
 mesh = ExtResource("2_lggi1")
 script = ExtResource("2_cqvcl")
-cache_is_saved = true
 cache_name = "19206473057004"
 original_mesh = ExtResource("2_lggi1")
 chunk_brush = ExtResource("2_lggi1")
 chunk_inner_material = ExtResource("1_4k083")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
 
-[node name="PlayerJumpShape" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0547363, 0)
 shape = SubResource("BoxShape3D_7dfks")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_7dfks")
