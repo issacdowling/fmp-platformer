@@ -578,13 +578,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0.00668335)
 shape = SubResource("BoxShape3D_qugyl")
 
 [node name="PreStartPlat" type="CSGBox3D" parent="PrePostPlatforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 3.57642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 6.17658)
 material_override = ExtResource("3_4xyim")
 use_collision = true
-size = Vector3(11, 1, 7)
+size = Vector3(21.533, 1, 12.2003)
 
 [node name="BounceBackCutout" type="CSGBox3D" parent="PrePostPlatforms/PreStartPlat"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.72016)
 material_override = ExtResource("3_4xyim")
 operation = 2
 size = Vector3(8.89453, 1.371, 4.27173)
