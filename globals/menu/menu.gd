@@ -253,7 +253,9 @@ func do_rotate_timer(time: int) -> void:
 	if rotate_timer_time >= 0:
 		rotate_timer_done.emit()
 
-func early_finish_rotate_timer() -> void:
+func early_finish_rotate_timer(instant: bool) -> void:
+	if instant:
+		rotate_timer_hud.visible = false
 	rotate_timer_time = -1
 	rotate_timer_cancelled.emit()
 

@@ -10,7 +10,7 @@ var section_length: int = 40
 var safe: bool = false
 
 func _ready() -> void:
-	Menu.early_finish_rotate_timer()
+	Menu.early_finish_rotate_timer(true)
 	Menu.rotate_timer_done.connect(_failed)
 	self.rotation.z = 0
 	end_area.area_entered.connect(_entered_safe_zone)
@@ -30,7 +30,7 @@ func _failed() -> void:
 func _entered_safe_zone(area: Area3D) -> void:
 	if area.is_in_group("player"):
 		safe = true
-		Menu.early_finish_rotate_timer()
+		Menu.early_finish_rotate_timer(false)
 		target_angle += 90
 		start_platform_cutout.visible = true
 
