@@ -18,7 +18,8 @@ func _ready() -> void:
 	start_area.area_exited.connect(_started)
 
 func _about_to_start(_area: Area3D) -> void:
-	start_platform_cutout.visible = false
+	if _area.is_in_group("player"):
+		start_platform_cutout.visible = false
 
 func _started(_area: Area3D) -> void:
 	if _area.is_in_group("player"):

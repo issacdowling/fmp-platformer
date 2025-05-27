@@ -50,10 +50,10 @@ size = Vector3(14.7416, 0.421724, 12.7988)
 size = Vector3(80, 60, 80)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qugyl"]
-size = Vector3(10.9727, 14.8101, 6.99274)
+size = Vector3(16.8251, 14.8101, 11.0856)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwckj"]
-size = Vector3(24.5796, 8.89453, 13.5829)
+size = Vector3(24.5796, 8.84082, 13.5829)
 
 [node name="TopsyTurvy" type="Node3D"]
 
@@ -68,7 +68,7 @@ script = ExtResource("1_ho6pl")
 
 [node name="Player" parent="." instance=ExtResource("1_dhln2")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200246, 8.53993, 28.5205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200246, 7.53993, 28.5205)
 
 [node name="MainGround" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 2.62267e-07, 0, -2.62267e-07, -1, 0, 0, 0, 1, 0, 0, 0)
@@ -646,7 +646,7 @@ jump_velocity = 40.0
 unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PrePostPlatforms/BounceBack/EndArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.90506, 0.00668335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0770929, 6.90506, 1.73991)
 shape = SubResource("BoxShape3D_qugyl")
 
 [node name="PreStartPlat" type="CSGBox3D" parent="PrePostPlatforms"]
@@ -668,7 +668,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989614, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PrePostPlatforms/PreStartPlat/StartArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641456, 4.60291, 0.329437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641456, 4.62976, 0.329437)
 shape = SubResource("BoxShape3D_rwckj")
 
 [node name="SafetySlide" type="CSGBox3D" parent="PrePostPlatforms"]
