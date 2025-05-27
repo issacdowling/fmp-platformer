@@ -244,7 +244,8 @@ func do_rotate_timer(time: int) -> void:
 	while rotate_timer_time > 0:
 		await get_tree().create_timer(1).timeout
 		rotate_timer_time -= 1
-		rotate_timer_label.text = "[center]" + str(rotate_timer_time) + "[/center]"
+		if rotate_timer_time >= 0:
+			rotate_timer_label.text = "[center]" + str(rotate_timer_time) + "[/center]"
 	rotation_animator.play("slide_out")
 	await rotation_animator.animation_finished
 	rotate_timer_hud.visible = false
