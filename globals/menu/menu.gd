@@ -29,7 +29,7 @@ const RENDERER_BASIC: String = "Basic (Mobile)"
 const RENDERER_COMPATIBILITY: String = "Compatibility (OpenGL)"
 
 const HEALTHBAR_MARGIN_PX: float = 12.5
-const HEALTHBAR_CHUNK_PX: float = 125 
+const HEALTHBAR_CHUNK_PX: float = 125
 const HEALTHBAR_RADIUS_PX: float = 20
 const HEALTHBAR_HEIGHT_PX: float = 100
 var HEALTHBAR_GOOD_COLOUR: Color = Color.from_rgba8(124, 255, 99, 255) # Light green
@@ -43,6 +43,7 @@ signal setting_changed
 signal dialogue_interact
 
 signal rotate_timer_done
+signal rotate_timer_cancelled
 
 @onready var SettingSetter: Node = %SettingSetter
 
@@ -247,13 +248,14 @@ func do_rotate_timer(time: int) -> void:
 	rotation_animator.play("slide_out")
 	await rotation_animator.animation_finished
 	rotate_timer_hud.visible = false
-	rotate_timer_done.emit()
+	# Early finishing makes the time negative, and
+	# we don't want to emit done in that case
+	if rotate_timer_time >= 0:
+		rotate_timer_done.emit()
 
 func early_finish_rotate_timer() -> void:
-	rotation_animator.play("slide_out")
-	await rotation_animator.animation_finished
-	rotate_timer_hud.visible = false
-	rotate_timer_time = 0
+	rotate_timer_time = -1
+	rotate_timer_cancelled.emit()
 
 func is_in_menu() -> bool:
 	if PauseControl.visible or main_menu_control.visible:
