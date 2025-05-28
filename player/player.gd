@@ -213,9 +213,9 @@ func _on_health_update(amount: int) -> void:
 	display_timer.start(health_popup_display_length_seconds)
 	
 	if amount == 0:
+		health.update.disconnect(_on_health_update)
 		fail_audio_player.play()
 		controls_allowed = false
-		move
 		$AnimationTree.active = false
 		$AnimationPlayer.play("death", 0.1, 1.5)
 		await get_tree().create_timer(1).timeout 
