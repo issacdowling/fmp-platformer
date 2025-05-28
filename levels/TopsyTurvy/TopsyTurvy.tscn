@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://hig2k7035tul"]
+[gd_scene load_steps=28 format=3 uid="uid://hig2k7035tul"]
 
 [ext_resource type="Script" uid="uid://diml8710pmv8v" path="res://levels/TopsyTurvy/main_ground.gd" id="1_5snd3"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="1_dhln2"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dprc5b4kro2ty" path="res://reusables/moving_platform/moving_platform.tscn" id="11_y8bpj"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="12_qugyl"]
 [ext_resource type="Material" uid="uid://ds3hjkswp7ttp" path="res://materials/dev/dev_wall.tres" id="14_wiiqr"]
+[ext_resource type="Material" uid="uid://b02drscv1kw80" path="res://materials/glass/window_glass.tres" id="15_eadcy"]
+[ext_resource type="PackedScene" uid="uid://dx5iirhwqsuoe" path="res://reusables/spaceship_exit/spaceship_exit.tscn" id="16_wiiqr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhln2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -27,6 +29,7 @@ sky_material = SubResource("ProceduralSkyMaterial_dhln2")
 background_mode = 2
 sky = SubResource("Sky_5snd3")
 tonemap_mode = 2
+tonemap_white = 1.44
 sdfgi_enabled = true
 glow_enabled = true
 volumetric_fog_enabled = true
@@ -71,7 +74,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200246, 7.53993, 28.5205)
 
 [node name="MainGround" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 2.62267e-07, 0, -2.62267e-07, -1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(3.05978e-07, 1, 0, -1, 3.05978e-07, 0, 0, 0, 1, 0, 0, 0)
 use_collision = true
 size = Vector3(15, 15, 45)
 material = ExtResource("3_4xyim")
@@ -423,6 +426,358 @@ operation = 2
 size = Vector3(5.33008, 12.6465, 15.7036)
 material = ExtResource("3_4xyim")
 
+[node name="Side3" type="Node3D" parent="MainGround"]
+
+[node name="Maze" type="CSGBox3D" parent="MainGround/Side3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09666e-06, -7.99437, 7.78725)
+use_collision = true
+size = Vector3(14.8721, 1, 24.49)
+material = ExtResource("14_wiiqr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202393, 11.7546)
+operation = 2
+size = Vector3(1, 2.603, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202393, 10.7546)
+operation = 2
+size = Vector3(7.48047, 2.603, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24023, -0.202393, 9.75463)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24973, -0.202391, 9.25463)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24973, -0.202391, 8.75463)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24973, -0.202391, 7.25463)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74973, -0.202391, 5.75463)
+operation = 2
+size = Vector3(4, 2.603, 1)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24973, -0.202391, 5.75463)
+operation = 2
+size = Vector3(1, 2.603, 1)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24973, -0.202391, 3.25463)
+operation = 2
+size = Vector3(1, 2.603, 6)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24973, -0.202391, 0.754631)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24973, -0.202391, -0.745369)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24973, -0.20239, -2.24537)
+operation = 2
+size = Vector3(5, 2.603, 1)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74973, -0.202391, -2.24537)
+operation = 2
+size = Vector3(2, 2.603, 1)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24974, -0.202391, -3.74537)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74974, -0.202391, -5.24537)
+operation = 2
+size = Vector3(4, 2.603, 1)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.24974, -0.20239, -6.74537)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74974, -0.20239, -8.24537)
+operation = 2
+size = Vector3(2, 2.603, 1)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24974, -0.202391, -7.89478)
+operation = 2
+size = Vector3(1, 2.603, 6.29883)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24973, -0.202391, -2.74537)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249732, -0.202391, -4.24537)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750268, -0.202391, -7.24537)
+operation = 2
+size = Vector3(1, 2.603, 7)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75027, -0.202391, -7.24537)
+operation = 2
+size = Vector3(7, 2.603, 1)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75027, -0.20239, -5.24537)
+operation = 2
+size = Vector3(1, 2.603, 5)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249732, -0.202391, -10.2454)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24973, -0.202391, -11.2454)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749729, -0.202392, 2.75463)
+operation = 2
+size = Vector3(4, 2.603, 1)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750271, -0.202392, 1.75463)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75027, -0.202392, 0.754631)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75027, -0.202392, -0.245369)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46658, -0.202391, 8.75463)
+operation = 2
+size = Vector3(2.56628, 2.603, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24023, -0.202393, 8.75463)
+operation = 2
+size = Vector3(3, 2.603, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24023, -0.202393, 5.75463)
+operation = 2
+size = Vector3(1, 2.603, 7)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74023, -0.202392, 5.75463)
+operation = 2
+size = Vector3(4, 2.603, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240233, -0.202392, 6.75463)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74023, -0.202393, 2.75463)
+operation = 2
+size = Vector3(4, 2.603, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24023, -0.202393, 0.754631)
+operation = 2
+size = Vector3(1, 2.603, 5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24023, -0.202393, 9.75463)
+operation = 2
+size = Vector3(1, 2.603, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74023, -0.202394, 10.7546)
+operation = 2
+size = Vector3(2, 2.603, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74023, -0.202394, 7.75463)
+operation = 2
+size = Vector3(2, 2.603, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="MainGround/Side3/Maze"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24023, -0.202394, 6.25463)
+operation = 2
+size = Vector3(1, 2.603, 4)
+
+[node name="Ceiling" type="CSGBox3D" parent="MainGround/Side3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40562e-06, -9.33691, 7.78725)
+visible = false
+use_collision = true
+collision_layer = 2
+size = Vector3(14.8721, 0.271042, 24.49)
+material = ExtResource("15_eadcy")
+
+[node name="Ceiling2" type="CSGBox3D" parent="MainGround/Side3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52706e-06, -9.79993, 7.78725)
+visible = false
+use_collision = true
+collision_layer = 2
+size = Vector3(14.8721, 0.271042, 24.49)
+material = ExtResource("15_eadcy")
+
+[node name="Coin" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 8.21744, -7.64943, -6.80677)
+
+[node name="Coin16" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 7.21744, -7.64943, -6.80677)
+
+[node name="Coin2" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 9.22777, -7.64943, -6.80677)
+
+[node name="Coin3" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 10.2278, -7.64943, -6.80677)
+
+[node name="Coin4" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 11.2278, -7.64943, -6.80677)
+
+[node name="Coin5" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -6.80677)
+
+[node name="Coin6" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -7.80677)
+
+[node name="Coin7" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -8.80677)
+
+[node name="Coin8" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -9.80677)
+
+[node name="Coin9" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -10.8068)
+
+[node name="Coin10" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 12.2278, -7.64943, -11.8068)
+
+[node name="Coin11" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 11.2278, -7.64943, -11.8068)
+
+[node name="Coin12" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 10.2278, -7.64943, -11.8068)
+
+[node name="Coin13" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 9.22777, -7.64943, -11.8068)
+
+[node name="Coin14" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 8.22777, -7.64943, -11.8068)
+
+[node name="Coin15" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 7.22777, -7.64943, -11.8068)
+
+[node name="EndWall" type="CSGBox3D" parent="MainGround/Side3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09814e-06, -10.5, -17)
+use_collision = true
+size = Vector3(1, 6, 9)
+material = ExtResource("14_wiiqr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.50106, 4)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.50107, 3)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.501065, 2)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.498935, 1)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1.49893, -2.5)
+size = Vector3(7, 1, 6)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(-1, 5.24534e-07, -8.74228e-08, 5.24534e-07, 1, 2.29281e-14, 8.74228e-08, -2.29281e-14, -1, 4, 2.50106, -5)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(-1, 5.24534e-07, -8.74228e-08, 5.24534e-07, 1, 2.29281e-14, 8.74228e-08, -2.29281e-14, -1, 4, 1.50106, -4)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(-1, 5.24534e-07, -8.74228e-08, 5.24534e-07, 1, 2.29281e-14, 8.74228e-08, -2.29281e-14, -1, 4, 0.501063, -3)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(-1, 5.24534e-07, -8.74228e-08, 5.24534e-07, 1, 2.29281e-14, 8.74228e-08, -2.29281e-14, -1, 4, -0.498937, -2)
+size = Vector3(7, 1, 1)
+material = ExtResource("5_eadcy")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="MainGround/Side3/EndWall"]
+transform = Transform3D(-1, 5.24534e-07, -8.74228e-08, 5.24534e-07, 1, 2.29281e-14, 8.74228e-08, -2.29281e-14, -1, 4, -1.49894, 1.5)
+size = Vector3(7, 1, 6)
+material = ExtResource("5_eadcy")
+
+[node name="Coin17" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 1.01766, -12.7546, -12.9547)
+
+[node name="Coin18" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 2.01766, -12.7546, -12.9547)
+
+[node name="Coin19" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 3.01766, -12.7546, -12.9547)
+
+[node name="Coin20" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 4.01766, -12.7546, -12.9547)
+
+[node name="Coin21" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 5.01766, -12.7546, -12.9547)
+
+[node name="Coin22" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 6.01766, -12.7546, -12.9547)
+
+[node name="Coin23" parent="MainGround/Side3" instance=ExtResource("4_j2ttc")]
+transform = Transform3D(-0.999998, -1.50996e-07, 0, 1.50995e-07, -1, 0, 0, 0, 0.999998, 7.01766, -12.7546, -12.9547)
+
+[node name="ImmobileTurret" parent="MainGround/Side3" instance=ExtResource("7_vnrut")]
+transform = Transform3D(4.37114e-08, -2.62267e-07, -1, -1.14641e-14, -1, 2.62267e-07, -1, 0, -4.37114e-08, -1.25228, -7.53282, -6)
+
 [node name="Side4" type="Node3D" parent="MainGround"]
 
 [node name="TopSideOfCutouts" type="Node3D" parent="MainGround/Side4"]
@@ -531,6 +886,12 @@ script = ExtResource("9_yre0b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainGround/Side4/FogVolume2/FogFailZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0733366, -0.20584, -0.439796)
 shape = SubResource("BoxShape3D_eadcy")
+
+[node name="Spaceship" parent="MainGround/Side4" instance=ExtResource("16_wiiqr")]
+transform = Transform3D(-1.33747e-14, -1, 3.05978e-07, -4.37114e-08, 3.05978e-07, 1, -1, 0, -4.37114e-08, 6.467, 0, 19.906)
+
+[node name="CollisionShape3D" parent="MainGround/Side4/Spaceship/CanExitArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225813, 1.01652, -0.00742698)
 
 [node name="Side4Cutout1" type="CSGCylinder3D" parent="MainGround"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5.62851, -2.4603e-07, 17)
@@ -687,3 +1048,4 @@ material = ExtResource("11_r2pjk")
 [editable path="MainGround/Side4/TopSideOfCutouts/MovingPlatform2"]
 [editable path="MainGround/Side4/BottomSideOfCutouts/MovingPlatform"]
 [editable path="MainGround/Side4/BottomSideOfCutouts/MovingPlatform2"]
+[editable path="MainGround/Side4/Spaceship"]
