@@ -4,6 +4,7 @@ extends Node3D
 @onready var start_area: Area3D = %StartArea
 @onready var start_platform_cutout: Node3D = %BounceBackCutout
 @onready var player: Player = %Player
+@onready var spaceship: Spaceship = %Spaceship
 
 var target_angle: int = 0
 var section_length: int = 40
@@ -17,6 +18,9 @@ func _ready() -> void:
 	start_area.area_entered.connect(_about_to_start)
 	start_area.area_exited.connect(_started)
 
+	# Don't want the level ending early, reactivate when needed
+	spaceship.exiting_disabled = true
+
 func _about_to_start(_area: Area3D) -> void:
 	if _area.is_in_group("player"):
 		start_platform_cutout.visible = false
@@ -24,6 +28,10 @@ func _about_to_start(_area: Area3D) -> void:
 func _started(_area: Area3D) -> void:
 	if _area.is_in_group("player"):
 		Menu.do_rotate_timer(section_length)
+
+		# We're on the last rotation, reactivate the spaceship exit
+		if target_angle == 270:
+			spaceship.exiting_disabled = false
 
 func _failed() -> void:
 	player.health.current_health = 0

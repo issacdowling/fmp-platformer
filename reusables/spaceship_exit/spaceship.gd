@@ -1,10 +1,12 @@
 extends Node3D
+class_name Spaceship
 
 @onready var canExitArea: Area3D = $CanExitArea
 @onready var player: Player = %Player
 var canExit: bool = false
 var hasBegunBackgroundLoading: bool = false
 var backgroundLoadingHasFinished: bool = false
+var exiting_disabled: bool = false
 
 const levelHubPath: String = "res://levels/level_hub/level_hub.tscn"
 func _ready() -> void:
@@ -13,7 +15,7 @@ func _ready() -> void:
 	
 func _player_nearby(area: Area3D, in_area: bool) -> void:
 	# Only respond to the player's area, not other things (like projectiles)
-	if !area.is_in_group("player"):
+	if !area.is_in_group("player") or exiting_disabled:
 		return
 		
 	canExit = in_area
