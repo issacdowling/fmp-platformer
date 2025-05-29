@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cahsry4m5of3h"]
+[gd_scene load_steps=19 format=3 uid="uid://cahsry4m5of3h"]
 
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="1_noxej"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="2_xr7ui"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpobhijshgqig" path="res://reusables/bouncy_platform/bouncy_platform.tscn" id="7_t8iy8"]
 [ext_resource type="PackedScene" uid="uid://dvtbiek41oaqo" path="res://reusables/breaking_platform/breaking_platform.tscn" id="8_t8iy8"]
 [ext_resource type="PackedScene" uid="uid://bir6nt44bsoee" path="res://reusables/enemies/turret/turret.tscn" id="9_t8iy8"]
+[ext_resource type="PackedScene" uid="uid://dx5iirhwqsuoe" path="res://reusables/spaceship_exit/spaceship_exit.tscn" id="10_no74a"]
 
 [sub_resource type="Curve" id="Curve_t8iy8"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -21,7 +22,7 @@ curve = SubResource("Curve_t8iy8")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t8iy8"]
 lifetime_randomness = 1.0
 emission_shape = 3
-emission_box_extents = Vector3(40.183, 3, 40.746)
+emission_box_extents = Vector3(20.684, 3, 20.241)
 angle_min = -113.3
 angle_max = 401.1
 angle_curve = SubResource("CurveTexture_no74a")
@@ -94,13 +95,13 @@ use_collision = true
 size = Vector3(0.174805, 35.8184, 187.741)
 
 [node name="invisible_wall5" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83.8048, 2.77763, 46.1431)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83.8048, 2.77763, 42.8009)
 visible = false
 use_collision = true
 size = Vector3(0.175, 10.369, 93.771)
 
 [node name="invisible_wall7" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.4937, 3.96929, -8.66539)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.4937, 3.96929, -2.26859)
 visible = false
 use_collision = true
 size = Vector3(0.175, 9.582, 95.394)
@@ -112,13 +113,13 @@ use_collision = true
 size = Vector3(0.174805, 35.7515, 188.992)
 
 [node name="invisible_wall2" type="CSGBox3D" parent="environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4297, 2.75144, 42.3996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.0519, 2.75144, 42.3996)
 visible = false
 use_collision = true
 size = Vector3(0.175, 10.606, 206.398)
 
 [node name="invisible_wall8" type="CSGBox3D" parent="environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.386, 2.85928, 42.3996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.173, 2.85928, 42.3996)
 visible = false
 use_collision = true
 size = Vector3(0.175, 10.173, 206.398)
@@ -139,7 +140,7 @@ shadow_enabled = true
 
 [node name="Player" parent="environment" instance=ExtResource("2_xr7ui")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.925, 0, 12.345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457596, 0, 1.70716)
 
 [node name="moon_dust" type="Node3D" parent="environment"]
 
@@ -156,7 +157,7 @@ draw_pass_1 = SubResource("BoxMesh_t8iy8")
 
 [node name="hole_exit" type="GPUParticles3D" parent="environment/moon_dust"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.5957, 4.14848, 16.7821)
-amount = 6592
+amount = 3558
 lifetime = 4.0
 preprocess = 2.43
 speed_scale = 0.05
@@ -482,6 +483,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90391, 0, 0)
 
 [node name="EndMarker" parent="underground/tunnels/floor/MovingPlatform3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99922, 0, 0)
+
+[node name="Turret" parent="underground/tunnels/floor" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-0.796804, 0, -0.604238, 1.20214e-13, 1, -1.58526e-13, 0.604238, -1.98952e-13, -0.796804, 10.2364, -31.4753, -39.3257)
 
 [node name="lights" type="Node3D" parent="underground/tunnels"]
 
@@ -1258,43 +1262,222 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.1001, -31.172, 22.3784)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.4108, 0, 34.3101)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.3108, 1.52073, 30.4801)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8135, 1.52073, 10.9762)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.05, 1.52073, 19.4199)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.6042, 4.62123, 22.9313)
+use_collision = true
 size = Vector3(6.241, 21.267, 8.023)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.1454, 4.62123, 8.83133)
+use_collision = true
 size = Vector3(6.241, 21.267, 8.023)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="moon_village"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -102.822, 1.18047, 36.3414)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -102.822, 1.18047, 32.7978)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -82.3563, 1.18047, 6.03961)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.266, 0, 34.3101)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="moon_village"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.9569, 5.01648, 34.3101)
+use_collision = true
 size = Vector3(6.241, 11.611, 6.369)
+
+[node name="Spaceship" parent="moon_village" instance=ExtResource("10_no74a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -85.1446, 4.30097, 5.98571)
+
+[node name="Corn" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -77.2821, 4.43154, 6.04879)
+
+[node name="Corn2" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -78.9549, 4.43154, 5.65761)
+
+[node name="Coin" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -78.1401, 4.45286, 5.78549)
+
+[node name="Coin2" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -79.7581, 4.45286, 5.78409)
+
+[node name="Corn3" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -80.4694, 4.43154, 5.72181)
+
+[node name="Coin3" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -81.1534, 4.45286, 5.89161)
+
+[node name="Corn4" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -81.8218, 4.43154, 5.97247)
+
+[node name="Coin4" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -82.4694, 4.45286, 6.01354)
+
+[node name="Coin5" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -90, 0, 11)
+
+[node name="Turret" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.6159, -0.580142, 13.4284)
+
+[node name="Turret2" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -91.8125, -0.580146, 5.09249)
+
+[node name="Turret3" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -95.8092, -0.580138, 14.4872)
+
+[node name="Turret4" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -83.235, -0.580136, 30.7929)
+
+[node name="Turret5" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -104.403, -0.58014, 21.0962)
+
+[node name="Turret6" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -95.0377, -0.580135, 23.4044)
+
+[node name="Turret7" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.4767, -0.580165, 28.1448)
+
+[node name="Turret8" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -77.6814, -0.58014, 25.3034)
+
+[node name="Turret9" parent="moon_village" instance=ExtResource("9_t8iy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.2522, -0.580138, 16.4707)
+
+[node name="Coin6" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -78.7011, -0.493198, 11.0276)
+
+[node name="Coin7" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -93.9404, -0.49324, 6.5326)
+
+[node name="Coin8" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -83.8681, -0.493195, 12.7248)
+
+[node name="Coin9" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -93.1683, -0.493191, 13.89)
+
+[node name="Coin10" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -89.6846, -0.493191, 18.5683)
+
+[node name="Coin11" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -104.44, -0.493189, 10.6992)
+
+[node name="Coin12" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -98.6723, -0.493191, 15.6141)
+
+[node name="Coin13" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -94.7246, -0.493191, 20.8207)
+
+[node name="Coin14" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -104.119, -0.493189, 15.7358)
+
+[node name="Coin15" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -108.318, -0.493191, 8.65458)
+
+[node name="Coin16" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -101.825, -0.493195, 23.2999)
+
+[node name="Coin17" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -85.9177, -0.493191, 23.5561)
+
+[node name="Coin18" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -80.7173, -0.493189, 20.005)
+
+[node name="Coin19" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -72.7664, -0.493195, 14.7638)
+
+[node name="Coin20" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -72.9483, -0.493189, 8.15794)
+
+[node name="Coin21" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.5505, -0.493187, 16.5821)
+
+[node name="Coin22" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -66.2258, -0.493189, 28.8549)
+
+[node name="Coin23" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -79.6062, -0.493193, 24.5105)
+
+[node name="Coin24" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -75.5115, -0.493191, 21.0725)
+
+[node name="Coin25" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -72.7085, -0.493221, 20.0042)
+
+[node name="Coin26" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -73.4324, -0.493212, 25.1771)
+
+[node name="Corn5" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -68.7634, -0.514473, 20.8863)
+
+[node name="Corn6" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -80.6179, -0.514532, 15.69)
+
+[node name="Corn7" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -91.4511, -0.514511, 24.4035)
+
+[node name="Corn8" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -100.307, -0.514509, 19.8753)
+
+[node name="Corn9" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -84.9796, -0.514538, 10.1713)
+
+[node name="Corn10" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -106.512, -0.514509, 13.2118)
+
+[node name="Corn11" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -103.989, -0.514511, 25.1104)
+
+[node name="Corn12" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -75.5522, -0.514498, 12.9405)
+
+[node name="Coin27" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -82.0617, -0.493191, 33.3875)
+
+[node name="Corn13" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -75.2887, -0.514509, 29.2319)
+
+[node name="Coin28" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -94.7357, -0.493256, 32.5675)
+
+[node name="Coin29" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -95.3326, -0.493189, 26.2422)
+
+[node name="Corn14" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -99.6799, -0.514511, 26.6368)
+
+[node name="Coin30" parent="moon_village" instance=ExtResource("3_h84ev")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -107.459, -0.493191, 25.7257)
+
+[node name="Corn15" parent="moon_village" instance=ExtResource("4_3uawd")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -85.1771, -0.514511, 30.9451)
+
+[node name="BouncyPlatform" parent="moon_village" instance=ExtResource("7_t8iy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2997, -0.645073, 7.86167)
+jump_velocity = 17.0
 
 [editable path="underground/tunnels/floor/cave_2/MovingPlatform"]
 [editable path="underground/tunnels/floor/cave_2/MovingPlatform2"]
