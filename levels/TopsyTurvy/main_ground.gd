@@ -45,8 +45,4 @@ func _entered_safe_zone(area: Area3D) -> void:
 
 # Slight rotation to further explain to the player what's going to happen
 func _process(delta: float) -> void:
-	#rotate_z(deg_to_rad(0.1 * delta))
-	if OS.has_feature("debug"):
-		if Input.is_action_just_pressed("interact"):
-			_entered_safe_zone(player.area)
 	self.rotation.z = lerp_angle(self.rotation.z, deg_to_rad(target_angle), 3 * delta)
