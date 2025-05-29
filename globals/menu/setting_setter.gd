@@ -15,7 +15,8 @@ func _ready() -> void:
 	Input.add_joy_mapping("03000000d62000000620000050010000,Xbox 360 Controller,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b8,start:b7,leftstick:b9,rightstick:b10,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,righttrigger:a5,crc:f003,platform:Linux,", true)
 	
 	Menu.setting_changed.connect(_change_setting)
-	
+
+	# Load settings if they exist
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
 		var settings_file: FileAccess = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
 		# Add some error checking here
@@ -23,6 +24,7 @@ func _ready() -> void:
 		current_settings = json.data
 		settings_file.close()
 	else:
+		# Default settings
 		var found_renderer: String = "gl_compatibility"
 		match ProjectSettings.get_setting("rendering/renderer/rendering_method"):
 			"forward_plus":
@@ -34,11 +36,11 @@ func _ready() -> void:
 				
 		current_settings = {
 			Menu.GLOBAL_ILLUMINATION: true,
-			Menu.GLOBAL_ILLUMINATION_HALF_RES: true,
+			Menu.GLOBAL_ILLUMINATION_HALF_RES: false,
 			Menu.GLOBAL_ILLUMINATION_RAY_COUNT: Menu.RAY_COUNT_32,
 			Menu.GLOBAL_ILLUMINATION_CASCADES: 4,
 			Menu.SCALING_METHOD: Menu.SCALING_METHODS_FSR2,
-			Menu.SCALING_AMOUNT: 0.75,
+			Menu.SCALING_AMOUNT: 1.0,
 			Menu.RENDERER: found_renderer,
 			Menu.VSYNC: true
 		}
