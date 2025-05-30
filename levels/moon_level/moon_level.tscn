@@ -151,6 +151,7 @@ lifetime = 4.0
 preprocess = 2.43
 speed_scale = 0.05
 fixed_fps = 144
+interpolate = false
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_t8iy8")
 draw_pass_1 = SubResource("BoxMesh_t8iy8")
@@ -160,8 +161,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.5957, 4.14848, 16.7821)
 amount = 3558
 lifetime = 4.0
 preprocess = 2.43
-speed_scale = 0.05
+speed_scale = 0.01
 fixed_fps = 144
+interpolate = false
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_t8iy8")
 draw_pass_1 = SubResource("BoxMesh_t8iy8")
@@ -447,7 +449,7 @@ transform = Transform3D(0.985554, -2.37169e-20, 0.169349, -3.36923e-14, 1, 1.960
 
 [node name="BouncyPlatform" parent="underground/tunnels/floor" instance=ExtResource("7_t8iy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 1.98952e-13, 0, -1.98952e-13, 1, -42.1736, -0.560123, -28.5666)
-jump_velocity = 50.0
+jump_velocity = 65.0
 
 [node name="BouncyPlatform2" parent="underground/tunnels/floor" instance=ExtResource("7_t8iy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 1.98952e-13, 0, -1.98952e-13, 1, 17.0927, -21.7378, -21.6563)
