@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2n46e18biacw"]
+[gd_scene load_steps=5 format=3 uid="uid://c2n46e18biacw"]
 
 [ext_resource type="PackedScene" uid="uid://dpg6un3w3cyqm" path="res://reusables/collectables/coin.glb" id="1_vgsqt"]
 [ext_resource type="Script" uid="uid://dk3gks5wo6ojo" path="res://reusables/collectables/collectable.gd" id="2_itjm7"]
+[ext_resource type="AudioStream" uid="uid://bymdpceav7656" path="res://sounds/Pop.ogg" id="3_t8574"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_itjm7"]
 radius = 0.15
@@ -16,4 +17,7 @@ script = ExtResource("2_itjm7")
 shape = SubResource("SphereShape3D_itjm7")
 
 [node name="collectable_mesh" parent="." instance=ExtResource("1_vgsqt")]
-transform = Transform3D(-0.252493, 0, 0.9676, 0, 1, 0, -0.9676, 0, -0.252493, 0, 0, 0)
+transform = Transform3D(-0.689495, 0, 0.724281, 0, 1, 0, -0.724281, 0, -0.689495, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_t8574")

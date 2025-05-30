@@ -80,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_yrwlk")
 
 [node name="World 1" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0477547, 0, 0.996629, 0, 1, 0, -0.996629, 0, -0.0477547, 0, 0, 0)
+transform = Transform3D(-0.047749, 0, 0.99651, 0, 1, 0, -0.99651, 0, -0.047749, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yrwlk")
 mesh = SubResource("SphereMesh_78q5s")
 script = ExtResource("2_4k3rs")
@@ -127,7 +127,7 @@ level_scene = "res://levels/CatCourse/CatCourse.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0477574, 0, 0.996682, 0, 1, 0, -0.996682, 0, -0.0477574, 50, 0, 0)
+transform = Transform3D(-0.0477515, 0, 0.99656, 0, 1, 0, -0.99656, 0, -0.0477515, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
@@ -157,6 +157,8 @@ top_level = true
 [node name="Level1" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
 mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
+level_name = "Moon Tunnels"
+level_scene = "res://levels/moon_level/moon_level.tscn"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
@@ -166,23 +168,14 @@ transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 4, 0, 0)
 mesh = SubResource("SphereMesh_kjme3")
 script = ExtResource("7_kjme3")
 level_number = 1
-level_name = "2level 2furious"
+level_name = "Topsy Turvy"
+level_scene = "res://levels/TopsyTurvy/TopsyTurvy.tscn"
 
 [node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
-[node name="Level3" type="MeshInstance3D" parent="Worlds/World 2/Levels"]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 8, 0, 0)
-mesh = SubResource("SphereMesh_kjme3")
-script = ExtResource("7_kjme3")
-level_number = 2
-level_name = "3level 3furious"
-
-[node name="LevelText" type="MeshInstance3D" parent="Worlds/World 2/Levels/Level3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-
 [node name="TestWorld" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0476845, 0, 0.995174, 0, 1, 0, -0.995174, 0, -0.0476845, 100, 0, 0)
+transform = Transform3D(-0.0476785, 0, 0.995048, 0, 1, 0, -0.995048, 0, -0.0476785, 100, 0, 0)
 material_override = SubResource("StandardMaterial3D_sqw5m")
 mesh = SubResource("SphereMesh_4j44j")
 skeleton = NodePath("../World 2")

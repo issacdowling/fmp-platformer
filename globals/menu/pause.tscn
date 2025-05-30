@@ -1,31 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://c2dt6e5a7p78k"]
+[gd_scene load_steps=46 format=3 uid="uid://c2dt6e5a7p78k"]
 
 [ext_resource type="Script" uid="uid://cekq2gyciyi2c" path="res://globals/menu/menu.gd" id="1_uhrtt"]
 [ext_resource type="Script" uid="uid://c58f63ecb32x3" path="res://globals/menu/setting_setter.gd" id="2_7tkhg"]
 [ext_resource type="FontFile" uid="uid://ja3fyleljrpu" path="res://reusables/fonts/sora/Sora-Regular.otf" id="4_h1kxx"]
+[ext_resource type="Texture2D" uid="uid://blir7nkdx1pc7" path="res://globals/menu/update-symbolic.svg" id="4_ou863"]
 [ext_resource type="Texture2D" uid="uid://b8cnpv2dkamom" path="res://globals/collectables/coin_icon.svg" id="4_xembm"]
 [ext_resource type="FontFile" uid="uid://cyx84r2wkuk22" path="res://reusables/fonts/sora/Sora-ExtraBold.otf" id="5_di1th"]
 [ext_resource type="Texture2D" uid="uid://bmvwi8bhdfht0" path="res://globals/collectables/corn_icon.svg" id="6_v8nyn"]
 [ext_resource type="FontFile" uid="uid://bp62rx7c3lt88" path="res://reusables/fonts/sora/Sora-Bold.otf" id="7_v8nyn"]
 [ext_resource type="Script" uid="uid://c2iscq4m1glig" path="res://globals/menu/typewriter_effect_sydistt.gd" id="8_8tq1c"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225hg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_errt6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_afag0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou7b8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ww35y"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r05tf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p5a2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk5v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di1th"]
 bg_color = Color(0, 0, 0, 1)
@@ -50,7 +33,7 @@ length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Transitions/ExpansiveTransitionBackground:size:y")
+tracks/0/path = NodePath("ExpansiveTransitionBackground:size:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +48,7 @@ length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Transitions/ExpansiveTransitionBackground:size:y")
+tracks/0/path = NodePath("ExpansiveTransitionBackground:size:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -81,11 +64,30 @@ _data = {
 &"out_slide_up": SubResource("Animation_1v777")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225hg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_errt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_afag0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou7b8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ww35y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r05tf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p5a2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk5v"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yviql"]
 bg_color = Color(0, 0, 0, 0.588235)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wmks"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akh5k"]
 bg_color = Color(0, 0, 0, 0.498039)
+border_color = Color(0.74185, 0.677794, 0.955267, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -96,7 +98,7 @@ resource_name = "RESET"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollectablesBackground:position:y")
+tracks/0/path = NodePath("RotationBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +113,7 @@ length = 0.3683
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollectablesBackground:position:y")
+tracks/0/path = NodePath("RotationBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,6 +128,64 @@ length = 0.3683
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("RotationBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.133333, 1.75977, -234.504, -0.0666667, 336.051, 0.0333333, -182.637),
+"times": PackedFloat32Array(0, 0.366667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sj24q"]
+_data = {
+&"RESET": SubResource("Animation_ou863"),
+&"slide_in": SubResource("Animation_akh5k"),
+&"slide_out": SubResource("Animation_sj24q")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wmks"]
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_kc7q4"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectablesBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-234.504, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4joeb"]
+resource_name = "slide_in"
+length = 0.3683
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectablesBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-234.504, -0.0666667, 336.051, 0.0333333, -182.637, 40, -0.25, 0, 0.133333, 1.75977),
+"times": PackedFloat32Array(0, 0.366667)
+}
+
+[sub_resource type="Animation" id="Animation_sxvhv"]
+resource_name = "slide_out"
+length = 0.3683
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("CollectablesBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -135,11 +195,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.366667)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqnc0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bb7ox"]
 _data = {
-&"RESET": SubResource("Animation_ou863"),
-&"slide_in": SubResource("Animation_akh5k"),
-&"slide_out": SubResource("Animation_sj24q")
+&"RESET": SubResource("Animation_kc7q4"),
+&"slide_in": SubResource("Animation_4joeb"),
+&"slide_out": SubResource("Animation_sxvhv")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tq1c"]
@@ -156,55 +216,55 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Animation" id="Animation_8tq1c"]
+[sub_resource type="Animation" id="Animation_pb07a"]
 resource_name = "RESET"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1380, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-120, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_v8nyn"]
+[sub_resource type="Animation" id="Animation_hp6n6"]
 resource_name = "slide_in"
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1380, -0.0666667, 336.051, 0.0333333, -182.637, 790, -0.25, 0, 0.133333, 1.75977),
+"points": PackedFloat32Array(-120, -0.0666667, 336.051, 0.0333333, -182.637, 40, -0.25, 0, 0.133333, 1.75977),
 "times": PackedFloat32Array(0, 0.433333)
 }
 
-[sub_resource type="Animation" id="Animation_di1th"]
+[sub_resource type="Animation" id="Animation_evl5y"]
 resource_name = "slide_out"
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/path = NodePath("HealthBackground:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(790, -0.25, 0, 0.133333, 1.75977, 1380, -0.0666667, 336.051, 0.0333333, -182.637),
+"points": PackedFloat32Array(40, -0.25, 0, 0.133333, 1.75977, -120, -0.0666667, 336.051, 0.0333333, -182.637),
 "times": PackedFloat32Array(0, 0.433333)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tq1c"]
 _data = {
-&"RESET": SubResource("Animation_8tq1c"),
-&"slide_in": SubResource("Animation_v8nyn"),
-&"slide_out": SubResource("Animation_di1th")
+&"RESET": SubResource("Animation_pb07a"),
+&"slide_in": SubResource("Animation_hp6n6"),
+&"slide_out": SubResource("Animation_evl5y")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou863"]
@@ -219,18 +279,83 @@ corner_radius_bottom_left = 50
 script = ExtResource("8_8tq1c")
 metadata/_custom_type_script = ExtResource("8_8tq1c")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_akh5k"]
+[sub_resource type="Animation" id="Animation_yqnc0"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-120, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ytkt7"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1080, -0.0666667, 336.051, 0.0333333, -182.637, 800, -0.25, 0, 0.133333, 1.75977),
+"times": PackedFloat32Array(0, 0.433333)
+}
+
+[sub_resource type="Animation" id="Animation_keh0t"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBackground:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(800, -0.25, 0, 0.133333, 1.75977, 1080, -0.0666667, 336.051, 0.0333333, -182.637),
+"times": PackedFloat32Array(0, 0.433333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pb07a"]
 _data = {
-&"RESET": SubResource("Animation_8tq1c"),
-&"slide_in": SubResource("Animation_v8nyn"),
-&"slide_out": SubResource("Animation_di1th")
+&"RESET": SubResource("Animation_yqnc0"),
+&"slide_in": SubResource("Animation_ytkt7"),
+&"slide_out": SubResource("Animation_keh0t")
 }
 
 [node name="Menus" type="Node"]
 script = ExtResource("1_uhrtt")
 
+[node name="Transitions" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExpansiveTransitionBackground" type="Panel" parent="Transitions"]
+z_index = 500
+layout_mode = 1
+offset_right = 8014.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_di1th")
+
+[node name="TransitionAnimator" type="AnimationPlayer" parent="Transitions"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_di1th")
+}
+
 [node name="Pause" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 0
@@ -528,26 +653,6 @@ text = " (change if getting hard to explain stutters)"
 unique_name_in_owner = true
 script = ExtResource("2_7tkhg")
 
-[node name="Transitions" type="Control" parent="."]
-unique_name_in_owner = true
-z_index = 100
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ExpansiveTransitionBackground" type="Panel" parent="Transitions"]
-z_index = 500
-layout_mode = 1
-offset_right = 8014.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_di1th")
-
-[node name="TransitionAnimator" type="AnimationPlayer" parent="Transitions"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_di1th")
-}
-
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -658,6 +763,69 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8p5a2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_avk5v")
 text = "Quit"
 
+[node name="RotateTimerHUD" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="RotationBackground" type="Panel" parent="RotateTimerHUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -254.504
+offset_right = -10.0
+offset_bottom = -51.504
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_akh5k")
+
+[node name="RotationIcon" type="TextureRect" parent="RotateTimerHUD/RotationBackground"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -198.41
+offset_top = 3.054
+offset_right = 101.59
+offset_bottom = 303.054
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_ou863")
+
+[node name="RotateTimerLabel" type="RichTextLabel" parent="RotateTimerHUD/RotationBackground"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -56.996
+offset_right = 186.0
+offset_bottom = 64.004
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_di1th")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "[center]60[/center]"
+
+[node name="RotationAnimator" type="AnimationPlayer" parent="RotateTimerHUD"]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_sj24q")
+}
+
 [node name="CollectablesHUD" type="Control" parent="."]
 unique_name_in_owner = true
 z_index = 100
@@ -738,7 +906,7 @@ text = "[wave]150[/wave]"
 unique_name_in_owner = true
 reset_on_save = false
 libraries = {
-&"": SubResource("AnimationLibrary_yqnc0")
+&"": SubResource("AnimationLibrary_bb7ox")
 }
 
 [node name="HealthHUD" type="Control" parent="."]
@@ -759,9 +927,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 690.0
-offset_top = -254.504
+offset_top = -140.0
 offset_right = 1190.0
-offset_bottom = -154.504
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8tq1c")
@@ -801,9 +969,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 130.0
-offset_top = 1360.0
+offset_top = 1060.0
 offset_right = 1750.0
-offset_bottom = 1610.0
+offset_bottom = 1310.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ou863")
@@ -825,5 +993,5 @@ custom_effects = [SubResource("RichTextEffect_ou863")]
 unique_name_in_owner = true
 reset_on_save = false
 libraries = {
-&"": SubResource("AnimationLibrary_akh5k")
+&"": SubResource("AnimationLibrary_pb07a")
 }

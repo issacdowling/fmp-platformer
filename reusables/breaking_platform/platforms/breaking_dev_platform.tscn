@@ -13,17 +13,18 @@ size = Vector3(2, 0.309473, 2)
 material_override = ExtResource("3_t3ni7")
 mesh = SubResource("BoxMesh_xih8e")
 script = ExtResource("2_xei0b")
+cache_is_saved = true
 cache_name = "19206473057004"
 original_mesh = SubResource("BoxMesh_xih8e")
 chunk_inner_material = ExtResource("3_t3ni7")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D"]
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
 
-[node name="PlayerJumpShape" type="CollisionShape3D" parent="AnimatableBody3D/Area3D"]
+[node name="PlayerJumpShape" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0547363, 0)
 shape = SubResource("BoxShape3D_7dfks")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_7dfks")

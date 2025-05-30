@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dos5lge54ohdf"
-path.s3tc="res://.godot/imported/Fingerprints003_4K_Roughness.jpg-6efef0905465908f9e88db653c8d996c.s3tc.ctex"
-path.etc2="res://.godot/imported/Fingerprints003_4K_Roughness.jpg-6efef0905465908f9e88db653c8d996c.etc2.ctex"
+uid="uid://btayeygpbtpb6"
+path.s3tc="res://.godot/imported/Fingerprints003_4K_Color.jpg-df3f2452b162bb7328bff082af73e7ec.s3tc.ctex"
+path.etc2="res://.godot/imported/Fingerprints003_4K_Color.jpg-df3f2452b162bb7328bff082af73e7ec.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/window_glass/Fingerprints003_4K-JPG/Fingerprints003_4K_Roughness.jpg"
-dest_files=["res://.godot/imported/Fingerprints003_4K_Roughness.jpg-6efef0905465908f9e88db653c8d996c.s3tc.ctex", "res://.godot/imported/Fingerprints003_4K_Roughness.jpg-6efef0905465908f9e88db653c8d996c.etc2.ctex"]
+source_file="res://materials/glass/Fingerprints003_4K-JPG/Fingerprints003_4K_Color.jpg"
+dest_files=["res://.godot/imported/Fingerprints003_4K_Color.jpg-df3f2452b162bb7328bff082af73e7ec.s3tc.ctex", "res://.godot/imported/Fingerprints003_4K_Color.jpg-df3f2452b162bb7328bff082af73e7ec.etc2.ctex"]
 
 [params]
 
