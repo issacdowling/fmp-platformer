@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bvdxe6sn8mllt" path="res://levels/main_menu/main_menu.gd" id="1_86fa0"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="2_aam2b"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="3_23c3n"]
-[ext_resource type="Script" uid="uid://b1apiuuchabs5" path="res://levels/splash/splash.gd" id="5_vxpir"]
+[ext_resource type="Script" uid="uid://bkg5ry03odxd1" path="res://levels/main_menu/splash.gd" id="4_2nemu"]
 [ext_resource type="Texture2D" uid="uid://ql74p2mo7qdt" path="res://splash_compressed.png" id="6_dedsy"]
 [ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_2nemu"]
 [ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_yj85j"]
@@ -78,7 +78,7 @@ anchor_right = 0.5
 offset_left = -960.0
 offset_right = -920.0
 offset_bottom = 40.0
-script = ExtResource("5_vxpir")
+script = ExtResource("4_2nemu")
 
 [node name="Compressed_splash" type="TextureRect" parent="Splash"]
 z_index = 20
