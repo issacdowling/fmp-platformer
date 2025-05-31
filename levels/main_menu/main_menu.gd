@@ -4,4 +4,5 @@ extends Node3D
 
 func _ready() -> void:
 	player.can_look = false
-	Menu.show_main()
+	await get_tree().create_timer(1).timeout
+	Menu.fade_show_main()

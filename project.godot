@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="fmp-platformer"
-run/main_scene="res://levels/main_menu/main_menu.tscn"
+run/main_scene="uid://c3ekmfg2dbmij"
 config/project_settings_override="user://project_overrides.cfg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://ql74p2mo7qdt"
 config/icon="res://icon.svg"
 
 [autoload]

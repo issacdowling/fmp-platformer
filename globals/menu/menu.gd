@@ -144,10 +144,11 @@ func _ready() -> void:
 	Collectables.update.connect(_collectables_update)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause_menu()
-
+	if main_menu_control.modulate.a < 1:
+		main_menu_control.modulate.a += 0.8 * delta
 # Includes logic to close and reopen the main menu where relevant
 var pause_should_reopen_main: bool = false
 func toggle_pause_menu() -> void:
@@ -179,6 +180,11 @@ func exit_transition() -> void:
 
 func show_main() -> void:
 	main_menu_control.visible = true
+
+func fade_show_main() -> void:
+	main_menu_control.modulate.a = 0
+	main_menu_control.visible = true
+
 
 func show_collectables() -> void:
 	# Don't re-run if already visible

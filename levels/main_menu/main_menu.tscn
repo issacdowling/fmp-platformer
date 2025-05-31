@@ -1,39 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ekmfg2dbmij"]
+[gd_scene load_steps=17 format=3 uid="uid://c3ekmfg2dbmij"]
 
-[ext_resource type="Material" uid="uid://c75eq6sdj4aru" path="res://materials/dev/dev_floor.tres" id="1_51xmt"]
 [ext_resource type="Script" uid="uid://bvdxe6sn8mllt" path="res://levels/main_menu/main_menu.gd" id="1_86fa0"]
 [ext_resource type="Script" uid="uid://j8pkiicq6w1e" path="res://levels/Test/world_environment_setting_controller.gd" id="2_aam2b"]
 [ext_resource type="PackedScene" uid="uid://bp88r7c146h7x" path="res://player/player.tscn" id="3_23c3n"]
+[ext_resource type="Script" uid="uid://b1apiuuchabs5" path="res://levels/splash/splash.gd" id="5_vxpir"]
+[ext_resource type="Texture2D" uid="uid://ql74p2mo7qdt" path="res://splash_compressed.png" id="6_dedsy"]
+[ext_resource type="Script" uid="uid://diwyfaatdbp2g" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_2nemu"]
+[ext_resource type="Script" uid="uid://1pxhwaa6x7nt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_yj85j"]
+[ext_resource type="Script" uid="uid://c0rl0glyqtgfp" path="res://levels/level_hub/star_generator.gd" id="10_si2pl"]
+[ext_resource type="Material" uid="uid://cetqenbkmjti7" path="res://materials/sun.tres" id="10_yj85j"]
 
 [sub_resource type="Environment" id="Environment_5mfel"]
 background_mode = 1
-background_color = Color(0.242765, 7.23165e-05, 0.265251, 1)
+background_color = Color(0.281171, 9.73685e-05, 0.306557, 1)
+background_energy_multiplier = 0.4
 sdfgi_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.896961, 0.000465906, 0.860401, 1)
 fog_density = 0.0021
 
+[sub_resource type="Resource" id="Resource_si2pl"]
+script = ExtResource("9_yj85j")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Curve" id="Curve_2nemu"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yj85j"]
+curve = SubResource("Curve_2nemu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_si2pl"]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(1, 1, 0.35)
+emission_shape = 3
+emission_box_extents = Vector3(15.234, 3, 20.241)
+angle_min = -113.3
+angle_max = 401.1
+angle_curve = SubResource("CurveTexture_yj85j")
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 1.509
+radial_accel_min = -2.23517e-06
+radial_accel_max = 44.37
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 10.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 48.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_ii3ol"]
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ii3ol"]
+size = Vector3(278.192, 134.184, 170.997)
+
 [node name="Background" type="Node3D"]
 script = ExtResource("1_86fa0")
-
-[node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = ExtResource("1_51xmt")
-use_collision = true
-size = Vector3(10, 1, 10)
-
-[node name="Walls" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27545, 0)
-material_override = ExtResource("1_51xmt")
-use_collision = true
-size = Vector3(10, 4.551, 10)
-
-[node name="WallHole" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129057, 0)
-material_override = ExtResource("1_51xmt")
-operation = 2
-use_collision = true
-size = Vector3(9, 4.5509, 9)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5mfel")
@@ -41,8 +65,83 @@ script = ExtResource("2_aam2b")
 
 [node name="Player" parent="." instance=ExtResource("3_23c3n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375238, 0, 1.02302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.023)
 STEAL_MOUSE_ON_START = false
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.991934, 0, 0.126753, 0, 1, 0, -0.126753, 0, 0.991934, 0.155775, 0.94066, 4.21159)
+[node name="Splash" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = -100
+z_as_relative = false
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = -920.0
+offset_bottom = 40.0
+script = ExtResource("5_vxpir")
+
+[node name="Compressed_splash" type="TextureRect" parent="Splash"]
+z_index = 20
+z_as_relative = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_dedsy")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Splash"]
+z_as_relative = false
+layout_mode = 0
+offset_left = -2056.0
+offset_top = -1395.0
+offset_right = 4233.0
+offset_bottom = 2678.0
+color = Color(0.101961, 0.0823529, 0.219608, 1)
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.262, 4.763)
+script = ExtResource("8_2nemu")
+priority = 100
+tween_resource = SubResource("Resource_si2pl")
+tween_on_load = false
+metadata/_custom_type_script = "uid://diwyfaatdbp2g"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99701, 0, -0.0772759, -0.0564424, 0.683019, 0.728217, 0.0527809, 0.730401, -0.680976, 0, 0, 0)
+light_color = Color(0.991735, 0.863235, 0.772306, 1)
+shadow_enabled = true
+
+[node name="dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.04705, 0)
+amount = 1000
+lifetime = 4.0
+preprocess = 2.43
+speed_scale = 0.01
+fixed_fps = 144
+interpolate = false
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_si2pl")
+draw_pass_1 = SubResource("BoxMesh_ii3ol")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(30.85, 0, 0, 0, 30.85, 0, 0, 0, 30.85, 0, 2.40915, -29.587)
+material_override = ExtResource("10_yj85j")
+radial_segments = 36
+rings = 36
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(87.315, 0, 0, 0, 87.315, 0, 0, 0, 87.315, 0, -43.655, 0)
+use_collision = true
+radial_segments = 100
+rings = 100
+
+[node name="StarGenerator" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -281.294)
+script = ExtResource("10_si2pl")
+
+[node name="StarArea" type="Area3D" parent="StarGenerator"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StarGenerator/StarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2381, 115.432)
+shape = SubResource("BoxShape3D_ii3ol")

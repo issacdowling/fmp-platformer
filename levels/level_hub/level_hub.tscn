@@ -127,7 +127,7 @@ level_scene = "res://levels/CatCourse/CatCourse.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="World 2" type="MeshInstance3D" parent="Worlds"]
-transform = Transform3D(-0.0477515, 0, 0.99656, 0, 1, 0, -0.99656, 0, -0.0477515, 50, 0, 0)
+transform = Transform3D(-0.0477514, 0, 0.99656, 0, 1, 0, -0.99656, 0, -0.0477514, 50, 0, 0)
 material_override = SubResource("StandardMaterial3D_mfhb0")
 mesh = SubResource("SphereMesh_4j44j")
 script = ExtResource("2_4k3rs")
